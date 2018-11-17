@@ -23,18 +23,6 @@
 
     <style>
 
-
-        @media screen and (max-width: 1200px) {
-
-    .slide-menu-push-toleft main {
-        filter: grayscale(80%);
-    }
-
-    #primary-nav .nav-item a {
-        letter-spacing: 1px;
-    }
-}
-
 .news-item {
     background-color: #333;
     min-width: 300px;
@@ -47,15 +35,20 @@
     padding: 0;
     margin: 0;
     position: relative;
-    transition: all .3s;
+    transition: all .4s;
+    filter: grayscale(70%); 
 }
+
+.news-item:hover {
+    filter: grayscale(0%);
+}
+
 .news-item img {
     height: 150px;
     object-fit: cover;
     object-position: 50%;
-    z-index: 2;
+    font-family: 'object-fit: cover;object-position: 50%;';
     transition: all .3s;
-    
 }
 .news-item h5+p {
     margin-top: 0;
@@ -63,28 +56,49 @@
 .news-item .more {
     display: block;
     width: 100%;
-    height: 75px;
-    background: rgba(0,0,0,0.5);
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.6));
     color: #fff;
-    padding: 10px;
+    padding: 80px 10px 10px;
     position: absolute;
     bottom: 0;
     transition: all .3s;
-    z-index: 1;
     overflow: hidden;
+    opacity: 0;
 }
-.news-item:hover {
-    flex: 0 0 26.666667%;
-    max-width: 26.666667%;
+
+.news-item:hover .more {
+    opacity: 1;
 }
 
 .news-item:hover img {
     /* transform: translateY(-50%); */
+    opacity: .5;
     transition: all .3s;
 }
 .news-bar {
     width: 100%;
-    height: 38px;    
+    height: 38px;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+    .slide-menu-push-toleft main {
+        filter: grayscale(80%);
+    }
+
+    #primary-nav .nav-item a {
+        letter-spacing: 1px;
+    }
+
+}
+
+@media screen and (min-width: 1000px) {
+    .news-item:hover {
+        flex: 0 0 26.666667%;
+        max-width: 26.666667%;
+    }
 }
     </style>
 
@@ -361,8 +375,6 @@
             <section id="business-areas">
                 <div class="container">
 
-
-
                     <div class="row py-5">
                         <div class="col-lg-6 col-xs-12 pr-lg-5 text-justify">
 
@@ -423,6 +435,8 @@
                 </footer>
                 
             </section>
+            <section id="business-areas">
+                <div class="container">
 
                     <div class="row py-5">
 
