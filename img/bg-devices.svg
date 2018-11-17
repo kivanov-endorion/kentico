@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1255px" height="544px" viewBox="0 0 1255 544" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bg_Devices</title>
+    <desc>Computer devices</desc>
+    <style>
+        #r_laptop polygon {-webkit-animation: swing_right 3s infinite;animation: swing_right 3s infinite;} 
+        #r_desktop polygon {-webkit-animation: swing_left 3s infinite;animation: swing_left 3s infinite;} 
+        #r_tablet1 polygon {-webkit-animation: swing_right 3s infinite;animation: swing_right 3s infinite;} 
+        
+        #l_tablet1 polygon {-webkit-animation: swing_right 3s infinite;animation: swing_right 3s infinite;} 
+        #l_laptop polygon {-webkit-animation: swing_left 3s infinite;animation: swing_left 3s infinite;} 
+        #l_desktop polygon {-webkit-animation: swing_right 3s infinite;animation: swing_right 3s infinite;} 
+        @-webkit-keyframes swing_left {
+            0 {-webkit-transform: translateX(0);transform: translateX(0);}
+            50% {-webkit-transform: translateX(-20px);transform: translateX(-20px);}
+            100% {-webkit-transform: translateX(0);transform: translateX(0);}
+        } 
+        @keyframes swing_left {
+            0 {-webkit-transform: translateX(0);transform: translateX(0);}
+            50% {-webkit-transform: translateX(-20px);transform: translateX(-20px);}
+            100% {-webkit-transform: translateX(0);transform: translateX(0);}
+        }
+        @-webkit-keyframes swing_right {
+            0 {-webkit-transform: translateX(0);transform: translateX(0);}
+            50% {-webkit-transform: translateX(20px);transform: translateX(20px);}
+            100% {-webkit-transform: translateX(0);transform: translateX(0);}
+        }
+        @keyframes swing_right {
+            0 {-webkit-transform: translateX(0);transform: translateX(0);}
+            50% {-webkit-transform: translateX(20px);transform: translateX(20px);}
+            100% {-webkit-transform: translateX(0);transform: translateX(0);}
+        }
+    </style>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Bg_Devices" stroke="#FFFFFF" stroke-width="0.2">
+            <g id="r_phone2" transform="translate(1187.000000, 19.000000)">
+                <polygon id="Stroke-3" points="0.227 101.424 50.634 101.424 50.634 0.097 0.227 0.097"></polygon>
+                <polygon id="Stroke-4" points="3.563 85.597 47.298 85.597 47.298 3.961 3.563 3.961"></polygon>
+            </g>
+            <g id="r_phone1" transform="translate(1204.000000, 357.000000)">
+                <polygon id="Stroke-5" points="0.227 84.847 50.634 84.847 50.634 0.097 0.227 0.097"></polygon>
+                <polygon id="Stroke-7" points="3.563 67.874 47.298 67.874 47.298 3.927 3.563 3.927"></polygon>
+            </g>
+            <g id="r_tablet2" transform="translate(949.000000, 356.000000)">
+                <polygon id="Stroke-8" points="0.634 51.764 102.634 51.764 102.634 0.764 0.634 0.764"></polygon>
+                <polygon id="Stroke-9" points="5.299 48.389 98.744 48.389 98.744 4.139 5.299 4.139"></polygon>
+            </g>
+            <g id="r_desktop" transform="translate(1051.000000, 170.000000)">
+                <polygon id="Stroke-17" points="0.399 119.278 187.135 119.278 187.135 0.322 0.399 0.322"></polygon>
+                <polygon id="Stroke-18" points="9.301 109.984 176.301 109.984 176.301 8.871 9.301 8.871"></polygon>
+                <polygon id="Stroke-19" points="83.02 136.207 102.582 136.207 102.582 119.162 83.02 119.162"></polygon>
+                <polygon id="Stroke-20" points="49.173 152.942 136.429 152.942 136.429 136.288 49.173 136.288"></polygon>
+            </g>
+            <g id="r_tablet1" transform="translate(1085.000000, 374.000000)">
+                <polygon id="Stroke-28" points="0.149 136.264 84.815 136.264 84.815 0.604 0.149 0.604"></polygon>
+                <polygon id="Stroke-29" points="5.751 128.695 79.212 128.695 79.212 5.778 5.751 5.778"></polygon>
+            </g>
+            <g id="r_laptop" transform="translate(916.000000, 0.000000)">
+                <polygon id="Stroke-33" points="16.986 102.263 187.634 102.263 187.634 0.1 16.986 0.1"></polygon>
+                <polygon id="Stroke-34" points="26.507 95.503 181.126 95.503 181.126 6.861 26.507 6.861"></polygon>
+                <polygon id="Stroke-35" points="0.532 119.263 204.634 119.263 204.634 102.365 0.532 102.365"></polygon>
+            </g>
+            <g id="r_watch" transform="translate(1001.000000, 448.000000)">
+                <polygon id="Stroke-39" points="0 45 34 45 34 11 0 11"></polygon>
+                <polygon id="Stroke-40" points="7 55.63 26.25 55.63 26.25 46 7 46"></polygon>
+                <polygon id="Stroke-41" points="7 9.63 26.25 9.63 26.25 0 7 0"></polygon>
+            </g>
+            <g id="l_phone1" transform="translate(204.000000, 408.000000)">
+                <polygon id="Stroke-1" points="0.227 101.424 50.634 101.424 50.634 0.097 0.227 0.097"></polygon>
+                <polygon id="Stroke-2" points="3.562 85.597 47.298 85.597 47.298 3.961 3.562 3.961"></polygon>
+            </g>
+            <g id="l_tablet4" transform="translate(62.000000, 102.000000)">
+                <polygon id="Stroke-10" points="0.433 51.597 90.634 51.597 90.634 0.597 0.433 0.597"></polygon>
+                <polygon id="Stroke-11" points="4.559 48.222 87.194 48.222 87.194 3.972 4.559 3.972"></polygon>
+            </g>
+            <g id="l_tablet3" transform="translate(339.000000, 255.000000)">
+                <polygon id="Stroke-12" points="0.433 50.964 101.76 50.964 101.76 0.557 0.433 0.557"></polygon>
+                <polygon id="Stroke-13" points="5.068 47.628 97.896 47.628 97.896 3.893 5.068 3.893"></polygon>
+            </g>
+            <g id="l_tablet2" transform="translate(0.000000, 390.000000)">
+                <polygon id="Stroke-14" points="0.1 51.297 101.428 51.297 101.428 0.89 0.1 0.89"></polygon>
+                <polygon id="Stroke-16" points="4.735 47.962 97.564 47.962 97.564 4.226 4.735 4.226"></polygon>
+            </g>
+            <g id="l_tablet1" transform="translate(288.000000, 17.000000)">
+                <polygon id="Stroke-26" points="0.148 136.263 84.815 136.263 84.815 0.603 0.148 0.603"></polygon>
+                <polygon id="Stroke-27" points="5.751 128.694 79.212 128.694 79.212 5.777 5.751 5.777"></polygon>
+            </g>
+            <g id="l_desktop" transform="translate(305.000000, 390.000000)">
+                <polygon id="Stroke-21" points="0.398 119.612 187.135 119.612 187.135 0.656 0.398 0.656"></polygon>
+                <polygon id="Stroke-22" points="9.3 110.317 176.3 110.317 176.3 9.204 9.3 9.204"></polygon>
+                <polygon id="Stroke-23" points="83.02 136.541 102.582 136.541 102.582 119.495 83.02 119.495"></polygon>
+                <polygon id="Stroke-24" points="49.173 153.275 136.428 153.275 136.428 136.621 49.173 136.621"></polygon>
+            </g>
+            <g id="l_laptop" transform="translate(84.000000, 204.000000)">
+                <polygon id="Stroke-30" points="16.985 102.264 187.634 102.264 187.634 0.1 16.985 0.1"></polygon>
+                <polygon id="Stroke-31" points="26.507 95.503 181.126 95.503 181.126 6.861 26.507 6.861"></polygon>
+                <polygon id="Stroke-32" points="0.531 119.264 204.634 119.264 204.634 102.366 0.531 102.366"></polygon>
+            </g>
+            <g id="l_watch" transform="translate(187.000000, 126.000000)">
+                <polygon id="Stroke-36" points="0 45 34 45 34 11 0 11"></polygon>
+                <polygon id="Stroke-37" points="7 55.63 26.25 55.63 26.25 46 7 46"></polygon>
+                <polygon id="Stroke-38" points="7 9.63 26.25 9.63 26.25 0 7 0"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

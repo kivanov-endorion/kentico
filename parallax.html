@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        html {
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            -webkit-perspective: 1px;
+            perspective: 1px;
+        }
+
+        img {
+            all: unset;
+            width: 100%;
+            display: block;
+        }
+
+        .parallax-group {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+
+        }
+
+        .back {
+            -webkit-transform: translateZ(-1px) scale(2);
+            transform: translateZ(-1px) scale(2);
+            position: relative;
+            top: calc(((100vh - 53.75vw) / 4) * -2);
+            /*aspect ratio: height/width*/
+        }
+
+        .front {
+            background-color: #ccc;
+            position: relative;
+            padding: 1em 1em 17em;
+            z-index: 2;
+        }
+
+        h2 {
+            -webkit-transform: translateZ(-0.5px) scale(1.5);
+            transform: translateZ(-0.5px) scale(1.5);
+            color: white;
+            position: absolute;
+            top: 10em;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* for accessibility */
+        .aria-hidden {
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+            border: 0;
+            clip: rect(0 0 0 0);
+        }
+
+        .aspect-ratio {
+            position: relative;
+            background: url(img/rick.jpg) no-repeat 50%;
+            padding-top: 53.75%;
+            /* calc((height / width)* 100%) */
+
+        }
+
+        .aspect-ratio>div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div.container {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        div.container:before {
+            position: absolute;
+            content: '';
+            height: 2px;
+            width: calc(100% - 100px);
+            top: 22px;
+            left: 50px;
+            background: #000;
+        }
+
+        div.child {
+            position: relative;
+            height: 100px;
+            width: 100px;
+            border: 2px solid #000;
+        }
+
+        div.child:before {
+            position: absolute;
+            content: '';
+            height: 30px;
+            width: 2px;
+            background: #000;
+            top: -30px;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        body {
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+            -ms-scrollbar-track-color: rgb(30, 30, 30);
+            -ms-scrollbar-base-color: rgb(30, 30, 30);
+            -ms-scrollbar-highlight-color: rgb(78, 78, 78);
+            -ms-scrollbar-face-color: rgb(30, 30, 30);
+            -ms-scrollbar-arrow-color: rgb(30, 30, 30);
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px !important;
+            height: 10px !important;
+            background: rgb(30, 30, 30) !important;
+            border-width: 1px !important;
+            border-style: solid !important;
+            border-color: rgb(37, 37, 37) !important;
+            border-image: initial !important;
+        }
+
+        ::-webkit-scrollbar-button {
+            display: none !important;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgb(30, 30, 30) !important;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            min-height: 28px !important;
+            background: rgb(78, 78, 78) !important;
+        }
+
+        ::backdrop,
+        ::-webkit-backdrop,
+        ::-ms-backdrop {
+            background: rgba(0, 30, 30, .25);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="parallax-group">
+        <img class="back" src="img/rick.jpg" alt aria-describedby="graph-ingo">
+        <h2>EHADING</h2>
+        <header class="front">
+            <h1>Parallax</h1>
+        </header>
+    </div>
+
+    <dl id="graph-ingo" class="aria-hidden">
+        <dt>
+            Jupiter
+        </dt>
+        <dd>
+            Many moons
+        </dd>
+    </dl>
+
+    <div class="aspect-ratio">
+        <div>
+            <h1>TITLE</h1>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+
+</body>
+
+</html>
