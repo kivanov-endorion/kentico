@@ -1,26 +1,64 @@
-<style>
-.columns div:hover {
-    -webkit-transform: translateY(-.5rem);
-    -ms-transform: translateY(-.5rem);
-    transform: translateY(-.5rem);
-    box-shadow: 0 2rem 1rem -1rem rgba(20,30,40,.1);
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        .columns div:hover {
+            -webkit-transform: translateY(-.5rem);
+            -ms-transform: translateY(-.5rem);
+            transform: translateY(-.5rem);
+            box-shadow: 0 2rem 1rem -1rem rgba(20,30,40,.1);
+        }
+        
+        .skew-outer {
+            -webkit-transform: skew(-12.4deg);
+            -o-transform: skew(-12.4deg);
+            transform: skew(-12.4deg);
+        }
+        .skew-inner {
+            -webkit-transform: skew(12.4deg);
+            -o-transform: skew(12.4deg);
+            transform: skew(12.4deg);
+            padding: 1.5rem 3rem;
+        }
+        .grad-plum {
+            background-image: -webkit-linear-gradient(315deg,#580d35,#e22d58);
+            background-image: -o-linear-gradient(315deg,#580d35,#e22d58);
+            background-image: linear-gradient(135deg,#580d35,#e22d58);
+            background-repeat: repeat-x;
+        }
 
-.skew-outer {
-    -webkit-transform: skew(-12.4deg);
-    -o-transform: skew(-12.4deg);
-    transform: skew(-12.4deg);
-}
-.skew-inner {
-    -webkit-transform: skew(12.4deg);
-    -o-transform: skew(12.4deg);
-    transform: skew(12.4deg);
-    padding: 1.5rem 3rem;
-}
-.grad-plum {
-    background-image: -webkit-linear-gradient(315deg,#580d35,#e22d58);
-    background-image: -o-linear-gradient(315deg,#580d35,#e22d58);
-    background-image: linear-gradient(135deg,#580d35,#e22d58);
-    background-repeat: repeat-x;
-}
-</style>
+        .img1 {width: 500px;}
+        .img2 {width: 100%;}        
+        </style>
+        
+</head>
+<body>
+    <img src="img1x.jpg" 
+         srcset="img1x.jpg,
+                 img2x.jpg 2x,
+                 img3x.jpg 3x" 
+         alt="For different DPIs"
+         class="img1">
+
+    <img src="img1x.jpg" 
+         srcset="img1x.jpg 500w,
+                 img2x.jpg 1000w,
+                 img3x.jpg 1500w" 
+         alt="For different viewports"
+         class="img2">
+
+    <img src="img1x.jpg" 
+         srcset="img1x.jpg 500w,
+                 img2x.jpg 1000w,
+                 img3x.jpg 1500w" 
+         sizes="(min-width: 760px) 50vw, 100vw"
+         alt="For use within media queries"
+         class="img3">
+</body>
+</html>
