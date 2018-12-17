@@ -34,7 +34,41 @@
         }
 
         .img1 {width: 500px;}
-        .img2 {width: 100%;}        
+        .img2 {width: 100%;} 
+
+        /* FLEX GALLERY */
+
+        header {
+            margin: .5vw;
+            font-size: 0;
+            display: -ms-flexbox;
+            -ms-flexbox-wrap: wrap;
+            -ms-flexbox-direction: column;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            display: -webkit-box;
+            display: flex;
+        }
+        header div {
+            -webkit-box-flex: auto;
+            -ms-flex: auto;
+            flex: auto;
+            width: 200px;
+            margin: .5vw;            
+        }
+        header div img {
+            width: 100%;
+            height: auto;            
+        }
+        @media screen and (max-width: 400px) {
+            header div {
+                margin: 0;
+            }
+            header {
+                padding: 0;
+            }
+        }
+
         </style>
         
 </head>
@@ -60,5 +94,11 @@
          sizes="(min-width: 760px) 50vw, 100vw"
          alt="For use within media queries"
          class="img3">
+
+    <header>
+        <div><img src="1.jpg" alt=""></div>
+        <div><img src="2.jpg" alt=""></div>
+        <div><img src="3.jpg" alt=""></div>
+    </header>
 </body>
 </html>
