@@ -69,6 +69,38 @@
             }
         }
 
+
+
+        @keyframes square-spin {
+            25% {
+                -webkit-transform: perspective(100px) rotateX(180deg) rotateY(0);
+                transform: perspective(100px) rotateX(180deg) rotateY(0)
+            }
+
+            50% {
+                -webkit-transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+                transform: perspective(100px) rotateX(180deg) rotateY(180deg)
+            }
+
+            75% {
+                -webkit-transform: perspective(100px) rotateX(0) rotateY(180deg);
+                transform: perspective(100px) rotateX(0) rotateY(180deg)
+            }
+
+            100% {
+                -webkit-transform: perspective(100px) rotateX(0) rotateY(0);
+                transform: perspective(100px) rotateX(0) rotateY(0)
+            }
+        }
+
+        .square-spin {
+            width: 50px;
+            height: 50px;
+            background: #2f75bb;
+            -webkit-animation: square-spin 3s 0s cubic-bezier(.09,.57,.49,.9) infinite;
+            animation: square-spin 3s 0s cubic-bezier(.09,.57,.49,.9) infinite;
+        }
+
         </style>
         
 </head>
@@ -100,5 +132,11 @@
         <div><img src="2.jpg" alt=""></div>
         <div><img src="3.jpg" alt=""></div>
     </header>
+
+    <div class="square-spin"></div>
+
+    https://codepen.io/akwright/pen/fmDiK/
+
+    https://codepen.io/TheDutchCoder/pen/mgswv
 </body>
 </html>
