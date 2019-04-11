@@ -20,3 +20,25 @@
 
 <div class="horizontal divider">OR</div>
 
+
+DocumentContext.CurrentTemplate.CodeName
+CurrentDocument.NodeTemplateID
+CurrentDocument.parent.NodeTemplate.CodeName
+
+<div class="{% Documents[parent.NodeAliasPath].MenuItemName #%}">
+{% if(!DocumentMenuItemInactive){ %}
+    <a href="{% GetDocumentUrl %}" target="{% Documents[parent.NodeAliasPath].MenuItemTarget %}">
+    {% } #%}
+    <img src="~/1IM/oneingram-1.9.13/aspx/content/GetLogo.aspx?name={% Documents[parent.NodeAliasPath].MenuItemName %}&size=125" alt="{% MenuItemName %}">
+    {% if(!DocumentMenuItemInactive){ %}
+    </a>
+{% } #%}
+</div>
+
+{% if(DocumentMenuItemInactive==true){ "disabled" } else {""} #%}
+
+{% if(MenuItemIconClass){ %}
+<figure class="d-none d-lg-block text-center p-3 grad-light img-thumbnail mb-1" role="presentation"><img src="~/1IM/oneingram-1.9.13/aspx/content/GetLogo.aspx?name={% MenuItemIconClass %}" alt="{% MenuItemIconClass %}"></figure>
+{% } %}
+
+{%if(CurrentDocument.parent.NodeTemplate.CodeName != "1IMVendorB4" || CurrentDocument.parent.parent.NodeTemplate.CodeName != "1IMVendorB4") { return true } else {return false}#%}
