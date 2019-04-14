@@ -1,0 +1,44 @@
+<div class="mb-5">
+    <h1 class="display-6">Comparison slider</h1>
+
+    <p>Comparison Sliders are sliders for comparing two images. It is built in pure CSS.</p>
+</div>
+
+
+
+<h6 class="caps pt-3">{$1IM.HowToUse$}</h6>
+<h6 class="caps pt-3">{$1IM.AlsoAvailableAs$}:</h6>
+
+<ul>
+    <li>WebPart: <code>Bootstrap 4 Carousel</code></li>
+    <li>Widget: <code>Bootstrap 4 Carousel</code></li>
+</ul>
+
+
+{%if(Breadcrumbs) { return true } else {return false}#%}
+{% if(ViewMode=="Edit" || ViewMode=="Design"){return false;}else{return true;} #%}
+
+<div class="horizontal divider">OR</div>
+
+
+DocumentContext.CurrentTemplate.CodeName
+CurrentDocument.NodeTemplateID
+CurrentDocument.parent.NodeTemplate.CodeName
+
+<div class="{% Documents[parent.NodeAliasPath].MenuItemName #%}">
+{% if(!DocumentMenuItemInactive){ %}
+    <a href="{% GetDocumentUrl %}" target="{% Documents[parent.NodeAliasPath].MenuItemTarget %}">
+    {% } #%}
+    <img src="~/1IM/oneingram-1.9.13/aspx/content/GetLogo.aspx?name={% Documents[parent.NodeAliasPath].MenuItemName %}&size=125" alt="{% MenuItemName %}">
+    {% if(!DocumentMenuItemInactive){ %}
+    </a>
+{% } #%}
+</div>
+
+{% if(DocumentMenuItemInactive==true){ "disabled" } else {""} #%}
+
+{% if(MenuItemIconClass){ %}
+<figure class="d-none d-lg-block text-center p-3 grad-light img-thumbnail mb-1" role="presentation"><img src="~/1IM/oneingram-1.9.13/aspx/content/GetLogo.aspx?name={% MenuItemIconClass %}" alt="{% MenuItemIconClass %}"></figure>
+{% } %}
+
+{%if(CurrentDocument.parent.NodeTemplate.CodeName != "1IMVendorB4" || CurrentDocument.parent.parent.NodeTemplate.CodeName != "1IMVendorB4") { return true } else {return false}#%}
