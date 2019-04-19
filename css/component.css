@@ -940,3 +940,7 @@
 	transition: all 0.3s ease-in-out;
 	transform: translateY(-8px) rotate(45deg);
 }
+
+.animated {
+	animation: slide .5s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
