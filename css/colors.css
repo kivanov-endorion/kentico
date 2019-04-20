@@ -38,3 +38,30 @@
     --teal: #009688;
     --cyan: #00bcd4;
 }
+picture:after {
+    background: radial-gradient(circle at center left,#000,rgba(255,255,255,0) 80%); 
+    background: radial-gradient(circle at bottom left,#000,rgba(255,255,255,0) 80%);
+    opacity: .8;
+    content: "";
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.mobile-center-hero:not(.platform-icons) {
+    background: linear-gradient(45deg, #eff7fc 0%,#e7f3fb 16%,#a0d4f7 46%,#007ad2 100%);
+}
+a.c-call-to-action:hover:after {
+    right: -4px;
+}
+a.c-call-to-action:after {
+    font-size: 11px;
+    margin-top: 3px;
+    margin-left: 3px;
+    display: inline-block;
+    position: relative;
+    right: 0;
+    content: "";
+    vertical-align: top;
+}
