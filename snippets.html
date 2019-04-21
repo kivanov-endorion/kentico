@@ -85,3 +85,14 @@ CurrentDocument.parent.NodeTemplate.CodeName
     z-index: 0;
     overflow: hidden;
 }
+
+<!-- TO USE IN PAGE TEMPLATES -->
+<%=CMS.Helpers.ResHelper.GetString("resourcestringname")%>
+<%=CMS.MacroEngine.MacroResolver.Resolve("The current user is: {% CurrentUser.UserName #%}") %>
+<cms:CMSDocumentValue runat="server" AttributeName="ContentText" FormattingString="{0}" />
+
+{% GlobalObjects.Tags.Where("TagID = " + ToInt(QueryString.GetValue("tagid", 0))) %}
+{%tag="";foreach(g IN SiteObjects.TagGroups){foreach(t IN g.Tags){if(t.TagID=ToInt(QueryString.tagid)){tag=t.TagName;}}}return tag;%}
+{% (ViewMode != "LiveSite") || (CMSContext.CurrentDocument.editabletext != "") #%}
+{%CurrentDocument.DocumentName@%}
+<!-- Having the @ at the end will say the macro does not need to be signed. -->
