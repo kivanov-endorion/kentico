@@ -65,3 +65,21 @@ a.c-call-to-action:after {
     content: "";
     vertical-align: top;
 }
+
+
+.container {
+    max-width: 1648px;
+    width: 90%
+}
+
+@media screen and (max-width: 1083px) {
+    .container {
+        width:calc(100% - 48px)
+    }
+}
+
+@media screen and (max-width: 859px) {
+    .container {
+        width:calc(100% - 24px)
+    }
+}
