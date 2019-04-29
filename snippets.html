@@ -44,48 +44,6 @@ CurrentDocument.parent.NodeTemplate.CodeName
 {%if(CurrentDocument.parent.NodeTemplate.CodeName != "1IMVendorB4" || CurrentDocument.parent.parent.NodeTemplate.CodeName != "1IMVendorB4") { return true } else {return false}#%}
 
 
-<a href="https://" class="c-mosaic-placement f-background-neutral-80 f-height-large f-width-small" data-feature-position="2">
-    <picture style="background-image:url(/Trees.jpg);">
-        <img src="/Trees.jpg" class="x-screen-reader wp-post-image" alt="Forest trees mapped by type" srcset="/Trees.jpg 870w, Trees-300x286.jpg 300w, Trees-768x733.jpg 768w" sizes="(max-width: 870px) 100vw, 870px">
-    </picture>
-</a>
-
-.c-mosaic-placement picture img {
-    position: absolute;
-    left: calc(50%);
-    top: calc(50%);
-    transform: translate(-50%,-50%);
-}
-.c-mosaic-placement img, .c-mosaic-placement picture {
-    -ms-high-contrast-adjust: none;
-}
-.x-screen-reader {
-    position: absolute !important;
-    overflow: hidden !important;
-    clip: rect(1px,1px,1px,1px) !important;
-    width: 1px !important;
-    height: 1px !important;
-    border: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-.m-mosaic-stories .c-mosaic .c-mosaic-placement:focus picture, .m-mosaic-stories .c-mosaic .c-mosaic-placement:hover picture {
-    transform: scale(1.04);
-}
-.m-mosaic-stories .c-mosaic .c-mosaic-placement picture {
-    transition: transform .6s ease-out;
-}
-.c-mosaic .c-mosaic-placement picture {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50%;
-    transition: all .2s ease;
-}
-.c-mosaic-placement picture {
-    z-index: 0;
-    overflow: hidden;
-}
-
 <!-- TO USE IN PAGE TEMPLATES -->
 <%=CMS.Helpers.ResHelper.GetString("resourcestringname")%>
 <%=CMS.MacroEngine.MacroResolver.Resolve("The current user is: {% CurrentUser.UserName #%}") %>
@@ -95,4 +53,6 @@ CurrentDocument.parent.NodeTemplate.CodeName
 {%tag="";foreach(g IN SiteObjects.TagGroups){foreach(t IN g.Tags){if(t.TagID=ToInt(QueryString.tagid)){tag=t.TagName;}}}return tag;%}
 {% (ViewMode != "LiveSite") || (CMSContext.CurrentDocument.editabletext != "") #%}
 {%CurrentDocument.DocumentName@%}
-<!-- Having the @ at the end will say the macro does not need to be signed. -->
+<!-- Having the @ at the end will say the macro does not need to be signed?? -->
+
+{% IfEmpty(MenuItemIconClass, " ","<span class='" + MenuItemIconClass + "'></span>") %}<br />
