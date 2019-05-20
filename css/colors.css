@@ -38,9 +38,7 @@
     --teal: #009688;
     --cyan: #00bcd4;
 }
-.rad-dark {
-    background: radial-gradient(ellipse at center,#585858 0,#232323 100%);
-}
+
 
 .iphone-x {
     background-color: #f8f9fa;

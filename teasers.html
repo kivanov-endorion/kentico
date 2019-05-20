@@ -61,7 +61,7 @@
 			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 		}
 
-		.nav ul {
+		#teasers ul {
 			max-width: 1240px;
 			margin: 0 auto;
 			padding: 0;
@@ -71,11 +71,11 @@
 			transform: translateY(-170px);
 		}
 
-		.nav li span {
+		#teasers li span {
 			display: block;
 		}
 
-		.nav a {
+		#teasers a {
 			display: block;
 			color: rgba(249, 249, 249, .9);
 			text-decoration: none;
@@ -88,7 +88,7 @@
 			transition: color .5s, background .5s, height .5s;
 		}
 
-		.nav i{
+		#teasers i{
 			-webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			-o-transform: translate3d(0, 0, 0);
@@ -100,36 +100,36 @@
 			-webkit-tap-highlight-color: rgba(0,0,0,0);
 		}
 
-		.nav ul:hover a {
+		#teasers ul:hover a {
 			color: rgba(249, 249, 249, .5);
 		}
 
-		.nav ul:hover a:hover {
+		#teasers ul:hover a:hover {
 			color: rgba(249, 249, 249, 0.99);
 		}
 
-		.nav li:nth-child(6n+1) {
+		#teasers li:nth-child(6n+1) {
 			background: rgb(22, 145, 190);
 		}
 
-		.nav li:nth-child(6n+2) {
+		#teasers li:nth-child(6n+2) {
 			background: rgb(22, 107, 162);
 		}
 
-		.nav li:nth-child(6n+3) {
+		#teasers li:nth-child(6n+3) {
 			background: rgb(27, 54, 71);
 		}
 
 
 		@media (min-width: 38.688em) {
 
-			.nav ul {
+			#teasers ul {
 				display: flex;
 				justify-content: space-around;
 				justify-content: space-evenly;
 				align-items: flex-start;
 			}
-			.nav li {
+			#teasers li {
 				width: 25%;
 				text-align: center;
 				-webkit-transition: border .5s;
@@ -139,7 +139,7 @@
 				transition: border .5s;
 			}
 
-			.nav a {
+			#teasers a {
 				display: block;
 				width: auto;
 			}
@@ -160,23 +160,18 @@
 				transition: margin .5s;
 			}
 
-			.nav a {
+			#teasers a {
 				height: 8em;
+				box-shadow: 0px 0px 25px rgba(10, 75, 117, 0.5);
 			}
 
-			.nav a:hover ,
-			.nav a:active ,
-			.nav a:focus {
+			#teasers a:hover ,
+			#teasers a:active ,
+			#teasers a:focus {
 				height: 9em;
-				box-shadow: 0px 0px 25px rgba(10, 75, 117, 0.5);
-				-webkit-transition: box-shadow .5s .3s, height .5s;
-				-moz-transition: box-shadow .5s .3s, height .5s;
-				-o-transition: box-shadow .5s .3s, height .5s;
-				-ms-transition: box-shadow .5s .3s, height .5s;
-				transition: box-shadow .5s .3s, height .5s;
 			}	
 
-			.nav a:hover .icon + span {
+			#teasers a:hover .icon + span {
 				margin-top: 2.2em;
 				-webkit-transition: margin .5s;
 				-moz-transition: margin .5s;
@@ -185,7 +180,7 @@
 				transition: margin .5s;
 			}
 
-			.nav i {
+			#teasers i {
 				position: relative;
 				display: inline-block;
 				margin: 0 auto;
@@ -206,9 +201,9 @@
 				transition: box-shadow .6s ease-in-out;
 			}	
 			
-			.nav a:hover i,
-			.nav a:active i,
-			.nav a:focus i {		
+			#teasers a:hover i,
+			#teasers a:active i,
+			#teasers a:focus i {		
 				box-shadow: 0 0 0 0 rgba(255,255,255,0.2);
 				-webkit-transition: box-shadow .4s ease-in-out;
 				-moz-transition: box-shadow .4s ease-in-out;
@@ -221,12 +216,12 @@
 
 		@media (max-width: 38.688em) {
 			
-			.nav li span {
+			#teasers li span {
 				display: inline-block;
 				height: 100%;
 			}
 
-			.nav a {
+			#teasers a {
 				padding: 0.5em;		
 			}
 			
@@ -235,15 +230,15 @@
 				font-size: 0.8em;
 			}
 
-			.nav li:nth-child(6n+1) {
+			#teasers li:nth-child(6n+1) {
 				border-left: 8px solid  rgb(13, 111, 150);
 			}
 
-			.nav li:nth-child(6n+2) {
+			#teasers li:nth-child(6n+2) {
 				border-left: 8px solid rgb(10, 75, 117);
 			}
 
-			.nav li:nth-child(6n+3) {
+			#teasers li:nth-child(6n+3) {
 				border-left: 8px solid rgb(16, 34, 44);
 			}
 		}
@@ -253,8 +248,8 @@
 
 <body>
 	<div class="container">
-		<header>
-			<img src="Untitled-1.jpg" alt>
+		<header class="text-center">
+			<img src="img/header.jpg" alt class="img-fluid">
 		</header>
 
 		<nav id="teasers" class="nav">

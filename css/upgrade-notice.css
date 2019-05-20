@@ -1,0 +1,22 @@
+form:before {
+    content: 'As we are moving to a new CMS version, this site will not be available on June 28/29th 2019. We apologize for the inconvenience';
+    width: 100%;
+    padding: 6px;
+    background: rgba(255, 249, 6, 0.85);
+    position: fixed;
+    z-index: 9999;
+    color: #212529;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 500;
+    -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
+    top: 74px;
+}
