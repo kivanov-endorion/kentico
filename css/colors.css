@@ -39,19 +39,3 @@
     --cyan: #00bcd4;
 }
 
-
-a.card:hover .card-img-top:before {
-    opacity: 1;
-}
-
-a.card .card-img-top:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-shadow: 0 1rem 2rem -1rem rgba(0,0,0,.75);
-    opacity: 0;
-    transition: inherit;
-}

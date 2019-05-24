@@ -1,0 +1,130 @@
+<section class="my-5">
+<div class="tip w-50">
+    <div class="tip-desc">
+        <div aria-hidden="false" class="tip-desc-summary">AMD has a brand new generation of Ryzen CPUs coming in 2019.
+            Based on a next-gen Zen 2 architecture, the 3rd generation AMD Ryzen processors should offer dramatic
+            performance improvements over its predecessor, the Ryzen 2000 series. Here’s everything you need to know
+            about AMD’s new chips.</div>
+
+        <div aria-hidden="true" class="tip-desc-full">
+            <div>
+                    <p>AMD has a brand new generation of Ryzen CPUs coming in 2019.
+                            Based on a next-gen Zen 2 architecture, the 3rd generation AMD Ryzen processors should offer dramatic
+                            performance improvements over its predecessor, the Ryzen 2000 series. Here’s everything you need to know
+                            about AMD’s new chips.</p>
+                <p>AMD initially claimed that the first samples of its Ryzen 3000 series CPUs would be available in late
+                    2018, but CEO Lisa Su has since confirmed the range at CES 2019. That has now begun with the
+                    unveiling of the Ryzen 3000 mobile CPUs (see below). The desktop processors, meanwhile, will still
+                    be coming in mid-2019, according to AMD CEO Lisa Su.</p>
+
+                <p>We initially got our first glimpse of this generation of technology in AMD’s Epyc Rome server CPUs in
+                    early November, which gave us further hints about what kind of architecture we can expect in the
+                    Ryzen 3000 range (see below). That doesn’t tell us much about the release date for Ryzen, but since
+                    they are built on the same technology, it suggests that there shouldn’t be any supply issues causing
+                    further delays.</p>
+
+                <p>It’s not clear yet clear how long mid-2019 refers to, but YouTuber AdoredTV did release a supposedly
+                    leaked chart of Ryzen information at the beginning of December. It suggested that following the
+                    debut of most of the next-gen range at CES, there would be further chip reveals in May and Q3 2019.
+                    That alleged leak also contained pricing information which painted the Ryzen 3000 series as being
+                    comparable on the cost to the Ryzen 2000 series. Entry level CPUs would cost between $100 and $130,
+                    with the mid-range stretching between $180 and $330. The absolute top of the line chips is said to
+                    cost $450 and $500.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tip-more"><span>More</span></div>
+</div>
+</section>
+<script type="text/javascript">
+$('document').ready(function() {
+    $('.tip-desc').css({'min-height': $('.tip-desc-summary').outerHeight()});
+    $('.tip-more').on('click', function () {
+        $('.tip').addClass('tip-expanded');
+        $('.tip-desc-summary').attr('aria-hidden','true');
+        $('.tip-desc-full').attr('aria-hidden','false');
+        $('.tip-desc').css({'min-height': $('.tip-desc-full').outerHeight()});
+    });
+})
+</script>
+
+<style type="text/css">
+    .tip {
+        position: relative;
+    }
+
+    .tip-desc-summary {
+        display: block;
+        display: -webkit-box;
+        height: 100%;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+
+    .tip-expanded .tip-desc-summary,
+    .tip-expanded .tip-more {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .tip-desc,
+    .tip-desc-full,
+    .tip-desc-summary {
+        -webkit-transition: all .4s cubic-bezier(.19, 1, .22, 1);
+        transition: all .4s cubic-bezier(.19, 1, .22, 1);
+    }
+
+    .tip-expanded .tip-desc-full {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .tip-desc-full {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .tip-more {
+        position: relative;
+        top: 0.5em;
+        display: block;
+        font-size: .8666666667rem;
+        font-weight: 700;
+        color: #2f75bb;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    .tip-more span {
+        position: relative;
+        display: inline-block;
+        height: 2em
+    }
+
+    .tip-more span:after {
+        opacity: 0;
+        position: absolute;
+        top: 100%;
+        display: block;
+        width: 100%;
+        margin-top: -.75em;
+        font-family: icons;
+        text-align: center;
+        content: "\f078";
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+    }
+
+    .tip-more:hover span:after {
+        opacity: 1
+    }
+
+    .tip-expanded .tip-more {
+        display: none;
+    }
+</style>
