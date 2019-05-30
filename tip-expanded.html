@@ -35,18 +35,32 @@
     </div>
 
     <div class="tip-more"><span>More</span></div>
+    <div class="tip-less"><span>Less</span></div>
 </div>
 </section>
 <script type="text/javascript">
-$('document').ready(function() {
-    $('.tip-desc').css({'min-height': $('.tip-desc-summary').outerHeight()});
-    $('.tip-more').on('click', function () {
-        $('.tip').addClass('tip-expanded');
-        $('.tip-desc-summary').attr('aria-hidden','true');
-        $('.tip-desc-full').attr('aria-hidden','false');
-        $('.tip-desc').css({'min-height': $('.tip-desc-full').outerHeight()});
-    });
-})
+    $('document').ready(function () {
+      var tipHeight = $('.tip-desc-summary').outerHeight()
+        $('.tip-desc').css({
+            'min-height': tipHeight
+        });
+        $('.tip-more').on('click', function () {
+            $('.tip').addClass('tip-expanded');
+            $('.tip-desc-summary').attr('aria-hidden', 'true');
+            $('.tip-desc-full').attr('aria-hidden', 'false');
+            $('.tip-desc').css({
+                'min-height': $('.tip-desc-full').outerHeight()
+            });
+        });
+        $('.tip-less').on('click', function () {
+            $('.tip').removeClass('tip-expanded');
+            $('.tip-desc-summary').attr('aria-hidden', 'false');
+            $('.tip-desc-full').attr('aria-hidden', 'true');
+            $('.tip-desc').css({
+                'min-height': tipHeight
+            });
+        });
+    })
 </script>
 
 <style type="text/css">
