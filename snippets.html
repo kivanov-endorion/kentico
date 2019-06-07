@@ -66,3 +66,8 @@ CurrentDocument.parent.NodeTemplate.CodeName
 place\d{3}ETCD3[-]\d{1,3} -->
 
 
+{%if ( Documents[NodeALiasPath].Categories) {  %}
+  {% foreach (category in Documents[NodeALiasPath].Categories) { 
+  "<a class='caps badge badge-light border ml-1 font-weight-600' href='./?categoryname="+category.CodeName+"'>"+category.DisplayName+"</a>" 
+  } #%}
+{% } #%}
