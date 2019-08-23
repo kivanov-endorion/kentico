@@ -70,7 +70,7 @@ place\d{3}ETCD3[-]\d{1,3} -->
   {% foreach (category in Documents[NodeALiasPath].Categories) { 
   "<a class='caps badge badge-light border ml-1 font-weight-600' href='./?categoryname="+category.CodeName+"'>"+category.DisplayName+"</a>" 
   } #%}
-  {% } #%}
+{% } #%}
 
 
 
@@ -89,3 +89,33 @@ OR CategoryID = 538
 ORDER BY CategoryNamePath
 
 {% if(DocumentContext.CurrentDocument.DocumentWebParts.ToString().ToLower().Contains("bizform")) {return true} else {return false} #%}
+
+
+
+|(resolver)WebPartRender
+
+
+(GetDocumentUrl().Split("/")[4]){GetDocumentUrl().Split("/")[5]}
+
+IsNullOrEmpty(Name) ? "" : Name
+OR
+(Name) ? Name : ""
+
+{% return ViewMode=="LiveSite" %}
+
+
+
+Unser Team wird sich zeitnah mit Ihnen in Verbindung setzen
+
+
+{% CurrentUser.imBranchNbr #%}{% CurrentUser.imCustomerNbr #%}
+
+load_more
+
+{% SQLEscape(QueryString.cat) #%}
+
+
+/*{% if(DataItemIndex == 0) { "[" #%}
+{"ArticleTitle":"{% ArticleTitle %}","ArticleText":"{% ArticleText %}"}
+{% if (DataItemIndex + 1 != DataItemCount) {","} #%}
+{% if (DataItemIndex + 1 == DataItemCount) {"]"} #%}

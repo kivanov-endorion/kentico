@@ -1,0 +1,58 @@
+BOUTIQUES
+Page type: Boutique
+Page temaplate: IM-Boutique (ad-hoc)
+Subpages - Page (Menu item), IM-Boutique (ad-hoc)
+
+IM TOP MENU: Path
+
+
+WALLPAPER
+
+STATIC HTML > RIGHT HAND SIDE
+
+
+
+WEBCARD
+
+IM SINGLE COLUMN
+
+IM SINGLE COLUMN AD
+
+
+
+WEBWALL
+
+IM IMAGE SLIDER Path
+
+
+
+RIGHT HAND SIDE (on all subpages as well)
+
+BANNER ROTATOR
+
+MIDDLE SIDE
+
+IM BANNER ROTATOR
+
+
+
+RECOMMENDED PRODUCTS
+
+IM ENDECA WEBPART
+
+Center Slider Products
+
+Color scheme - Onyx-Black
+
+ELASTIC
+
+Placement Zone - Kentico Web Part
+
+Location - KenticoWebPart
+
+
+
+VIDEO EMBEDS
+
+Width - 714px
+
