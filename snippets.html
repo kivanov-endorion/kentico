@@ -119,3 +119,15 @@ load_more
 {"ArticleTitle":"{% ArticleTitle %}","ArticleText":"{% ArticleText %}"}
 {% if (DataItemIndex + 1 != DataItemCount) {","} #%}
 {% if (DataItemIndex + 1 == DataItemCount) {"]"} #%}
+
+@media (prefers-color-scheme: dark) {
+  body,
+  .bg-light,
+  .bg-white {
+    background-color: #000;
+    color: #fff;
+  }
+  p, a, .text-primary {
+    color: #fff;
+  }
+}
