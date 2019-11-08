@@ -1,252 +1,331 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <title>Snowman</title>
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css?family=Henny+Penny" rel="stylesheet">
+<style>
+
+    *,
+    html,
+    body {
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      height: 100vh;
+      background: linear-gradient(#003154, #64A9EA) no-repeat;
+    }
     
-    <title>Advent Calendar</title>
-    <style>
-        .grid {
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
-  display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: auto;
-  grid-template-areas: "a b c d e" "p q r s f" "o x y t g" "n w v u h" "m l k j i";
-}
-.grid img {
-  max-width: 100%;
-  display: block;
-  margin: 0 auto;
-  opacity: 0;
-}
+    h1 {
+        font-size: 6rem;
+        text-align: center;
+        position: absolute;
+        z-index: 10;
+        color: #fff;
+        margin-top: .75em;
+        font-family: 'Henny Penny', 'Berkshire Swash', cursive;
+        font-weight: 400;
+        font-style: normal;
+        width: 100%;
+        text-shadow: 2px 2px rgba(0,0,0,0.5);
+        }
 
-.grid-inner {
-  transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
-  position: relative;
-  background-image: url("https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=44cc8b77a328b1d7f0058e33fcffd5d6");
-  background-repeat: no-repeat;
-}
-.grid-inner:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-.grid-inner:hover {
-  -webkit-transform: rotatex(30deg);
-          transform: rotatex(30deg);
-}
-.grid-inner:nth-child(1) {
-  grid-area: a;
-}
-.grid-inner:nth-child(2) {
-  grid-area: b;
-}
-.grid-inner:nth-child(3) {
-  grid-area: c;
-}
-.grid-inner:nth-child(4) {
-  grid-area: d;
-}
-.grid-inner:nth-child(5) {
-  grid-area: e;
-}
-.grid-inner:nth-child(6) {
-  grid-area: f;
-}
-.grid-inner:nth-child(7) {
-  grid-area: g;
-}
-.grid-inner:nth-child(8) {
-  grid-area: h;
-}
-.grid-inner:nth-child(9) {
-  grid-area: i;
-}
-.grid-inner:nth-child(10) {
-  grid-area: j;
-}
-.grid-inner:nth-child(11) {
-  grid-area: k;
-}
-.grid-inner:nth-child(12) {
-  grid-area: l;
-}
-.grid-inner:nth-child(13) {
-  grid-area: m;
-}
-.grid-inner:nth-child(14) {
-  grid-area: n;
-}
-.grid-inner:nth-child(15) {
-  grid-area: o;
-}
-.grid-inner:nth-child(16) {
-  grid-area: p;
-}
-.grid-inner:nth-child(17) {
-  grid-area: q;
-}
-.grid-inner:nth-child(18) {
-  grid-area: r;
-}
-.grid-inner:nth-child(19) {
-  grid-area: s;
-}
-.grid-inner:nth-child(20) {
-  grid-area: t;
-}
-.grid-inner:nth-child(21) {
-  grid-area: u;
-}
-.grid-inner:nth-child(22) {
-  grid-area: v;
-}
-.grid-inner:nth-child(23) {
-  grid-area: w;
-}
-.grid-inner:nth-child(24) {
-  grid-area: x;
-}
-.grid-inner:nth-child(25) {
-  grid-area: y;
-}
-.grid-inner span {
-  color: white;
-  font-size: 1.8em;
-  text-shadow: 1px 2px black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
 
-    </style>
+    svg.background__ground {
+      position: absolute;
+      bottom: 0;
+    }
+
+    @media screen and (min-width: 1100px) {
+      svg.background__ground {
+        bottom: -2em;
+      }
+    }
+
+    @media screen and (min-width: 1400px) {
+      svg.background__ground {
+        bottom: -4em;
+      }
+    }
+
+    #snowman {
+      width: 18em;
+      position: absolute;
+      bottom: 0;
+      margin: 1em;
+    }
+
+    @media screen and (min-width: 720px) {
+      #snowman {
+        bottom: 3em;
+        left: 2em;
+      }
+    }
+
+    @media screen and (min-width: 900px) {
+      #snowman {
+        bottom: 5em;
+        left: 3em;
+      }
+    }
+
+    @media screen and (min-width: 1100px) {
+      #snowman {
+        left: 5em;
+      }
+    }
+
+    @media screen and (min-width: 1500px) {
+      #snowman {
+        bottom: 8em;
+      }
+    }
+
+    g.background__snowman {
+      -webkit-animation: rock 6s ease-in-out 2s infinite;
+      animation: rock 6s ease-in-out 2s infinite;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+    }
+
+    @-webkit-keyframes rock {
+      0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+
+      60% {
+        -webkit-transform: rotate(-2deg);
+        transform: rotate(-2deg);
+      }
+
+      80% {
+        -webkit-transform: rotate(1deg);
+        transform: rotate(1deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+    }
+
+    @keyframes rock {
+      0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+
+      60% {
+        -webkit-transform: rotate(-2deg);
+        transform: rotate(-2deg);
+      }
+
+      80% {
+        -webkit-transform: rotate(1deg);
+        transform: rotate(1deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class='grid'>
-        <div class='grid-inner'>
-          <span>1</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>2</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>3</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>4</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>5</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>6</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>7</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>8</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>9</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>10</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>11</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>12</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>13</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>14</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>15</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>16</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>17</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>18</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>19</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>20</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>21</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>22</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>23</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>24</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-        <div class='grid-inner'>
-          <span>25</span>
-          <img alt='' src='https://images.unsplash.com/photo-1510614558204-9ac056202cc2?ixlib=rb-0.3.5&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ&amp;s=44cc8b77a328b1d7f0058e33fcffd5d6'>
-        </div>
-      </div>
-      <script>
-          $(window).on("resize load", function(){
-	var $width = window.innerWidth;
-	$.each($(".grid-inner"), function(index, element){
-		$(element).attr('data-row', Math.round($(element).offset().top/$(".grid-inner").outerHeight())+1);
-		$(element).attr('data-column', Math.round($(element).offset().left/$(".grid-inner").outerWidth())+1);
-		$(element).css({
-			"background-size": $width,
-			"background-position-x": -Math.round($(element).offset().left),
-			"background-position-y": -Math.round($(element).offset().top)
-		})
-	});
+    
+
+    <h1>Schöne Ferien!</h1>
+    <div id="particles-js"> </div>
+  <!--ground-->
+  <svg class="background__ground" xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_2" x="0" y="0"
+    viewBox="0 0 1314 227.7" xml:space="preserve">
+    <style type="text/css">
+      #ground {
+        fill: #E7F4FA;
+      }
+    </style>
+    <g id="ground">
+      <path class="st0"
+        d="M0 21.6c141-41.8 293.2-11.1 441.1-5.1 107.2 4.4 214.4-4.5 321.6-9.3C814.4 4.8 866.3 3.4 918 8c46.2 4.1 92 13.1 138.3 13.2 86.5 0.1 175.7-30.4 257.7-2.5v209H0V21.6z" />
+    </g>
+  </svg>
+  <!--snowman-->
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="snowman" x="0" y="0" viewBox="0 -20 300 250"
+    xml:space="preserve" enable-background="new 0 0 178 219.4">
+    <ellipse id="shadow" transform="matrix(0.9976 -6.986409e-02 6.986409e-02 0.9976 -14.0967 6.4916)" class="st0"
+      cx="85.8" cy="204.8" rx="68.9" ry="13.8" />
+    <g class="background__snowman">
+      <style type="text/css">
+        #shadow,
+        #mouth {
+          fill: #B9C3C6;
+        }
+
+        #arm-r {
+          fill: none;
+          stroke: #202123;
+          stroke-width: 3;
+          stroke-miterlimit: 10;
+        }
+
+        #head,
+        #body {
+          fill: #E7F4FA;
+        }
+
+        #eyes {
+          fill: #202123;
+        }
+
+        #nose {
+          fill: #E7B75C;
+        }
+
+        #arm-l {
+          fill: none;
+          stroke: #202123;
+          stroke-width: 4;
+          stroke-miterlimit: 10;
+        }
+
+        #buttons {
+          fill: #808080;
+        }
+      </style>
+
+      <g id="arm-r">
+        <polyline class="st1" points="130 91.5 155.5 66.5 173.1 63.5 176.5 52.4 " />
+        <line class="st1" x1="155" y1="67" x2="155" y2="52" />
+        <line class="st1" x1="165.4" y1="64.8" x2="176.5" y2="77" />
+      </g>
+      <ellipse id="body" transform="matrix(0.9955 -9.424890e-02 9.424890e-02 0.9955 -12.4309 9.7989)" class="st2"
+        cx="97.5" cy="136.5" rx="65" ry="71.5" />
+      <circle id="head" class="st2" cx="86.5" cy="41" r="41" />
+      <g id="eyes">
+        <ellipse transform="matrix(0.9437 -0.3309 0.3309 0.9437 -8.0174 28.9066)" class="st3" cx="80.9" cy="38" rx="4.9"
+          ry="6.5" />
+        <ellipse transform="matrix(0.9437 -0.3309 0.3309 0.9437 -4.1167 39.8191)" class="st3" cx="114.9" cy="32"
+          rx="4.9" ry="6.5" />
+      </g>
+      <ellipse id="nose" transform="matrix(0.9598 -0.2807 0.2807 0.9598 -8.8038 31.2377)" class="st4" cx="104.7"
+        cy="46.4" rx="7.1" ry="5.4" />
+      <ellipse id="mouth" class="st5" cx="101.1" cy="63.8" rx="3.6" ry="3.2" />
+      <g id="arm-l">
+        <polyline class="st6" points="61 103.5 22 85.5 16.5 65.1 7.5 60.5 " />
+        <line class="st6" x1="19.7" y1="76.8" x2="0.5" y2="82" />
+        <line class="st6" x1="32.1" y1="90.2" x2="19.7" y2="96" />
+      </g>
+      <g id="buttons">
+        <ellipse transform="matrix(0.9821 0.1884 -0.1884 0.9821 20.1032 -18.9613)" class="st7" cx="109.8" cy="96.2"
+          rx="5.1" ry="4.8" />
+        <ellipse transform="matrix(0.9378 -0.3472 0.3472 0.9378 -34.9546 47.3867)" class="st7" cx="114.8" cy="121.2"
+          rx="5.1" ry="4.8" />
+      </g>
+    </g>
+  </svg>
+  
+  <script src="js/particles.min.js"></script>
+  <script>
+//https://github.com/VincentGarreau/particles.js/
+
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 10,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "image",
+      "stroke": {
+        "width": 3,
+        "color": "#fff"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "http://www.dynamicdigital.us/wp-content/uploads/2013/02/starburst_white_300_drop_2.png",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.7,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 5,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 2,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": false
+    },
+    "move": {
+      "enable": true,
+      "speed": 2,
+      "direction": "bottom",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": true,
+        "rotateX": 300,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": false
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "resize": true
+    },
+    "modes": {      
+      "repulse": {
+        "distance": 200,
+        "duration": 0.2
+      }
+    }
+  },
+  "retina_detect": true
 });
-      </script>
+  </script>
 </body>
+
 </html>
