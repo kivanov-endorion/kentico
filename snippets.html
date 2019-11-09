@@ -234,6 +234,20 @@ OR
     }
 }
 
+
+.cast-shadow::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 50%;
+    bottom: -40px;
+    transform: translate(-50%, 0%);
+}
 </style>
 
 <script>
