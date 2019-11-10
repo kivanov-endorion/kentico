@@ -1,4 +1,4 @@
-const carousel = document.getElementById('carousel');
+const carousel = document.querySelectorAll('.carousel');
 let isLeaving = false;
 let observer = new IntersectionObserver(function(entries) {
   entries.forEach(entry => {
