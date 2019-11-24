@@ -111,17 +111,7 @@ OR
 </div>
 
 <style>
-@media (prefers-color-scheme: dark) {
-  body,
-  .bg-light,
-  .bg-white {
-    background-color: #000;
-    color: #fff;
-  }
-  p, a, .text-primary {
-    color: #fff;
-  }
-}
+
 
 .carousel .carousel-indicators li {
     display: inline-block;
@@ -248,6 +238,78 @@ OR
     bottom: -40px;
     transform: translate(-50%, 0%);
 }
+
+/* NEW DEV */
+
+[aria-label=menu]:focus-within,
+[aria-label=submenu]:focus-within {
+    opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  body,
+  .bg-light,
+  .bg-white {
+    background-color: #000;
+    color: #fff;
+  }
+  p, a, .text-primary {
+    color: #fff;
+  }
+}
+@media (prefers-contrast: high) {}
+@media (prefers-reduced-transparency: reduce) {}
+@media (forced-colors: high) {}
+@media (light-level: dim) {}
+
+section {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scroll-snap-type: y mandatory;
+}
+section > picture {
+    scroll-snap-align: center;
+}
+
+.my-3 {
+    margin-block: 1rem;
+}
+.backdrop-filter {
+    backdrop-filter: blur(10px);
+}
+
+button:is(.focus,:focus),
+button:-moz-any(.focus,:focus),
+button:-webkit-any(.focus,:focus) {
+
+}
+article > :is(h1,h2,h3,h4,h5,h6) {
+
+}
+.box-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.flex-button {
+    display: inline-flex;
+    place-items: center;
+    gap: 1rem;
+}
+
+.size {
+    size: 50vw; /* width: 50vw; height: 50vw; */
+}
+.aspect-ratio {
+    aspect-ratio: 16 / 9;
+}
+h1 {
+    font-size: clamp(1.5rem, 6vw); 
+    /*OR*/
+    font-size: min(1.5rem);
+    font-size: max(6vw);
+}
+
 </style>
 
 <script>
@@ -265,4 +327,33 @@ $(document).ready(function () {
         })
     }
 };
+
+// OLD Get CSS value
+
+const h1 = document.querySelector('h1')
+const cssOM = window
+    .getComputedStyle(h1)
+    .getPropertyValue('font-size')
+console.log(cssOM) // 72px
+
+// NEW DEV
+
+const h1 = document.querySelector('h1')
+const { value, unit } = h1
+    .computedStyleMap()
+    .get('font-size')
+console.log({ value, unit }) // { unit: "px", value: 72 }
+
+
+
+var loadScript = function(src) {
+  var tag = document.createElement('script');
+  tag.async = false;
+  tag.src = src;
+  document.getElementsByTagName('body').appendChild(tag);
+}
+window.addEventListener("load",function(){
+    loadScript('//cdnjs.com/some/library.js')
+    loadScript('//cdnjs.com/some/other/library.js')
+});
 </script>
