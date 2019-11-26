@@ -357,3 +357,11 @@ window.addEventListener("load",function(){
     loadScript('//cdnjs.com/some/other/library.js')
 });
 </script>
+
+
+<%@ Register TagPrefix="cc1" Namespace="CMS.Helpers" Assembly="CMS.Helpers" %>
+
+<% if(DataItemIndex == 0) { %>
+<div style="background:url(<%# GetAbsoluteUrl(GetAttachmentUrl(Eval("AttachmentName"), Eval("NodeAliasPath")), Eval<int>("AttachmentSiteID")) %>) no-repeat; height: <%# Eval("AttachmentImageHeight", true) %>px;" /></div>
+
+<% } %>
