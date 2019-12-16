@@ -370,3 +370,8 @@ window.addEventListener("load",function(){
 <div style="background:url(<%# GetAbsoluteUrl(GetAttachmentUrl(Eval("AttachmentName"), Eval("NodeAliasPath")), Eval<int>("AttachmentSiteID")) %>) no-repeat; height: <%# Eval("AttachmentImageHeight", true) %>px;" /></div>
 
 <% } %>
+
+<div id="focusable" rendersubtree="invisible" tabindex=0>Focus me!</div>
+<script>
+ focusable.focus(); // Will cause the element to render, and will change the rendersubtree value to "" (empty string)
+</script>
