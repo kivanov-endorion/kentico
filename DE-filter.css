@@ -1,0 +1,68 @@
+    .search-container {
+        padding: 10px 16px;
+        cursor: pointer;
+        border-left: 3px solid transparent;
+        background-color: #f8f9fa !important;
+    }
+
+
+    .filterbox .material-switch label::before {
+        height: 8px;
+        margin-top: -2px;
+        width: 30px
+    }
+
+    .filterbox .material-switch label::after {
+        height: 16px;
+        width: 16px;
+        margin-top: -2px
+    }
+
+    .filterbox .card-header {
+        padding: 10px 16px !important
+    }
+
+    .filterbox .card-body {
+        padding: 0
+    }
+
+    .filterbox h6 {
+        font-variant: all-small-caps;
+        color: #6c757d !important
+    }
+
+    /* Scrollbar #*/
+    .overflow-y {
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        -ms-scrollbar-track-color: rgb(247, 247, 247);
+        -ms-scrollbar-base-color: rgb(248, 249, 250) !important;
+        -ms-scrollbar-highlight-color: rgb(173, 173, 173);
+        -ms-scrollbar-face-color: rgb(248, 249, 250) !important;
+        -ms-scrollbar-arrow-color: rgb(173, 173, 173) !important;
+        scrollbar-gutter: always;
+        overflow-y: scroll;
+        height: 280px;
+    }
+
+    .overflow-y::-webkit-scrollbar {
+        width: 8px !important;
+        height: 8px !important;
+        background: rgb(248, 249, 250) !important;
+        border-width: 1px !important;
+        border-style: solid !important;
+        border-color: rgb(248, 249, 250) !important;
+        border-image: initial !important;
+    }
+
+    .overflow-y::-webkit-scrollbar-button {
+        display: none !important;
+    }
+
+    .overflow-y::-webkit-scrollbar-track {
+        background: rgb(247, 247, 247) !important;
+    }
+
+    .overflow-y::-webkit-scrollbar-thumb {
+        min-height: 28px !important;
+        background: rgba(0, 0, 0, .1);
+    }
