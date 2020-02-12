@@ -19,3 +19,4 @@ END Membership
 
 SELECT Name, 
 IIF(isMember = 0,'NotMember','Member') Membership
+
