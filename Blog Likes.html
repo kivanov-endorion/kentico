@@ -1,0 +1,121 @@
+<div class="col-xs-12 col-md-1 BlogSocial">  
+    <div class="bloglike">
+         <span class="cntBlogLike">0</span><br/>
+         <span class="BlogLikeTxt">Likes</span><br/>
+         <span class="bttnBlogLike">
+           <img src="{$ DACH.BlogPost.Icon.bttnBlogLike $}" width="30" alt="bttnBlogLike"> 
+         </span>
+    </div>
+</div>
+
+<script>
+    $(document).on("click", "span.bttnBlogLike", function (e) {
+      e.preventDefault();
+      $.get("/ajax/blog/like?n=" + $(this).closest(".BlogEntry").attr("nodeId"), function(sResponse, iStatus) {
+
+            //DE_Inside.Container.Blog_Like
+            //       DECLARE
+            // @NodeId INT = {% ToInt(QueryString.n) #%},
+            // @UserId INT = {% CurrentUser.UserID #%}
+            // DE_Inside.Container.Blog_Like
+
+            // ##WHERE##
+
+            // INSERT INTO dbo.DE_Inside_BlogLikes
+            //             (ItemCreatedBy, ItemCreatedWhen, NodeID)
+            // SELECT      @UserId,
+            //             GETDATE(),
+            //             @NodeId
+
+            // SELECT      NodeID,
+            //             COUNT(*) CountLike,
+            //             MAX(IIF(ItemCreatedBy = @UserId, 1, 0)) UserLike
+            // FROM        dbo.DE_Inside_BlogLikes WITH (NOLOCK)
+            // WHERE       NodeID = @NodeId
+            // GROUP BY    NodeID
+
+        var sData = sResponse.split("|");
+        if (sData[2] != 0) {
+          $(".BlogEntry[nodeId='" + sData[0] + "'] .bttnBlogLike").removeClass("bttnBlogLike");
+        }
+        $(".BlogEntry[nodeId='" + sData[0] + "'] .cntBlogLike").html(sData[1]);
+      });
+    });
+  
+    $(document).ready(function(){
+     
+      for (var iI = 0; iI < oLikes.length; iI++) {
+        if (oLikes[iI][2] != 0) {
+          $(".BlogEntry[nodeId='" + oLikes[iI][0] + "'] .bttnBlogLike").removeClass("bttnBlogLike");
+        }
+        $(".BlogEntry[nodeId='" + oLikes[iI][0] + "'] .cntBlogLike").html(oLikes[iI][1]);
+        $(".BlogEntry[nodeId='" + oLikes[iI][0] + "'] .cntblogcommentsload").html(oComments[iI]);
+     /* 
+        $("#DT_BlogComments_" + oLikes[iI][0]).DataTable({
+          ajax: "/ajax/blog/comments?n=" + oLikes[iI][0],
+          columns: [
+            {
+              data: "commentId",
+              visible: false,
+            },
+            {
+              data: "avatar",
+              render: function(data, type, full, meta) {
+                return "<img height=50px style='border-radius: 5px; max-height: 50px;' src='" + data + "'>";
+              },
+              width: "50px",
+            },
+            {
+              data: null,
+              render: function(data, type, full, meta) {
+                return "<b>" + data["lastName"] + ", " + data["firstName"] + " - " + data["dateTime"] + "</b><br>" + data["comment"];
+              },
+            },
+            {
+              data: null,
+              render: function(data, type, full, meta) {
+                return data["class"] != "" ? "<span commentId='" + data["commentId"] + "' class='" + data["class"] + "'></span>" : "";
+              },
+            },
+          ],
+          info: false,
+          language: {
+            url: "~/CMSScripts/Custom/jQuery/dataTables.lang/German.js",
+          },
+          ordering: false,
+          paging: false,
+          searching: false,        
+        });
+  */
+      } // end for
+   /*  
+      $(document).on("click", ".bttnCommentRemove", function(e) {
+        e.preventDefault();
+        var r = confirm("Wollen Sie diesen Kommentar wirklich löschen?");
+        if(r==true){
+        $("#" + $(this).closest("table").attr("id")).DataTable().ajax.url("/ajax/blog/comments?n=" + $(this).closest(".BlogEntry").attr("nodeId") + "&d=" + $(this).attr("commentId"));
+        $("#" + $(this).closest("table").attr("id")).DataTable().ajax.reload();
+        var oTag = $(this).closest(".BlogEntry").find(".bttnBlogComment").closest("div");
+        var iCnt = oTag.text().trim();
+        var sSpan = oTag.html().trim();
+        sSpan = sSpan.substring(0, sSpan.length - iCnt.length);
+        iCnt = parseInt(iCnt) - 1;
+        oTag.html(sSpan + iCnt);
+        }
+      });
+     
+      $(document).on("click", ".bttnCommentSubmit", function(e) {
+        e.preventDefault();
+        $("#" + $(this).closest("table").attr("id")).DataTable().ajax.url("/ajax/blog/comments?n=" + $(this).closest(".BlogEntry").attr("nodeId") + "&t=" + encodeURIComponent($(this).closest("tr").find(".BlogComment").val()));
+        $("#" + $(this).closest("table").attr("id")).DataTable().ajax.reload();
+        var oTag = $(this).closest(".BlogEntry").find(".bttnBlogComment").closest("div");
+        var iCnt = oTag.text().trim();
+        var sSpan = oTag.html().trim();
+        sSpan = sSpan.substring(0, sSpan.length - iCnt.length);
+        iCnt = parseInt(iCnt) + 1;
+        oTag.html(sSpan + iCnt);
+      });
+  */
+    });
+  </script>
+  
