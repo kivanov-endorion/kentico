@@ -375,3 +375,37 @@ window.addEventListener("load",function(){
 <script>
  focusable.focus(); // Will cause the element to render, and will change the rendersubtree value to "" (empty string)
 </script>
+
+{%if(Documents[NodeAliasPath].Children.Where("ClassName = 'CMS.MenuItem' AND DocumentMenuItemHideInNavigation = ''").Count > 0 && CurrentSite.SiteId!=4) {%}
+<li class='nav-item dropdown {% IfCompare(NodeAliasPath, "/" + CurrentDocument.NodeAliasPath.Split("/")[1],"", "active") #%}'>
+	<a href='{% if(DocumentMenuRedirectToFirstChild==true) {
+        Documents[NodeAliasPath].Children.FirstItem.NodeAliasPath.ToLower()
+    }
+    else {
+        if(DocumentMenuRedirectUrl.ToString()!="" || DocumentMenuItemInactive==true) {
+            DocumentMenuRedirectUrl.ToString()
+        }
+        else {
+            GetDocumentUrl();
+        }
+} #%}' id='{% MenuItemName %}' {%IsNullOrEmpty(MenuItemTarget) ? "" : "target='"+MenuItemTarget+"' rel='noopener'"%} aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-scroll-ignore data-toggle='dropdown'>
+		{% IsNullOrEmpty(DocumentMenuCaption) ? DocumentName : DocumentMenuCaption %}
+	</a>
+{% } else {%}
+  
+  <li class='nav-item {% IfCompare(NodeAliasPath, "/" + CurrentDocument.NodeAliasPath.Split("/")[1],"", "active") #%} {% if(DocumentMenuItemInactive==true){ "disabled" } else {""} #%}'>
+    <a href='{% if(DocumentMenuRedirectToFirstChild==true) {
+        Documents[NodeAliasPath].Children.FirstItem.NodeAliasPath.ToLower()
+    }
+    else {
+        if(DocumentMenuRedirectUrl.ToString()!="" || DocumentMenuItemInactive==true) {
+            DocumentMenuRedirectUrl.ToString()
+        }
+        else {
+            GetDocumentUrl();
+        }
+} #%}' id='{% MenuItemName %}' {%IsNullOrEmpty(MenuItemTarget) ? "" : "target='"+MenuItemTarget+"' rel='noopener'"%} class='nav-link' data-scroll-ignore>
+		{% IsNullOrEmpty(DocumentMenuCaption) ? DocumentName : DocumentMenuCaption %}
+    </a>
+  </li>
+{% } #%}
