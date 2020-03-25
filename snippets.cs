@@ -100,6 +100,7 @@ if() {
         "<img src='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "' alt='"+attachment.AttachmentName+"' >"+
     "</a>"
 } %}
+
 // foreach: Attachments from specific field
 {% 
     FieldAttachments=IMMacros.GetFieldGUID("oneIM.Product","Gallery");
