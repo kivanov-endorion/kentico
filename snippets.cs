@@ -1,6 +1,6 @@
 // TO USE IN PAGE TEMPLATES
-<%=CMS.Helpers.ResHelper.GetString("resourcestringname")%>
-<%=CMS.MacroEngine.MacroResolver.Resolve("The current user is: {% CurrentUser.UserName %}") %>
+<%=CMS.Helpers.ResHelper.GetString( "resourcestringname" )%>
+<%=CMS.MacroEngine.MacroResolver.Resolve( "The current user is: {% CurrentUser.UserName %}" ) %>
 
 // BASIC
 {% macro expression %}
@@ -8,15 +8,24 @@
 {$ localization string $} = {% GetResourceString("MyKey.SubKey.value") %}
 {$=Read more|ES=Leer más|zh-CN=阅读更多$} // temp localization
 {% string.ToString().ToUpper().ToLower() %}
-{% number.ToInt32();  %}
-{% boolean.ToBool();  %}
+{% number.ToInt32() %}
+{% boolean.ToBool() %}
 
 // Methods
-{% GetDocumentUrl().Split("/")[5] %}
-{% LimitLength(StripTags("Example of long text"), 10 , "&hellip;", true) %}
-{% Contains(Field,"") %} {% NotContains(Field,"") %}
-{% if( Documents[NodeAliasPath].Children.Where("ClassName = 'CMS.MenuItem'").Count > 0 ) {} %}
-{% DocumentName.Trim().Replace(" ", "-") %} {% DocumentName.RegexReplace("\s*", "-") %}
+{% Split("/")[5] %}
+{% LimitLength("string", 10 , "&hellip;", true) %}
+{% StripTags("string") %}
+{% Contains(Field,"") %} {% NotContains(Field,"") %} // or Field.Contains("")
+{% Trim() %} {% TrimStart() %} {% TrimEnd() %}
+{% ToLower() %} {% ToUpper() %}
+{% Replace(" ", "-") %} {% RegexReplace("\s*", "-") %}
+{% if( CurrentDocument.Children.Where("ClassName = 'CMS.MenuItem'").Count > 0 ) {} %}
+{% if( CurrentDocument.Children.ClassNames("CMS.MenuItem;oneIM.News").Count > 0 ) {} %}
+{% CurrentDocument.Children.FirstItem ?? "No child pages" %} // Returns the left if not null, otherwise the right
+{% CurrentDocument.GetValue("NewsTitle","Default Title") %} // Sets default value if field is null
+{% LoremIpsum(1800) %}
+{% UrlEncode(URL) %}
+{% IsEven(DataItemIndex) %}
 
 // SQL Escape
 {% SQLEscape( QueryString.cat ) %}
@@ -43,14 +52,15 @@
 <img class="wow flipInX" src="~/logos/GetLogo.ashx?name={% DocumentName.Replace(" ","-") #%}&size=120" alt="{% DocumentName %}" data-wow-delay="{% DataItemIndex*100 %}ms">
 
 // NAVIGATION URL
-{% GetNavigationUrl() %}
+{% GetNavigationUrl() %} {% GetDocumentUrl() %}
 
 // If null and compare
 {% ( DocumentMenuCaption ) ? DocumentMenuCaption : DocumentName %}
 {% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
+{% If( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
+{% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) {} %}
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
 {% IfCompare( DocumentName, CurrentDocument.DocumentName,"", "active" ) %} 
-{% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) {} %}
 
 // Settings: bool, string
 {% return settings.CustomSettings.MainNavCheckPrevileges.ToBool() %}
@@ -133,11 +143,13 @@ if() {
 {% if ((et_sc != null && et_sc.Trim() != "") == False) { "Full-width" } else {} %}
 
 // Do NOT show if DocumentName is equal to "Home"
-{%DocumentName|(notequals)Home|(truevalue){?param?}%}
+{% DocumentName|(notequals)Home|(truevalue){?param?} %}
 
 // Show if DocumentName is equal to "Home"
-{%DocumentName|(equals)Home|(truevalue){?param?}%}
+{% DocumentName|(equals)Home|(truevalue){?param?} %}
 
 // Hide page(s) in the /Landing-Pages directory
-{%CMSContext.CurrentDocument.NodeAliasPath|(Contains)Landing-Pages|(not)#%}
- 
+{% CurrentDocument.NodeAliasPath|(Contains)Landing-Pages|(not) %}
+
+// Sets the culture when formatting dates and numbers
+{% DocumentPublishFrom|(culture)en-us %}
