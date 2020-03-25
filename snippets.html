@@ -1,45 +1,35 @@
 // TO USE IN PAGE TEMPLATES
 <%=CMS.Helpers.ResHelper.GetString("resourcestringname")%>
-<%=CMS.MacroEngine.MacroResolver.Resolve("The current user is: {% CurrentUser.UserName @%}") %>
-<cms:CMSDocumentValue runat="server" AttributeName="ContentText" FormattingString="{0}" />
+<%=CMS.MacroEngine.MacroResolver.Resolve("The current user is: {% CurrentUser.UserName %}") %>
 
+// ViewMode: Edit, Design, LiveSite, Preview
+{% if( ViewMode=="Edit" || ViewMode=="Design" ) { return true; } else { return false; } %}
 
-{% if(ViewMode=="Edit" || ViewMode=="Design") { return true; } else { return false; } @%}
+// Page Template
+{% if( CurrentDocument.parent.NodeTemplate.CodeName != "1IMVendorB4" ) { return true; } else { return false; } %}
 
-{% if(CurrentDocument.parent.NodeTemplate.CodeName != "1IMVendorB4") { return true; } else { return false; } @%}
+// foreach: Categories
+{% if( Documents[NodeALiasPath].Categories.Count > 0 ) { 
+    foreach ( category in Documents[NodeALiasPath].Categories ) { 
+        "<a href='./?categoryname=" + category.CodeName + "'>" + category.DisplayName + "</a>" 
+    } 
+} %}
 
-
-
-
-{% foreach (category in Documents[NodeALiasPath].Categories) { 
-    "<a href='./?categoryname="+category.CodeName+"'>"+category.DisplayName+"</a>" 
-} @%}
-
-{% if(DocumentContext.CurrentDocument.DocumentWebParts.ToString().ToLower().Contains("bizform")) { return true; } else { return false; } @%}
+{% if( DocumentContext.CurrentDocument.DocumentWebParts.ToString().ToLower().Contains("bizform") ) { return true; } else { return false; } %}
 
 {% GetDocumentUrl().Split("/")[5] %}
 
-{% SQLEscape(QueryString.cat) @%}
+{% SQLEscape( QueryString.cat ) %}
 
 // IMAGES
-{% GetImage(MenuItemTeaserImage,DocumentName,0,600) %}
+{% GetImage( MenuItemTeaserImage, DocumentName, 0, 600 ) %}
 
-{%if(Documents[NodeAliasPath].Children.Where("ClassName = 'CMS.MenuItem' AND DocumentMenuItemHideInNavigation = ''").Count > 0) {} %}
+{%if( Documents[NodeAliasPath].Children.Where("ClassName = 'CMS.MenuItem' AND DocumentMenuItemHideInNavigation = ''").Count > 0 ) {} %}
 
-{% IfCompare(DocumentName, CurrentDocument.DocumentName,"", "active") @%} 
+{% IfCompare( DocumentName, CurrentDocument.DocumentName,"", "active" ) %} 
 
-// NAVIGATION URL: TODO GetNavigationUrl()
-{% if(DocumentMenuRedirectToFirstChild==true) {
-    Documents[NodeAliasPath].Children.FirstItem.NodeAliasPath.ToLower()
-}
-else {
-    if(DocumentMenuRedirectUrl.ToString()!="" || DocumentMenuItemInactive==true) {
-        DocumentMenuRedirectUrl.ToString()
-    }
-    else {
-        GetDocumentUrl();
-    }
-} @%}
+// NAVIGATION URL
+{% GetNavigationUrl() %}
 
 {% IsNullOrEmpty(DocumentMenuCaption) ? DocumentName : DocumentMenuCaption %}
 // OR
@@ -47,7 +37,7 @@ else {
 
 {% LimitLength(StripTags("Example of long text"), 10 , "&hellip;", true) %}
 
-{% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") @%}
+{% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") %}
 
-{% return settings.CustomSettings.MainNavCheckPrevileges.ToBool() @%}
-{% if(SiteContext.CurrentSite.DataContext.Settings.CustomSettings["LegalDisclosureLink"]) { %}
+{% return settings.CustomSettings.MainNavCheckPrevileges.ToBool() %}
+{% if( SiteContext.CurrentSite.DataContext.Settings.CustomSettings["LegalDisclosureLink"] ) { %}
