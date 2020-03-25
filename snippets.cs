@@ -16,7 +16,7 @@
 {% LimitLength(StripTags("Example of long text"), 10 , "&hellip;", true) %}
 {% Contains(Field,"") %} {% NotContains(Field,"") %}
 {% if( Documents[NodeAliasPath].Children.Where("ClassName = 'CMS.MenuItem'").Count > 0 ) {} %}
-{% DocumentName.Replace(" ", "-") %} {% DocumentName.RegexReplace("\s*", "-") %}
+{% DocumentName.Trim().Replace(" ", "-") %} {% DocumentName.RegexReplace("\s*", "-") %}
 
 // SQL Escape
 {% SQLEscape( QueryString.cat ) %}
@@ -50,6 +50,7 @@
 {% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
 {% IfCompare( DocumentName, CurrentDocument.DocumentName,"", "active" ) %} 
+{% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) {} %}
 
 // Settings: bool, string
 {% return settings.CustomSettings.MainNavCheckPrevileges.ToBool() %}
