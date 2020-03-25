@@ -1,0 +1,28 @@
+/* ContenRatingStars */
+.icon-star-empty:before {
+    content: '\f005';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+}
+.icon-star-full:before {
+    content: '\f005';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+/* ContenRatingLike */
+.icon-star-empty:before {
+    content: '\f164';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+}
+.icon-star-full:before {
+    content: '\f164';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+.CntRatingContent .disabled {
+    color: unset;
+    pointer-events: unset;
+    cursor: pointer!important;
+}
