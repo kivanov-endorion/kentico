@@ -2,11 +2,78 @@
 <%=CMS.Helpers.ResHelper.GetString("resourcestringname")%>
 <%=CMS.MacroEngine.MacroResolver.Resolve("The current user is: {% CurrentUser.UserName %}") %>
 
+// BASIC
+{% macro expression %}
+{? id ?} = {% QueryString.id %} // paramеter in a url
+{$ localization string $} = {% GetResourceString("MyKey.SubKey.value") %}
+{% string.ToString().ToUpper().ToLower() %}
+{% number.ToInt32();  %}
+{% boolean.ToBool();  %}
+
+// Methods
+{% GetDocumentUrl().Split("/")[5] %}
+{% LimitLength(StripTags("Example of long text"), 10 , "&hellip;", true) %}
+{% Contains(Field,"") %} {% NotContains(Field,"") %}
+{% if( Documents[NodeAliasPath].Children.Where("ClassName = 'CMS.MenuItem'").Count > 0 ) {} %}
+{% DocumentName.Replace(" ", "-") %} {% DocumentName.RegexReplace("\s*", "-") %}
+
+// SQL Escape
+{% SQLEscape( QueryString.cat ) %}
+{% QueryString["cat"]|(handlesqlinjection)true %}
+
+// Date format
+{% GetDateTime("BlogPostDate", "D") %}
+{% CurrentDateTime.Year#%}
+{% CurrentDocument.DocumentModifiedWhen.Format("{0:MM/dd/yyyy}") %}    /* 09/12/2016 */
+{% CurrentDocument.DocumentModifiedWhen.Format("{0:T}") %}             /* 1:42:31 PM */
+{% FormatDateTime(EventDate, "MMMM d") %}
+
+/* Format Numbers */
+{% String.Format("{0:n}", Int64.Parse(Field.ToString())) %}    // 100,000.00
+{% String.Format("{0:n0}", Int64.Parse(Field.ToString())) %}   // 100,000
+{% String.Format("{0:C}", TotalPriceIncludingOptions) %}
+
+// GetImage( image, alt, maxsidesixe, width, height )
+{% GetImage( MenuItemTeaserImage, DocumentName, 0, 600 ) %}
+
+// NAVIGATION URL
+{% GetNavigationUrl() %}
+
+// If null and compare
+{% ( DocumentMenuCaption ) ? DocumentMenuCaption : DocumentName %}
+{% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
+{% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
+{% IfCompare( DocumentName, CurrentDocument.DocumentName,"", "active" ) %} 
+
+// Settings: bool, string
+{% return settings.CustomSettings.MainNavCheckPrevileges.ToBool() %}
+{% if( SiteContext.CurrentSite.DataContext.Settings.CustomSettings["LegalDisclosureLink"] ) {} %}
+
 // ViewMode: Edit, Design, LiveSite, Preview
 {% if( ViewMode=="Edit" || ViewMode=="Design" ) { return true; } else { return false; } %}
 
+// Grouping in transformations + modulo function
+{% if( DataItemIndex mod 3 == 0) { "<div class='row'" } %}
+{% if( DataItemIndex mod 3 == 2 || DataItemIndex == DataItemCount-1 ) { "</div>" } %}
+
 // Page Template
-{% if( CurrentDocument.parent.NodeTemplate.CodeName != "1IMVendorB4" ) { return true; } else { return false; } %}
+{% if( CurrentDocument.Parent.NodeTemplate.CodeName != "1IMVendorB4" ) { return true; } else { return false; } %}
+
+// Subsite Navigation Root
+{% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") %}
+
+// Nested if else statement
+{% 
+if() {
+    return true;
+} else {
+    if() {
+        return true;
+    } else {
+        return false;
+    }
+}
+%}
 
 // foreach: Categories
 {% if( Documents[NodeALiasPath].Categories.Count > 0 ) { 
@@ -15,29 +82,30 @@
     } 
 } %}
 
+// foreach: Attachments
+{% foreach (attachment in Documents[NodeALiasPath].AllAttachments.Where("AttachmentExtension = '.jpg' OR AttachmentExtension = '.png' ")) {
+    "<a data-fancybox='gallery' href='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "'>"+
+        "<img src='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "' alt='"+attachment.AttachmentName+"' >"+
+    "</a>"
+} %}
+
+// Apply Transformation 
+{% Documents[NodeAliasPath].Children.WithAllData.ApplyTransformation("custom.VirtualMapImageGallery.CarouselGallery_Slide") %}
+
+
+/* ADVANCED */
+// Check if web part is present on page
 {% if( DocumentContext.CurrentDocument.DocumentWebParts.ToString().ToLower().Contains("bizform") ) { return true; } else { return false; } %}
 
-{% GetDocumentUrl().Split("/")[5] %}
+// Check if web part contains content, hide if no content 
+{% if ((et_sc != null && et_sc.Trim() != "") == False) { "Full-width" } else {} %}
 
-{% SQLEscape( QueryString.cat ) %}
+// Do NOT show if DocumentName is equal to "Home"
+{%DocumentName|(notequals)Home|(truevalue){?param?}%}
 
-// IMAGES
-{% GetImage( MenuItemTeaserImage, DocumentName, 0, 600 ) %}
+// Show if DocumentName is equal to "Home"
+{%DocumentName|(equals)Home|(truevalue){?param?}%}
 
-{%if( Documents[NodeAliasPath].Children.Where("ClassName = 'CMS.MenuItem' AND DocumentMenuItemHideInNavigation = ''").Count > 0 ) {} %}
-
-{% IfCompare( DocumentName, CurrentDocument.DocumentName,"", "active" ) %} 
-
-// NAVIGATION URL
-{% GetNavigationUrl() %}
-
-{% IsNullOrEmpty(DocumentMenuCaption) ? DocumentName : DocumentMenuCaption %}
-// OR
-{% (DocumentMenuCaption) ? DocumentMenuCaption : DocumentName %}
-
-{% LimitLength(StripTags("Example of long text"), 10 , "&hellip;", true) %}
-
-{% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") %}
-
-{% return settings.CustomSettings.MainNavCheckPrevileges.ToBool() %}
-{% if( SiteContext.CurrentSite.DataContext.Settings.CustomSettings["LegalDisclosureLink"] ) { %}
+// Hide page(s) in the /Landing-Pages directory
+{%CMSContext.CurrentDocument.NodeAliasPath|(Contains)Landing-Pages|(not)#%}
+ 
