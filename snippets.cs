@@ -1,12 +1,9 @@
-// TO USE IN PAGE TEMPLATES
-<%=CMS.Helpers.ResHelper.GetString( "resourcestringname" )%>
-<%=CMS.MacroEngine.MacroResolver.Resolve( "The current user is: {% CurrentUser.UserName %}" ) %>
-
+/* KENTICO MACRO REFERENCE */
 // BASIC
 {% macro expression %}
 {? id ?} = {% QueryString.id %} // paramеter in a url
 {$ localization string $} = {% GetResourceString("MyKey.SubKey.value") %}
-{$=Read more|ES=Leer más|zh-CN=阅读更多$} // temp localization
+{$=Read more|es-ES=Leer más|zh-CN=阅读更多$} // temp localization
 {% string.ToString().ToUpper().ToLower() %}
 {% number.ToInt32() %}
 {% boolean.ToBool() %}
@@ -14,35 +11,43 @@
 // Methods
 {% Split("/")[5] %}
 {% LimitLength("string", 10 , "&hellip;", true) %}
-{% StripTags("string") %}
+{% StripTags("string<br>") %}
 {% Contains(Field,"") %} {% NotContains(Field,"") %} // or Field.Contains("")
 {% Trim() %} {% TrimStart() %} {% TrimEnd() %}
 {% ToLower() %} {% ToUpper() %}
-{% Replace(" ", "-") %} {% RegexReplace("\s*", "-") %}
+{% Replace(" ", "-") %} {% RegexReplace("\s", "-") %}
 {% if( CurrentDocument.Children.Where("ClassName = 'CMS.MenuItem'").Count > 0 ) {} %}
 {% if( CurrentDocument.Children.ClassNames("CMS.MenuItem;oneIM.News").Count > 0 ) {} %}
+{% if( NodeHasChildren ) {} %}
 {% CurrentDocument.Children.FirstItem ?? "No child pages" %} // Returns the left if not null, otherwise the right
 {% CurrentDocument.GetValue("NewsTitle","Default Title") %} // Sets default value if field is null
 {% LoremIpsum(1800) %}
 {% UrlEncode(URL) %}
 {% IsEven(DataItemIndex) %}
+{% if( IsDocumentOnSelectedPath() || IsCurrentDocument() ) {} %}
+{% CurrentBrowser.IsMobileDevice %}
+{% CurrentUser.IsAuthenticated %}
+{% CurrentBodyClass @%}
 
 // SQL Escape
 {% SQLEscape( QueryString.cat ) %}
 {% QueryString["cat"]|(handlesqlinjection)true %}
 
 // Date format
-{% GetDateTime("EventDate", "yyyy-MM-dd:HH-mm-ss") %}
-{% CurrentDateTime.Year#%}
+{% GetDateTime(EventDate, "yyyy-MM-dd:HH-mm-ss") %}
+{% FormatDateTime(EventDate, "MMMM d") %}
+{% FormatDateTime(EventDate, GetResourceString("oneIM.Localdate.long")) %}
+{% CurrentDateTime.Year %}
 {% CurrentDocument.DocumentModifiedWhen.Format("{0:MM/dd/yyyy}") %}    /* 09/12/2016 */
 {% CurrentDocument.DocumentModifiedWhen.Format("{0:T}") %}             /* 1:42:31 PM */
-{% FormatDateTime(EventDate, "MMMM d") %}
-{% FormatDateTime(EventDate, GetResourceString("oneIM.Localdate.long"))#%}
 
-/* Format Numbers */
-{% String.Format("{0:n}", Int64.Parse(Field.ToString())) %}    // 100,000.00
-{% String.Format("{0:n0}", Int64.Parse(Field.ToString())) %}   // 100,000
-{% String.Format("{0:C}", TotalPriceIncludingOptions) %}
+// Format Numbers
+{% Price.Format( "{0:C}" ) %}  // 100.000,00 €
+{% Format( "{0:C}", 100000 ) %}  // 100.000,00 €
+{% Format( "{0:C}", 100000 )|(culture)en-us %}  // 100 000,00 лв.
+{% Format( "{0:n}", 100000 ) %}    // 100.000.00
+{% Format( "{0:n0}", 100000 ) %}   // 100.000 (0 is the number of decimal symbols)
+{% Format( "{0:p0}", 0.56 ) %} // 56 %
 
 // GetImage( image, alt, maxsidesixe, width, height )
 {% GetImage( MenuItemTeaserImage, DocumentName, 0, 600 ) %}
@@ -55,10 +60,10 @@
 {% GetNavigationUrl() %} {% GetDocumentUrl() %}
 
 // If null and compare
-{% ( DocumentMenuCaption ) ? DocumentMenuCaption : DocumentName %}
+{% ( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
 {% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
 {% If( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
-{% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) {} %}
+{% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } @%}
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
 {% IfCompare( DocumentName, CurrentDocument.DocumentName,"", "active" ) %} 
 
@@ -108,7 +113,7 @@ if() {
 // foreach: Attachments
 {% foreach (attachment in Documents[NodeALiasPath].AllAttachments.Where("AttachmentExtension = '.jpg' OR AttachmentExtension = '.png' ")) {
     "<a data-fancybox='gallery' href='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "'>"+
-        "<img src='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "' alt='"+attachment.AttachmentName+"' >"+
+        "<img src='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "?width=200' alt='"+attachment.AttachmentName+"' >"+
     "</a>"
 } %}
 
@@ -119,11 +124,11 @@ if() {
     
     foreach (attachment in Documents[NodeALiasPath].AllAttachments.Where("AttachmentGroupGUID='"+FieldAttachments+"'") ) {
     "<a data-fancybox='gallery' data-type='image' href='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "'>"+
-    "<img src='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "' alt='"+attachment.AttachmentName+"' ></a>" } 
+    "<img src='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "?width=200' alt='"+attachment.AttachmentName+"' ></a>" } 
 %}
 
 // Apply Transformation 
-{% Documents[NodeAliasPath].Children.WithAllData.ApplyTransformation("Containerb4.Accordion") %}
+{% Documents[NodeAliasPath].Children.WithAllData.ApplyTransformation("oneIM.ContainerB4.Page-Card-DE-Teaser") %}
 
 // Transform: Tags
 {% if( CurrentDocument.DocumentTags ) {
@@ -131,25 +136,13 @@ if() {
         CurrentDocument.Tags.Transform( "<a class='badge badge-light font-weight-normal initialism ' href='../?tagid={#TagId#}'>{#DisplayName#}</a>" )
 } else {""} %}
 
-/* Form Macros */
+// Form Macros
 {% if( Country.Value=="Austria" ){ "28" } %}
 {% if( Country.Value.Contains("Austria") ){ "28" } %}
 
-/* ADVANCED */
-// Check if web part is present on page
-{% if( DocumentContext.CurrentDocument.DocumentWebParts.ToString().ToLower().Contains("bizform") ) { return true; } else { return false; } %}
 
-// Check if web part contains content, hide if no content 
-{% if ((et_sc != null && et_sc.Trim() != "") == False) { "Full-width" } else {} %}
 
-// Do NOT show if DocumentName is equal to "Home"
-{% DocumentName|(notequals)Home|(truevalue){?param?} %}
 
-// Show if DocumentName is equal to "Home"
-{% DocumentName|(equals)Home|(truevalue){?param?} %}
-
-// Hide page(s) in the /Landing-Pages directory
-{% CurrentDocument.NodeAliasPath|(Contains)Landing-Pages|(not) %}
-
-// Sets the culture when formatting dates and numbers
-{% DocumentPublishFrom|(culture)en-us %}
+// TO USE IN PAGE TEMPLATES
+<%=CMS.Helpers.ResHelper.GetString( "resourcestringname" )%>
+<%=CMS.MacroEngine.MacroResolver.Resolve( "The current user is: {% CurrentUser.UserName %}" ) %>
