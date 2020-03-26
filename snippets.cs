@@ -1,8 +1,7 @@
 /* KENTICO MACRO REFERENCE */
 // BASIC
-{% macro expression %}
 {? id ?} = {% QueryString.id %} // paramеter in a url
-{$ localization string $} = {% GetResourceString("MyKey.SubKey.value") %}
+{$ MyKey.SubKey.value $} = {% GetResourceString("MyKey.SubKey.value") %} // localization
 {$=Read more|es-ES=Leer más|zh-CN=阅读更多$} // temp localization
 {% string.ToString().ToUpper().ToLower() %}
 {% number.ToInt32() %}
@@ -22,12 +21,12 @@
 {% CurrentDocument.Children.FirstItem ?? "No child pages" %} // Returns the left if not null, otherwise the right
 {% CurrentDocument.GetValue("NewsTitle","Default Title") %} // Sets default value if field is null
 {% LoremIpsum(1800) %}
-{% UrlEncode(URL) %}
+{% UrlEncode(URL) %} {% HTMLEncode("<br>") %}
 {% IsEven(DataItemIndex) %}
 {% if( IsDocumentOnSelectedPath() || IsCurrentDocument() ) {} %}
 {% CurrentBrowser.IsMobileDevice %}
 {% CurrentUser.IsAuthenticated %}
-{% CurrentBodyClass @%}
+{% CurrentBodyClass %}
 
 // SQL Escape
 {% SQLEscape( QueryString.cat ) %}
@@ -44,7 +43,7 @@
 // Format Numbers
 {% Price.Format( "{0:C}" ) %}  // 100.000,00 €
 {% Format( "{0:C}", 100000 ) %}  // 100.000,00 €
-{% Format( "{0:C}", 100000 )|(culture)en-us %}  // 100 000,00 лв.
+{% Format( "{0:C}", 100000 )|(culture)bg-bg %}  // 100 000,00 лв.
 {% Format( "{0:n}", 100000 ) %}    // 100.000.00
 {% Format( "{0:n0}", 100000 ) %}   // 100.000 (0 is the number of decimal symbols)
 {% Format( "{0:p0}", 0.56 ) %} // 56 %
@@ -56,7 +55,7 @@
 // GetLogo (Vendors)
 <img class="wow flipInX" src="~/logos/GetLogo.ashx?name={% DocumentName.Replace(" ","-") #%}&size=120" alt="{% DocumentName %}" data-wow-delay="{% DataItemIndex*100 %}ms">
 
-// NAVIGATION URL
+// Navigation URL
 {% GetNavigationUrl() %} {% GetDocumentUrl() %}
 
 // If null and compare
@@ -133,8 +132,8 @@ if() {
 // Transform: Tags
 {% if( CurrentDocument.DocumentTags ) {
     "<i class=\"ml-3 badge fas fa-tags text-muted\" title=\"Tags\"> </i>" + 
-        CurrentDocument.Tags.Transform( "<a class='badge badge-light font-weight-normal initialism ' href='../?tagid={#TagId#}'>{#DisplayName#}</a>" )
-} else {""} %}
+        CurrentDocument.Tags.Transform( "<a class='badge badge-light font-weight-normal initialism' href='../?tagid={#TagId#}'>{#DisplayName#}</a>" )
+} %}
 
 // Form Macros
 {% if( Country.Value=="Austria" ){ "28" } %}
