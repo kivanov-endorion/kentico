@@ -9,17 +9,17 @@
     bgivak08
     Kaloyan@123
 
-### Google Analytics
+### [Google Analytics](https://analytics.google.com/)
 
     webmaster@ingrammicro.de
     WnW$dk1220
 
-### SEOBILITY
+### [SEOBILITY](https://www.seobility.net/en/dashboard/)
 
     webmaster@ingrammicro.de
     Jdm$14kmHd
 
-### WEBTRENDS
+### [WEBTRENDS](https://analytics.webtrends.com/)
 
     Ingram_Micro
     bgivak08
@@ -42,21 +42,31 @@
     usr_sofia
     Sofia2SQL
 
-### DE IMOnline
+### [DE IMOnline](http://de-c.ingrammicro.dmz/Admin/CMSAdministration.aspx)
 
     superuser
     Ingram@123
 
-### Elastic
+### [ELASTIC](http://de.ingrammicro.int/Site)
 
     webadmin
     Ingram@123
 
 ---
-## PROJECTS
+## TEST USERS
 ---
+
+### [DE.ingrammicro.EU](http://de.ingrammicro.eu/Admin/CMSAdministration.aspx)
+
+    44-459998
+    Turn2018
 
 ### APPLE DEP
 
     FR21553530
     DE44459998
+
+### [NOP SHOP](https://shop.ingrammicro.eu/devshop)
+
+    euwebdev@ingrammicro.com
+    !IngramMicro2020
