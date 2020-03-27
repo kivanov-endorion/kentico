@@ -9,7 +9,7 @@
 
 // Methods
 {% Split("/")[5] %}
-{% LimitLength("string", 10 , "&hellip;", true) %}
+{% LimitLength("string", 10 , "…", true) %}
 {% StripTags("string<br>") %}
 {% Contains("") %} {% NotContains("") %} // or Contains(Field,"")
 {% Trim() %} {% TrimStart() %} {% TrimEnd() %}
@@ -165,6 +165,33 @@ if() {
 {% LocalizationContext.CurrentCulture.CultureShortName %} // English
 {% LocalizationContext.CurrentCulture.GetValue("CultureAlias", "en") %}
 
+// Meta data:
+{% (DocumentPageTitle) ? DocumentPageTitle : DocumentName %} // title
+{% (DocumentPageDescription) ? StripTags(LimitLength(DocumentPageDescription,160,"…",true)) : StripTags(LimitLength(MenuItemTeaserText,160,"…",true)) %} // description
+{% if( MenuItemTeaserImage ) {
+    "https://" + domain + "/getattachment/" + MenuItemTeaserImage + "/share.jpg"
+    } else {
+        if( NewsTeaser ) {
+            "https://" + domain + "/getattachment/" + NewsTeaser + "/share.jpg"
+        } else {
+            if( EventTeaserImage ) {
+                "https://" + domain + "/getattachment/" + EventTeaserImage + "/share.jpg"
+            } else {
+                if( BlogPostTeaser ) {
+                    "https://" + domain + "/getattachment/" + BlogPostTeaser + "/share.jpg"
+                } else {
+                    if( TeaserImage ) {
+                        "https://" + domain + "/getattachment/" + TeaserImage + "/share.jpg"
+                    } else {
+                        "https://" + domain + "/getattachment" + NodeAliasPath + "/" + CurrentDocument.AllAttachments.FirstItem.AttachmentName
+                        }
+                    }
+                }
+            }
+        } %} // image
+
+// Site name:
+{% SiteContext.CurrentSite.DataContext.Settings.CMSPageTitlePrefix %}
 /* CurrentSite.SiteID:
 SiteID  SiteName                    SK_Valid
 	    all	                        0
@@ -207,4 +234,27 @@ SiteID  SiteName                    SK_Valid
 57	    ph.ingrammicro-asia.com	    63
 58	    sg.ingrammicro-asia.com	    64
 63	    sk.ingrammicro.eu	        27
+*/
+
+/* RegEx
+
+\w  // word
+\W  // not word
+\d  // digit
+\s  // whitespace
+\n  // new line
+^  // start
+$  // end
+
+{2}  // quantifier
+{2,4}  // 2-4
+{2,}  / w or more
+?  // optional
++  // 1 or more
+*  // 0 or more
+
+[0-9]{4}\s?-?[A-Za-z]{2}  // NL PostCode (1742NL OR 1742 NL)
+^[0-9+\(\)#\.\s\/-]+$  // Phone
+\d*\w*@\d*\w*.\w{2,3}  // Email
+^[\d\s?\-?\/?\(\)])${6,8}  // Branch number and Customer number
 */
