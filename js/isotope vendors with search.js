@@ -1,5 +1,3 @@
-<script src="https://unpkg.com/isotope-layout@2/dist/isotope.pkgd.min.js"></script>
-<script>
 $(document).ready(function(e) {
   // Creating filters
     $(".vendorList > span").each(function(i) {
@@ -69,5 +67,3 @@ $(document).ready(function(e) {
   });
   
 });
-  
-</script>
