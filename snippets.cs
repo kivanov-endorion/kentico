@@ -235,26 +235,3 @@ SiteID  SiteName                    SK_Valid
 58	    sg.ingrammicro-asia.com	    64
 63	    sk.ingrammicro.eu	        27
 */
-
-/* RegEx
-
-\w  // word
-\W  // not word
-\d  // digit
-\s  // whitespace
-\n  // new line
-^  // start
-$  // end
-
-{2}  // quantifier
-{2,4}  // 2-4
-{2,}  / w or more
-?  // optional
-+  // 1 or more
-*  // 0 or more
-
-[0-9]{4}\s?-?[A-Za-z]{2}  // NL PostCode (1742NL OR 1742 NL)
-^[0-9+\(\)#\.\s\/-]+$  // Phone
-\d*\w*@\d*\w*.\w{2,3}  // Email
-^[\d\s?\-?\/?\(\)])${6,8}  // Branch number and Customer number
-*/

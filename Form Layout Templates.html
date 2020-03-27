@@ -1,4 +1,5 @@
-<div class="alert alert-success alert-dismissible fade show">Your message was delivered. Thank you!<button class="close" data-dismiss="alert">×</button></div>
+<div class="alert alert-success alert-dismissible fade show">Your message was delivered. Thank you!<button class="close"
+        data-dismiss="alert">×</button></div>
 
 <!-- 01. One column -->
 
@@ -17,7 +18,9 @@
     $$input:DataPrivacy$$
     $$validation:DataPrivacy$$
 </div>
-<p>$$submitbutton$$</p>
+<div class="form-group">
+    <p>$$submitbutton$$</p>
+</div>
 
 <!-- 02. Two columns -->
 
@@ -39,7 +42,9 @@
         $$input:DataPrivacy$$
         $$validation:DataPrivacy$$
     </div>
-    <p>$$submitbutton$$</p>
+    <div class="form-group col-md-12">
+        <p>$$submitbutton$$</p>
+    </div>
 </div>
 
 <!-- 03. Regular -->
@@ -70,11 +75,85 @@
         $$label:DataPrivacy$$
         $$input:DataPrivacy$$
         $$validation:DataPrivacy$$
-
+    </div>
+    <div class="form-group col-md-6">
+        &nbsp;
+    </div>
+    <div class="form-group col-md-6">
         <p>$$submitbutton$$</p>
     </div>
 </div>
 
+
+
+<!-- INPUT GROUP: Branch number + Customer number: 
+{% CurrentUser.imBranchNbr + CurrentUser.imCustomerNbr %}
+BranchNumber: Control CSS Class: branch
+BranchNumber Content Before and After: <div class="input-group-prepend" style="max-width:50px;"> </div>
+CustomerNumber: Control CSS Class: custnumber
+CustomerNumber: Explanation text: <small class="text-muted">Branch number + Customer number</small>
+-->
+<div class="row">
+    <div class="form-group col-md-4 pt-2">$$label:CustomerNumber$$</div>
+    <div class="form-group col-md-6">
+        <div class="input-group">
+            $$input:BranchNumber$$ $$input:CustomerNumber$$
+        </div>
+        $$validation:BranchNumber$$ $$validation:CustomerNumber$$
+    </div>
+</div>
+
+
 <!-- General error message -->
 {$ general.errorvalidationerror $}
 
+
+<!-- RegEx
+
+\w  // word
+\W  // not word
+\d  // digit
+\s  // whitespace
+\n  // new line
+^  // start
+$  // end
+
+{2}  // quantifier
+{2,4}  // 2-4
+{2,}  / w or more
+?  // optional
++  // 1 or more
+*  // 0 or more
+
+[0-9]{4}\s?-?[A-Za-z]{2}  // NL PostCode (1742NL OR 1742 NL)
+^[0-9+\(\)#\.\s\/-]+$  // Phone
+\d*\w*@\d*\w*.\w{2,3}  // Email
+^[\d\s?\-?\/?\(\)])${6,8}  // Branch number and Customer number
+
+-->
+
+
+<!-- ICONS (Content Before and After) -->
+
+<div class="icon-user"> </div>
+<div class="icon-email"> </div>
+<div class="icon-phone"> </div>
+<div class="icon-date"> </div>
+<div class="icon-time"> </div>
+
+<!-- Custom CSS Classes 
+
+Checkbox, Radio, Select:
+Control CSS Class: custom
+
+Dates:
+Control CSS Class: input-group date
+
+Switch:
+Control CSS Class: material-switch
+
+File upload:
+Caption CSS Class: custom-file-label
+Control CSS Class: custom-file-input
+
+-->
