@@ -26,3 +26,9 @@
     pointer-events: unset;
     cursor: pointer!important;
 }
+
+/* For use with ==Content Rating== web part, where:
+Rating value = 1
+Rating type = Stars
+Max rating value = 1
+Result message = {1} */

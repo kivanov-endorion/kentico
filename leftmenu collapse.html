@@ -1,0 +1,98 @@
+<!-- DE.transformations.LeftMenu -->
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.second-menu-item').each(function () {
+      $(this).next('ul').css('display', 'none');
+      if ($(this).next().is('ul.sub-menu')) {
+        $(this).find('a').contents().unwrap();
+        $(this).append('<i class="fas fa-chevron-down float-right pt-1 text-primary"></i>');
+      }
+    });
+    $('.sidebar a').each(function () {
+      if (this.href == window.location.href) {
+        $(this).parent().parent().css('display', 'block');
+        $(this).parent().parent().prev().find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        $(this).parent().parent().prev().addClass('Highlighted');
+      }
+    });
+    $('.second-menu-item').click(function (e) {
+      e.stopPropagation();
+      $(this).find('i').toggleClass('fa-chevron-down').toggleClass('fa-chevron-up');
+      var subMenu = $(this).next('ul');
+      if ($(this).next().is('ul.sub-menu')) {
+        $(this).siblings().next('ul').slideUp();
+        $(this).siblings().find('i').toggleClass('fa-chevron-down').toggleClass('fa-chevron-up');
+      }
+      subMenu.stop(true, true).slideToggle(400);
+    });    
+    $('.second-menu-item > ul > li').click(function (e) {
+      e.stopImmediatePropagation();
+    });
+  });
+</script>
+<ul>
+  <li class="second-menu-item ">
+    <a href="/en/b4/home-de">
+      Home DE
+    </a>
+  </li>
+  <li class="second-menu-item ">
+    <a href="/en/b4/products">
+      Products
+    </a>
+  </li>
+  <li class="second-menu-item ">
+    <a href="/en/b4/search">
+      Search
+    </a>
+  </li>
+  <li class="second-menu-item ">
+    <a href="/en/b4/home">
+      Home
+    </a>
+  </li>
+  <li class="second-menu-item ">
+
+    Page
+
+    <i class="fas fa-chevron-down float-right pt-1 text-primary">&thinsp;</i>
+  </li>
+  <ul class="sub-menu" style="display: none;">
+    <li class="second-menu-item">
+      <a href="/en/b4/page/promo">
+        Verdien 2 vip-tickets voor het grootste dancefestival ter wereld!
+      </a>
+    </li>
+    <li class="second-menu-item">
+      <a href="/en/b4/page/special">
+        Special
+      </a>
+    </li>
+  </ul>
+  <li class="second-menu-item Highlighted ">
+
+    WebPart Testing Page
+
+    <i class="fas fa-chevron-down float-right pt-1 text-primary">&thinsp;</i>
+  </li>
+  <ul class="sub-menu" style="display: none;">
+    <li class="second-menu-item">
+      <a href="/en/b4/filter/countdown">
+        Countdown
+      </a>
+    </li>
+  </ul>
+  <li class="second-menu-item ">
+    <a href="/en/b4/self-service-catalogue">
+      Self-Service Catalogue (Sofia team)
+    </a>
+  </li>
+</ul>
+
+0 DE.transformations.LeftMenu_Header
+0 DE.transformations.LeftMenu_Footer
+1 DE.transformations.LeftMenu_SecondLevel_Header
+1 DE.transformations.LeftMenu_SecondLevel_Footer
+0 DE.transformations.LeftMenu_FirstLevelItem
+1 DE.transformations.SecondLevelItem

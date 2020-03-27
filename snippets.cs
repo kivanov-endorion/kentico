@@ -11,7 +11,7 @@
 {% Split("/")[5] %}
 {% LimitLength("string", 10 , "&hellip;", true) %}
 {% StripTags("string<br>") %}
-{% Contains(Field,"") %} {% NotContains(Field,"") %} // or Field.Contains("")
+{% Contains("") %} {% NotContains("") %} // or Contains(Field,"")
 {% Trim() %} {% TrimStart() %} {% TrimEnd() %}
 {% ToLower() %} {% ToUpper() %}
 {% Replace(" ", "-") %} {% RegexReplace("\s", "-") %}
@@ -19,7 +19,6 @@
 {% if( CurrentDocument.Children.ClassNames("CMS.MenuItem;oneIM.News").Count > 0 ) {} %}
 {% if( NodeHasChildren ) {} %}
 {% CurrentDocument.Children.FirstItem ?? "No child pages" %} // Returns the left if not null, otherwise the right
-{% CurrentDocument.GetValue("NewsTitle","Default Title") %} // Sets default value if field is null
 {% LoremIpsum(1800) %}
 {% UrlEncode(URL) %} {% HTMLEncode("<br>") %}
 {% IsEven(DataItemIndex) %}
@@ -62,9 +61,10 @@
 {% ( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
 {% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
 {% If( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
-{% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } @%}
+{% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } %}
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
-{% IfCompare( DocumentName, CurrentDocument.DocumentName,"", "active" ) %} 
+{% IfCompare( DocumentName, CurrentDocument.DocumentName,"", "active" ) %}
+{% CurrentDocument.GetValue("NewsTitle","Default Title") %} // Sets default value if field is null (optional)
 
 // Settings: bool, string
 {% return settings.CustomSettings.MainNavCheckPrevileges.ToBool() %}
@@ -74,8 +74,9 @@
 {% if( ViewMode=="Edit" || ViewMode=="Design" ) { return true; } else { return false; } %}
 
 // Grouping in transformations + modulo function
-{% if( DataItemIndex mod 3 == 0) { "<div class='row'" } %}
-{% if( DataItemIndex mod 3 == 2 || DataItemIndex == DataItemCount-1 ) { "</div>" } %}
+{% if( DataItemIndex mod 3 == 0) { "<div class='row'>" } %}
+{% if( DataItemIndex mod 3 == 2 || DataItemIndex == DataItemCount - 1 ) { "</div>" } %}
+{% if (DataItemIndex + 1 != DataItemCount) {","} %}
 
 // Page Template
 {% if( CurrentDocument.Parent.NodeTemplate.CodeName != "1IMVendorB4" ) { return true; } else { return false; } %}
@@ -102,6 +103,14 @@ if() {
         "<a href='./?categoryname=" + category.CodeName + "'>" + category.DisplayName + "</a>" 
     } 
 } %}
+
+// for: Categories
+{% 
+    for(i = 0; i < Documents[NodeALiasPath].Categories.Count ; i++){ 
+        strCAT=strCAT+(Documents[NodeALiasPath].Categories[i].DisplayName+" | ");
+    }
+    print(strCAT.ToString().Substring(0,strCAT.LastIndexOf("|")));
+%}
 
 // foreach: Tags
 {% if( Documents[NodeALiasPath].Tags.Count != 0 ) { "<i class='ml-3 badge fas fa-tags text-muted' title='Tags'> </i>" } %}
@@ -145,3 +154,57 @@ if() {
 // TO USE IN PAGE TEMPLATES
 <%=CMS.Helpers.ResHelper.GetString( "resourcestringname" )%>
 <%=CMS.MacroEngine.MacroResolver.Resolve( "The current user is: {% CurrentUser.UserName %}" ) %>
+
+
+/* USEFUL DATA */
+
+// LocalizationContext.CurrentCulture
+{% LocalizationContext.CurrentCulture.CodeName %} // en-US
+{% LocalizationContext.CurrentCulture.CultureAlias %} // en
+{% LocalizationContext.CurrentCulture.DisplayName %} // English - United States
+{% LocalizationContext.CurrentCulture.CultureShortName %} // English
+{% LocalizationContext.CurrentCulture.GetValue("CultureAlias", "en") %}
+
+/* CurrentSite.SiteID:
+SiteID  SiteName                    SK_Valid
+	    all	                        0
+2	    nl.ingrammicro.eu	        15
+4	    de.ingrammicro.eu	        5
+8	    be.ingrammicro.eu	        2
+13	    de-inside	                5   
+18	    ch.ingrammicro.eu	        4
+19	    oneIM (starter)             5   
+20	    uk.ingrammicro.eu	        10
+21	    hu1.ingrammicro.eu	        22
+23	    fr.ingrammicro.eu	        9
+24	    at.ingrammicro.eu	        1
+25	    dcpos.ingrammicro.eu	    5
+26	    ba.ingrammicro.eu	        6
+27	    it.ingrammicro.eu	        12
+28	    cz.ingrammicro.eu	        50
+29	    pl.ingrammicro.eu	        49
+31	    al2.ingrammicro.eu	        42
+32	    es.ingrammicro.eu	        6
+33	    hr.ingrammicro.eu	        44
+34	    mk.ingrammicro.eu	        45
+35	    rs.ingrammicro.eu	        47
+36	    si.ingrammicro.eu	        48
+37	    bg.ingrammicro.eu	        32
+38	    hu.ingrammicro.eu	        22
+40	    fi.ingrammicro.eu	        8
+41	    no.ingrammicro.eu	        19
+42	    one.ingrammicro.eu	        5
+43	    se.ingrammicro.eu	        17
+45	    sk1.ingrammicro.eu	        27
+47	    th.ingrammicro-asia.com	    65
+50	    nz.ingrammicro-asia.com	    62
+51	    my.ingrammicro-asia.com	    61
+52	    in.ingrammicro-asia.com	    60
+53	    id.ingrammicro-asia.com	    59
+54	    hk.ingrammicro-asia.com	    58
+55	    cn.ingrammicro-asia.com	    57
+56	    au.ingrammicro-asia.com	    56
+57	    ph.ingrammicro-asia.com	    63
+58	    sg.ingrammicro-asia.com	    64
+63	    sk.ingrammicro.eu	        27
+*/

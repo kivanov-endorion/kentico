@@ -1,0 +1,55 @@
+/*
+SELECT *
+  FROM (
+    SELECT * 
+    FROM View_CMS_Tree_Joined INNER JOIN CONTENT_SimpleArticle ON View_CMS_Tree_Joined.DocumentForeignKeyValue = CONTENT_SimpleArticle.ArticleID
+    WHERE (ClassName = 'CMS.SimpleArticle')
+) AS V
+WHERE NodeSiteID = 4 
+AND NodeAliasPath LIKE '/ONE-IM-B4/Services-and-Trainings/Vendors/%'
+AND DocumentCanBePublished = 1
+
+
+{% if(DataItemIndex == 0) { "{\"data\": [" #%}
+{"ArticleTitle":"{% ArticleTitle %}","ArticleText":"{% ArticleText %}"}
+{% if (DataItemIndex + 1 != DataItemCount) {","} #%}
+{% if (DataItemIndex + 1 == DataItemCount) {"]}"} #%}
+*/
+
+// Assuming this JSON.
+var data = {items:[{title:"ONE",content:"Something-1"},
+                   {title:"TWO",content:"Something-2"},
+                   {title:"THREE",content:"Something-3"}
+                  ]
+           };
+
+
+$(document).ready(function () {
+    $.getJSON('/content-items/ajax/vendors/getvendorsservices', function(data) {
+
+        //var success = function(data) {
+        data.items.forEach(function(item,index) {
+        // data.forEach(function(item,index) {
+            $('#vendors').append(        
+                '<img alt="'+item.ArticleTitle+'" src="/1IM/oneingram-1.9.13/aspx/content/GetLogo.aspx?name='+item.ArticleTitle+'&size=125" data-toggle="collapse" data-target="#vendor_'+index+'">'+
+                '<div id="vendor_'+index+'" class="collapse in" role="tabpanel">'+
+                    '<div class="collapse">'+
+                    item.ArticleText+
+                    '</div>'+
+                '</div>'
+            );
+        });
+  //      }
+
+   //     success(data);
+
+    });     
+});
+
+
+{"data": [
+    {"ArticleTitle":"HPE","ArticleText":""},
+    {"ArticleTitle":"Microsoft","ArticleText":"<p>test text</p>"}
+    
+    ]}
+                                                

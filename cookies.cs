@@ -1,5 +1,5 @@
 {% 
-  if(ViewMode=="LiveSite"){
+  if(ViewMode=="LiveSite" || ViewMode=="Preview"){
     /*
     if(SiteContext.CurrentSite.DataContext.Settings.CustomSettings["UseCookieConsent"]=="True")
     {
@@ -14,11 +14,11 @@
        return false; 
      }
     */
-  } else { // hiden on all other ViewModes
+  } else { 
      return false;
   }
 
-#%}
+%}
 
 // COOKIE LEVELS
 
