@@ -12,6 +12,9 @@
 {% LimitLength("string", 10 , "…", true) %}
 {% StripTags("string<br>") %}
 {% Contains("") %} {% NotContains("") %} // or Contains(Field,"")
+{% Documents[NodeALiasPath].AllAttachments.Where("AttachmentExtension = '.jpg'") %}
+{% Documents[NodeALiasPath].AllAttachments.Filter(AttachmentExtension == ".jpg") %}
+{% StartsWith("") %} {% EndsWith("") %}
 {% Trim() %} {% TrimStart() %} {% TrimEnd() %}
 {% ToLower() %} {% ToUpper() %}
 {% Replace(" ", "-") %} {% RegexReplace("\s", "-") %}
@@ -20,7 +23,7 @@
 {% if( NodeHasChildren ) {} %}
 {% CurrentDocument.Children.FirstItem ?? "No child pages" %} // Returns the left if not null, otherwise the right
 {% LoremIpsum(1800) %}
-{% UrlEncode(URL) %} {% HTMLEncode("<br>") %}
+{% UrlEncode(URL) %} {% HTMLEncode("<br>") %} {% URL|(encode)true %}
 {% IsEven(DataItemIndex) %}
 {% if( IsDocumentOnSelectedPath() || IsCurrentDocument() ) {} %}
 {% CurrentBrowser.IsMobileDevice %}
@@ -49,7 +52,7 @@
 
 // GetImage( image, alt, maxsidesixe, width, height )
 {% GetImage( MenuItemTeaserImage, DocumentName, 0, 600 ) %}
-{% if( MenuItemTeaserImage ) { "<img alt src='~/getattachment/"+ MenuItemTeaserImage + "/"+ CurrentDocument.NodeAliasPath.Replace("/","-")+"?height=600'>" } %}
+{% if( MenuItemTeaserImage ) { Format("<img alt src='~/getattachment/{0}/{1}?width=600'>", MenuItemTeaserImage, CurrentDocument.NodeAliasPath.Replace("/","-")) } %}
 
 // GetLogo (Vendors)
 <img class="wow flipInX" src="~/logos/GetLogo.ashx?name={% DocumentName.Replace(" ","-") #%}&size=120" alt="{% DocumentName %}" data-wow-delay="{% DataItemIndex*100 %}ms">
@@ -64,7 +67,8 @@
 {% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } %}
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
 {% IfCompare( DocumentName, CurrentDocument.DocumentName,"", "active" ) %}
-{% CurrentDocument.GetValue("NewsTitle","Default Title") %} // Sets default value if field is null (optional)
+{% CurrentDocument.GetValue("NewsTitle", "Default Title") %} // Sets default value if field is null (optional)
+{% CurrentDocument.NewsTitle|(default)Default Title %}
 
 // Settings: bool, string
 {% return settings.CustomSettings.MainNavCheckPrevileges.ToBool() %}
@@ -112,17 +116,9 @@ if() {
     print(strCAT.ToString().Substring(0,strCAT.LastIndexOf("|")));
 %}
 
-// foreach: Tags
-{% if( Documents[NodeALiasPath].Tags.Count != 0 ) { "<i class='ml-3 badge fas fa-tags text-muted' title='Tags'> </i>" } %}
-{% foreach (tag in Documents[NodeALiasPath].Tags) { 
-    "<a class='badge-light bg-light-7' href='/special-pages/search?searchtext='>"+tag.DisplayName+"</a>" 
-} %}
-
 // foreach: Attachments
 {% foreach (attachment in Documents[NodeALiasPath].AllAttachments.Where("AttachmentExtension = '.jpg' OR AttachmentExtension = '.png' ")) {
-    "<a data-fancybox='gallery' href='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "'>"+
-        "<img src='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "?width=200' alt='"+attachment.AttachmentName+"' >"+
-    "</a>"
+    Format("<a data-fancybox='gallery' href='/getattachment/{0}/{1}'><img src='/getattachment/{0}/{1}?width=200' alt='{1}' ></a>", attachment.AttachmentGUID, attachment.AttachmentName)
 } %}
 
 // foreach: Attachments from specific field
@@ -131,28 +127,36 @@ if() {
     Documents[NodeALiasPath].AllAttachments.Where("AttachmentGroupGUID='"+FieldAttachments+"'");
     
     foreach (attachment in Documents[NodeALiasPath].AllAttachments.Where("AttachmentGroupGUID='"+FieldAttachments+"'") ) {
-    "<a data-fancybox='gallery' data-type='image' href='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "'>"+
-    "<img src='/getattachment/" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "?width=200' alt='"+attachment.AttachmentName+"' ></a>" } 
+        Format("<a data-fancybox='gallery' data-type='image' href='/getattachment/{0}/{1}'><img src='/getattachment/{0}/{1}?width=200' alt='{1}' ></a>", attachment.AttachmentGUID, attachment.AttachmentName)
+    } 
 %}
+
+// foreach: Tags
+{% if( CurrentDocument.Tags.Count != 0 ) { "<i class='ml-3 badge fas fa-tags text-muted' title='Tags'> </i>" } %}
+{% foreach (tag in CurrentDocument.Tags) { 
+    "<a class='badge-light bg-light-7' href='./?tagid=" + tag.TagId + "'>"+tag.DisplayName+"</a>" 
+} %}
+
+// Transform: Tags
+{% if( CurrentDocument.DocumentTags ) {
+    "<i class='ml-3 badge fas fa-tags text-muted' title='Tags'> </i>" + 
+        CurrentDocument.Tags.Transform( "<a class='badge badge-light font-weight-normal initialism' href='./?tagid={#TagId#}'>{#DisplayName#}</a>" )
+} %}
 
 // Apply Transformation 
 {% Documents[NodeAliasPath].Children.WithAllData.ApplyTransformation("oneIM.ContainerB4.Page-Card-DE-Teaser") %}
 
-// Transform: Tags
-{% if( CurrentDocument.DocumentTags ) {
-    "<i class=\"ml-3 badge fas fa-tags text-muted\" title=\"Tags\"> </i>" + 
-        CurrentDocument.Tags.Transform( "<a class='badge badge-light font-weight-normal initialism' href='../?tagid={#TagId#}'>{#DisplayName#}</a>" )
-} %}
 
 // Form Macros
 {% if( Country.Value=="Austria" ){ "28" } %}
 {% if( Country.Value.Contains("Austria") ){ "28" } %}
 
-
+// IMMacros
+{% IMMacros.GetPageAttribute("MenuItemTeaserImageContent") %}  // searches up the tree until it finds != null
 
 
 // TO USE IN PAGE TEMPLATES
-<%=CMS.Helpers.ResHelper.GetString( "resourcestringname" )%>
+<%=CMS.Helpers.ResHelper.GetString( "resourcestringname" ) %>
 <%=CMS.MacroEngine.MacroResolver.Resolve( "The current user is: {% CurrentUser.UserName %}" ) %>
 
 
@@ -168,27 +172,36 @@ if() {
 // Meta data:
 {% (DocumentPageTitle) ? DocumentPageTitle : DocumentName %} // title
 {% (DocumentPageDescription) ? StripTags(LimitLength(DocumentPageDescription,160,"…",true)) : StripTags(LimitLength(MenuItemTeaserText,160,"…",true)) %} // description
-{% if( MenuItemTeaserImage ) {
-    "https://" + domain + "/getattachment/" + MenuItemTeaserImage + "/share.jpg"
+{% Format("https://{0}/getattachment/{1}/share.jpg", domain, 
+    if( MenuItemTeaserImage ) {
+        MenuItemTeaserImage
     } else {
         if( NewsTeaser ) {
-            "https://" + domain + "/getattachment/" + NewsTeaser + "/share.jpg"
+            NewsTeaser
         } else {
             if( EventTeaserImage ) {
-                "https://" + domain + "/getattachment/" + EventTeaserImage + "/share.jpg"
+                EventTeaserImage
             } else {
                 if( BlogPostTeaser ) {
-                    "https://" + domain + "/getattachment/" + BlogPostTeaser + "/share.jpg"
+                    BlogPostTeaser
                 } else {
                     if( TeaserImage ) {
-                        "https://" + domain + "/getattachment/" + TeaserImage + "/share.jpg"
+                        TeaserImage
                     } else {
-                        "https://" + domain + "/getattachment" + NodeAliasPath + "/" + CurrentDocument.AllAttachments.FirstItem.AttachmentName
+                        NodeAliasPath.Replace("/","-")
                         }
                     }
                 }
             }
-        } %} // image
+        } 
+) %} // image
+{% CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageWidth %} // image width
+
+// Aspect ratio for MenuItemTeaserImage
+{% Format("/getattachment/{0}/header.jpg",MenuItemTeaserImage) %}
+{% Format("padding-top: {0:p};",((CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageHeight) / (CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageWidth))).RegexReplace("\s+","") %}
+
+
 
 // Site name:
 {% SiteContext.CurrentSite.DataContext.Settings.CMSPageTitlePrefix %}
@@ -235,3 +248,5 @@ SiteID  SiteName                    SK_Valid
 58	    sg.ingrammicro-asia.com	    64
 63	    sk.ingrammicro.eu	        27
 */
+
+/* Testing Macros: Go to: System > Macros > Console */
