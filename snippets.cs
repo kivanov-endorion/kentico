@@ -3,32 +3,40 @@
 {? id ?} = {% QueryString.id %} // paramеter in a url
 {$ MyKey.SubKey.value $} = {% GetResourceString("MyKey.SubKey.value") %} // localization
 {$=Read more|es-ES=Leer más|zh-CN=阅读更多$} // temp localization
-{% string.ToString().ToUpper().ToLower() %}
-{% number.ToInt32() %}
-{% boolean.ToBool() %}
+
 
 // Methods
+{% ToString() %}
+{% ToLower() %}
+{% ToUpper() %}
+{% ToInt32() %}
+{% ToBool() %}
 {% Split("/")[5] %}
 {% LimitLength("string", 10 , "…", true) %}
 {% StripTags("string<br>") %}
-{% Contains("") %} {% NotContains("") %} // or Contains(Field,"")
-{% Documents[NodeALiasPath].AllAttachments.Where("AttachmentExtension = '.jpg'") %}
-{% Documents[NodeALiasPath].AllAttachments.Filter(AttachmentExtension == ".jpg") %}
-{% StartsWith("") %} {% EndsWith("") %}
-{% Trim() %} {% TrimStart() %} {% TrimEnd() %}
-{% ToLower() %} {% ToUpper() %}
-{% Replace(" ", "-") %} {% RegexReplace("\s", "-") %}
-{% if( CurrentDocument.Children.Where("ClassName = 'CMS.MenuItem'").Count > 0 ) {} %}
+{% Contains("") %} // or Contains(Field,"")
+{% NotContains("") %} 
+{% StartsWith("") %}
+{% EndsWith("") %}
+{% Trim() %}
+{% TrimStart() %}
+{% TrimEnd() %}
+{% Replace(" ", "-") %}
+{% RegexReplace("\s", "-") %}
+{% Filter(AttachmentExtension == ".jpg") %}
+{% Where("AttachmentExtension = '.jpg'") %}
 {% if( CurrentDocument.Children.ClassNames("CMS.MenuItem;oneIM.News").Count > 0 ) {} %}
 {% if( NodeHasChildren ) {} %}
 {% CurrentDocument.Children.FirstItem ?? "No child pages" %} // Returns the left if not null, otherwise the right
 {% LoremIpsum(1800) %}
-{% UrlEncode(URL) %} {% HTMLEncode("<br>") %} {% URL|(encode)true %}
+{% UrlEncode(URL) %}
+{% HTMLEncode("<br>") %}
+{% URL|(encode)true %}
 {% IsEven(DataItemIndex) %}
-{% if( IsDocumentOnSelectedPath() || IsCurrentDocument() ) {} %}
+{% if( IsDocumentOnSelectedPath() || IsCurrentDocument() ) { "active" } %}
 {% CurrentBrowser.IsMobileDevice %}
 {% CurrentUser.IsAuthenticated %}
-{% CurrentBodyClass %}
+{% if( CurrentBodyClass.Contains("InternetExplorer") ) { } %}
 
 // SQL Escape
 {% SQLEscape( QueryString.cat ) %}
@@ -50,15 +58,20 @@
 {% Format( "{0:n0}", 100000 ) %}   // 100.000 (0 is the number of decimal symbols)
 {% Format( "{0:p0}", 0.56 ) %} // 56 %
 
-// GetImage( image, alt, maxsidesixe, width, height )
+// GetImage( image, alt, maxsidesize, width, height )
 {% GetImage( MenuItemTeaserImage, DocumentName, 0, 600 ) %}
-{% if( MenuItemTeaserImage ) { Format("<img alt src='~/getattachment/{0}/{1}?width=600'>", MenuItemTeaserImage, CurrentDocument.NodeAliasPath.Replace("/","-")) } %}
+{% if( MenuItemTeaserImage ) { 
+    Format("<img alt='{0}' class='img-fluid' src='~/getattachment/{1}/{2}?width=600'>", DocumentName, MenuItemTeaserImage, CurrentDocument.NodeAliasPath.Replace("/","-")) 
+} %}
 
 // GetLogo (Vendors)
 <img class="wow flipInX" src="~/logos/GetLogo.ashx?name={% DocumentName.Replace(" ","-") #%}&size=120" alt="{% DocumentName %}" data-wow-delay="{% DataItemIndex*100 %}ms">
 
-// Navigation URL
-{% GetNavigationUrl() %} {% GetDocumentUrl() %}
+// Get URL
+{% GetDocumentUrl() %}
+
+// Navigation URL (URL or redirect URL)
+{% GetNavigationUrl() %}
 
 // If null and compare
 {% ( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
@@ -66,13 +79,9 @@
 {% If( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
 {% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } %}
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
-{% IfCompare( DocumentName, CurrentDocument.DocumentName,"", "active" ) %}
+{% IfCompare( Documents[NodeAliasPath].DocumentName, CurrentDocument.DocumentName, "", "active" ) %}
 {% CurrentDocument.GetValue("NewsTitle", "Default Title") %} // Sets default value if field is null (optional)
 {% CurrentDocument.NewsTitle|(default)Default Title %}
-
-// Settings: bool, string
-{% return settings.CustomSettings.MainNavCheckPrevileges.ToBool() %}
-{% if( SiteContext.CurrentSite.DataContext.Settings.CustomSettings["LegalDisclosureLink"] ) {} %}
 
 // ViewMode: Edit, Design, LiveSite, Preview
 {% if( ViewMode=="Edit" || ViewMode=="Design" ) { return true; } else { return false; } %}
@@ -81,12 +90,6 @@
 {% if( DataItemIndex mod 3 == 0) { "<div class='row'>" } %}
 {% if( DataItemIndex mod 3 == 2 || DataItemIndex == DataItemCount - 1 ) { "</div>" } %}
 {% if (DataItemIndex + 1 != DataItemCount) {","} %}
-
-// Page Template
-{% if( CurrentDocument.Parent.NodeTemplate.CodeName != "1IMVendorB4" ) { return true; } else { return false; } %}
-
-// Subsite Navigation Root
-{% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") %}
 
 // Nested if else statement
 {% 
@@ -146,19 +149,26 @@ if() {
 // Apply Transformation 
 {% Documents[NodeAliasPath].Children.WithAllData.ApplyTransformation("oneIM.ContainerB4.Page-Card-DE-Teaser") %}
 
+// Settings: bool, string
+{% return Settings.CustomSettings.MainNavCheckPrevileges.ToBool() %}
+{% if( Settings.CustomSettings["LegalDisclosureLink"] ) {} %}
+
+// Page Template
+{% if( CurrentDocument.Parent.NodeTemplate.CodeName != "1IMVendorB4" ) { return true; } else { return false; } %}
+
+// Subsite Navigation Root
+{% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") %}
 
 // Form Macros
-{% if( Country.Value=="Austria" ){ "28" } %}
+{% if( Country.Value == "Austria" ){ "28" } %}
 {% if( Country.Value.Contains("Austria") ){ "28" } %}
 
 // IMMacros
 {% IMMacros.GetPageAttribute("MenuItemTeaserImageContent") %}  // searches up the tree until it finds != null
 
-
 // TO USE IN PAGE TEMPLATES
-<%=CMS.Helpers.ResHelper.GetString( "resourcestringname" ) %>
+<%=CMS.Helpers.ResHelper.GetString( "MyKey.SubKey.value" ) %>
 <%=CMS.MacroEngine.MacroResolver.Resolve( "The current user is: {% CurrentUser.UserName %}" ) %>
-
 
 /* USEFUL DATA */
 
@@ -205,6 +215,7 @@ if() {
 
 // Site name:
 {% SiteContext.CurrentSite.DataContext.Settings.CMSPageTitlePrefix %}
+
 /* CurrentSite.SiteID:
 SiteID  SiteName                    SK_Valid
 	    all	                        0
