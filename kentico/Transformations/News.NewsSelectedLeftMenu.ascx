@@ -1,0 +1,1 @@
+<a href='{% DocumentContext.CurrentDocumentParent.NodeAliasPath #%}' class='month-name'><div class="month-name" data-month="" data-year="">{$1IM.AllNews$}</div></a>

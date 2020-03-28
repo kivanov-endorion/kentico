@@ -103,6 +103,32 @@ CustomerNumber: Explanation text: <small class="text-muted">Branch number + Cust
     </div>
 </div>
 
+<!-- ICONS (Content Before and After) -->
+
+<div class="icon-user"> </div>
+<div class="icon-email"> </div>
+<div class="icon-phone"> </div>
+<div class="icon-date"> </div>
+<div class="icon-time"> </div>
+
+<!-- Custom CSS Classes 
+
+Checkbox, Radio, Select:
+Control CSS Class: custom
+
+Dates:
+Control CSS Class: input-group date
+
+Switch:
+Control CSS Class: material-switch
+
+File upload:
+Caption CSS Class: custom-file-label
+Control CSS Class: custom-file-input
+
+-->
+
+
 
 <!-- General error message -->
 {$ general.errorvalidationerror $}
@@ -133,27 +159,26 @@ $  // end
 -->
 
 
-<!-- ICONS (Content Before and After) -->
 
-<div class="icon-user"> </div>
-<div class="icon-email"> </div>
-<div class="icon-phone"> </div>
-<div class="icon-date"> </div>
-<div class="icon-time"> </div>
+// Form Macros
 
-<!-- Custom CSS Classes 
+{% if( Country.Value == "Austria" ){ "28" } %}
+{% if( Country.Value.Contains("Austria") ){ "28" } %}
 
-Checkbox, Radio, Select:
-Control CSS Class: custom
+// CurrentUser
 
-Dates:
-Control CSS Class: input-group date
+{% FirstName %}
+{% LastName %}
+{% FullName %}
+{% Email %}
+{% UserPhone %}
+{% UserPosition %}
+{% IsAuthenticated %}
+{% IsInRole("") %}
 
-Switch:
-Control CSS Class: material-switch
-
-File upload:
-Caption CSS Class: custom-file-label
-Control CSS Class: custom-file-input
-
--->
+{% imBranchNbr %}
+{% imCustomerNbr %}
+{% imCustName %}
+{% imCountryCode %}
+{% imSK_Cust %}
+{% imSK_Valid %}

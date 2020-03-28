@@ -1,0 +1,2 @@
+<%@ Control Language="C#" AutoEventWireup="true" Inherits="CMSWebParts_SocialMedia_Yammer_YammerLikeComments" CodeFile="YammerLikeComments.ascx.cs" %>
+<asp:Literal runat="server" ID="ltYamCommentCode" EnableViewState="false" />

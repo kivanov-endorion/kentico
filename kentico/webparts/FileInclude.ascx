@@ -1,0 +1,2 @@
+<%@ Control Language="C#" AutoEventWireup="true" Inherits="FileInclude" CodeFile="~/1IM/oneingram-1.9.13/aspx/webparts/FileInclude.ascx.cs" %>
+<asp:Literal ID="ltlIncludeDebug" runat="server" EnableViewState="false" />

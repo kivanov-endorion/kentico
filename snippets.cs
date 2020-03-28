@@ -47,6 +47,7 @@
 {% FormatDateTime(EventDate, "MMMM d") %}
 {% FormatDateTime(EventDate, GetResourceString("oneIM.Localdate.long")) %}
 {% CurrentDateTime.Year %}
+{% DateTime.Now.ToString("yyyy-MM-dd h:mm tt") %}
 {% CurrentDocument.DocumentModifiedWhen.Format("{0:MM/dd/yyyy}") %}    /* 09/12/2016 */
 {% CurrentDocument.DocumentModifiedWhen.Format("{0:T}") %}             /* 1:42:31 PM */
 
@@ -119,6 +120,8 @@ if() {
     print(strCAT.ToString().Substring(0,strCAT.LastIndexOf("|")));
 %}
 
+/* AttachmentDescription, AttachmentExtension, AttachmentGUID, AttachmentImageWidth, AttachmentImageHeight, AttachmentMimeType, AttachmentName, AttachmentSize */
+
 // foreach: Attachments
 {% foreach (attachment in Documents[NodeALiasPath].AllAttachments.Where("AttachmentExtension = '.jpg' OR AttachmentExtension = '.png' ")) {
     Format("<a data-fancybox='gallery' href='/getattachment/{0}/{1}'><img src='/getattachment/{0}/{1}?width=200' alt='{1}' ></a>", attachment.AttachmentGUID, attachment.AttachmentName)
@@ -159,16 +162,9 @@ if() {
 // Subsite Navigation Root
 {% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") %}
 
-// Form Macros
-{% if( Country.Value == "Austria" ){ "28" } %}
-{% if( Country.Value.Contains("Austria") ){ "28" } %}
-
 // IMMacros
 {% IMMacros.GetPageAttribute("MenuItemTeaserImageContent") %}  // searches up the tree until it finds != null
 
-// TO USE IN PAGE TEMPLATES
-<%=CMS.Helpers.ResHelper.GetString( "MyKey.SubKey.value" ) %>
-<%=CMS.MacroEngine.MacroResolver.Resolve( "The current user is: {% CurrentUser.UserName %}" ) %>
 
 /* USEFUL DATA */
 
@@ -206,6 +202,7 @@ if() {
         } 
 ) %} // image
 {% CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageWidth %} // image width
+{% DocumentPageKeyWords %} // keywords
 
 // Aspect ratio for MenuItemTeaserImage
 {% Format("/getattachment/{0}/header.jpg",MenuItemTeaserImage) %}
@@ -213,7 +210,7 @@ if() {
 
 
 
-// Site name:
+// Site name (de.ingrammicro.eu):
 {% SiteContext.CurrentSite.DataContext.Settings.CMSPageTitlePrefix %}
 
 /* CurrentSite.SiteID:
@@ -261,3 +258,54 @@ SiteID  SiteName                    SK_Valid
 */
 
 /* Testing Macros: Go to: System > Macros > Console */
+
+
+
+{% CurrentURL %}
+{% AbsoluteURL %}
+
+// CurrentDocument
+
+{% DocumentName %}
+{% DocumentCreatedWhen %}
+{% DocumentModifiedWhen %}
+{% DocumentCulture %}
+{% DocumentCanBePublished %}
+{% DocumentMenuCaption %}
+{% DocumentMenuItemHideInNavigation %}
+{% DocumentMenuItemInactive %}
+{% DocumentMenuRedirectToFirstChild %}
+{% DocumentMenuRedirectUrl %}
+
+
+{% NodeAlias %}
+{% NodeAliasPath %}
+{% NodeID %}
+{% NodeHasChildren %}
+{% NodeLevel %}
+{% NodeOrder %}
+{% NodeParentID %}
+{% NodeInheritPageTemplate %}
+
+
+
+// TO USE IN PAGE TEMPLATES
+<%=CMS.Helpers.ResHelper.GetString( "MyKey.SubKey.value" ) %>
+<%=CMS.MacroEngine.MacroResolver.Resolve( "The current user is: {% CurrentUser.UserName %}" ) %>
+
+// TO USE IN WEB PARTS
+
+// Add CSS Stylesheet
+CSSHelper.RegisterCSSLink(Page, URLHelper.ResolveUrl("~/css/langselector.css"));
+
+// Add JS file
+ScriptHelper.RegisterScriptFile(Page, "~/CMSWebParts/Viewers/DateTime_files/DateTime.js");
+
+// Add META tags
+String FacebookOpenGraph = "";
+FacebookOpenGraph += "<meta property=\"og:title\" content=\"" + Title + "\" >";
+FacebookOpenGraph += "<meta property=\"og:description\" content=\"" + Description + "\" >";
+FacebookOpenGraph += "<meta property=\"og:site_name\" content=\"" + SiteName + "\" >";
+FacebookOpenGraph += "<meta property=\"og:url\" content=\"" + URL + "\" >";
+FacebookOpenGraph += "<meta property=\"og:image\" content=\"" + Image + "\" >";
+Page.Header.Controls.Add(new LiteralControl(FacebookOpenGraph));
