@@ -1,4 +1,4 @@
-/*
+/* Ajax SQL Data Source */ 
 SELECT *
   FROM (
     SELECT * 
@@ -9,25 +9,26 @@ WHERE NodeSiteID = 4
 AND NodeAliasPath LIKE '/ONE-IM-B4/Services-and-Trainings/Vendors/%'
 AND DocumentCanBePublished = 1
 
-
+// Ajax transformation (/content-items/ajax/vendors/getvendorsservices)
 {% if(DataItemIndex == 0) { "{\"data\": [" #%}
 {"ArticleTitle":"{% ArticleTitle %}","ArticleText":"{% ArticleText %}"}
 {% if (DataItemIndex + 1 != DataItemCount) {","} #%}
 {% if (DataItemIndex + 1 == DataItemCount) {"]}"} #%}
+
+
+/* Assuming this JSON.
+{"data": [
+    {"ArticleTitle":"HPE","ArticleText":""},
+    {"ArticleTitle":"Microsoft","ArticleText":"<p>test text</p>"}
+    
+    ]}
 */
 
-// Assuming this JSON.
-var data = {items:[{title:"ONE",content:"Something-1"},
-                   {title:"TWO",content:"Something-2"},
-                   {title:"THREE",content:"Something-3"}
-                  ]
-           };
-
-
+<script>
 $(document).ready(function () {
     $.getJSON('/content-items/ajax/vendors/getvendorsservices', function(data) {
 
-        //var success = function(data) {
+        // var success = function(data) {
         data.items.forEach(function(item,index) {
         // data.forEach(function(item,index) {
             $('#vendors').append(        
@@ -39,17 +40,6 @@ $(document).ready(function () {
                 '</div>'
             );
         });
-  //      }
-
-   //     success(data);
-
     });     
 });
-
-
-{"data": [
-    {"ArticleTitle":"HPE","ArticleText":""},
-    {"ArticleTitle":"Microsoft","ArticleText":"<p>test text</p>"}
-    
-    ]}
-                                                
+</script>                                                

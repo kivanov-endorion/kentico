@@ -1,0 +1,55 @@
+<div class="col-xs-12 col-md-1 BlogSocial">  
+    <div class="bloglike">
+         <span class="cntBlogLike">0</span><br/>
+         <span class="BlogLikeTxt">Likes</span><br/>
+         <span class="bttnBlogLike">
+           <img src="{$ DACH.BlogPost.Icon.bttnBlogLike $}" width="30" alt="bttnBlogLike"> 
+         </span>
+    </div>
+</div>
+
+<script>
+    $(document).on("click", "span.bttnBlogLike", function (e) {
+      e.preventDefault();
+      $.get("/ajax/blog/like?n=" + $(this).closest(".BlogEntry").attr("nodeId"), function(sResponse, iStatus) {
+
+            //DE_Inside.Container.Blog_Like
+            //       DECLARE
+            // @NodeId INT = {% ToInt(QueryString.n) #%},
+            // @UserId INT = {% CurrentUser.UserID #%}
+            // DE_Inside.Container.Blog_Like
+
+            // ##WHERE##
+
+            // INSERT INTO dbo.DE_Inside_BlogLikes
+            //             (ItemCreatedBy, ItemCreatedWhen, NodeID)
+            // SELECT      @UserId,
+            //             GETDATE(),
+            //             @NodeId
+
+            // SELECT      NodeID,
+            //             COUNT(*) CountLike,
+            //             MAX(IIF(ItemCreatedBy = @UserId, 1, 0)) UserLike
+            // FROM        dbo.DE_Inside_BlogLikes WITH (NOLOCK)
+            // WHERE       NodeID = @NodeId
+            // GROUP BY    NodeID
+
+        var sData = sResponse.split("|");
+        if (sData[2] != 0) {
+          $(".BlogEntry[nodeId='" + sData[0] + "'] .bttnBlogLike").removeClass("bttnBlogLike");
+        }
+        $(".BlogEntry[nodeId='" + sData[0] + "'] .cntBlogLike").html(sData[1]);
+      });
+    });
+  
+    $(document).ready(function(){
+     
+      for (var iI = 0; iI < oLikes.length; iI++) {
+        if (oLikes[iI][2] != 0) {
+          $(".BlogEntry[nodeId='" + oLikes[iI][0] + "'] .bttnBlogLike").removeClass("bttnBlogLike");
+        }
+        $(".BlogEntry[nodeId='" + oLikes[iI][0] + "'] .cntBlogLike").html(oLikes[iI][1]);
+        $(".BlogEntry[nodeId='" + oLikes[iI][0] + "'] .cntblogcommentsload").html(oComments[iI]);
+    });
+</script>
+  

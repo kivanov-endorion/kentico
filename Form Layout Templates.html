@@ -1,5 +1,4 @@
-<div class="alert alert-success alert-dismissible fade show">Your message was delivered. Thank you!<button class="close"
-        data-dismiss="alert">×</button></div>
+<div class="alert alert-success alert-dismissible fade show">Your message was delivered. Thank you!<button class="close" data-dismiss="alert">×</button></div>
 
 <!-- 01. One column -->
 
@@ -87,12 +86,15 @@
 
 
 <!-- INPUT GROUP: Branch number + Customer number: 
+
 {% CurrentUser.imBranchNbr + CurrentUser.imCustomerNbr %}
 BranchNumber: Control CSS Class: branch
 BranchNumber Content Before and After: <div class="input-group-prepend" style="max-width:50px;"> </div>
+
 CustomerNumber: Control CSS Class: custnumber
 CustomerNumber: Explanation text: <small class="text-muted">Branch number + Customer number</small>
 -->
+
 <div class="row">
     <div class="form-group col-md-4 pt-2">$$label:CustomerNumber$$</div>
     <div class="form-group col-md-6">
@@ -160,12 +162,12 @@ $  // end
 
 
 
-// Form Macros
+<!-- Form Macros
 
 {% if( Country.Value == "Austria" ){ "28" } %}
 {% if( Country.Value.Contains("Austria") ){ "28" } %}
 
-// CurrentUser
+-- CurrentUser
 
 {% FirstName %}
 {% LastName %}
@@ -181,4 +183,6 @@ $  // end
 {% imCustName %}
 {% imCountryCode %}
 {% imSK_Cust %}
-{% imSK_Valid %}
+{% imSK_Valid %} 
+
+-->

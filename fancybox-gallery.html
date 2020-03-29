@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/1imv2/ext/css/jquery.fancybox.min-3.3.5.css" />
+<script src="/1imv2/ext/js/jquery.fancybox.min-3.3.5.js"></script>
+<script>
+    $(function () {
+        var selectedClass = "";
+        $(".filter").click(function () {
+            selectedClass = $(this).attr("data-rel");
+            $("#gallery").fadeTo(100, 0.1);
+            $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
+            setTimeout(function () {
+                $("." + selectedClass).fadeIn().addClass('animation');
+                $("#gallery").fadeTo(300, 1);
+            }, 300);
+        });
+    });
+</script>
+
+
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-md-12 d-flex justify-content-center mb-1 btn-group btn-group-sm">
+            <button class="btn btn-outline-dark filter" data-rel="all" type="button">All</button>
+            <button class="btn btn-outline-dark filter" data-rel="1" type="button">Mountains</button>
+            <button class="btn btn-outline-dark filter" data-rel="2" type="button">Sea</button>
+        </div>
+    </div>
+
+    <div class="gallery" id="gallery">
+        <div class="mb-3 pics animation all 2">
+            <a data-fancybox="gallery" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg">
+                <img alt="Card image cap" class="img-fluid"
+                    src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" />
+            </a>
+        </div>
+
+        <div class="mb-3 pics animation all 1">
+            <a data-fancybox="gallery" href="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg">
+                <img alt="Card image cap" class="img-fluid"
+                    src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" />
+            </a>
+        </div>
+
+        <div class="mb-3 pics animation all 1">
+            <a data-fancybox="gallery" href="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg">
+                <img alt="Card image cap" class="img-fluid"
+                    src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" />
+            </a>
+        </div>
+
+        <div class="mb-3 pics animation all 2">
+            <a data-fancybox="gallery" href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg">
+                <img alt="Card image cap" class="img-fluid"
+                    src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" />
+            </a>
+        </div>
+    </div>
+</div>

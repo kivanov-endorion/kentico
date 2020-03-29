@@ -1,30 +1,4 @@
-<!-- html -->
-
-<section class="row mb-5">
-    <aside class="col-1 d-none d-md-block animated zoomInRight"><svg class="donut" height="50px" viewbox="0 0 42 42" width="50px">
-            <circle class="donut-hole" cx="21" cy="21" fill="#fff" r="15.91549430918954"></circle>
-            <circle class="donut-ring" cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="#d2d3d4"
-                stroke-width="3"></circle>
-            <circle class="donut-segment" cx="21" cy="21" fill="transparent" r="15.91549430918954" stroke="rgba(23,162,185,0.5)"
-                stroke-dasharray="62 38" stroke-dashoffset="25" stroke-width="3"></circle>
-            <g class="chart-text"> <text class="chart-number" x="50%" y="55%">
-                    62% </text> </g>
-        </svg></aside>
-
-    <article class="col-11 small">
-        <h5 class="my-0 border-bottom"><a class="card-link" href="https://starter.ingrammicro.eu/en/business-areas/cloud">Cloud</a></h5>
-
-        <p class="text-info my-1 text-truncate">https://starter.ingrammicro.eu/en/business-areas/<strong>cloud</strong></p>
-
-        <p class="mb-1 text-justify max-lines-3">Contact details 07700 900819 Mailing address: Amesbury SP4 7DE United Kingdom Stonehenge Webshop
-            Ingram Micro is a master <mark class="font-weight-bold">cloud</mark> services provider (<abbr title="master cloud services provider">mCSP</abbr>), offering
-            channel partners and professionals access to a global marketplace, expertise, solutions and enablement
-            progra...</p>
-        <time class="text-muted" datetime="2016-05-08 10:02:23" style="font-variant: all-small-caps;">8/5/2016 10:02:23 AM</time>
-    </article>
-</section>
-
-<!-- KENTICO -->
+// ASCX Transformation: CMS.Root.SmartSearchResults
 
 <section class="row mb-5">
     <aside class="col-1 d-none d-md-block animated zoomInRight"><svg class="donut" height="50px" viewbox="0 0 42 42" width="50px">
@@ -46,5 +20,3 @@
         <time class="text-muted" datetime="<%# GetDateTimeString(ValidationHelper.GetDateTime(Eval("Created"), DateTimeHelper.ZERO_TIME).ToString("yyyy-MM-ddTHH:mm:ssZ"), true) %>" style="font-variant: all-small-caps;"><%# GetDateTimeString(ValidationHelper.GetDateTime(Eval("Created"), DateTimeHelper.ZERO_TIME), true) %></time>
     </article>
 </section>
-
-<!-- CMS.Root.SmartSearchResults -->
