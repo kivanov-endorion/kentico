@@ -137,10 +137,16 @@ if() {
     } 
 %}
 
+// foreach: Keywords
+{% if( DocumentPageKeyWords ) { "<i class='ml-3 badge fas fa-tags text-muted' title='Keywords'> </i>" } %}
+{% foreach (keyword in DocumentPageKeyWords.Replace("\"","").Split(",")) { 
+    "<a class='badge badge-light' href='/special-pages/search?searchtext="+keyword+"'>"+keyword+"</a>" 
+} %}
+
 // foreach: Tags
 {% if( CurrentDocument.Tags.Count != 0 ) { "<i class='ml-3 badge fas fa-tags text-muted' title='Tags'> </i>" } %}
 {% foreach (tag in CurrentDocument.Tags) { 
-    "<a class='badge-light bg-light-7' href='./?tagid=" + tag.TagId + "'>"+tag.DisplayName+"</a>" 
+    "<a class='badge badge-light' href='./?tagid=" + tag.TagId + "'>"+tag.DisplayName+"</a>" 
 } %}
 
 // Transform: Tags
@@ -161,6 +167,7 @@ if() {
 
 // Subsite Navigation Root
 {% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") %}
+{% IMMacros.GetPageAttribute("SubSiteNavigationRoot")|(default))/% %} // enhanced
 
 // IMMacros
 {% IMMacros.GetPageAttribute("MenuItemTeaserImageContent") %}  // searches up the tree until it finds != null
@@ -194,7 +201,7 @@ if() {
                     if( TeaserImage ) {
                         TeaserImage
                     } else {
-                        NodeAliasPath.Replace("/","-")
+                        CurrentDocument.AllAttachments.FirstItem.AttachmentGUID
                         }
                     }
                 }
@@ -210,7 +217,7 @@ if() {
 
 
 
-// Site name (de.ingrammicro.eu):
+// Site name:
 {% SiteContext.CurrentSite.DataContext.Settings.CMSPageTitlePrefix %}
 
 /* CurrentSite.SiteID:
@@ -260,10 +267,6 @@ SiteID  SiteName                    SK_Valid
 /* Testing Macros: Go to: System > Macros > Console */
 
 
-
-{% CurrentURL %}
-{% AbsoluteURL %}
-
 // CurrentDocument
 
 {% DocumentName %}
@@ -277,6 +280,11 @@ SiteID  SiteName                    SK_Valid
 {% DocumentMenuRedirectToFirstChild %}
 {% DocumentMenuRedirectUrl %}
 
+{% DocumentMenuStyle %} // these also have Highlighted variants
+{% DocumentMenuClass %}
+{% DocumentMenuItemImage %}
+{% DocumentMenuItemLeftImage %}
+{% DocumentMenuItemRightImage %}
 
 {% NodeAlias %}
 {% NodeAliasPath %}
@@ -286,6 +294,27 @@ SiteID  SiteName                    SK_Valid
 {% NodeOrder %}
 {% NodeParentID %}
 {% NodeInheritPageTemplate %}
+
+{% CurrentURL %}
+{% AbsoluteURL %}
+
+// MenuItem (Page)
+
+{% MenuItemTeaserImage %}
+{% MenuItemTeaserImageMobile %}
+{% MenuItemTeaserImageContent %}
+{% MenuItemTeaserText %}
+{% MenuItemIconClass %}
+{% MenuItemName %}
+{% MenuItemTarget %}
+{% Breadcrumbs %}
+{% MenuItemGroup %} // top, footer, left, inline, category, none
+{% MenuItemSidebar %} // left, right, none
+{% MenuItemHorizontalSublNavigation %}
+{% MenuItemSubNavigation %} // pathHorizontal, pathHeaderImg, categoriesHeaderImg
+{% MenuItemTransformation %} // visible for News, Events, Products page templates
+
+
 
 
 
