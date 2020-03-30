@@ -1,11 +1,9 @@
-<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="{% (DocumentPageDescription) ? StripTags(DocumentPageDescription) : StripTags(MenuItemTeaserText) %}{% (NewsSummary) ? "" : StripTags(NewsSummary) %}{% (EventTeaserText) ? "" : StripTags(EventTeaserText) %}">
-<link rel="canonical" href="//{%domain  + GetDocumentUrl()%}">
+<link rel="canonical" href="//{%domain + GetDocumentUrl()%}">
 <!-- PWA -->
-<meta name="theme-color" content="#2F75BB"/> 
-<link rel="manifest" href="~/manifest.json">
+<meta name="theme-color" content="#2F75BB"/>
+<!--<link rel="manifest" href="~/manifest.json">-->
 <!-- Apple -->
 <link rel="icon" type="image/png" sizes="32x32" href="https://{%domain%}/1IMv2/ext/icons/32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://{%domain%}/1IMv2/ext/icons/16x16.png">
@@ -15,18 +13,18 @@
 <!-- Google -->
 <meta property="og:title" content="{% (DocumentPageTitle) ? DocumentPageTitle : DocumentName %}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://{%domain + CurrentDocument.NodeAliasPath#%}">
-<meta property="og:image" content="{% (MenuItemImage) ? "https://"+domain+"/getattachment"+NodeAliasPath+"/share.jpg?width=1200&height=627" : "https://"+domain+"/getattachment"+NodeAliasPath+"/"+CurrentDocument.AllAttachments.FirstItem.AttachmentName #%}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="627">
-<meta property="og:site_name" content="{%Settings.CMSPageTitlePrefix#%}">
+<meta property="og:url" content="https://{%domain + GetDocumentUrl() %}">
+<meta property="og:image" content="{% Format("https://{0}/getattachment/{1}/share.jpg", domain, if( MenuItemTeaserImage ) {MenuItemTeaserImage} else {if( NewsTeaser ) {NewsTeaser} else {if( EventTeaserImage ) {EventTeaserImage} else {if( BlogPostTeaser ) {BlogPostTeaser} else {if( TeaserImage ) {TeaserImage} else {CurrentDocument.AllAttachments.FirstItem.AttachmentGUID}}}}}) #%}">
+<meta property="og:image:width" content="{% if( MenuItemTeaserImage ) {CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageWidth} else {if( NewsTeaser ) {CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.NewsTeaser).FirstItem.AttachmentImageWidth} else {if( EventTeaserImage ) {CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.EventTeaserImage).FirstItem.AttachmentImageWidth} else {if( BlogPostTeaser ) {CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.BlogPostTeaser).FirstItem.AttachmentImageWidth} else {if( TeaserImage ) {CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.TeaserImage).FirstItem.AttachmentImageWidth} else {CurrentDocument.AllAttachments.FirstItem.AttachmentImageWidth}}}}} #%}">
+<meta property="og:image:height" content="{% if( MenuItemTeaserImage ) {CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageHeight} else {if( NewsTeaser ) {CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.NewsTeaser).FirstItem.AttachmentImageHeight} else {if( EventTeaserImage ) {CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.EventTeaserImage).FirstItem.AttachmentImageHeight} else {if( BlogPostTeaser ) {CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.BlogPostTeaser).FirstItem.AttachmentImageHeight} else {if( TeaserImage ) {CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.TeaserImage).FirstItem.AttachmentImageHeight} else {CurrentDocument.AllAttachments.FirstItem.AttachmentImageHeight}}}}} #%}">
+<meta property="og:site_name" content="{%SiteContext.CurrentSite.DataContext.Settings.CMSPageTitlePrefix#%}">
 <meta property="fb:app_id" content="250266005122099">
-<meta property="og:description" content="{% (DocumentPageDescription) ? StripTags(DocumentPageDescription) : StripTags(MenuItemTeaserText) %}{% (NewsSummary) ? "" : StripTags(NewsSummary) %}{% (EventTeaserText) ? "" : StripTags(EventTeaserText) %}">
+<meta property="og:description" content="{% (DocumentPageDescription) ? StripTags(LimitLength(DocumentPageDescription,160,"…",true)) : StripTags(LimitLength(MenuItemTeaserText,160,"…",true)) %}{% (NewsSummary) ? "" : StripTags(LimitLength(NewsSummary,160,"…",true)) %}{% (EventTeaserText) ? "" : StripTags(LimitLength(EventTeaserText,,160,"…",true)) %}">
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="{%Settings.CMSPageTitlePrefix#%}">
+<meta name="twitter:site" content="{%SiteContext.CurrentSite.DataContext.Settings.CMSPageTitlePrefix#%}">
 <meta name="twitter:domain" content="{%domain%}">
 <meta name="twitter:title" content="{%(DocumentPageTitle) ? DocumentPageTitle : DocumentName%}">
-<meta name="twitter:description" content="{% (DocumentPageDescription) ? StripTags(DocumentPageDescription) : StripTags(MenuItemTeaserText) %}{% (NewsSummary) ? "" : StripTags(NewsSummary) %}{% (EventTeaserText) ? "" : StripTags(EventTeaserText) %}">
-<meta name="twitter:image" content="{% (MenuItemImage) ? "https://"+domain+"/getattachment"+NodeAliasPath+"/share.jpg?width=1200&height=627" : "https://"+domain+"/getattachment"+NodeAliasPath+"/"+CurrentDocument.AllAttachments.FirstItem.AttachmentName #%}">
-<meta itemprop="image" content="{% (MenuItemImage) ? "https://"+domain+"/getattachment"+NodeAliasPath+"/share.jpg?width=1200&height=627" : "https://"+domain+"/getattachment"+NodeAliasPath+"/"+CurrentDocument.AllAttachments.FirstItem.AttachmentName #%}">
+<meta name="twitter:description" content="{% (DocumentPageDescription) ? StripTags(LimitLength(DocumentPageDescription,160,"…",true)) : StripTags(LimitLength(MenuItemTeaserText,160,"…",true)) %}{% (NewsSummary) ? "" : StripTags(LimitLength(NewsSummary,160,"…",true)) %}{% (EventTeaserText) ? "" : StripTags(LimitLength(EventTeaserText,,160,"…",true)) %}">
+<meta name="twitter:image" content="{% Format("https://{0}/getattachment/{1}/share.jpg", domain, if( MenuItemTeaserImage ) {MenuItemTeaserImage} else {if( NewsTeaser ) {NewsTeaser} else {if( EventTeaserImage ) {EventTeaserImage} else {if( BlogPostTeaser ) {BlogPostTeaser} else {if( TeaserImage ) {TeaserImage} else {CurrentDocument.AllAttachments.FirstItem.AttachmentGUID}}}}}) #%}">
+<meta name="seobility" content="{% settings.CustomSettings.seobilityID #%}">
