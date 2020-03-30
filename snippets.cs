@@ -12,7 +12,7 @@
 {% ToInt32() %}
 {% ToBool() %}
 {% Split("/")[5] %}
-{% LimitLength("string", 10 , "…", true) %}
+{% LimitLength("string", 10 , "…", true) %} // true if whole words
 {% StripTags("string<br>") %}
 {% Contains("") %} // or Contains(Field,"")
 {% NotContains("") %} 
@@ -325,9 +325,19 @@ SiteID  SiteName                    SK_Valid
 // TO USE IN WEB PARTS
 
 // Add JS file
-ScriptHelper.RegisterScriptFile(Page, "/1IMv2/core/js/jquery-3.4.1.min.js");
+using CMS.Helpers;
+ScriptHelper.RegisterScriptFile(Page, "/1IMv2/core/js/jquery-3.4.1.min.js", true); // true if minify
 ScriptHelper.RegisterScriptFromFile(Page, "/1IMv2/core/js/jquery-3.4.1.min.js");
 ScriptHelper.RegisterStartupScript(Page, "/1IMv2/core/js/jquery-3.4.1.min.js");
+
+// Add CSS link
+using CMS.Base.Web.UI;
+CssRegistration.RegisterCssLink(Page, "/1IMv2/core/css/animate.css");
+
+// Add CSS block
+using CMS.Base.Web.UI;
+CssRegistration.RegisterCssBlock(Page, inlineCss, "<style type=\"text/css\">.titanic {float: none;}</style>")
+
 
 // Add META tags and CSS stylesheets
 String FacebookOpenGraph = ""; String cssInline = "";
@@ -335,3 +345,15 @@ FacebookOpenGraph += "<meta property=\"og:title\" content=\"" + Title + "\" >";
 cssInline += "<style type=\"text/css\"></style>";
 Page.Header.Controls.Add(new LiteralControl(FacebookOpenGraph));
 Page.Header.Controls.Add(new LiteralControl(cssInline));
+
+// TODO:
+GetNotEmpty(MenuItemTeaserImage,"default")
+GetLink(URL, string, "noopener")
+FixUrl(URL) // FixUrl: & to &amp; etc.
+EnsureImageDimensions(width, height, maxSideSize)
+GetConvertedImage(Jpef,72) // convert to jpg
+GetGrayscaledImage()
+GetResizedImage(width, height)
+IsImage(jpg)
+EnsureMaximumLineLength("",100,"<br>")
+IsAnchor() // Returns true for url's starting with hash (#) character.
