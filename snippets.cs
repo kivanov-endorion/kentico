@@ -85,7 +85,7 @@
 {% CurrentDocument.NewsTitle|(default)Default Title %}
 
 // ViewMode: Edit, Design, LiveSite, Preview
-{% if( ViewMode=="Edit" || ViewMode=="Design" ) { return true; } else { return false; } %}
+{% if( ViewMode=="Edit" || ViewMode=="Design" ) { return false; } else { return true; } %}
 
 // Grouping in transformations + modulo function
 {% if( DataItemIndex mod 3 == 0) { "<div class='row'>" } %}
@@ -324,17 +324,14 @@ SiteID  SiteName                    SK_Valid
 
 // TO USE IN WEB PARTS
 
-// Add CSS Stylesheet
-CSSHelper.RegisterCSSLink(Page, URLHelper.ResolveUrl("~/css/langselector.css"));
-
 // Add JS file
-ScriptHelper.RegisterScriptFile(Page, "~/CMSWebParts/Viewers/DateTime_files/DateTime.js");
+ScriptHelper.RegisterScriptFile(Page, "/1IMv2/core/js/jquery-3.4.1.min.js");
+ScriptHelper.RegisterScriptFromFile(Page, "/1IMv2/core/js/jquery-3.4.1.min.js");
+ScriptHelper.RegisterStartupScript(Page, "/1IMv2/core/js/jquery-3.4.1.min.js");
 
-// Add META tags
-String FacebookOpenGraph = "";
+// Add META tags and CSS stylesheets
+String FacebookOpenGraph = ""; String cssInline = "";
 FacebookOpenGraph += "<meta property=\"og:title\" content=\"" + Title + "\" >";
-FacebookOpenGraph += "<meta property=\"og:description\" content=\"" + Description + "\" >";
-FacebookOpenGraph += "<meta property=\"og:site_name\" content=\"" + SiteName + "\" >";
-FacebookOpenGraph += "<meta property=\"og:url\" content=\"" + URL + "\" >";
-FacebookOpenGraph += "<meta property=\"og:image\" content=\"" + Image + "\" >";
+cssInline += "<style type=\"text/css\"></style>";
 Page.Header.Controls.Add(new LiteralControl(FacebookOpenGraph));
+Page.Header.Controls.Add(new LiteralControl(cssInline));
