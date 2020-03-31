@@ -61,8 +61,10 @@
 
 // GetImage( image, alt, maxsidesize, width, height )
 {% GetImage( MenuItemTeaserImage, DocumentName, 0, 600 ) %}
+// Get attachment URL
+{% GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ) %}
 {% if( MenuItemTeaserImage ) { 
-    Format("<img alt='{0}' class='img-fluid' src='~/getattachment/{1}/{2}?width=600'>", DocumentName, MenuItemTeaserImage, CurrentDocument.NodeAliasPath.Replace("/","-")) 
+    Format("<img alt='{0}' class='img-fluid lazyload' data-src='{1}?width=600'>", DocumentName, GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias )) 
 } %}
 
 // GetLogo (Vendors)
@@ -209,7 +211,6 @@ if() {
         } 
 ) %} // image
 {% CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageWidth %} // image width
-{% DocumentPageKeyWords %} // keywords
 
 // Aspect ratio for MenuItemTeaserImage
 {% Format("/getattachment/{0}/header.jpg",MenuItemTeaserImage) %}
@@ -295,9 +296,6 @@ SiteID  SiteName                    SK_Valid
 {% NodeParentID %}
 {% NodeInheritPageTemplate %}
 
-{% CurrentURL %}
-{% AbsoluteURL %}
-
 // MenuItem (Page)
 
 {% MenuItemTeaserImage %}
@@ -314,8 +312,19 @@ SiteID  SiteName                    SK_Valid
 {% MenuItemSubNavigation %} // pathHorizontal, pathHeaderImg, categoriesHeaderImg
 {% MenuItemTransformation %} // visible for News, Events, Products page templates
 
+{% CurrentURL %}
+{% AbsoluteURL %}
+{% GetAbsoluteUrl(URL) %}
 
+// Related documents
+{% Documents[NodeAliasPath].RelatedDocuments["isrelatedto"] %}
 
+// Requires authentication
+{% CurrentDocument.IsSecuredNode %}
+
+// Check if widget / web part is on page
+{% DocumentContext.CurrentPageInfo.DocumentContent.Contains("On_lineFormPlus") %}
+{% if(DocumentContext.CurrentTemplate.PageTemplateWebParts.Contains("On_lineFormPlus")) {} %}
 
 
 // TO USE IN PAGE TEMPLATES
@@ -334,11 +343,6 @@ ScriptHelper.RegisterStartupScript(Page, "/1IMv2/core/js/jquery-3.4.1.min.js");
 using CMS.Base.Web.UI;
 CssRegistration.RegisterCssLink(Page, "/1IMv2/core/css/animate.css");
 
-// Add CSS block
-using CMS.Base.Web.UI;
-CssRegistration.RegisterCssBlock(Page, inlineCss, "<style type=\"text/css\">.titanic {float: none;}</style>")
-
-
 // Add META tags and CSS stylesheets
 String FacebookOpenGraph = ""; String cssInline = "";
 FacebookOpenGraph += "<meta property=\"og:title\" content=\"" + Title + "\" >";
@@ -346,12 +350,12 @@ cssInline += "<style type=\"text/css\"></style>";
 Page.Header.Controls.Add(new LiteralControl(FacebookOpenGraph));
 Page.Header.Controls.Add(new LiteralControl(cssInline));
 
-// TODO:
+// Other Methods for web parts:
 GetNotEmpty(MenuItemTeaserImage,"default")
 GetLink(URL, string, "noopener")
 FixUrl(URL) // FixUrl: & to &amp; etc.
 EnsureImageDimensions(width, height, maxSideSize)
-GetConvertedImage(Jpef,72) // convert to jpg
+GetConvertedImage(Jpeg,72) // convert to jpg
 GetGrayscaledImage()
 GetResizedImage(width, height)
 IsImage(jpg)
