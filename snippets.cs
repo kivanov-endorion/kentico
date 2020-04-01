@@ -25,7 +25,7 @@
 {% RegexReplace("\s", "-") %}
 {% Filter(AttachmentExtension == ".jpg") %}
 {% Where("AttachmentExtension = '.jpg'") %}
-{% if( CurrentDocument.Children.ClassNames("CMS.MenuItem;oneIM.News").Count > 0 ) {} %}
+{% ClassNames("CMS.MenuItem;oneIM.News") %}
 {% if( NodeHasChildren ) {} %}
 {% CurrentDocument.Children.FirstItem ?? "No child pages" %} // Returns the left if not null, otherwise the right
 {% LoremIpsum(1800) %}
@@ -61,6 +61,7 @@
 
 // GetImage( image, alt, maxsidesize, width, height )
 {% GetImage( MenuItemTeaserImage, DocumentName, 0, 600 ) %}
+
 // Get attachment URL
 {% GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ) %}
 {% if( MenuItemTeaserImage ) { 
@@ -68,7 +69,7 @@
 } %}
 
 // GetLogo (Vendors)
-<img class="wow flipInX" src="~/logos/GetLogo.ashx?name={% DocumentName.Replace(" ","-") #%}&size=120" alt="{% DocumentName %}" data-wow-delay="{% DataItemIndex*100 %}ms">
+<img class="wow flipInX" src="~/logos/GetLogo.ashx?name={% NodeAlias #%}&size=120" alt="{% DocumentName %}" data-wow-delay="{% DataItemIndex*100 %}ms">
 
 // Get URL
 {% GetDocumentUrl() %}
@@ -187,7 +188,7 @@ if() {
 // Meta data:
 {% (DocumentPageTitle) ? DocumentPageTitle : DocumentName %} // title
 {% (DocumentPageDescription) ? StripTags(LimitLength(DocumentPageDescription,160,"…",true)) : StripTags(LimitLength(MenuItemTeaserText,160,"…",true)) %} // description
-{% Format("https://{0}/getattachment/{1}/share.jpg", domain, 
+{% Format("https://{0}/getattachment/{1}/share.jpg}", domain, 
     if( MenuItemTeaserImage ) {
         MenuItemTeaserImage
     } else {
@@ -213,7 +214,6 @@ if() {
 {% CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageWidth %} // image width
 
 // Aspect ratio for MenuItemTeaserImage
-{% Format("/getattachment/{0}/header.jpg",MenuItemTeaserImage) %}
 {% Format("padding-top: {0:p};",((CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageHeight) / (CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageWidth))).RegexReplace("\s+","") %}
 
 
@@ -306,14 +306,14 @@ SiteID  SiteName                    SK_Valid
 {% MenuItemName %}
 {% MenuItemTarget %}
 {% Breadcrumbs %}
-{% MenuItemGroup %} // top, footer, left, inline, category, none
-{% MenuItemSidebar %} // left, right, none
+{% MenuItemGroup %} // options: top, footer, left, inline, category, none
+{% MenuItemSidebar %} // options: left, right, none
 {% MenuItemHorizontalSublNavigation %}
-{% MenuItemSubNavigation %} // pathHorizontal, pathHeaderImg, categoriesHeaderImg
+{% MenuItemSubNavigation %} // options: pathHorizontal, pathHeaderImg, categoriesHeaderImg
 {% MenuItemTransformation %} // visible for News, Events, Products page templates
 
 {% CurrentURL %}
-{% AbsoluteURL %}
+{% AbsoluteURL %} // Note: gets the dash domain URL
 {% GetAbsoluteUrl(URL) %}
 
 // Related documents
@@ -325,39 +325,3 @@ SiteID  SiteName                    SK_Valid
 // Check if widget / web part is on page
 {% DocumentContext.CurrentPageInfo.DocumentContent.Contains("On_lineFormPlus") %}
 {% if(DocumentContext.CurrentTemplate.PageTemplateWebParts.Contains("On_lineFormPlus")) {} %}
-
-
-// TO USE IN PAGE TEMPLATES
-<%=CMS.Helpers.ResHelper.GetString( "MyKey.SubKey.value" ) %>
-<%=CMS.MacroEngine.MacroResolver.Resolve( "The current user is: {% CurrentUser.UserName %}" ) %>
-
-// TO USE IN WEB PARTS
-
-// Add JS file
-using CMS.Helpers;
-ScriptHelper.RegisterScriptFile(Page, "/1IMv2/core/js/jquery-3.4.1.min.js", true); // true if minify
-ScriptHelper.RegisterScriptFromFile(Page, "/1IMv2/core/js/jquery-3.4.1.min.js");
-ScriptHelper.RegisterStartupScript(Page, "/1IMv2/core/js/jquery-3.4.1.min.js");
-
-// Add CSS link
-using CMS.Base.Web.UI;
-CssRegistration.RegisterCssLink(Page, "/1IMv2/core/css/animate.css");
-
-// Add META tags and CSS stylesheets
-String FacebookOpenGraph = ""; String cssInline = "";
-FacebookOpenGraph += "<meta property=\"og:title\" content=\"" + Title + "\" >";
-cssInline += "<style type=\"text/css\"></style>";
-Page.Header.Controls.Add(new LiteralControl(FacebookOpenGraph));
-Page.Header.Controls.Add(new LiteralControl(cssInline));
-
-// Other Methods for web parts:
-GetNotEmpty(MenuItemTeaserImage,"default")
-GetLink(URL, string, "noopener")
-FixUrl(URL) // FixUrl: & to &amp; etc.
-EnsureImageDimensions(width, height, maxSideSize)
-GetConvertedImage(Jpeg,72) // convert to jpg
-GetGrayscaledImage()
-GetResizedImage(width, height)
-IsImage(jpg)
-EnsureMaximumLineLength("",100,"<br>")
-IsAnchor() // Returns true for url's starting with hash (#) character.
