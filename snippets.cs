@@ -24,14 +24,16 @@
 {% Replace(" ", "-") %}
 {% RegexReplace("\s", "-") %}
 {% Filter(AttachmentExtension == ".jpg") %}
-{% Where("AttachmentExtension = '.jpg'") %}
+{% Where("AttachmentExtension = '.jpg'") %} // SQL syntax
+{% TopN(1) %}
+{% OrderBy("EventDateStart ASC") %}
 {% ClassNames("CMS.MenuItem;oneIM.News") %}
+{% CurrentDocument.ClassName.InList("cms.menuitem;cms.root".Split(";")) %}
 {% if( NodeHasChildren ) {} %}
 {% CurrentDocument.Children.FirstItem ?? "No child pages" %} // Returns the left if not null, otherwise the right
 {% LoremIpsum(1800) %}
 {% UrlEncode(URL) %}
-{% HTMLEncode("<br>") %}
-{% URL|(encode)true %}
+{% HTMLEncode("<br>") %} // or "<br>"|(encode)true
 {% IsEven(DataItemIndex) %}
 {% if( IsDocumentOnSelectedPath() || IsCurrentDocument() ) { "active" } %}
 {% CurrentBrowser.IsMobileDevice %}
@@ -43,33 +45,35 @@
 {% QueryString["cat"]|(handlesqlinjection)true %}
 
 // Date format
-{% GetDateTime(EventDate, "yyyy-MM-dd:HH-mm-ss") %}
-{% FormatDateTime(EventDate, "MMMM d") %}
-{% FormatDateTime(EventDate, GetResourceString("oneIM.Localdate.long")) %}
 {% CurrentDateTime.Year %}
 {% DateTime.Now.ToString("yyyy-MM-dd h:mm tt") %}
-{% CurrentDocument.DocumentModifiedWhen.Format("{0:MM/dd/yyyy}") %}    /* 09/12/2016 */
-{% CurrentDocument.DocumentModifiedWhen.Format("{0:T}") %}             /* 1:42:31 PM */
+{% GetDateTime(EventDate, "dddd") %} // Wednesday
+{% FormatDateTime(EventDate, "MMMM d") %} // April 1
+{% FormatDateTime(EventDate, GetResourceString("oneIM.Localdate.long")) %} // Apr 01, 2020
+{% EventDate.ToShortDateString() %} // 4/1/2020
+{% EventDate.Format("{0:MM/dd/yyyy}") %} // 09/12/2016
+{% EventDate.Format("{0:T}") %} // 1:42:31 PM
+{% EventDate.ToShortDateString() %} // 3:22 PM
 
 // Format Numbers
-{% Price.Format( "{0:C}" ) %}  // 100.000,00 €
-{% Format( "{0:C}", 100000 ) %}  // 100.000,00 €
+{% Price.Format( "{0:C}" ) %}  // $100,000.00
+{% Format( "{0:C}", 100000 ) %}  //$100,000.00
 {% Format( "{0:C}", 100000 )|(culture)bg-bg %}  // 100 000,00 лв.
-{% Format( "{0:n}", 100000 ) %}    // 100.000.00
-{% Format( "{0:n0}", 100000 ) %}   // 100.000 (0 is the number of decimal symbols)
+{% Format( "{0:n}", 100000 ) %}    // 100,000.00
+{% Format( "{0:n0}", 100000 ) %}   // 100,000 (0 is the number of decimal symbols)
 {% Format( "{0:p0}", 0.56 ) %} // 56 %
 
 // GetImage( image, alt, maxsidesize, width, height )
 {% GetImage( MenuItemTeaserImage, DocumentName, 0, 600 ) %}
 
-// Get attachment URL
+// Get attachment (image) URL
 {% GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ) %}
 {% if( MenuItemTeaserImage ) { 
     Format("<img alt='{0}' class='img-fluid lazyload' data-src='{1}?width=600'>", DocumentName, GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias )) 
 } %}
 
 // GetLogo (Vendors)
-<img class="wow flipInX" src="~/logos/GetLogo.ashx?name={% NodeAlias #%}&size=120" alt="{% DocumentName %}" data-wow-delay="{% DataItemIndex*100 %}ms">
+<img class="wow flipInX" src="/logos/GetLogo.ashx?name={% NodeAlias.Replace("-","") %}&size=120" alt="{% DocumentName %}" data-wow-delay="{% DataItemIndex*100 %}ms">
 
 // Get URL
 {% GetDocumentUrl() %}
@@ -78,14 +82,14 @@
 {% GetNavigationUrl() %}
 
 // If null and compare
-{% ( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
-{% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
-{% If( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
 {% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } %}
+{% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
-{% IfCompare( Documents[NodeAliasPath].DocumentName, CurrentDocument.DocumentName, "", "active" ) %}
-{% CurrentDocument.GetValue("NewsTitle", "Default Title") %} // Sets default value if field is null (optional)
+{% If( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
+{% ( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
+{% CurrentDocument.GetValue("DocumentMenuCaption", DocumentName) %} // Sets default value if field is null (optional)
 {% CurrentDocument.NewsTitle|(default)Default Title %}
+{% IfCompare( Documents[NodeAliasPath].DocumentName, CurrentDocument.DocumentName, "", "active" ) %}
 
 // ViewMode: Edit, Design, LiveSite, Preview
 {% if( ViewMode=="Edit" || ViewMode=="Design" ) { return false; } else { return true; } %}
@@ -216,6 +220,8 @@ if() {
 // Aspect ratio for MenuItemTeaserImage
 {% Format("padding-top: {0:p};",((CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageHeight) / (CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageWidth))).RegexReplace("\s+","") %}
 
+// Check if published
+{% Documents[NodeAliasPath].Children.Where("DocumentCanBePublished = 1 AND GETDATE() BETWEEN ISNULL(DocumentPublishFrom, GETDATE()) AND ISNULL(DocumentPublishTo, GETDATE())") %}
 
 
 // Site name:
