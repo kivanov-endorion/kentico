@@ -5,6 +5,9 @@ WHERE DocumentCanBePublished = 1
 AND GETDATE() BETWEEN ISNULL(DocumentPublishFrom, GETDATE()) 
 AND ISNULL(DocumentPublishTo, GETDATE())
 
+/* EVENTS WHERE*/
+DATEFROMPARTS(YEAR(EventDateStart),MONTH(EventDateStart),1) > DATEFROMPARTS(YEAR(GETDATE()),MONTH(GETDATE()),1)
+
 
 -- FROM View_OneIM_News_Joined
 (
@@ -95,3 +98,5 @@ AND ISNULL(DocumentPublishTo, GETDATE())
     FROM View_CMS_Tree_Joined INNER JOIN oneIM_Campaign ON View_CMS_Tree_Joined.DocumentForeignKeyValue = oneIM_Campaign.CampaignID
     WHERE (ClassName = 'oneIM.Campaign')
 ) AS View_oneIM_Campaign_Joined
+
+

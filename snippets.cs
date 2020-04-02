@@ -53,7 +53,7 @@
 {% EventDate.ToShortDateString() %} // 4/1/2020
 {% EventDate.Format("{0:MM/dd/yyyy}") %} // 09/12/2016
 {% EventDate.Format("{0:T}") %} // 1:42:31 PM
-{% EventDate.ToShortDateString() %} // 3:22 PM
+{% EventDate.ToShortTimeString() %} // 3:22 PM
 
 // Format Numbers
 {% Price.Format( "{0:C}" ) %}  // $100,000.00
@@ -331,3 +331,33 @@ SiteID  SiteName                    SK_Valid
 // Check if widget / web part is on page
 {% DocumentContext.CurrentPageInfo.DocumentContent.Contains("On_lineFormPlus") %}
 {% if(DocumentContext.CurrentTemplate.PageTemplateWebParts.Contains("On_lineFormPlus")) {} %}
+
+
+
+/* EVENTS */
+
+// Event Teaser Image
+{% IsNullOrEmpty(EventTeaserImage) ? 
+    Format("<img src='~/1IM/oneingram-1.9.13/global/default_975.jpg' alt='{0}' class='img-fluid' />", EventTitle) : 
+    Format("<img src='{0}?width=446' alt='{1}' class='img-fluid'/>", GetAttachmentUrlByGUID( EventTeaserImage, NodeAlias ), EventTitle ) %}
+
+// Feb 26 – Mar 26, 2020
+// 10:00 AM – 10:00 AM
+{% IfCompare(
+    FormatDateTime(EventDateStart, "d MMMM"), 
+    FormatDateTime(EventDateEnd, "d MMMM"), 
+    "<time class='small text-muted text-right'>" + 
+        IfCompare(
+            FormatDateTime(EventDateStart, "MMMM"), FormatDateTime(EventDateEnd, "MMMM"),
+            FormatDateTime(EventDateStart, "MMM d") + "&thinsp'&ndash;&thinsp'"+ 
+            FormatDateTime(EventDateEnd, "MMM d, yyyy") +"<br/>",
+            FormatDateTime(EventDateStart, "MMM d") + " &ndash; "+ 
+            FormatDateTime(EventDateEnd, "d, yyyy") +"<br/>"
+        ) +        
+        FormatDateTime(EventDateStart, GetResourceString("oneIM.Localtime")) + " &ndash; "+ 
+        FormatDateTime(EventDateEnd, GetResourceString("oneIM.Localtime")) +"</time>", 
+    "<time class='small text-muted text-right'>" + 
+        FormatDateTime(EventDateStart, GetResourceString("oneIM.Localdate.long")) + "<br/>"+ 
+        FormatDateTime(EventDateStart, GetResourceString("oneIM.Localtime"))+ " &ndash; "+
+        FormatDateTime(EventDateEnd, GetResourceString("oneIM.Localtime"))+ "</time>"
+) %}
