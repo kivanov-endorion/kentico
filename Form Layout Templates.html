@@ -105,6 +105,8 @@ CustomerNumber: Explanation text: <small class="text-muted">Branch number + Cust
     </div>
 </div>
 
+
+
 <!-- ICONS (Content Before and After) -->
 
 <div class="icon-user"> </div>
@@ -132,9 +134,9 @@ Control CSS Class: custom-file-input
 
 
 
-<!-- General error message -->
+<!-- General error message 
 {$ general.errorvalidationerror $}
-
+-->
 
 <!-- RegEx
 
@@ -186,3 +188,54 @@ $  // end
 {% imSK_Valid %} 
 
 -->
+
+
+<!-- JS -->
+
+<!-- Textarea counter: 
+     1. Place div and JS in HTML After;
+     2. Add .textarea to Control CSS Class 
+
+     Email placeholder:
+     1. Place JS in HTML After;
+     2. Add .form-email to Control CSS Class 
+-->
+<div class="small text-muted" id="charNum">0/100</div>
+<script>
+$(document).ready(function() {
+    $('.textarea').on("keyup", function () {
+        var max = 100;
+        var len = $(this).val().length;
+        if (len >= max) {
+            $('#charNum').text('You have reached the limit');
+        } else {
+            var char = max - len;
+            $('#charNum').text(char + '/' + max);
+        }
+    });
+
+
+    if($(".form-email").val() == ""){
+       $(".form-email").val("E-mail*");
+    }
+ 
+    if($('.form-email').val() != "E-mail*") {
+       $('.form-email').removeClass('WatermarkText');  
+    }
+ 
+    $(".form-email").focus(function(){
+       if($(".form-email").val() == "E-mail*"){
+           $(".form-email").val("").removeClass('WatermarkText');
+         }
+    });
+    $('.form-email').blur(function(){
+       if($(".form-email").val() == ""){
+           $(".form-email").val("E-mail*").addClass('WatermarkText');
+         }
+    });
+     
+    $('.form-email').keypress(function(){  
+       $(this).removeClass('WatermarkText');  
+    });
+});
+</script>
