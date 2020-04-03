@@ -69,7 +69,7 @@
 // Get attachment (image) URL
 {% GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ) %}
 {% if( MenuItemTeaserImage ) { 
-    Format("<img alt='{0}' class='img-fluid lazyload' data-src='{1}?width=600'>", DocumentName, GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias )) 
+    Format("<img alt='{0}' class='img-fluid lazyload' data-src='{1}?width=600'>", DocumentName, GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ))
 } %}
 
 // GetLogo (Vendors)
@@ -343,21 +343,23 @@ SiteID  SiteName                    SK_Valid
 
 // Feb 26 – Mar 26, 2020
 // 10:00 AM – 10:00 AM
-{% IfCompare(
-    FormatDateTime(EventDateStart, "d MMMM"), 
-    FormatDateTime(EventDateEnd, "d MMMM"), 
-    "<time class='small text-muted text-right'>" + 
-        IfCompare(
-            FormatDateTime(EventDateStart, "MMMM"), FormatDateTime(EventDateEnd, "MMMM"),
-            FormatDateTime(EventDateStart, "MMM d") + "&thinsp'&ndash;&thinsp'"+ 
-            FormatDateTime(EventDateEnd, "MMM d, yyyy") +"<br/>",
-            FormatDateTime(EventDateStart, "MMM d") + " &ndash; "+ 
-            FormatDateTime(EventDateEnd, "d, yyyy") +"<br/>"
-        ) +        
-        FormatDateTime(EventDateStart, GetResourceString("oneIM.Localtime")) + " &ndash; "+ 
-        FormatDateTime(EventDateEnd, GetResourceString("oneIM.Localtime")) +"</time>", 
-    "<time class='small text-muted text-right'>" + 
-        FormatDateTime(EventDateStart, GetResourceString("oneIM.Localdate.long")) + "<br/>"+ 
-        FormatDateTime(EventDateStart, GetResourceString("oneIM.Localtime"))+ " &ndash; "+
-        FormatDateTime(EventDateEnd, GetResourceString("oneIM.Localtime"))+ "</time>"
-) %}
+{% if (EventDateStart || EventDateEnd) {
+    IfCompare(
+        FormatDateTime(EventDateStart, "d MMMM"), 
+        FormatDateTime(EventDateEnd, "d MMMM"), 
+        "<time class='small text-muted text-right'>" + 
+            IfCompare(
+                FormatDateTime(EventDateStart, "MMMM"), FormatDateTime(EventDateEnd, "MMMM"),
+                FormatDateTime(EventDateStart, "MMM d") + "&thinsp'&ndash;&thinsp'"+ 
+                FormatDateTime(EventDateEnd, "MMM d, yyyy") +"<br/>",
+                FormatDateTime(EventDateStart, "MMM d") + " &ndash; "+ 
+                FormatDateTime(EventDateEnd, "d, yyyy") +"<br/>"
+            ) +        
+            FormatDateTime(EventDateStart, GetResourceString("oneIM.Localtime")) + " &ndash; "+ 
+            FormatDateTime(EventDateEnd, GetResourceString("oneIM.Localtime")) +"</time>", 
+        "<time class='small text-muted text-right'>" + 
+            FormatDateTime(EventDateStart, GetResourceString("oneIM.Localdate.long")) + "<br/>"+ 
+            FormatDateTime(EventDateStart, GetResourceString("oneIM.Localtime"))+ " &ndash; "+
+            FormatDateTime(EventDateEnd, GetResourceString("oneIM.Localtime"))+ "</time>"
+    )
+} %}
