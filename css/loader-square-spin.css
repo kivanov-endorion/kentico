@@ -1,0 +1,47 @@
+/* OneIM Loader:
+    <div class="loader">
+    <div class="bouncybox">
+    <div class="square-spin">&nbsp;</div>
+    </div>
+    </div> 
+*/
+
+.loader {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1111;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+.bouncybox {
+    /*height:80px;
+  width: 40px;*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.bouncybox .square-spin {
+    width: 50px;
+    height: 50px;
+    background: #2f75bb;
+    -webkit-animation: square-spin 3s 0s cubic-bezier(.09, .57, .49, .9) infinite;
+    animation: square-spin 3s 0s cubic-bezier(.09, .57, .49, .9) infinite;
+}
+
+.bouncybox .bouncy {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: #2471B7;
+    -webkit-animation: bouncy 2s infinite ease-in-out;
+    animation: bouncy 2s infinite ease-in-out;
+}
