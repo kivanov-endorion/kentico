@@ -14,7 +14,7 @@
         rel="stylesheet" media="screen" />
     <link href="https://starter.ingrammicro.eu/CMSPages/GetResource.ashx?stylesheetname=1IM_Animate" type="text/css"
         rel="stylesheet" media="screen" />
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://starter.ingrammicro.eu/1IM/html5/js/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 
@@ -265,17 +265,7 @@
             opacity: 1;
         }
         
-        @media (prefers-color-scheme: dark) {
-          body,
-          .bg-light,
-          .bg-white {
-            background-color: #000;
-            color: #fff;
-          }
-          p, a, .text-primary {
-            color: #fff;
-          }
-        }
+        @media (prefers-color-scheme: dark) {}
         @media (prefers-contrast: high) {}
         @media (prefers-reduced-transparency: reduce) {}
         @media (forced-colors: high) {}
@@ -328,12 +318,42 @@
             font-size: min(1.5rem);
             font-size: max(6vw);
         }
-        
-        .h1 {
-                background: linear-gradient(hotpink, steelblue);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+        @supports (-webkit-background-clip: text) {
+            h1 {
+                    background: linear-gradient(hotpink, steelblue);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-weight: 900;
+            }
         }
+        .pulse-icon {
+            padding-top: 1.4em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .pulse-icon i {
+            position: relative;
+            display: inline-flex;
+            margin: 0 auto;
+            width: 60px;
+            height: 60px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 0 0 30px transparent;
+            background: rgba(255,255,255,0.1);
+            transform: translate3d(0, 0, 0);
+            transition: box-shadow .6s ease-in-out;
+        }	
+
+        .pulse-icon:hover i,
+        .pulse-icon:active i,
+        .pulse-icon:focus i {		
+            box-shadow: 0 0 0 0 rgba(255,255,255,0.2);
+            transition: box-shadow .4s ease-in-out;
+        }
+
 
         </style>
 </head>
@@ -343,6 +363,9 @@
     <div class="text-center w-100 z-index-max">
         <h1>HEADING</h1>
         <p>Subheading</p>
+        <span class="pulse-icon">
+            <i aria-hidden="true" class=" fa fa-user fa-2x"></i>
+        </span>
     </div>
 </div>
 
@@ -408,7 +431,6 @@ window.addEventListener("load",function(){
     <script src="https://starter.ingrammicro.eu/1IM/bootstrap-4.0.0/popper.min.js"></script>
     <script src="https://starter.ingrammicro.eu/1IM/bootstrap-4.0.0/bootstrap.min.js"></script>
     <script defer src="https://starter.ingrammicro.eu/1IM/object-fit-images-3.2.3/ofi.min.js"></script>
-    <script defer src="https://starter.ingrammicro.eu/1IM/font-awesome-5.0.9/all.js"></script>
     <script async src="https://starter.ingrammicro.eu/1IM/bootstrap-4.0.0/affix.js"></script>
     <script async src="https://starter.ingrammicro.eu/1IM/float-panel-2016.10.28/float-panel.min.js"></script>
     <script async src="https://starter.ingrammicro.eu/1IM/lazysizes-4.0.2/lazysizes.min.js"></script>

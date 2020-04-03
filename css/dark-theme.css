@@ -1,0 +1,32 @@
+@media (prefers-color-scheme: dark) {
+    body,
+    .bg-light,
+    .bg-white {
+        background-color: rgb(29, 29, 29);
+        color: #fff;
+    }
+    footer {
+        background-color: #0e0e0e;
+    }
+    .bg-primary {
+        background-color: #275f91;
+    }
+    .card {
+        background-color: #353535;
+    }
+    p, a, .text-primary {
+        color: #fff;
+    }
+    .text-primary {
+        color: #275f91;
+    }
+    .text-muted {
+        color: #9da4aa;
+    }
+    a:hover, a:focus {
+        color: rgb(235, 235, 235);
+    }
+    .shadow, .shadow-sm {
+        box-shadow: 0 .125rem .25rem rgba(0,0,0,0.5)!important;
+    }
+}
