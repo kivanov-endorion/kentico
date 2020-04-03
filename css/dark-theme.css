@@ -1,32 +1,68 @@
 @media (prefers-color-scheme: dark) {
+    /* backgrounds */
     body,
-    .bg-light,
     .bg-white {
-        background-color: rgb(29, 29, 29);
-        color: #fff;
+        background-color: #1d1d1d !important;
+        color: #fff !important;
     }
-    footer {
+    footer,
+    .bg-dark,
+    .badge-dark {
         background-color: #0e0e0e;
     }
-    .bg-primary {
-        background-color: #275f91;
+    .bg-primary,
+    .btn-primary,
+    #primary-nav,
+    #primary-nav .dropdown-menu {
+        background-color: #275f91 !important;
+        background-image: none;
     }
-    .card {
-        background-color: #353535;
+    .bg-light,
+    .card,
+    .list-group-item,
+    .badge-light {
+        background-color: #353535 !important;
+        color: #fff !important;
     }
-    p, a, .text-primary {
-        color: #fff;
+
+    /* colors */
+    p, a, .text-primary,
+    .text-dark {
+        color: #fff !important;
     }
-    .text-primary {
-        color: #275f91;
+    .text-muted,
+    .text-black-50 {
+        color: #9da4aa !important;
     }
-    .text-muted {
-        color: #9da4aa;
-    }
-    a:hover, a:focus {
+    a:hover, a:focus, a:active {
         color: rgb(235, 235, 235);
     }
-    .shadow, .shadow-sm {
+
+    /* borders */
+    .card,
+    .border,
+    .list-group-item {
+        border-color: rgba(255,255,255,.125);
+    }
+
+    /* others */
+    .shadow, 
+    .shadow-sm,
+    .card {
         box-shadow: 0 .125rem .25rem rgba(0,0,0,0.5)!important;
     }
+
+    @media screen and (max-width: 1200px) {
+        .slide-menu, .user-slide-menu {
+            background-color: #1d1d1d;
+            background-image: linear-gradient(45deg,#1d1d1d,#343a40);
+        }
+        #primary-nav .dropdown-menu {
+            background-color: #1d1d1d;
+        }
+        .slide-menu li:hover, .user-slide-menu li:hover {
+            background-color: #1a1a1a;
+        }
+    }
+
 }
