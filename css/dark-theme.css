@@ -7,8 +7,10 @@
     }
     footer,
     .bg-dark,
-    .badge-dark {
-        background-color: #0e0e0e;
+    .badge-dark,
+    .badge-light:focus, 
+    .badge-light:hover {
+        background-color: #0e0e0e !important;
     }
     .bg-primary,
     .btn-primary,
@@ -20,9 +22,12 @@
     .bg-light,
     .card,
     .list-group-item,
-    .badge-light {
+    .badge-light,
+    .b4 .tile-single,
+    div[class$=grad-] {
         background-color: #353535 !important;
         color: #fff !important;
+        background-image: none !important;
     }
 
     /* colors */
@@ -34,15 +39,21 @@
     .text-black-50 {
         color: #9da4aa !important;
     }
-    a:hover, a:focus, a:active {
-        color: rgb(235, 235, 235);
+    a:hover, a:focus, a:active,
+    a.text-dark:focus, a.text-dark:hover {
+        color: #9da4aa !important;
     }
 
     /* borders */
-    .card,
+    .card:not(.border-top-primary),
     .border,
-    .list-group-item {
-        border-color: rgba(255,255,255,.125);
+    .border-bottom,
+    .border-top,
+    .border-left,
+    .border-right,
+    .list-group-item,
+    .b4 .tile-single {
+        border-color: rgba(255,255,255,.125) !important;
     }
 
     /* others */
@@ -50,6 +61,9 @@
     .shadow-sm,
     .card {
         box-shadow: 0 .125rem .25rem rgba(0,0,0,0.5)!important;
+    }
+    a.badge-light.focus, a.badge-light:focus {
+        box-shadow: 0 0 0 .125rem rgba(255,255,255,.125) !important;
     }
 
     @media screen and (max-width: 1200px) {
