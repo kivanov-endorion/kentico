@@ -26,20 +26,40 @@ AND DocumentCanBePublished = 1
 
 <script>
 $(document).ready(function () {
-    $.getJSON('/content-items/ajax/vendors/getvendorsservices', function(data) {
-
-        // var success = function(data) {
-        data.items.forEach(function(item,index) {
-        // data.forEach(function(item,index) {
-            $('#vendors').append(        
-                '<img alt="'+item.ArticleTitle+'" src="/1IM/oneingram-1.9.13/aspx/content/GetLogo.aspx?name='+item.ArticleTitle+'&size=125" data-toggle="collapse" data-target="#vendor_'+index+'">'+
-                '<div id="vendor_'+index+'" class="collapse in" role="tabpanel">'+
-                    '<div class="collapse">'+
-                    item.ArticleText+
-                    '</div>'+
-                '</div>'
+    $(".vendor-logo").click(function(e) {
+        $.ajax({type: 'POST', url: "/content-items/ajax/vendors/getvendorsservices?vendor="+$(this).data('vendor-name')+"", dataType: 'json', success: function(data) {          
+            $("#vendors").empty().append(
+                "<div class='collapse' id='vendor_"+data.items[0].ArticleTitle+"'>"+
+                "<button type='button' class='btn-close border btn-floating btn-light float-right mx-3 text-danger' aria-label='Close'>"+
+                "<i class='fas fa-times'></i>"+
+                "</button>"+
+                "<div class='card card-body bg-light'>"+
+                    "<div class='row align-items-center'>"+
+                    "<div class='col-md-3 d-flex align-items-center justify-content-center'>"+
+                        "<img data-wow-delay='350ms' style='width: 200px;' class='wow zoomIn lazyload' data-src='/logos/GetLogo.ashx?name="+data.items[0].ArticleTitle+"' alt='"+data.items[0].ArticleTitle+"'>"+
+                    "</div>"+
+                    "<div class='col-md-9'>"+
+                        data.items[0].ArticleText+
+                    "</div>"+
+                    "</div>"+
+                "</div>"+
+                "</div>"
             );
-        });
-    });     
-});
-</script>                                                
+            $("#vendor_"+data.items[0].ArticleTitle+"").collapse("toggle");
+            $(".btn-close").on("click", function() {
+                $("#vendor_"+data.items[0].ArticleTitle+"").collapse("hide");
+            });
+
+            var mouse_is_inside = false;
+            $("#vendor_"+data.items[0].ArticleTitle+"").hover(function(){ 
+                mouse_is_inside=true; 
+            }, function(){ 
+                mouse_is_inside=false; 
+            });
+            $("body").mouseup(function(){ 
+                if(! mouse_is_inside) $("#vendor_"+data.items[0].ArticleTitle+"").collapse("hide");
+            });                
+        }});
+    });
+})
+</script>
