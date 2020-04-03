@@ -1,4 +1,3 @@
-<script>
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable2");
@@ -53,13 +52,12 @@ function sortTable(n) {
     }
   }
 }
-</script>
 
-<table id="myTable2">
+{/* <table id="myTable2">
 <tr>
 <!--When a header is clicked, run the sortTable function, with a parameter,
 0 for sorting by names, 1 for sorting by country: -->
 <th onclick="sortTable(0)">Name</th>
 <th onclick="sortTable(1)">Country</th>
 </tr>
-...
+... */}
