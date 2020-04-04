@@ -30,22 +30,16 @@
                 </div> 
                 {% if (CampaignValidFrom || CampaignValidTo) {
                     IfCompare(
-                        FormatDateTime(CampaignValidFrom, "d MMMM"), 
-                        FormatDateTime(CampaignValidTo, "d MMMM"), 
+                        FormatDateTime(CampaignValidFrom, "d MMMM"), FormatDateTime(CampaignValidTo, "d MMMM"), 
                         "<time class='small text-muted text-right'>" + 
                             IfCompare(
                                 FormatDateTime(CampaignValidFrom, "MMMM"), FormatDateTime(CampaignValidTo, "MMMM"),
                                 FormatDateTime(CampaignValidFrom, "MMM d") + "&thinsp'&ndash;&thinsp'"+ 
-                                FormatDateTime(CampaignValidTo, "MMM d, yyyy") +"<br/>",
+                                FormatDateTime(CampaignValidTo, "MMM d, yyyy") +"</time>",
                                 FormatDateTime(CampaignValidFrom, "MMM d") + " &ndash; "+ 
-                                FormatDateTime(CampaignValidTo, "d, yyyy") +"<br/>"
-                            ) +        
-                            FormatDateTime(CampaignValidFrom, GetResourceString("oneIM.Localtime")) + " &ndash; "+ 
-                            FormatDateTime(CampaignValidTo, GetResourceString("oneIM.Localtime")) +"</time>", 
-                        "<time class='small text-muted text-right'>" + 
-                            FormatDateTime(CampaignValidFrom, GetResourceString("oneIM.Localdate.long")) + "<br/>"+ 
-                            FormatDateTime(CampaignValidFrom, GetResourceString("oneIM.Localtime"))+ " &ndash; "+
-                            FormatDateTime(CampaignValidTo, GetResourceString("oneIM.Localtime"))+ "</time>"
+                                FormatDateTime(CampaignValidTo, "d, yyyy") +"</time>"
+                            ), 
+                        "<time class='small text-muted text-right'>" + FormatDateTime(CampaignValidFrom, GetResourceString("oneIM.Localdate.long")) + "</time>"
                     )
                 } %}
             </div>

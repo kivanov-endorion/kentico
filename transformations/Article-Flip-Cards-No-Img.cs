@@ -1,15 +1,14 @@
-// ArticleFlipCardsNoImg
 {% if(DataItemIndex == 0) { "<div class='row'>" } %}
     <div class="flip-card-scene col-xxl-3 col-xl-6 col-lg-12 mb-4">
         <div class="flip-card card mt-4 {% ArticleIcon %}">
           <div class="flip-card-face flip-card-face-front">
               <div class="d-flex flex-column jusify-content-around align-items-center px-2 face-content">
                   <h6 class="card-title mb-0">{% DocumentName %}</h6>
-                  {% IsNullOrEmpty(ArticleTeaserText) ? "" : ArticleTeaserText %}
+                  {% ArticleTeaserText %}
               </div>
           </div>          
           <div class="flip-card-face flip-card-face-back p-3">
-			{% IsNullOrEmpty(ArticleText) ? "" : ArticleText %}
+			{% ArticleText %}
           </div>
         </div>
     </div>

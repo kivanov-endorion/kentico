@@ -1,4 +1,3 @@
-// Article-Tabs
 {% (DataItemIndex == 0)  ? "<ul class='nav nav-pills mb-5 nav-justified flex-md-row align-items-start' id='pills-tab' role='tablist'>" : "" %} 
     <li class="nav-item text-truncate {% (DataItemIndex == 0)  ? "active" : "" %}">
         <a aria-controls="{% NodeAlias %}" aria-selected="{% (DataItemIndex == 0)  ? "true" : "false" %}" class="nav-link {% (DataItemIndex == 0) ? "active show" : "" %}"

@@ -12,7 +12,7 @@
             {%IsNullOrEmpty(ArticleSubtitle) ? "" : "<p class='small text-muted mb-0'>" + ArticleSubtitle + "</p>" %}
           </div>
           <span class="collapse-chevron text-muted ml-4">
-            <i class="fa fa-chevron-down">&hairsp;</i>
+            <i class="fa fa-chevron-down"></i>
           </span>
         </a> 
         <div class="collapse" id="acc{% ArticleID %}" data-parent="#accordion{% DataItemCount %}">

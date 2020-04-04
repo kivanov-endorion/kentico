@@ -1,4 +1,3 @@
-// ArticleFlipCards
 {% if( DataItemIndex == 0 ) { "<div class='row'>" } %}
     <div class="flip-card-scene col-xxl-3 col-xl-3 col-lg-6 mb-4">
         <div class="flip-card card row no-gutters flex-row mt-4 border text-muted">
@@ -12,7 +11,7 @@
               </div>
           </div>          
           <div class="flip-card-face flip-card-face-back p-3">
-			{% IsNullOrEmpty(ArticleTeaserText) ? "" : ArticleTeaserText %}
+			{% ArticleTeaserText %}
           </div>
         </div>
     </div>
