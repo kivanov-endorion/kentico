@@ -2,3 +2,12 @@ $ cat .gitignore
 _credentials/
 /kentico/webparts/
 /kentico/QuizDaily/
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
