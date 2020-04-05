@@ -1,2 +1,0 @@
-<%@ Control Language="C#" AutoEventWireup="true" Inherits="CMSWebParts_SocialMedia_Yammer_YammerGroupFeed" CodeFile="YammerGroupFeed.ascx.cs" %>
-<asp:Literal runat="server" ID="ltYamCode" EnableViewState="false" />
