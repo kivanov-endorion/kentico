@@ -1,16 +1,16 @@
 {% 
-  if( ViewMode=="LiveSite" || ViewMode=="Preview" ){
+  if( ViewMode == "LiveSite" || ViewMode == "Preview" ) {
     /*
     if( SiteContext.CurrentSite.DataContext.Settings.CustomSettings["UseCookieConsent"] == "True" )
     {
     */
-       if(Cookies["CMSCookieLevel"]=="1000"){
+       if( Cookies["CMSCookieLevel"] == "1000" ) {
          return false;
        } else { // if CMSCookieLevel is different from 1000 or not set show notice
          return true;
        }
     /* 
-    }else{
+    } else {
        return false; 
      }
     */
