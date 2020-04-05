@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "G:\\Docs\\Websites\\kentico"
+		}
+	],
+	"settings": {
+		"telemetry.enableTelemetry": false,
+		"telemetry.enableCrashReporter": false
+	}
+}
