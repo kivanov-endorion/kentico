@@ -328,9 +328,27 @@ SiteID  SiteName                    SK_Valid
 // Requires authentication
 {% CurrentDocument.IsSecuredNode %}
 
+
+/* WEBPARTS / WIDGETS */
+
+{% WebpartControlID %}
+{% WebpartType %}
+
 // Check if widget / web part is on page
-{% DocumentContext.CurrentPageInfo.DocumentContent.Contains("On_lineFormPlus") %}
-{% if(DocumentContext.CurrentTemplate.PageTemplateWebParts.Contains("On_lineFormPlus")) {} %}
+{% DocumentContext.CurrentPageInfo.DocumentContent.Contains("On_lineFormPlus") %} // for editable widgets
+{% DocumentContext.CurrentTemplate.PageTemplateWebParts.Contains("On_lineFormPlus") %} // for webparts
+
+{% WebPart.GetValue("Repeater", "ContainerTitle") %}
+{% WebPart.GetValue("Repeater", "Path") %}
+{% WebPart.GetValue("Repeater", "ClassNames") %}
+{% WebPart.GetValue("Repeater", "TransformationName") %}
+{% WebPart.GetValue("Repeater", "Visible") %}
+{% WebPart.GetValue("StaticHTML_1", "isWidget") %}
+
+// Webpart / Widget Zones
+{% WebPartZone.GetValue("zoneWidgetA", "ContentBefore") %}
+{% WebPartZone.GetValue("zoneWidgetA", "WidgetZoneType") %} // None, Editor, etc.
+
 
 
 
