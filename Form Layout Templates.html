@@ -239,3 +239,49 @@ $(document).ready(function() {
     });
 });
 </script>
+
+
+
+<link rel="stylesheet" type="text/css" href="/1IMv2/ext/css/bootstrap-datetimepicker.min-4.17.44.css">
+<link rel="stylesheet" type="text/css" href="/1IMv2/ext/css/datetimepicker-and-custom-styles.css">
+<script src="/1IMv2/ext/js/moment-with-locales.min-4.17.44.js"></script>
+<script src="/1IMv2/ext/js/bootstrap-datetimepicker.min-4.17.44.js"></script>
+<script>
+    $(".date").datetimepicker({
+        icons: {
+            time: "far fa-clock",
+            date: "fas fa-calendar-alt",
+            up: "fas fa-arrow-up",
+            down: "fas fa-arrow-down"
+        },
+        format: "YYYY-MM-DD",
+        locale: 'de'
+
+    });
+    $(".time").datetimepicker({
+        icons: {
+            time: "far fa-clock",
+            date: "fas fa-calendar-alt",
+            up: "fas fa-arrow-up",
+            down: "fas fa-arrow-down"
+        },
+        format: "HH:mm",
+        locale: 'de'
+    });
+</script>
+
+<style>
+    .WatermarkText {
+        color: #6c757d !important;
+    }
+    .fas {
+        font-weight: 900;
+    }
+    .FormButton {
+        font-size: 90%;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        padding-left: 3rem!important;
+        padding-right: 3rem!important;
+    }
+</style>
