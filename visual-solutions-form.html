@@ -1,0 +1,155 @@
+<div class="row form-row">
+    <div class="form-group col-md-12">
+        <h6 class="horizontal divider mb-0">Resellerdaten</h6>
+    </div>
+</div>
+<div class="row form-row">
+    <div class="form-group col-md-6">
+        $$input:Kundennummer$$$$validation:Kundennummer$$
+    </div>
+    <div class="form-group col-md-6">
+        $$input:Firmenname$$$$validation:Firmenname$$
+    </div>
+</div>
+<div class="row form-row">
+    <div class="form-group col-md-2">
+        $$input:Anrede$$$$validation:Anrede$$
+    </div>
+    <div class="form-group col-md-5">
+        $$input:Vorname$$$$validation:Vorname$$
+    </div>
+    <div class="form-group col-md-5">
+        $$input:Nachname$$$$validation:Nachname$$
+    </div>
+</div>
+<div class="row form-row">
+    <div class="form-group col-md-6">
+        $$input:Telefon$$$$validation:Telefon$$
+    </div>
+    <div class="form-group col-md-6">
+        $$input:E_Mail$$$$validation:E_Mail$$
+    </div>
+</div>
+
+<div class="row form-row">
+    <div class="form-group col-md-12">
+        <h6 class="mt-3 horizontal divider mb-0">Projektdaten</h6>
+    </div>
+</div>
+<div class="row form-row">
+    <div class="form-group col-md-6">
+        $$input:Projekttitel$$$$validation:Projekttitel$$
+    </div>
+    <div class="form-group col-md-6">
+        $$input:Endkunde$$$$validation:Endkunde$$
+    </div>
+    <div class="form-group col-md-6">
+        $$input:Projektland$$$$validation:Projektland$$
+    </div>
+    <div class="form-group col-md-6">
+        $$input:AngebotsabgabeBis$$$$validation:AngebotsabgabeBis$$
+    </div>
+    <div class="form-group col-md-6">
+        $$input:EntscheidungBis$$$$validation:EntscheidungBis$$
+    </div>
+    <div class="form-group col-md-6">
+        $$input:FertigstellungBis$$$$validation:FertigstellungBis$$
+    </div>
+</div>
+
+<div class="row form-row">
+    <div class="form-group col-md-12">
+        <h6 class="mt-3 horizontal divider mb-0">Produkte</h6>
+    </div>
+</div>
+<div class="row form-row">
+    <div class="form-group col-md-4">
+        $$input:Produkt$$$$validation:Produkt$$
+    </div>
+    <div class="form-group col-md-4">
+        $$input:Stuckzahl$$$$validation:Stuckzahl$$
+    </div>
+    <div class="form-group col-md-4">
+        $$input:Kommentar$$$$validation:Kommentar$$
+    </div>
+</div>
+
+<div class="row form-row mt-3">
+    <div class="form-group col-md-6">
+    <p class="small">Hier haben Sie die Möglichkeit, Dateien wir Leistungsverzeichnisse, Gerätelisten, Lastenhefte,
+        Raumpläne etc. zur Projektmeldung hinzuzufügen.</p>
+    </div>
+    <div class="form-group col-md-5 offset-md-1">
+        $$label:DateiUpload$$$$input:DateiUpload$$$$validation:DateiUpload$$
+    </div>
+</div>
+
+<div class="row form-row">
+    <div class="form-group col-md-12">
+        <h6 class="mt-3 horizontal divider mb-0">Sonstiges</h6>
+    </div>
+</div>
+<div class="row form-row">
+    <div class="form-group col-md-12">
+        $$input:SindFinancialServicesInteressant$$$$validation:SindFinancialServicesInteressant$$
+    </div>
+    <div class="form-group col-md-12">
+        $$input:SindLogisticServicesInteresannt$$$$validation:SindLogisticServicesInteresannt$$
+    </div>
+    <div class="form-group col-md-12">
+        $$input:Kommentar_1$$$$validation:Kommentar_1$$
+    </div>
+    <div class="form-group col-md-12">
+
+        $$input:Datenschutz$$$$validation:Datenschutz$$
+    </div>
+    <div class="form-group col-md-12 text-center">
+
+        $$submitbutton$$
+    </div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="/1IMv2/ext/css/bootstrap-datetimepicker.min-4.17.44.css">
+<link rel="stylesheet" type="text/css" href="/1IMv2/ext/css/datetimepicker-and-custom-styles.css">
+<script src="/1IMv2/ext/js/moment-with-locales.min-4.17.44.js"></script>
+<script src="/1IMv2/ext/js/bootstrap-datetimepicker.min-4.17.44.js"></script>
+<script>
+    $(".date").datetimepicker({
+        icons: {
+            time: "far fa-clock",
+            date: "fas fa-calendar-alt",
+            up: "fas fa-arrow-up",
+            down: "fas fa-arrow-down"
+        },
+        format: "YYYY-MM-DD",
+        locale: 'de'
+
+    });
+    $(".time").datetimepicker({
+        icons: {
+            time: "far fa-clock",
+            date: "fas fa-calendar-alt",
+            up: "fas fa-arrow-up",
+            down: "fas fa-arrow-down"
+        },
+        format: "HH:mm",
+        locale: 'de'
+    });
+</script>
+
+<style>
+    .WatermarkText {
+        color: #6c757d !important;
+    }
+    .fas {
+        font-weight: 900;
+    }
+    .FormButton {
+        font-size: 90%;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        padding-left: 3rem!important;
+        padding-right: 3rem!important;
+    }
+</style>
