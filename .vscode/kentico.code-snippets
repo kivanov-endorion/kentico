@@ -1,0 +1,60 @@
+{
+	"Ingram Micro Template": {
+		"scope": "html",
+		"prefix": "imdoc",
+		"body": [
+			"<!doctype html>",
+			"<html lang=\"en\">",
+			"<head>",
+				"<title>Title</title>",
+				"<meta charset=\"utf-8\">",
+				"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">",
+				"<link rel=\"stylesheet\" href=\"/core/CORE/css/0-css-bundle-feb-2020.css\">",
+				"<link rel=\"stylesheet\" href=\"/core/CORE/css/2-1im-master-bootstrap4.css\">",
+			"</head>",
+			"<body>",
+				
+				"$0",
+
+				"<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"></script>",
+				"<script src=\"/core/CORE/js/js-bundle-feb-2020.js\"></script>",
+			"</body>",
+			"</html>"
+		],
+		"description": "Basic template for Ingram Micro"
+	},
+	"If Else": {
+		"scope": "csharp",
+		"prefix": "ifelse",
+		"body": [
+			"{% if($0) { return true; } else { return false; } %}"
+		],
+		"description": "Empty if else statement"
+	},
+	"ViewMode": {
+		"scope": "csharp",
+		"prefix": "viewmode",
+		"body": [
+			"{% if( ViewMode==\"Edit\" || ViewMode==\"Design\" ) { return false; } else { return true; } %}"
+		],
+		"description": "If ViewMode"
+	},
+	"If MenuItemTeaserImage": {
+		"scope": "csharp",
+		"prefix": "ifmenuitemteaserimage",
+		"body": [
+			"{% if( ${1:MenuItemTeaserImage} ) {",
+				"Format(\"<img alt='{0}' class='img-fluid lazyload' data-src='{1}?width=$0'>\", DocumentName, GetAttachmentUrlByGUID( ${1:MenuItemTeaserImage}, NodeAlias ))",
+			"} %}"
+		],
+		"description": "If MenuItemTeaserImage"
+	},
+	"GetLogo": {
+		"scope": "html,csharp",
+		"prefix": "getlogo",
+		"body": [
+			"<img class=\"wow flipInX\" src=\"/logos/GetLogo.ashx?name=${1:{% NodeAlias.Replace(\"-\",\"\") %\\}&size=120}$0\" alt=\"{% DocumentName %}\" data-wow-delay=\"{% DataItemIndex*100 %}ms\">"
+		],
+		"description": "Get vendor logos"
+	}
+}
