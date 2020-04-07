@@ -328,6 +328,15 @@ SiteID  SiteName                    SK_Valid
 // Requires authentication
 {% CurrentDocument.IsSecuredNode %}
 
+// Categories
+{% CategoryID %}
+{% CategoryDisplayName %}
+{% CategoryName %}
+{% CategoryDescription %}
+{% CategoryLevel %}
+{% CategorySiteID %}
+{% CategoryParentID %}
+
 
 /* WEBPARTS / WIDGETS */
 
