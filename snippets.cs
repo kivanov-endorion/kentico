@@ -97,7 +97,7 @@
 // Grouping in transformations + modulo function
 {% if( DataItemIndex mod 3 == 0) { "<div class='row'>" } %}
 {% if( DataItemIndex mod 3 == 2 || DataItemIndex == DataItemCount - 1 ) { "</div>" } %}
-{% if (DataItemIndex + 1 != DataItemCount) {","} %}
+{% if( DataItemIndex + 1 != DataItemCount ) { "," } %}
 
 // Nested if else statement
 {% 

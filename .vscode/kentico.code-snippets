@@ -56,5 +56,14 @@
 			"<img class=\"wow flipInX\" src=\"/logos/GetLogo.ashx?name=${1:{% NodeAlias.Replace(\"-\",\"\") %\\}&size=120}$0\" alt=\"{% DocumentName %}\" data-wow-delay=\"{% DataItemIndex*100 %}ms\">"
 		],
 		"description": "Get vendor logos"
+	},
+	"DataItemIndex": {
+		"scope": "csharp",
+		"prefix": "ifdataitemindex",
+		"body": [
+			"{% if( DataItemIndex == 0) { \"<div class='row'>\" } %}",
+			"$0",
+			"{% if( DataItemIndex == DataItemCount - 1 ) { \"</div>\" } %}"
+		]
 	}
 }
