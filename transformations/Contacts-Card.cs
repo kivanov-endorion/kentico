@@ -2,7 +2,8 @@
 <div class="col-12 col-lg-4 col-sm-6  mb-3">
   <div class="contacts card img-thumbnail animated flipInX mr-3 overflow-hidden h-100">
     <div class="card-img-top">
-      {% IsNullOrEmpty(Picture) ? "<img class='img-cover' src='/1IM/oneingram-1.9.13/starter/Portal_Contacts_Small_dummy.jpg' alt= />" : "<img alt='"+Name+"' class='img-cover' src='~/getattachment/" + Picture + "/image.jpg?width=220' />" #%}
+      {% IsNullOrEmpty(Picture) ? "<img class='img-cover' src='/1IM/oneingram-1.9.13/starter/Portal_Contacts_Small_dummy.jpg' alt= />" : 
+      "<img alt='"+Name+"' class='img-cover' src='~/getattachment/" + Picture + "/image.jpg?width=220' />" #%}
     </div>
     <div class="card-body bg-white h-100 z-depth-5 text-truncate">
       <h6 class="card-title heading">{% Name %}</h6>   
