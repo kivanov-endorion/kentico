@@ -283,7 +283,7 @@ SiteID  SiteName                    SK_Valid
 {% DocumentCanBePublished %}
 {% DocumentMenuCaption %}
 {% DocumentMenuItemHideInNavigation %}
-{% DocumentMenuItemInactive %}
+{% if(DocumentMenuItemInactive == true) {} %}
 {% DocumentMenuRedirectToFirstChild %}
 {% DocumentMenuRedirectUrl %}
 
