@@ -65,5 +65,26 @@
 			"$0",
 			"{% if( DataItemIndex == DataItemCount - 1 ) { \"</div>\" } %}"
 		]
+	},
+	"EventDate": {
+		"scope": "csharp",
+		"prefix": "eventdate",
+		"body": [
+			"{% IfCompare(",
+				"FormatDateTime(${1:EventDateStart}, \"d MMMM\")," ,
+				"FormatDateTime(${2:EventDateEnd}, \"d MMMM\"),",
+				"\"<time class='small text-muted$0'>\" + ",
+					"IfCompare(",
+						"FormatDateTime(${1:EventDateStart}, \"MMMM\"), FormatDateTime(${2:EventDateEnd}, \"MMMM\"),",
+						"FormatDateTime(${1:EventDateStart}, \"MMM d\") + \" &ndash; \"+ ",
+						"FormatDateTime(${2:EventDateEnd}, \"MMM d, yyyy\") + \"</time>\",",
+						"FormatDateTime(${1:EventDateStart}, \"MMM d\") + \"&thinsp;&ndash;&thinsp;\"+ ",
+						"FormatDateTime(${2:EventDateEnd}, \"d, yyyy\") + \"</time>\"",
+					"), ",
+				"\"<time class='small text-muted'>\" + ",
+					"FormatDateTime(${1:EventDateStart}, GetResourceString(\"oneIM.Localdate.long\")) +",
+								  "\"</time>\"",
+			") %}"
+		]
 	}
 }
