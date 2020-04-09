@@ -188,6 +188,8 @@ if() {
 {% LocalizationContext.CurrentCulture.DisplayName %} // English - United States
 {% LocalizationContext.CurrentCulture.CultureShortName %} // English
 {% LocalizationContext.CurrentCulture.GetValue("CultureAlias", "en") %}
+// Language flag
+{% Format("<img src='/CMSPages/GetResource.ashx?image={0}{1}.png' alt='{1}'>", URLEncode("[Images.zip]/Flags/16x16/"), LocalizationContext.CurrentCulture.CultureCode) %}
 
 // Meta data:
 {% (DocumentPageTitle) ? DocumentPageTitle : DocumentName %} // title
@@ -301,6 +303,7 @@ SiteID  SiteName                    SK_Valid
 {% NodeOrder %}
 {% NodeParentID %}
 {% NodeInheritPageTemplate %}
+{% DocumentContext.CurrentDocumentParent.NodeAliasPath %} // Parent URL
 
 // MenuItem (Page)
 
