@@ -29,16 +29,15 @@
 {% OrderBy("EventDateStart ASC") %}
 {% ClassNames("CMS.MenuItem;oneIM.News") %}
 {% CurrentDocument.ClassName.InList("cms.menuitem;cms.root".Split(";")) %}
-{% if( NodeHasChildren ) {} %}
-{% CurrentDocument.Children.FirstItem ?? "No child pages" %} // Returns the left if not null, otherwise the right
+{% if ( NodeHasChildren ) {} %}
 {% LoremIpsum(1800) %}
 {% UrlEncode(URL) %}
 {% HTMLEncode("<br>") %} // or "<br>"|(encode)true
 {% IsEven(DataItemIndex) %}
-{% if( IsDocumentOnSelectedPath() || IsCurrentDocument() ) { "active" } %}
+{% if ( IsDocumentOnSelectedPath() || IsCurrentDocument() ) { "active" } %}
 {% CurrentBrowser.IsMobileDevice %}
 {% CurrentUser.IsAuthenticated %}
-{% if( CurrentBodyClass.Contains("InternetExplorer") ) { } %}
+{% if ( CurrentBodyClass.Contains("InternetExplorer") ) { } %}
 
 // SQL Escape
 {% SQLEscape( QueryString.cat ) %}
@@ -64,11 +63,11 @@
 {% Format( "{0:p0}", 0.56 ) %} // 56 %
 
 // GetImage( image, alt, maxsidesize, width, height )
-{% GetImage( MenuItemTeaserImage, DocumentName, 0, 600 ) %}
+{% GetImage( MenuItemTeaserImage, DocumentName, 0, 600, 300 ) %}
 
 // Get attachment (image) URL
 {% GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ) %}
-{% if( MenuItemTeaserImage ) { 
+{% if ( MenuItemTeaserImage ) { 
     Format("<img alt='{0}' class='img-fluid lazyload' data-src='{1}?width=600'>", DocumentName, GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ))
 } %}
 
@@ -82,29 +81,30 @@
 {% GetNavigationUrl() %}
 
 // If null and compare
-{% if( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } %}
+{% if ( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } %}
 {% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
-{% If( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
+{% if ( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
 {% ( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
+{% DocumentMenuCaption ?? DocumentName %} // Returns the left if not null, otherwise the right
 {% CurrentDocument.GetValue("DocumentMenuCaption", DocumentName) %} // Sets default value if field is null (optional)
 {% CurrentDocument.NewsTitle|(default)Default Title %}
-{% IfCompare( Documents[NodeAliasPath].DocumentName, CurrentDocument.DocumentName, "", "active" ) %}
+{% IfCompare( Documents[NodeAliasPath].DocumentName, CurrentDocument.DocumentName, "", "active" ) %} // item, item, if not equal, if equal
 
 // ViewMode: Edit, Design, LiveSite, Preview
-{% if( ViewMode=="Edit" || ViewMode=="Design" ) { return false; } else { return true; } %}
+{% if ( ViewMode=="Edit" || ViewMode=="Design" ) { return false; } else { return true; } %}
 
 // Grouping in transformations + modulo function
-{% if( DataItemIndex mod 3 == 0) { "<div class='row'>" } %}
-{% if( DataItemIndex mod 3 == 2 || DataItemIndex == DataItemCount - 1 ) { "</div>" } %}
-{% if( DataItemIndex + 1 != DataItemCount ) { "," } %}
+{% if ( DataItemIndex mod 3 == 0) { "<div class='row'>" } %}
+{% if ( DataItemIndex mod 3 == 2 || DataItemIndex == DataItemCount - 1 ) { "</div>" } %}
+{% if ( DataItemIndex + 1 != DataItemCount ) { "," } %}
 
 // Nested if else statement
 {% 
-if() {
+if () {
     return true;
 } else {
-    if() {
+    if () {
         return true;
     } else {
         return false;
@@ -113,7 +113,7 @@ if() {
 %}
 
 // foreach: Categories
-{% if( Documents[NodeALiasPath].Categories.Count > 0 ) { 
+{% if ( Documents[NodeALiasPath].Categories.Count > 0 ) { 
     foreach ( category in Documents[NodeALiasPath].Categories ) { 
         "<a href='./?categoryname=" + category.CodeName + "'>" + category.DisplayName + "</a>" 
     } 
@@ -121,7 +121,7 @@ if() {
 
 // for: Categories
 {% 
-    for(i = 0; i < Documents[NodeALiasPath].Categories.Count ; i++){ 
+    for (i = 0; i < Documents[NodeALiasPath].Categories.Count ; i++){ 
         strCAT=strCAT+(Documents[NodeALiasPath].Categories[i].DisplayName+" | ");
     }
     print(strCAT.ToString().Substring(0,strCAT.LastIndexOf("|")));
@@ -145,19 +145,19 @@ if() {
 %}
 
 // foreach: Keywords
-{% if( DocumentPageKeyWords ) { "<i class='ml-3 badge fas fa-tags text-muted' title='Keywords'> </i>" } %}
+{% if ( DocumentPageKeyWords ) { "<i class='ml-3 badge fas fa-tags text-muted' title='Keywords'> </i>" } %}
 {% foreach (keyword in DocumentPageKeyWords.Replace("\"","").Split(",")) { 
     "<a class='badge badge-light' href='/special-pages/search?searchtext="+keyword+"'>"+keyword+"</a>" 
 } %}
 
 // foreach: Tags
-{% if( CurrentDocument.Tags.Count != 0 ) { "<i class='ml-3 badge fas fa-tags text-muted' title='Tags'> </i>" } %}
+{% if ( CurrentDocument.Tags.Count != 0 ) { "<i class='ml-3 badge fas fa-tags text-muted' title='Tags'> </i>" } %}
 {% foreach (tag in CurrentDocument.Tags) { 
     "<a class='badge badge-light' href='./?tagid=" + tag.TagId + "'>"+tag.DisplayName+"</a>" 
 } %}
 
 // Transform: Tags
-{% if( CurrentDocument.DocumentTags ) {
+{% if ( CurrentDocument.DocumentTags ) {
     "<i class='ml-3 badge fas fa-tags text-muted' title='Tags'> </i>" + 
         CurrentDocument.Tags.Transform( "<a class='badge badge-light font-weight-normal initialism' href='./?tagid={#TagId#}'>{#DisplayName#}</a>" )
 } %}
@@ -167,10 +167,10 @@ if() {
 
 // Settings: bool, string
 {% return Settings.CustomSettings.MainNavCheckPrevileges.ToBool() %}
-{% if( Settings.CustomSettings["LegalDisclosureLink"] ) {} %}
+{% if ( Settings.CustomSettings["LegalDisclosureLink"] ) {} %}
 
 // Page Template
-{% if( CurrentDocument.Parent.NodeTemplate.CodeName != "1IMVendorB4" ) { return true; } else { return false; } %}
+{% if ( CurrentDocument.Parent.NodeTemplate.CodeName != "1IMVendorB4" ) { return true; } else { return false; } %}
 
 // Subsite Navigation Root
 {% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") %}
@@ -188,35 +188,14 @@ if() {
 {% LocalizationContext.CurrentCulture.DisplayName %} // English - United States
 {% LocalizationContext.CurrentCulture.CultureShortName %} // English
 {% LocalizationContext.CurrentCulture.GetValue("CultureAlias", "en") %}
+{% LocalizationContext.CurrentCulture.CultureAlias ?? "en" %}
 // Language flag
 {% Format("<img src='/CMSPages/GetResource.ashx?image={0}{1}.png' alt='{1}'>", URLEncode("[Images.zip]/Flags/16x16/"), LocalizationContext.CurrentCulture.CultureCode) %}
 
 // Meta data:
-{% (DocumentPageTitle) ? DocumentPageTitle : DocumentName %} // title
-{% (DocumentPageDescription) ? StripTags(LimitLength(DocumentPageDescription,160,"…",true)) : StripTags(LimitLength(MenuItemTeaserText,160,"…",true)) %} // description
-{% Format("https://{0}/getattachment/{1}/share.jpg}", domain, 
-    if( MenuItemTeaserImage ) {
-        MenuItemTeaserImage
-    } else {
-        if( NewsTeaser ) {
-            NewsTeaser
-        } else {
-            if( EventTeaserImage ) {
-                EventTeaserImage
-            } else {
-                if( BlogPostTeaser ) {
-                    BlogPostTeaser
-                } else {
-                    if( TeaserImage ) {
-                        TeaserImage
-                    } else {
-                        CurrentDocument.AllAttachments.FirstItem.AttachmentGUID
-                        }
-                    }
-                }
-            }
-        } 
-) %} // image
+{% DocumentPageTitle ?? DocumentName %} // title
+{% (DocumentPageDescription ?? MenuItemTeaserText).StripTags().LimitLength(160,"…",true) %} // description
+{% GetAttachmentUrlByGUID( MenuItemTeaserImage ?? NewsTeaser ?? EventTeaserImage ?? BlogPostTeaser ?? TeaserImage ?? CurrentDocument.AllAttachments.FirstItem.AttachmentGUID, NodeAlias ) %} // image
 {% CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageWidth %} // image width
 
 // Aspect ratio for MenuItemTeaserImage
@@ -285,7 +264,7 @@ SiteID  SiteName                    SK_Valid
 {% DocumentCanBePublished %}
 {% DocumentMenuCaption %}
 {% DocumentMenuItemHideInNavigation %}
-{% if(DocumentMenuItemInactive == true) {} %}
+{% if (DocumentMenuItemInactive == true) {} %}
 {% DocumentMenuRedirectToFirstChild %}
 {% DocumentMenuRedirectUrl %}
 
