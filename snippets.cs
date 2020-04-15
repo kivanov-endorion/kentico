@@ -1,7 +1,8 @@
 /* KENTICO MACRO REFERENCE */
 // BASIC
 {? id ?} = {% QueryString.id %} // paramеter in a url
-{$ MyKey.SubKey.value $} = {% GetResourceString("MyKey.SubKey.value") %} // localization
+{$ MyKey.SubKey.value $} // localization
+{% GetResourceString("MyKey.SubKey.value") %}
 {$=Read more|es-ES=Leer más|zh-CN=阅读更多$} // temp localization
 
 
@@ -86,7 +87,7 @@
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
 {% if ( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
 {% ( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
-{% DocumentMenuCaption ?? DocumentName %} // Returns the left if not null, otherwise the right
+{% DocumentMenuCaption ?? DocumentName %} // Returns the left if not null, otherwise the right. Empty strings are not considered as null
 {% CurrentDocument.GetValue("DocumentMenuCaption", DocumentName) %} // Sets default value if field is null (optional)
 {% CurrentDocument.NewsTitle|(default)Default Title %}
 {% IfCompare( Documents[NodeAliasPath].DocumentName, CurrentDocument.DocumentName, "", "active" ) %} // item, item, if not equal, if equal
@@ -111,6 +112,8 @@ if () {
     }
 }
 %}
+// Nested ternary ( right-associative)
+{% value == 0 ? 0 : value == 1 ? 1 : 2 %}
 
 // foreach: Categories
 {% if ( Documents[NodeALiasPath].Categories.Count > 0 ) { 
@@ -256,6 +259,7 @@ SiteID  SiteName                    SK_Valid
 
 
 // CurrentDocument
+// NOTE: CurrentDocument is only available on the live or preview site. Replace with EditedObject, if needed
 
 {% DocumentName %}
 {% DocumentCreatedWhen %}
@@ -329,9 +333,12 @@ SiteID  SiteName                    SK_Valid
 {% DocumentContext.CurrentPageInfo.DocumentContent.Contains("On_lineFormPlus") %} // for editable widgets
 {% DocumentContext.CurrentTemplate.PageTemplateWebParts.Contains("On_lineFormPlus") %} // for webparts
 
+// Repeater values
 {% WebPart.GetValue("Repeater", "ContainerTitle") %}
 {% WebPart.GetValue("Repeater", "Path") %}
 {% WebPart.GetValue("Repeater", "ClassNames") %}
+{% WebPart.GetValue("Repeater", "maxRelativeLevel") %}
+{% WebPart.GetValue("Repeater", "selectOnlyPublished") %}
 {% WebPart.GetValue("Repeater", "TransformationName") %}
 {% WebPart.GetValue("Repeater", "Visible") %}
 {% WebPart.GetValue("StaticHTML_1", "isWidget") %}
