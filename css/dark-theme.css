@@ -79,4 +79,44 @@
         }
     }
 
+    
+    /* scrollbar */
+    body {
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        -ms-scrollbar-track-color: rgb(30, 30, 30);
+        -ms-scrollbar-base-color: rgb(30, 30, 30);
+        -ms-scrollbar-highlight-color: rgb(78, 78, 78);
+        -ms-scrollbar-face-color: rgb(30, 30, 30);
+        -ms-scrollbar-arrow-color: rgb(30, 30, 30);
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px !important;
+        height: 10px !important;
+        background: rgb(30, 30, 30) !important;
+        border-width: 1px !important;
+        border-style: solid !important;
+        border-color: rgb(37, 37, 37) !important;
+        border-image: initial !important;
+    }
+
+    ::-webkit-scrollbar-button {
+        display: none !important;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgb(30, 30, 30) !important;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        min-height: 28px !important;
+        background: rgb(78, 78, 78) !important;
+    }
+
+    ::backdrop,
+    ::-webkit-backdrop,
+    ::-ms-backdrop {
+        background: rgba(0, 30, 30, .25);
+    }
+
 }
