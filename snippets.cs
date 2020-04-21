@@ -225,7 +225,7 @@ SiteID  SiteName                    SK_Valid
 23	    fr.ingrammicro.eu	        9
 24	    at.ingrammicro.eu	        1
 25	    dcpos.ingrammicro.eu	    5
-26	    ba.ingrammicro.eu	        6
+26	    ba.ingrammicro.eu	        4
 27	    it.ingrammicro.eu	        12
 28	    cz.ingrammicro.eu	        50
 29	    pl.ingrammicro.eu	        49
