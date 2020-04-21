@@ -1,420 +1,230 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<title>Title</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="/core/CORE/css/0-css-bundle-feb-2020.css">
-<link rel="stylesheet" href="/core/CORE/css/2-1im-master-bootstrap4.css">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/core/CORE/css/0-css-bundle-feb-2020.css">
+    <link rel="stylesheet" href="/core/CORE/css/2-1im-master-bootstrap4.css">
 
-<style>
+    <style>
 
-    html {
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        height: 100vh;
-        margin: 0;
-        overflow-x: hidden;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        -webkit-perspective: 1px;
-        perspective: 1px;
-    }
-
-    img {
-        all: unset;
-        width: 100%;
-        display: block;
-    }
-
-    /* CSS only parallax */
-    .parallax-group {
-        -webkit-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-
-    }
-
-    .back {
-        -webkit-transform: translateZ(-1px) scale(2);
-        transform: translateZ(-1px) scale(2);
-        position: relative;
-        top: calc(((100vh - 53.75vw) / 4) * -2);
-        /*aspect ratio: height/width*/
-    }
-
-    .front {
-        -webkit-transform: translateZ(-0.5px);
-        transform: translateZ(-0.5px);
-        font-size: 68px;
-        color: white;
-        position: absolute;
-        top: calc((100vh - 53.75vw) / 2);
-        width: 100%;
-        text-align: center;
-        z-index: 2;
-    }
-
-    /* for accessibility */
-    .aria-hidden {
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-        border: 0;
-        clip: rect(0 0 0 0);
-    }
-
-    /* scrollbar */
-    body {
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-        -ms-scrollbar-track-color: rgb(30, 30, 30);
-        -ms-scrollbar-base-color: rgb(30, 30, 30);
-        -ms-scrollbar-highlight-color: rgb(78, 78, 78);
-        -ms-scrollbar-face-color: rgb(30, 30, 30);
-        -ms-scrollbar-arrow-color: rgb(30, 30, 30);
-    }
-
-    ::-webkit-scrollbar {
-        width: 10px !important;
-        height: 10px !important;
-        background: rgb(30, 30, 30) !important;
-        border-width: 1px !important;
-        border-style: solid !important;
-        border-color: rgb(37, 37, 37) !important;
-        border-image: initial !important;
-    }
-
-    ::-webkit-scrollbar-button {
-        display: none !important;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: rgb(30, 30, 30) !important;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        min-height: 28px !important;
-        background: rgb(78, 78, 78) !important;
-    }
-
-    ::backdrop,
-    ::-webkit-backdrop,
-    ::-ms-backdrop {
-        background: rgba(0, 30, 30, .25);
-    }
-
-    /* carousel indicators */
-    .carousel .carousel-indicators li {
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        text-indent: -999px;
-        cursor: pointer;
-        border: 1px solid #fff;
-        border-radius: 10px;
-        background: #fff;
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);
-        border-radius: 2px
-    }
-    
-    .carousel .carousel-indicators .active {
-        margin-top: 10px;
-        transform: scale(1.5);
-        box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2)
-    }
-    
-    /* card shadow */
-    .card {
-      box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
-    }
-    
-    /* main tag raised */
-    .main-raised {
-        margin: -60px 30px 0;
-        border-radius: 6px;
-        box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
-    }
-    
-    /* header filter */
-    .header-filter:before {
-        background: rgba(0,0,0,.5);
-        z-index: 1;
-    }
-    .header-filter:after, .header-filter:before {
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        display: block;
-        left: 0;
-        top: 0;
-        content: "";
-    }
-    
-    /* Reveal parallax */
-    .page-header {
-        height: 100vh;
-        background-position: 50%;
-        background-size: cover;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        display: flex;
-        align-items: center;
-    }
-    
-    /* dropdown menu */
-    .show .dropdown-toggle:after {
-        transform: rotate(180deg);
-    }
-    .dropdown-toggle:after {
-        will-change: transform;
-        transition: transform .15s linear;
-    }
-    
-    
-    .dropdown-menu.dropdown-menu-right:before {
-        left: auto;
-        right: 10px
-    }
-    
-    .dropdown .dropdown-menu {
-        transform: translate3d(0,-25px,0)!important;
-        visibility: hidden;
-        display: block;
-        opacity: 0;
-        filter: alpha(opacity=0);
-        top: 100%!important
-    }
-    
-    .dropdown-menu.open,.dropdown.show .dropdown-menu {
-        opacity: 1;
-        filter: alpha(opacity=100);
-        visibility: visible;
-        transform: translateZ(0)!important
-    }
-    
-    .dropdown-menu:before {
-        display: inline-block;
-        position: absolute;
-        width: 0;
-        height: 0;
-        vertical-align: middle;
-        content: "";
-        top: -5px;
-        left: 10px;
-        right: auto;
-        color: #fff;
-        border-bottom: .4em solid;
-        border-right: .4em solid transparent;
-        border-left: .4em solid transparent
-    }
-    
-    /* transform perspective */
-    @media (min-width: 992px) {
-        .transform-perspective-right {
-            transform:scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg)
+        /* main tag raised */
+        .raised {
+            margin-top: -60px;
+            padding-bottom: 60px;
+            border-radius: .25rem;
+            box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
         }
-    
-        .transform-perspective-left {
-            transform: scale(1) perspective(2000px) rotateY(11deg) rotateX(2deg) rotate(-2deg)
+
+        /* header filter */
+        .header-filter:before {
+            background: rgba(0, 0, 0, .5);
+            z-index: 1;
         }
-    }
-    
-    
-    .cast-shadow::after {
-        content: "";
-        display: block;
-        width: 120px;
-        height: 2px;
-        background: rgba(0, 0, 0, 0.1);
-        border-radius: 50%;
-        box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.1);
-        position: absolute;
-        left: 50%;
-        bottom: -40px;
-        transform: translate(-50%, 0%);
-    }
-    
-    /* NEW DEV (not yet implemented) */
-    
-    [aria-label=menu]:focus-within,
-    [aria-label=submenu]:focus-within {
-        opacity: 1;
-    }
-    
-    @media (prefers-color-scheme: dark) {}
-    @media (prefers-contrast: high) {}
-    @media (prefers-reduced-transparency: reduce) {}
-    @media (forced-colors: high) {}
-    @media (light-level: dim) {}
-    
-    section {
-        overflow-y: auto;
-        overscroll-behavior-y: contain;
-        scroll-snap-type: y mandatory;
-    }
-    section > picture {
-        scroll-snap-align: center;
-    }
-    
-    .my-3 {
-        margin-block: 1rem;
-    }
-    .backdrop-filter {
-        backdrop-filter: blur(10px);
-    }
-    
-    button:is(.focus,:focus),
-    button:-moz-any(.focus,:focus),
-    button:-webkit-any(.focus,:focus) {
-    
-    }
-    article > :is(h1,h2,h3,h4,h5,h6) {
-    
-    }
-    .box-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-    .flex-button {
-        display: inline-flex;
-        place-items: center;
-        gap: 1rem;
-    }
-    
-    .size {
-        size: 50vw; /* width: 50vw; height: 50vw; */
-    }
-    .aspect-ratio {
-        aspect-ratio: 16 / 9;
-    }
-    h1 {
-        font-size: clamp(1.5rem, 6vw); 
-        /*OR*/
-        font-size: min(1.5rem);
-        font-size: max(6vw);
-    }
-    @supports (-webkit-background-clip: text) {
+
+        .header-filter:after,
+        .header-filter:before {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: block;
+            left: 0;
+            top: 0;
+            content: "";
+        }
+
+
+        .cast-shadow::after {
+            content: "";
+            display: block;
+            width: 120px;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            left: 50%;
+            bottom: -40px;
+            transform: translate(-50%, 0%);
+        }
+
+        /* NEW DEV (not yet implemented) */
+
+        /* all except IE */
+        [aria-label=menu]:focus-within,
+        [aria-label=submenu]:focus-within {
+            opacity: 1;
+        }
+
+        @media (prefers-color-scheme: dark) {}
+
+        @media (prefers-contrast: high) {}
+
+        @media (prefers-reduced-transparency: reduce) {}
+
+        @media (forced-colors: high) {}
+
+        @media (light-level: dim) {}
+
+        section {
+            overflow-y: auto;
+            overscroll-behavior-y: contain;
+            scroll-snap-type: y mandatory;
+        }
+
+        section>picture {
+            scroll-snap-align: center;
+        }
+
+        .backdrop-filter {
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        button:is(.focus, :focus),
+        button:-moz-any(.focus, :focus),
+        button:-webkit-any(.focus, :focus) {}
+
+        article> :is(h1, h2, h3, h4, h5, h6) {}
+
+        .box-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .flex-button {
+            display: inline-flex;
+            place-items: center;
+            gap: 1rem;
+        }
+
+        .size {
+            size: 50vw;
+            /* width: 50vw; height: 50vw; */
+        }
+
+        .aspect-ratio {
+            aspect-ratio: 16 / 9;
+        }
+
         h1 {
+            font-size: clamp(1.5rem, 6vw);
+            /*OR*/
+            font-size: min(1.5rem);
+            font-size: max(6vw);
+        }
+
+        @supports (-webkit-background-clip: text) {
+            h1 {
                 background: linear-gradient(hotpink, steelblue);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 font-weight: 900;
+            }
         }
-    }
-    .pulse-icon {
-        padding-top: 1.4em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .pulse-icon i {
-        position: relative;
-        display: inline-flex;
-        margin: 0 auto;
-        width: 60px;
-        height: 60px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        box-shadow: 0 0 0 30px transparent;
-        background: rgba(255,255,255,0.1);
-        transform: translate3d(0, 0, 0);
-        transition: box-shadow .6s ease-in-out;
-    }	
 
-    .pulse-icon:hover i,
-    .pulse-icon:active i,
-    .pulse-icon:focus i {		
-        box-shadow: 0 0 0 0 rgba(255,255,255,0.2);
-        transition: box-shadow .4s ease-in-out;
-    }
+        .pulse-icon {
+            padding-top: 1.4em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .pulse-icon i {
+            position: relative;
+            display: inline-flex;
+            margin: 0 auto;
+            width: 60px;
+            height: 60px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 0 0 30px transparent;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate3d(0, 0, 0);
+            transition: box-shadow .6s ease-in-out;
+        }
 
+        .pulse-icon:hover i,
+        .pulse-icon:active i,
+        .pulse-icon:focus i {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
+            transition: box-shadow .4s ease-in-out;
+        }
     </style>
 </head>
 
 <body>
-<div class="page-header header-filter" data-parallax="true" style="background-image: url(img/rick.jpg); transform: translate3d(0px, 0px, 0px);">
-<div class="text-center w-100 z-index-max">
-    <h1>HEADING</h1>
-    <p>Subheading</p>
-    <span class="pulse-icon">
-        <i aria-hidden="true" class=" fa fa-user fa-2x"></i>
-    </span>
-</div>
-</div>
+    <div style="background-image: url(img/rick.jpg);">
+        <div class="text-center w-100 z-index-max">
+            <h1>HEADING</h1>
+            <span class="pulse-icon">
+                <i aria-hidden="true" class="fas fa-rocket fa-2x"></i>
+            </span>
+        </div>
+    </div>
+
+    <div style="height: 100vh;" class="raised container bg-light">
+
+        <div class="row mb-5">
+            <div class="col-md-6 col-xs-12 mb-4">
+            <h6 class="initialism pt-3">News Card (big)</h6>
+            
+            <div class="card h-100">
+            <div class="view overlay zoom"><a href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know"><img alt="AMD Ryzen 3000 CPUs: Everything you need to know" class="card-img-top" src="https://unsplash.it/446/200" srcset="https://unsplash.it/446/200,https://unsplash.it/975/438 2x"> </a></div>
+            
+            <div class="card-body">
+            <h6 class="card-title"><a class="card-link" href="sidebar">AMD Ryzen 3000 CPUs: Everything you need to know</a></h6>
+            
+            <p class="card-text text-justify max-lines-6 d-none d-sm-block">AMD has a brand new generation of Ryzen CPUs coming in 2019. Based on a next-gen Zen 2 architecture, the 3rd generation AMD Ryzen processors should offer dramatic…</p>
+            </div>
+            
+            <div class="card-footer d-flex justify-content-between bg-transparent border-0"><small><a class="card-link" href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know">Read more &gt;</a></small> <time class="text-muted small" datetime="2019-01-15T12:00:00">January 15, 2019</time></div>
+            </div>
+            </div>
+            
+            <div class="col-md-6 col-xs-12 mb-4">
+            <h6 class="initialism pt-3">Events Card (big)</h6>
+            
+            <div class="card h-100">
+            <div class="view overlay zoom"><a href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know"><img alt="AMD Ryzen 3000 CPUs: Everything you need to know" class="card-img-top" src="https://unsplash.it/446/200" srcset="https://unsplash.it/446/200,https://unsplash.it/975/438 2x"> </a></div>
+            
+            <div class="card-body">
+            <h6 class="card-title"><a class="card-link" href="sidebar">Save the date: Microsoft Cloud Architect Boot Camp</a></h6>
+            
+            <p class="card-text text-justify max-lines-6 d-none d-sm-block">Join Ingram Micro at our free Microsoft Cloud Bootcamp to further understand the benefits of EMS and Office 365 and how enabling a mobile workforce can be both…</p>
+            </div>
+            
+            <div class="card-footer d-flex justify-content-between bg-transparent border-0"><small><a class="card-link" href="/en/news/events/test-event-2">Read more &gt;</a></small> <time class="small text-muted text-right">April 12, 2019<br>
+            09:00 AM – 05:00 PM</time></div>
+            </div>
+            </div>
+            </div>
+
+    </div>
 
 
 
-<div style="height: 100vh;"></div>
+    <script>
+        var loadScript = function (src) {
+            var tag = document.createElement('script');
+            tag.async = false;
+            tag.src = src;
+            document.getElementsByTagName('body').appendChild(tag);
+        }
+        window.addEventListener("load", function () {
+            loadScript('//cdnjs.com/some/library.js')
+            loadScript('//cdnjs.com/some/other/library.js')
+        });
+    </script>
 
 
-
-<div class="parallax-group">
-<img class="back" src="img/rick.jpg" alt>
-<div class="front">
-    <h1>HEADING</h1>
-    <p>Subheading</p>
-</div>
-</div>
-<div style="height: 100vh;"></div>
-<dl class="aria-hidden">
-<dt>
-    Jupiter
-</dt>
-<dd>
-    Many moons
-</dd>
-</dl>
-
-
-
-
-
-<script>
-// Reveal parallax
-$(document).ready(function () {
-var hero_image;
-0 != (hero_image = $('.page-header[data-parallax="true"]')).length && $(window).on("scroll", custom.checkScrollForParallax)
-}), custom = {
-checkScrollForParallax: function () {
-    oVal = $(window).scrollTop() / 3, hero_image.css({
-        transform: "translate3d(0," + oVal + "px,0)",
-        "-webkit-transform": "translate3d(0," + oVal + "px,0)",
-        "-ms-transform": "translate3d(0," + oVal + "px,0)",
-        "-o-transform": "translate3d(0," + oVal + "px,0)"
-    })
-}
-};
-
-var loadScript = function(src) {
-var tag = document.createElement('script');
-tag.async = false;
-tag.src = src;
-document.getElementsByTagName('body').appendChild(tag);
-}
-window.addEventListener("load",function(){
-loadScript('//cdnjs.com/some/library.js')
-loadScript('//cdnjs.com/some/other/library.js')
-});
-</script>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="/core/CORE/js/js-bundle-feb-2020.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="/core/CORE/js/js-bundle-feb-2020.js"></script>
 </body>
+
 </html>
