@@ -137,6 +137,10 @@ if () {
     Format("<a data-fancybox='gallery' href='/getattachment/{0}/{1}'><img src='/getattachment/{0}/{1}?width=200' alt='{1}' ></a>", attachment.AttachmentGUID, attachment.AttachmentName)
 } %}
 
+{% foreach (attachment in Documents[NodeALiasPath].AllAttachments.Where("AttachmentExtension = '.pdf' OR AttachmentExtension = '.pptx' OR AttachmentExtension = '.docx' ")) {
+    Format("<p><a class='{2}' target='_blank' href='/getattachment/{0}/{1}'>{1}</a></p>", attachment.AttachmentGUID, attachment.AttachmentName, attachment.AttachmentExtension.Replace(".","").Replace("x",""))
+} %}
+
 // foreach: Attachments from specific field
 {% 
     FieldAttachments=IMMacros.GetFieldGUID("oneIM.Product","Gallery");
