@@ -1,286 +1,211 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Teasers</title>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/core/CORE/css/0-css-bundle-feb-2020.css">
+    <link rel="stylesheet" href="/core/CORE/css/2-1im-master-bootstrap4.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 	<style>
-		/* TEASERS */
-		@font-face {
-			font-family: 'FontAwesome';
-			src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot');
-			src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-				url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff') format('woff'),
-				url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf') format('truetype'),
-				url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg') format('svg');
-			font-weight: normal;
-			font-style: normal;
-		}
-
-		@media screen and (-webkit-min-device-pixel-ratio:0) {
-			@font-face {
-				font-family: 'FontAwesome';
-				src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg') format('svg');
-			};
-		}
-
-		body {
-			font-family: 'Lato', Calibri, Arial, sans-serif;
-			color: #89867e;
-			background: #f9f9f9;
-			margin: 0;
-			padding: 0;
-		}
-
-		.icon-tech, .icon-cloud, .icon-commerce {
-			display: inline-block;
-			font: normal normal normal 16px/1 FontAwesome;
-			font-size: inherit;
-			text-rendering: auto;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-			width: 1em;
-			height: 1em;
-		}
-
-		.icon-tech:before {
-			content: "\f109";
-		}
-
-		.icon-cloud:before {
-			content: "\f0ee";
-		}
-
-		.icon-commerce:before {
-			content: "\f09d";
-		}
 
 		a, li {
 			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 		}
 
-		#teasers ul {
+		.teasers ul {
 			max-width: 1240px;
+			width: 100%;
 			margin: 0 auto;
 			padding: 0;
 			list-style: none;
 			font-size: 1.5em;
 			font-weight: 300;;
-			transform: translateY(-170px);
+			
 		}
 
-		#teasers li span {
+		.teasers li span {
 			display: block;
 		}
 
-		#teasers a {
+		.teasers a {
 			display: block;
 			color: rgba(249, 249, 249, .9);
 			text-decoration: none;
 			text-align: center;
 			padding: 5px 0;
-			-webkit-transition: color .5s, background .5s, height .5s;
-			-moz-transition: color .5s, background .5s, height .5s;
-			-o-transition: color .5s, background .5s, height .5s;
-			-ms-transition: color .5s, background .5s, height .5s;
 			transition: color .5s, background .5s, height .5s;
-		}
-
-		#teasers i{
-			-webkit-transform: translate3d(0, 0, 0);
-			-moz-transform: translate3d(0, 0, 0);
-			-o-transform: translate3d(0, 0, 0);
-			-ms-transform: translate3d(0, 0, 0);
-			transform: translate3d(0, 0, 0);
 		}
 
 		a, button {
 			-webkit-tap-highlight-color: rgba(0,0,0,0);
 		}
 
-		#teasers ul:hover a {
+		.teasers ul:hover a {
 			color: rgba(249, 249, 249, .5);
 		}
 
-		#teasers ul:hover a:hover {
+		.teasers ul:hover a:hover {
 			color: rgba(249, 249, 249, 0.99);
 		}
 
-		#teasers li:nth-child(6n+1) {
+		.teasers li:nth-child(4n+1) {
 			background: rgb(22, 145, 190);
 		}
 
-		#teasers li:nth-child(6n+2) {
+		.teasers li:nth-child(4n+2) {
 			background: rgb(22, 107, 162);
 		}
 
-		#teasers li:nth-child(6n+3) {
+		.teasers li:nth-child(4n+3) {
 			background: rgb(27, 54, 71);
+		}
+		.teasers li:nth-child(4n+4) {
+			background: rgb(5, 30, 45);
 		}
 
 
 		@media (min-width: 38.688em) {
 
-			#teasers ul {
+			.teasers ul {
 				display: flex;
 				justify-content: space-around;
 				justify-content: space-evenly;
 				align-items: flex-start;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);				
 			}
-			#teasers li {
-				width: 25%;
+			.teasers + * {
+				margin-top: 250px;
+			}
+			.teasers li {
+				flex: 0 0 25%;
 				text-align: center;
-				-webkit-transition: border .5s;
-				-moz-transition: border .5s;
-				-o-transition: border .5s;
-				-ms-transition: border .5s;
 				transition: border .5s;
-			}
-
-			#teasers a {
-				display: block;
-				width: auto;
+				margin: 0 0.5vw;
+				border-radius: .25rem;
 			}
 			
-			.icon {
-				padding-top: 1.4em;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-			}
-
-			.icon + span {
+			.teasers .fas + span {
 				margin-top: 1.1em;
-				-webkit-transition: margin .5s;
-				-moz-transition: margin .5s;
-				-o-transition: margin .5s;
-				-ms-transition: margin .5s;
 				transition: margin .5s;
 			}
 
-			#teasers a {
-				height: 8em;
+			.teasers a {
+				display: block;
+				width: auto;
+				height: 9em;
 				box-shadow: 0px 0px 25px rgba(10, 75, 117, 0.5);
 			}
 
-			#teasers a:hover ,
-			#teasers a:active ,
-			#teasers a:focus {
-				height: 9em;
+			.teasers a:hover,
+			.teasers a:active,
+			.teasers a:focus {
+				height: 10em;
 			}	
 
-			#teasers a:hover .icon + span {
+			.teasers a:hover .fas + span {
 				margin-top: 2.2em;
-				-webkit-transition: margin .5s;
-				-moz-transition: margin .5s;
-				-o-transition: margin .5s;
-				-ms-transition: margin .5s;
 				transition: margin .5s;
 			}
 
-			#teasers i {
+			.teasers i {
 				position: relative;
-				display: inline-block;
-				margin: 0 auto;
+				display: inline-flex;
+				margin: 1rem auto 0;
 				padding: 0.4em;
-				border-radius: 50%;
-				font-size: 1.8em;
-				box-shadow: 0 0 0 30px transparent;
-				background: rgba(255,255,255,0.1);
-				-webkit-transform: translate3d(0, 0, 0);
-				-moz-transform: translate3d(0, 0, 0);
-				-o-transform: translate3d(0, 0, 0);
-				-ms-transform: translate3d(0, 0, 0);
-				transform: translate3d(0, 0, 0);
-				-webkit-transition: box-shadow .6s ease-in-out;
-				-moz-transition: box-shadow .6s ease-in-out;
-				-o-transition: box-shadow .6s ease-in-out;
-				-ms-transition: box-shadow .6s ease-in-out;
-				transition: box-shadow .6s ease-in-out;
+				width: 5rem;
+				height: 5rem;
+				font-size: 3rem;
+				justify-content: center;
+				align-items: center;
 			}	
 			
-			#teasers a:hover i,
-			#teasers a:active i,
-			#teasers a:focus i {		
-				box-shadow: 0 0 0 0 rgba(255,255,255,0.2);
-				-webkit-transition: box-shadow .4s ease-in-out;
-				-moz-transition: box-shadow .4s ease-in-out;
-				-o-transition: box-shadow .4s ease-in-out;
-				-ms-transition: box-shadow .4s ease-in-out;
+			.pulse-icon-primary, .pulse-icon-light {
+				border-radius: 50%;
+				box-shadow: 0 0 0 30px transparent;
+				transform: translate3d(0, 0, 0);
+				transition: box-shadow .6s ease-in-out;
+			}
+
+			.pulse-icon-light:hover,
+			.pulse-icon-light:active,
+			.pulse-icon-light:focus {
+				box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
 				transition: box-shadow .4s ease-in-out;
 			}
 				
 		}
 
 		@media (max-width: 38.688em) {
-			
-			#teasers li span {
+			.teasers ul {
+				transform: translateY(0);
+				position: relative;
+			}
+			.teasers li span {
 				display: inline-block;
 				height: 100%;
 			}
 
-			#teasers a {
+			.teasers a {
 				padding: 0.5em;		
+				display: flex;
+				justify-content: space-between;
+				flex-direction: row-reverse;
 			}
 			
-			.icon + span {
+			.fas + span {
 				margin-left: 1em;
 				font-size: 0.8em;
 			}
 
-			#teasers li:nth-child(6n+1) {
-				border-left: 8px solid  rgb(13, 111, 150);
-			}
-
-			#teasers li:nth-child(6n+2) {
-				border-left: 8px solid rgb(10, 75, 117);
-			}
-
-			#teasers li:nth-child(6n+3) {
-				border-left: 8px solid rgb(16, 34, 44);
-			}
 		}
+
+
 
 	</style>
 </head>
 
 <body>
-	<div class="container">
-		<header class="text-center">
-			<img src="img/header.jpg" alt class="img-fluid">
-		</header>
+	
+	<img src="img/header.jpg" alt class="img-fluid">
+	
 
-		<nav id="teasers" class="nav">
+		<nav class="nav teasers">
 			<ul>
 				<li>
 					<a href="#">
-						<span class="icon">
-							<i aria-hidden="true" class="icon-tech">&nbsp;</i>
-						</span>
+							<i aria-hidden="true" class="fas fa-laptop pulse-icon-light">&hairsp;</i>
 						<span>Technology Solutions</span>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-						<span class="icon">
-							<i aria-hidden="true" class="icon-cloud">&nbsp;</i>
-						</span>
+							<i aria-hidden="true" class="fas fa-cloud pulse-icon-light">&hairsp;</i>
 						<span>Cloud</span>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-						<span class="icon">
-							<i aria-hidden="true" class="icon-commerce">&nbsp;</i>
-						</span>
+							<i aria-hidden="true" class="fas fa-credit-card pulse-icon-light">&hairsp;</i>
 						<span>Commerce &amp; Lifecycle</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+							<i aria-hidden="true" class="fas fa-rocket pulse-icon-light">&hairsp;</i>
+						<span>Yay</span>
 					</a>
 				</li>
 			</ul>
 		</nav>
-	</div>
+		
+	
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="/core/CORE/js/js-bundle-feb-2020.js"></script>
 </body>
+
 </html>

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/core/CORE/css/0-css-bundle-feb-2020.css">
     <link rel="stylesheet" href="/core/CORE/css/2-1im-master-bootstrap4.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
     <style>
 
@@ -36,20 +37,6 @@
             content: "";
         }
 
-
-        .cast-shadow::after {
-            content: "";
-            display: block;
-            width: 120px;
-            height: 2px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            left: 50%;
-            bottom: -40px;
-            transform: translate(-50%, 0%);
-        }
 
         /* NEW DEV (not yet implemented) */
 
@@ -119,56 +106,46 @@
         }
 
         @supports (-webkit-background-clip: text) {
-            h1 {
-                background: linear-gradient(hotpink, steelblue);
+            .grad-text {
+                background: linear-gradient(rgb(25, 53, 95), steelblue);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                font-weight: 900;
             }
         }
 
         .pulse-icon {
-            padding-top: 1.4em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .pulse-icon i {
-            position: relative;
-            display: inline-flex;
-            margin: 0 auto;
-            width: 60px;
-            height: 60px;
-            align-items: center;
-            justify-content: center;
             border-radius: 50%;
             box-shadow: 0 0 0 30px transparent;
-            background: rgba(255, 255, 255, 0.1);
             transform: translate3d(0, 0, 0);
             transition: box-shadow .6s ease-in-out;
         }
 
-        .pulse-icon:hover i,
-        .pulse-icon:active i,
-        .pulse-icon:focus i {
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
+        .pulse-icon-primary:hover,
+        .pulse-icon-primary:active,
+        .pulse-icon-primary:focus {
+            box-shadow: 0 0 0 0 rgba(70, 130, 180, 0.5);
+            transition: box-shadow .4s ease-in-out;
+        }
+        .pulse-icon-light:hover,
+        .pulse-icon-light:active,
+        .pulse-icon-light:focus {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
             transition: box-shadow .4s ease-in-out;
         }
     </style>
 </head>
 
 <body>
-    <div style="background-image: url(img/rick.jpg);">
-        <div class="text-center w-100 z-index-max">
-            <h1>HEADING</h1>
-            <span class="pulse-icon">
-                <i aria-hidden="true" class="fas fa-rocket fa-2x"></i>
-            </span>
-        </div>
+    <div style="background-image: url(img/rick.jpg); height: 200px;">
+        
     </div>
 
     <div style="height: 100vh;" class="raised container bg-light">
+        <div class="text-center w-100 z-index-max">
+            <h1 class="grad-text font-weight-900">HEADING</h1>
+            
+        </div>
+            <p class="text-center"><i aria-hidden="true" class="pulse-icon fas fa-rocket fa-2x m-3 p-3"></i></p>
 
         <div class="row mb-5">
             <div class="col-md-6 col-xs-12 mb-4">
