@@ -99,10 +99,13 @@
         }
 
         h1 {
-            font-size: clamp(1.5rem, 6vw);
-            /*OR*/
-            font-size: min(1.5rem);
-            font-size: max(6vw);
+            font-size: clamp(1.5rem, 5vw, 5rem);
+        }
+
+        .card {
+            width: 70%;
+            max-width: 500px;
+            width: min(500px, 70%);
         }
 
         @supports (-webkit-background-clip: text) {
