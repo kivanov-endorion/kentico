@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/core/CORE/css/0-css-bundle-feb-2020.css">
     <link rel="stylesheet" href="/core/CORE/css/2-1im-master-bootstrap4.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
     <style>
-
         /* main tag raised */
         .raised {
             margin-top: -60px;
@@ -20,6 +20,10 @@
         }
 
         /* header filter */
+        .header-filter {
+            position: relative;
+            z-index: -1;
+        }
         .header-filter:before {
             background: rgba(0, 0, 0, .5);
             z-index: 1;
@@ -35,6 +39,201 @@
             left: 0;
             top: 0;
             content: "";
+        }
+
+
+
+        .pulse-icon {
+            border-radius: 50%;
+            box-shadow: 0 0 0 30px transparent;
+            transform: translate3d(0, 0, 0);
+            transition: box-shadow .6s ease-in-out;
+        }
+
+        .pulse-icon-primary:hover,
+        .pulse-icon-primary:active,
+        .pulse-icon-primary:focus {
+            box-shadow: 0 0 0 0 rgba(70, 130, 180, 0.5);
+            transition: box-shadow .4s ease-in-out;
+        }
+
+        .pulse-icon-light:hover,
+        .pulse-icon-light:active,
+        .pulse-icon-light:focus {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+            transition: box-shadow .4s ease-in-out;
+        }
+
+
+        .text-3d {
+            text-shadow:
+                -1px 1px 0 #ddd,
+                -2px 2px 0 #c8c8c8,
+                -3px 3px 0 #ccc,
+                -4px 4px 0 #b8b8b8,
+                -4px 4px 0 #bbb,
+                0px 1px 1px rgba(0, 0, 0, .4),
+                0px 2px 2px rgba(0, 0, 0, .3),
+                -1px 3px 3px rgba(0, 0, 0, .2),
+                -1px 5px 5px rgba(0, 0, 0, .1),
+                -2px 8px 8px rgba(0, 0, 0, .1),
+                -2px 13px 13px rgba(0, 0, 0, .1);
+        }
+
+        .amp {
+            font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+            font-style: italic;
+        }
+
+        a[target="_blank"]:after,
+        a[target="new"]:after {
+            margin: 0 0 0 5px;
+            color: rgba(101, 110, 118, 0.5);
+            font: 11px "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f35d";
+            vertical-align: top;
+        }
+
+
+
+
+        .teasers ul {
+            max-width: 1240px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+            font-size: 1.5em;
+            font-weight: 300;
+            ;
+
+        }
+
+        .teasers li span {
+            display: block;
+        }
+
+        .teasers a {
+            display: block;
+            color: rgba(249, 249, 249, .9);
+            text-decoration: none;
+            text-align: center;
+            padding: 5px 0;
+            transition: color .5s, background .5s, height .5s;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .teasers ul:hover a {
+            color: rgba(249, 249, 249, .5);
+        }
+
+        .teasers ul:hover a:hover {
+            color: rgba(249, 249, 249, 0.99);
+        }
+
+        .teasers li:nth-child(4n+1) {
+            background: rgb(22, 145, 190);
+        }
+
+        .teasers li:nth-child(4n+2) {
+            background: rgb(22, 107, 162);
+        }
+
+        .teasers li:nth-child(4n+3) {
+            background: rgb(27, 54, 71);
+        }
+
+        .teasers li:nth-child(4n+4) {
+            background: rgb(5, 30, 45);
+        }
+
+
+        @media (min-width: 38.688em) {
+
+            .teasers ul {
+                display: flex;
+                justify-content: space-around;
+                justify-content: space-evenly;
+                align-items: flex-start;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .teasers+* {
+                margin-top: 250px;
+            }
+
+            .teasers li {
+                flex: 0 0 25%;
+                text-align: center;
+                transition: border .5s;
+                margin: 0 0.5vw;
+                border-radius: .25rem;
+            }
+
+            .teasers i+span {
+                margin-top: 1.1em;
+                transition: margin .5s;
+            }
+
+            .teasers a {
+                display: block;
+                width: auto;
+                height: 9em;
+                box-shadow: 0px 0px 25px rgba(10, 75, 117, 0.5);
+            }
+
+            .teasers a:hover,
+            .teasers a:active,
+            .teasers a:focus {
+                height: 10em;
+            }
+
+            .teasers a:hover i+span {
+                margin-top: 2.2em;
+                transition: margin .5s;
+            }
+
+            .teasers i {
+                position: relative;
+                display: inline-flex;
+                margin: 1rem auto 0;
+                padding: 0.4em;
+                width: 5rem;
+                height: 5rem;
+                font-size: 3rem;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+        }
+
+        @media (max-width: 38.688em) {
+            .teasers ul {
+                transform: translateY(0);
+                position: relative;
+            }
+
+            .teasers li span {
+                display: inline-block;
+                height: 100%;
+            }
+
+            .teasers a {
+                padding: 0.5em;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row-reverse;
+            }
+
+            .teasers i+span {
+                margin-left: 1em;
+                font-size: 0.8em;
+            }
+
         }
 
 
@@ -73,9 +272,13 @@
 
         button:is(.focus, :focus),
         button:-moz-any(.focus, :focus),
-        button:-webkit-any(.focus, :focus) {}
+        button:-webkit-any(.focus, :focus) {
+            display: -webkit-box;
+        }
 
-        article> :is(h1, h2, h3, h4, h5, h6) {}
+        article> :is(h1, h2, h3, h4, h5, h6) {
+            display: -webkit-box;
+        }
 
         .box-group {
             display: flex;
@@ -103,123 +306,118 @@
         }
 
         .card {
-            width: 70%;
-            max-width: 500px;
-            width: min(500px, 70%);
+            /* width: 10%;
+            max-width: 500px; */
+            width: min(500px, 100%);
         }
 
         @supports (-webkit-background-clip: text) {
             .grad-text {
                 background: linear-gradient(rgb(25, 53, 95), steelblue);
                 -webkit-background-clip: text;
+                background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
-        }
-
-        .pulse-icon {
-            border-radius: 50%;
-            box-shadow: 0 0 0 30px transparent;
-            transform: translate3d(0, 0, 0);
-            transition: box-shadow .6s ease-in-out;
-        }
-
-        .pulse-icon-primary:hover,
-        .pulse-icon-primary:active,
-        .pulse-icon-primary:focus {
-            box-shadow: 0 0 0 0 rgba(70, 130, 180, 0.5);
-            transition: box-shadow .4s ease-in-out;
-        }
-        .pulse-icon-light:hover,
-        .pulse-icon-light:active,
-        .pulse-icon-light:focus {
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
-            transition: box-shadow .4s ease-in-out;
-        }
-
-
-        .threeD {
-			text-shadow:
-				-1px 1px 0 #ddd,
-				-2px 2px 0 #c8c8c8,
-				-3px 3px 0 #ccc,
-				-4px 4px 0 #b8b8b8,
-				-4px 4px 0 #bbb,
-				0px 1px 1px rgba(0,0,0,.4),
-				0px 2px 2px rgba(0,0,0,.3),
-				-1px 3px 3px rgba(0,0,0,.2),
-				-1px 5px 5px rgba(0,0,0,.1),
-				-2px 8px 8px rgba(0,0,0,.1),
-				-2px 13px 13px rgba(0,0,0,.1);
-		}
-
-        .amp {
-            font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
-            font-style: italic;
-        }
-
-        a[target="_blank"]:after,
-        a[target="new"]:after {
-            margin:0 0 0 5px;
-            color:rgba(101, 110, 118, 0.5);
-            font: 11px "Font Awesome 5 Free";
-            font-weight: 900;
-            content: "\f35d";
-            vertical-align: top;
         }
     </style>
 </head>
 
 <body>
-    <div style="background-image: url(img/rick.jpg); height: 200px;">
-        
+
+    <img src="img/header.jpg" alt class="img-fluid">
+
+
+    <nav class="nav teasers mt-n5">
+        <ul>
+            <li>
+                <a href="#">
+                    <i aria-hidden="true" class="fas fa-laptop pulse-icon-light">&hairsp;</i>
+                    <span>Technology Solutions</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i aria-hidden="true" class="fas fa-cloud pulse-icon-light">&hairsp;</i>
+                    <span>Cloud</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i aria-hidden="true" class="fas fa-credit-card pulse-icon-light">&hairsp;</i>
+                    <span>Commerce &amp; Lifecycle</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="header-filter" style="background-image: url(img/rick.jpg); height: 200px;">
+
     </div>
 
     <div style="height: 100vh;" class="raised container bg-light">
         <div class="text-center w-100 z-index-max">
             <h1 class="grad-text font-weight-900">HEADING</h1>
-            <p class="threeD display-3 font-weight-900 text-center text-shadow mt-n4">Technology <span class="amp">&</span> Solutions</p>
-            
+            <p class="text-3d display-3 font-weight-900 text-center text-shadow mt-n4">Technology <span
+                    class="amp">&</span> Solutions</p>
+
         </div>
-            <p class="text-center"><i aria-hidden="true" class="pulse-icon fas fa-rocket fa-2x m-3 p-3"></i></p>
 
         <div class="row mb-5">
             <div class="col-md-6 col-xs-12 mb-4">
-            <h6 class="initialism pt-3">News Card (big)</h6>
-            
-            <div class="card h-100">
-            <div class="view overlay zoom"><a href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know"><img alt="AMD Ryzen 3000 CPUs: Everything you need to know" class="card-img-top" src="https://unsplash.it/446/200" srcset="https://unsplash.it/446/200,https://unsplash.it/975/438 2x"> </a></div>
-            
-            <div class="card-body">
-            <h6 class="card-title"><a class="card-link" href="sidebar" target="_blank">AMD Ryzen 3000 CPUs: Everything you need to know</a></h6>
-            
-            <p class="card-text text-justify max-lines-6 d-none d-sm-block">AMD has a brand new generation of Ryzen CPUs coming in 2019. Based on a next-gen Zen 2 architecture, the 3rd generation AMD Ryzen processors should offer dramatic…</p>
+                <h6 class="initialism pt-3">News Card (big)</h6>
+
+                <div class="card h-100">
+                    <div class="view overlay zoom"><a
+                            href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know"><img
+                                alt="AMD Ryzen 3000 CPUs: Everything you need to know" class="card-img-top"
+                                src="https://unsplash.it/446/200"
+                                srcset="https://unsplash.it/446/200,https://unsplash.it/975/438 2x"> </a></div>
+
+                    <div class="card-body">
+                        <h6 class="card-title"><a class="card-link" href="sidebar" target="_blank">AMD Ryzen 3000 CPUs:
+                                Everything you need to know</a></h6>
+
+                        <p class="card-text text-justify max-lines-6 d-none d-sm-block">AMD has a brand new generation
+                            of Ryzen CPUs coming in 2019. Based on a next-gen Zen 2 architecture, the 3rd generation AMD
+                            Ryzen processors should offer dramatic…</p>
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-between bg-transparent border-0"><small><a
+                                class="card-link"
+                                href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know">Read more
+                                &gt;</a></small> <time class="text-muted small" datetime="2019-01-15T12:00:00">January
+                            15, 2019</time></div>
+                </div>
             </div>
-            
-            <div class="card-footer d-flex justify-content-between bg-transparent border-0"><small><a class="card-link" href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know">Read more &gt;</a></small> <time class="text-muted small" datetime="2019-01-15T12:00:00">January 15, 2019</time></div>
-            </div>
-            </div>
-            
+
             <div class="col-md-6 col-xs-12 mb-4">
-            <h6 class="initialism pt-3">Events Card (big)</h6>
-            
-            <div class="card h-100">
-            <div class="view overlay zoom"><a href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know"><img alt="AMD Ryzen 3000 CPUs: Everything you need to know" class="card-img-top" src="https://unsplash.it/446/200" srcset="https://unsplash.it/446/200,https://unsplash.it/975/438 2x"> </a></div>
-            
-            <div class="card-body">
-            <h6 class="card-title"><a class="card-link" href="sidebar">Save the date: Microsoft Cloud Architect Boot Camp</a></h6>
-            
-            <p class="card-text text-justify max-lines-6 d-none d-sm-block">Join Ingram Micro at our free Microsoft Cloud Bootcamp to further understand the benefits of EMS and Office 365 and how enabling a mobile workforce can be both…</p>
+                <h6 class="initialism pt-3">Events Card (big)</h6>
+
+                <div class="card h-100">
+                    <div class="view overlay zoom"><a
+                            href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know"><img
+                                alt="AMD Ryzen 3000 CPUs: Everything you need to know" class="card-img-top"
+                                src="https://unsplash.it/446/200"
+                                srcset="https://unsplash.it/446/200,https://unsplash.it/975/438 2x"> </a></div>
+
+                    <div class="card-body">
+                        <h6 class="card-title"><a class="card-link" href="sidebar">Save the date: Microsoft Cloud
+                                Architect Boot Camp</a></h6>
+
+                        <p class="card-text text-justify max-lines-6 d-none d-sm-block">Join Ingram Micro at our free
+                            Microsoft Cloud Bootcamp to further understand the benefits of EMS and Office 365 and how
+                            enabling a mobile workforce can be both…</p>
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-between bg-transparent border-0"><small><a
+                                class="card-link" href="/en/news/events/test-event-2">Read more &gt;</a></small> <time
+                            class="small text-muted text-right">April 12, 2019<br>
+                            09:00 AM – 05:00 PM</time></div>
+                </div>
             </div>
-            
-            <div class="card-footer d-flex justify-content-between bg-transparent border-0"><small><a class="card-link" href="/en/news/events/test-event-2">Read more &gt;</a></small> <time class="small text-muted text-right">April 12, 2019<br>
-            09:00 AM – 05:00 PM</time></div>
-            </div>
-            </div>
-            </div>
+        </div>
 
     </div>
-
-
 
     <script>
         var loadScript = function (src) {
