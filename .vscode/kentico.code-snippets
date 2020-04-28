@@ -23,6 +23,11 @@
 		],
 		"description": "Basic template for Ingram Micro"
 	},
+	"rel noopener": {
+		"scope": "html",
+		"prefix": "reln",
+		"body": "rel=\"noopener\""
+	},
 	"If Else": {
 		"scope": "csharp",
 		"prefix": "ifelse",
