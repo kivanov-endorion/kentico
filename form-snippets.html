@@ -244,6 +244,8 @@ $(document).ready(function() {
 
 
 
+<!-- DataTimePicker -->
+
 <link rel="stylesheet" type="text/css" href="/1IMv2/ext/css/bootstrap-datetimepicker.min-4.17.44.css">
 <link rel="stylesheet" type="text/css" href="/1IMv2/ext/css/datetimepicker-and-custom-styles.css">
 <script src="/1IMv2/ext/js/moment-with-locales.min-4.17.44.js"></script>
@@ -287,3 +289,43 @@ $(document).ready(function() {
         padding-right: 3rem!important;
     }
 </style>
+
+
+
+<!-- Form Wizard  -->
+
+<div id="quiz" class="carousel slide" data-interval="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="form-group">
+            $$label:Name$$
+            $$input:Name$$
+            $$validation:Name$$
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="form-group">
+            $$label:Email$$
+            $$input:Email$$
+            $$validation:Email$$
+        </div>
+      </div>
+    </div>
+    <p class="text-right">
+        <a class="btn btn-primary mr-2" href="#quiz" role="button" data-slide="prev">Previous</a>
+        <a class="btn btn-primary mr-2" href="#quiz" role="button" data-slide="next">Next</a>
+        $$submitbutton$$
+    </p>
+</div>
+<script>
+$(document).ready(function(){
+    $('.carousel').carousel({
+        pause: true,
+        interval: false,
+        ride: false,
+        touch: true,
+        wrap: false
+    });
+});
+    
+</script>
