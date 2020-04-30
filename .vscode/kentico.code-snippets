@@ -29,6 +29,11 @@
 		"prefix": "reln",
 		"body": "rel=\"noopener\""
 	},
+	"Ingram Micro brand blue": {
+		"scope": "html,csharp,css",
+		"prefix": "imblue",
+		"body": "#2f75bb"
+	},
 	"If Else": {
 		"scope": "csharp",
 		"prefix": "ifelse",
