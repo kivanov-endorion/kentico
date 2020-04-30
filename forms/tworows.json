@@ -1,0 +1,100 @@
+[{
+    "command": "ssmacro.replace",
+    "args": {
+        "find": "<table class=\"form-table\">",
+        "replace": "",
+        "all": true,
+        "reg": false,
+        "flag": "gm"
+    }
+},
+{
+    "command": "ssmacro.replace",
+    "args": {
+        "find": "<tbody>",
+        "replace": "<div class=\"row\">",
+        "all": true,
+        "reg": false,
+        "flag": "gm"
+    }
+},
+{
+    "command": "ssmacro.replace",
+    "args": {
+        "find": "</tbody>",
+        "replace": "</div>",
+        "all": true,
+        "reg": false,
+        "flag": "gm"
+    }
+},
+{
+    "command": "ssmacro.replace",
+    "args": {
+        "find": "</table>",
+        "replace": "",
+        "all": true,
+        "reg": false,
+        "flag": "gm"
+    }
+},
+{
+    "command": "ssmacro.replace",
+    "args": {
+        "find": "<td class=\"form-table-label-cell\">",
+        "replace": "",
+        "all": true,
+        "reg": false,
+        "flag": "gm"
+    }
+},
+{
+    "command": "ssmacro.replace",
+    "args": {
+        "find": "<td class=\"form-table-value-cell\">",
+        "replace": "",
+        "all": true,
+        "reg": false,
+        "flag": "gm"
+    }
+},
+{
+    "command": "ssmacro.replace",
+    "args": {
+        "find": "<td class=\"form-table-validation-cell\">",
+        "replace": "",
+        "all": true,
+        "reg": false,
+        "flag": "gm"
+    }
+},
+{
+    "command": "ssmacro.replace",
+    "args": {
+        "find": "</td>",
+        "replace": "",
+        "all": true,
+        "reg": false,
+        "flag": "gm"
+    }
+},
+{
+    "command": "ssmacro.replace",
+    "args": {
+        "find": "<tr class=\"form-table-group\">",
+        "replace": "<div class=\"form-group col-md-6\">",
+        "all": true,
+        "reg": false,
+        "flag": "gm"
+    }
+},
+{
+    "command": "ssmacro.replace",
+    "args": {
+        "find": "</tr>",
+        "replace": "</div>",
+        "all": true,
+        "reg": false,
+        "flag": "gm"
+    }
+}]

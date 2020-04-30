@@ -29,6 +29,11 @@
 		"prefix": "reln",
 		"body": "rel=\"noopener\""
 	},
+	"flex-center": {
+		"scope": "html,csharp",
+		"prefix": "fcenter",
+		"body": "d-flex justify-content-center align-items-center"
+	},
 	"Ingram Micro brand blue": {
 		"scope": "html,csharp,css",
 		"prefix": "imblue",
