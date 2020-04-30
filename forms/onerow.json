@@ -4,7 +4,7 @@
         "find": "<table class=\"form-table\">",
         "replace": "",
         "all": true,
-        "reg": false,
+        "reg": true,
         "flag": "gm"
     }
 },
@@ -14,7 +14,7 @@
         "find": "<tbody>",
         "replace": "",
         "all": true,
-        "reg": false,
+        "reg": true,
         "flag": "gm"
     }
 },
@@ -24,7 +24,7 @@
         "find": "</tbody>",
         "replace": "",
         "all": true,
-        "reg": false,
+        "reg": true,
         "flag": "gm"
     }
 },
@@ -34,7 +34,7 @@
         "find": "</table>",
         "replace": "",
         "all": true,
-        "reg": false,
+        "reg": true,
         "flag": "gm"
     }
 },
@@ -44,7 +44,7 @@
         "find": "<td class=\"form-table-label-cell\">",
         "replace": "",
         "all": true,
-        "reg": false,
+        "reg": true,
         "flag": "gm"
     }
 },
@@ -54,7 +54,7 @@
         "find": "<td class=\"form-table-value-cell\">",
         "replace": "",
         "all": true,
-        "reg": false,
+        "reg": true,
         "flag": "gm"
     }
 },
@@ -64,7 +64,7 @@
         "find": "<td class=\"form-table-validation-cell\">",
         "replace": "",
         "all": true,
-        "reg": false,
+        "reg": true,
         "flag": "gm"
     }
 },
@@ -74,7 +74,7 @@
         "find": "</td>",
         "replace": "",
         "all": true,
-        "reg": false,
+        "reg": true,
         "flag": "gm"
     }
 },
@@ -84,7 +84,7 @@
         "find": "<tr class=\"form-table-group\">",
         "replace": "<div class=\"form-group\">",
         "all": true,
-        "reg": false,
+        "reg": true,
         "flag": "gm"
     }
 },
@@ -94,7 +94,7 @@
         "find": "</tr>",
         "replace": "</div>",
         "all": true,
-        "reg": false,
+        "reg": true,
         "flag": "gm"
     }
 }]
