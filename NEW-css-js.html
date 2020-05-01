@@ -14,6 +14,105 @@
         :root{
             --blue:#2f75bb;
         }
+
+        i[class*="fa-"] {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+code {
+  -webkit-user-select: all;
+  user-select: all;
+  display: block;
+  padding: 20px;
+  border: 2px dashed #c9baa7;
+  color: #31808c;
+  background-color: #f5f4ef;
+  text-align: left;
+  font: 0.85rem/1.5 'Roboto Mono', monospace;
+  overflow: auto;
+}
+
+code:focus {
+  border: 2px dashed #31808c;
+  outline: none;
+  animation: select 100ms step-end forwards;
+}
+
+
+
+.vs-column {
+  height: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.vs-column::before, .vs-column::after {
+  content: '';
+  flex: 1;
+  align-self: center;
+  border-left: 2px dashed #2f75bb;
+}
+
+.vs {
+  width: 50px;
+  height: 50px;
+  margin: 20px 10px;
+  border-radius: 50%;
+  color: #f5f4ef;
+  background-color: #2f75bb;
+  line-height: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 1.25rem/1 'Rubik', sans-serif;
+}
+
+@keyframes select {
+  to {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+}
+
+        .masthead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background-size: cover;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,0.65) 100%), url(img/header.jpg) no-repeat center center scroll;
+}
+
+.masthead h1 {
+  font-style: normal;
+  font-weight: bold;
+  color: #eee;
+  font-size: 11vmin;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 40px;
+}
+    
+
+@media (prefers-color-scheme: dark) {
+  img {
+    opacity: .75;
+    transition: opacity .5s ease-in-out;
+  }
+  img:hover {
+    opacity: 1;
+  }
+}
+
+
         /* main tag raised */
         .raised {
             margin-top: -60px;
@@ -270,8 +369,21 @@
 </head>
 
 <body>
+    <section class="masthead" role="img" aria-label="Image Description">
+        <h1>
+          The Hero Generator
+        </h1>
+          <input class="form-control w-25" type="text" inputmode="decimal" />
+          <input class="form-control w-25" list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
 
-    <img src="img/header.jpg" alt class="img-fluid">
+<datalist id="ice-cream-flavors">
+  <option value="Rocky Road">
+  <option value="Dark Choc">
+  <option value="Mint Chip">
+  <option value="Mint">
+</datalist>
+      </section>
+          
 
 
     <nav class="nav teasers mt-n5">
@@ -297,20 +409,24 @@
         </ul>
     </nav>
 
-    <div class="header-filter" style="background-image: url(img/rick.jpg); height: 200px;">
-
+    <div class="header-filter p-5" style="background-image: url(img/rick.jpg); height: 400px;">
+        <pre><code tabindex="0">function wall(x, y, width, height) {
+            return Matter.Bodies.rectangle(x, y, width, height, {
+              chamfer: { radius: 10 }
+            });
+          }</code></pre>
     </div>
 
     <div style="height: 100vh;" class="raised container bg-light">
         <div class="text-center w-100 z-index-max">
             <h1 class="grad-text font-weight-900">HEADING</h1>
-            <p class="text-3d display-3 font-weight-900 text-center text-shadow mt-n4">Technology <span
+            <p class="text-3d  font-weight-900 text-center text-shadow mt-n4" style="font-size: 6vmin;">Technology <span
                     class="amp">&</span> Solutions</p>
 
         </div>
 
         <div class="row mb-5">
-            <div class="col-md-6 col-xs-12 mb-4">
+            <div class="col col-xs-12 mb-4">
                 <h6 class="initialism pt-3">News Card (big)</h6>
 
                 <div class="card h-100">
@@ -337,7 +453,11 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-xs-12 mb-4">
+            <div class="vs-column">
+                <div class="vs">vs</div>
+              </div>
+
+            <div class="col mb-4">
                 <h6 class="initialism pt-3">Events Card (big)</h6>
 
                 <div class="card h-100">
