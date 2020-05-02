@@ -15,12 +15,22 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
 }
-.form-control:invalid {
-    border-color: #ff8080;
+.form-control:invalid:not(:focus) {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem)
 }
 .form-control:invalid + small {
-    color: #ff8080 !important;
+   display: none;
 }
+.form-control:invalid ~ .invalid-feedback {
+    display: block;
+}
+
+
 select.custom, 
 input.ui-autocomplete-input, 
 input[list]:hover,
@@ -47,47 +57,176 @@ input[list]:focus {
   display: none !important;
 }
 
+
+.form-control-range.custom {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  margin: 0.75rem 0 1rem;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  outline: none;
+}
+
+.form-control-range.custom::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #2f75bb;
+  cursor: pointer;
+}
+
+.form-control-range.custom::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #2f75bb;
+  cursor: pointer;
+}
+
+
+.uploader-input-file {
+    width: 100%;
+    z-index: 3;
+    height: calc(1.5em + .75rem + 2px);
+}
+.custom-file-label ins {
+    white-space: nowrap;
+    overflow: hidden;
+    width: calc(100% - 156px);
+    display: inline-flex;
+    text-decoration: none;
+}
+.custom-file-label.with-icon ins {
+    width: calc(100% - 121px);
+}
+.custom-file-label.with-icon::after {
+    content: '\f093';
+    font: 900 1rem/1.5 'Font Awesome 5 Free';
+    color: rgba(73, 80, 87, 0.85);
+}
+.custom-file-multiple {
+    margin-top: .25rem;
+}
+
+.form-group {
+    position: relative;
+}
+
 </style>
 </head>
 <body>
-<div style="max-width: 500px;" class="mx-auto my-5">
-
-
-    <div class="form-group">
-        <label for="tel">Phone</label>
-        <input name="tel" class="form-control" type="text" inputmode="decimal" autocomplete="tel work" aria-describedby="tel-help"/>
-      <small id="tel-help" class="text-muted">Phone inputmode and autocomplete</small>
-    </div>
-    
-    <div class="form-group">
-        <label for="ice-cream-choice">Ice cream</label>
-        <input class="form-control" list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" aria-describedby="datalist-help">
-        <small id="datalist-help" class="text-muted">Custom suggestions</small>
-        <datalist id="ice-cream-flavors">
-            <option value="Rocky Road">
-            <option value="Dark Choc">
-            <option value="Mint Chip">
-            <option value="Mint">
-        </datalist>
-    </div>    
-
-    <div class="form-group">
-        <label for="cust-number">Customer number:</label>        
-        <div class="input-group">
-            <div class="input-group-prepend" style="max-width:50px;">
-                <input name="cust-number" value="44" minlength="2" maxlength="2" class="form-control branch" pattern="^[0-9]{2}$" inputmode="decimal" aria-describedby="cust-number-help">
+    <div class="row">
+        <div style="max-width: 500px;" class="col mx-auto my-5">
+            <h6 class="initialism my-4">Common inputs</h6>
+            <div class="form-group">
+                <label for="cust-number">Customer number:</label>        
+                <div class="input-group">
+                    <div class="input-group-prepend" style="max-width: 5rem;">
+                        <input name="cust-number" list="branch-numbers" value="44" minlength="2" maxlength="2" class="form-control pr-4" pattern="^[0-9]{2}$" inputmode="decimal" aria-describedby="cust-number-help">
+                        <datalist id="branch-numbers">
+                            <option value="44">
+                        </datalist>
+                    </div>
+                    <input type="text" value="184401" minlength="6" maxlength="6" class="form-control" inputmode="decimal" pattern="^[0-9]{6}$" title="Six digit customer number">
+                    <small id="cust-number-help" class="w-100 form-text text-muted">(Branch number + 6-digit customer number)</small>
+                    <div class="invalid-feedback">
+                        Please enter a 6-digit number.
+                    </div>
+                </div>
             </div>
-            <input type="text" value="184401" minlength="6" maxlength="6" class="form-control" inputmode="decimal" pattern="^[0-9]{6}$" title="Six digit customer number">
-            <small id="cust-number-help" class="w-100 text-muted">(Branch number + 6-digit customer number)</small>
-        </div>
-        
-    </div>
+            <div class="form-group ">
+                <label for="company" >Company</label>
+                <input type="text" name="company" class="form-control" autocomplete="organization" autocapitalize="on">
+            </div>
 
-    <div class="form-group">
-      <label for="company">Company</label>
-      <input type="text" name="company" id="" class="form-control" placeholder="" autocomplete="organization" autocapitalize="on" aria-describedby="company-help">
-      <small id="company-help" class="text-muted">Company name</small>
+            <div class="row form-row">
+                <div class="form-group col-md-3">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" list="titles" class="form-control" autocomplete="honorific-prefix" autocapitalize="on">
+                    <datalist id="titles">
+                        <option value="Mr.">
+                        <option value="Mrs.">
+                    </datalist>
+                </div>
+
+                <div class="form-group col-md-9">
+                    <label for="firstName">First name</label>
+                    <input type="text" name="firstName" class="form-control" autocomplete="given-name" autocapitalize="on" pattern="[A-Za-z\s\-]+">
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" name="lastName" class="form-control" autocomplete="family-name" autocapitalize="on">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input name="email" class="form-control" type="email" inputmode="email" autocomplete="email work" pattern="^[a-zA-Z0-9.!#$%&'*+\-/=?\^_`{|}~]+@[a-z0-9-]+(\.[a-zA-Z0-9-]+)+$" >
+                    <div class="invalid-feedback">
+                        Please enter a valid email address.
+                    </div>
+            </div>
+
+            <div class="form-group">
+                <label for="tel">Phone</label>
+                <input name="tel" class="form-control" type="text" inputmode="decimal" autocomplete="tel work" pattern="^[0-9+\(\)#\.\s\/-]+$" />
+            </div>
+        </div>
+        <div style="max-width: 500px;" class="col mx-auto my-5">
+            <h6 class="initialism my-4">Custom inputs</h6>
+
+            <div class="form-group">
+                <label class="sr-only" for="username">Username</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">@</div>
+                    </div>
+                    <input type="text" class="form-control" name="username" placeholder="Username">
+                    <div class="invalid-feedback">
+                        Please choose a username.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group form-group-range">
+            <label for="foo">How do you feel?</label>
+            <input class="form-control-range custom" type="range" name="foo" min="1" max="5">
+            <div class="d-flex justify-content-between align-items-center text-center text-muted small pt-3">
+                <p>Awful</p>
+                <p>Sorta bad</p>
+                <p>Meh</p>
+                <p>Sorta okay</p>
+                <p>Very good</p>
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label class="custom-file-label with-icon" for="upload">File upload:</label> 
+                <div class="custom-file-input">
+                    <input type="file" name="upload" class="uploader-input-file" multiple>
+                </div>
+                <ol class="custom-file-multiple small text-muted"></ol>
+            </div>
+
+            <div class="form-group">
+              <label for="comments">Comments</label>
+              <textarea name="comments" rows="2" cols="20" class="form-control textarea"></textarea>
+              <div id="charNum" class="small text-muted">0/100</div>
+            </div>
+
+
+
+
     </div>
+</div>
+
 
 <!-- 
 <input autocomplete="">
@@ -108,15 +247,54 @@ address-line2
 postal-code
 country-name
 
-https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete-honorific-prefix -->
+https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete-honorific-prefix 
 
-<!-- 
+
 inputmode: decimal|numeric|tel|search|email|url
 autocapitalize: off|on|words|characters
--->
+ -->
 
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="/core/CORE/js/js-bundle-feb-2020.js"></script>
+
+<script>
+$(document).ready(function() {
+
+    // File upload
+    var input    = $( '.uploader-input-file' ),
+        label	 = $( '.custom-file-label' ),
+        filename = '';
+
+        input.on( 'change', function() {            
+            if ( input.get(0).files.length > 1) {
+                var names = [];
+                for (var i = 0; i < input.get(0).files.length; ++i) {
+                    names.push('<li>' + input.get(0).files[i].name + '</li>');
+                };
+                $( '.custom-file-label' ).append(' <ins>' + input.get(0).files.length + ' files selected</ins>');
+                $( '.custom-file-multiple' ).append(names);
+            } else {
+                fileName = input.val().split( '\\' ).pop();
+                $( '.custom-file-label' ).append(' <ins>' + fileName + '</ins>');
+            }
+        });
+
+    // Textarea count
+    $('.textarea').on("keyup", function() {
+        var max = 100;
+        var len = $(this).val().length;
+        if (len >= max) {
+            $('#charNum').text('You have reached the limit');
+        } else {
+            var char = max - len;
+            $('#charNum').text(char + '/' + max);
+        }
+    });
+
+
+});
+</script>
+
 </body>
 </html>
