@@ -53,41 +53,6 @@ input[list]:focus {
     appearance: none;
 }
 
-::-webkit-calendar-picker-indicator {
-  display: none !important;
-}
-
-
-.form-control-range.custom {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  margin: 0.75rem 0 1rem;
-  border-radius: 5px;  
-  background: #d3d3d3;
-  background-color: #e9ecef;
-  border: 1px solid #ced4da;
-  outline: none;
-}
-
-.form-control-range.custom::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%; 
-  background: #2f75bb;
-  cursor: pointer;
-}
-
-.form-control-range.custom::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #2f75bb;
-  cursor: pointer;
-}
-
 
 .uploader-input-file {
     width: 100%;
@@ -98,7 +63,6 @@ input[list]:focus {
     white-space: nowrap;
     overflow: hidden;
     width: calc(100% - 156px);
-    display: inline-flex;
     text-decoration: none;
 }
 .custom-file-label.with-icon ins {
@@ -116,6 +80,35 @@ input[list]:focus {
 .form-group {
     position: relative;
 }
+
+  
+.custom-range::-webkit-slider-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: -.4rem;
+    background-color: #2f75bb;
+}
+.custom-range:active::-webkit-slider-thumb {
+    background-color: #2f75bb;
+}
+
+.custom-range::-moz-range-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: #2f75bb;
+}
+.custom-range:active:-moz-range-thumb {
+    background-color: #2f75bb;
+}
+.custom-range::-ms-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: #2f75bb;
+}
+.custom-range:active:-ms-thumb {
+    background-color: #2f75bb;
+}
+
 
 </style>
 </head>
@@ -197,7 +190,7 @@ input[list]:focus {
 
             <div class="form-group form-group-range">
             <label for="foo">How do you feel?</label>
-            <input class="form-control-range custom" type="range" name="foo" min="1" max="5">
+            <input class="form-control-range custom-range" type="range" name="foo" min="1" max="5">
             <div class="d-flex justify-content-between align-items-center text-center text-muted small pt-3">
                 <p>Awful</p>
                 <p>Sorta bad</p>
@@ -263,21 +256,16 @@ $(document).ready(function() {
 
     // File upload
     var input    = $( '.uploader-input-file' ),
-        label	 = $( '.custom-file-label' ),
-        filename = '';
+        label	 = $( '.custom-file-label' );
 
-        input.on( 'change', function() {            
-            if ( input.get(0).files.length > 1) {
-                var names = [];
-                for (var i = 0; i < input.get(0).files.length; ++i) {
-                    names.push('<li>' + input.get(0).files[i].name + '</li>');
-                };
-                $( '.custom-file-label' ).append(' <ins>' + input.get(0).files.length + ' files selected</ins>');
-                $( '.custom-file-multiple' ).append(names);
-            } else {
-                fileName = input.val().split( '\\' ).pop();
-                $( '.custom-file-label' ).append(' <ins>' + fileName + '</ins>');
-            }
+        input.on( 'change', function() {
+            var names = [];
+            for (var i = 0; i < input.get(0).files.length; ++i) {
+                var fileSize = (input.get(0).files[i].size / 1024 / 1024).toFixed(2);
+                names.push('<li>' + input.get(0).files[i].name + ' (' + fileSize + ' MB)</li>');
+            };
+            label.append(' <ins>' + input.get(0).files.length + ' file(s) selected</ins>');
+            $( '.custom-file-multiple' ).append(names);
         });
 
     // Textarea count

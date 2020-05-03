@@ -1,59 +1,118 @@
 @media (prefers-color-scheme: dark) {
     /* backgrounds */
     body,
-    .bg-white {
+    .bg-white,
+    .blockquote-footer {
         background-color: #1d1d1d !important;
-        color: #fff !important;
+        color: rgba(232, 232, 232, 1) !important;
     }
     footer,
     .bg-dark,
     .badge-dark,
     .badge-light:focus, 
-    .badge-light:hover {
+    .badge-light:hover,
+    .alert,
+    .custom-file-label:after,
+    .table,
+    .input-group-text,
+    .nav-tabs .nav-link:not(.active),
+    .breadcrumb,
+    .page-link,
+    .progress,
+    .jumbotron,
+    select option:checked,
+    .btn-secondary {
         background-color: #0e0e0e !important;
     }
     .bg-primary,
     .btn-primary,
+    .badge-primary,
     #primary-nav,
-    #primary-nav .dropdown-menu {
+    #primary-nav .dropdown-menu,
+    .list-group-item.active {
         background-color: #275f91 !important;
         background-image: none;
     }
     .bg-light,
+    .btn-light,
     .card,
     .list-group-item,
     .badge-light,
     .b4 .tile-single,
-    div[class$=grad-] {
+    div[class$=grad-],
+    .form-control,
+    .custom-file-label {
         background-color: #353535 !important;
-        color: #fff !important;
+        color: rgba(232, 232, 232, 1) !important;
         background-image: none !important;
+    }
+    .custom-select {
+        background: #353535 url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+        color: rgba(232, 232, 232, 1) !important;    
     }
 
     /* colors */
     p, a, .text-primary,
-    .text-dark {
-        color: #fff !important;
+    .text-dark,
+    .custom-file-label:after,
+    .table,
+    .input-group-text,
+    .page-link,
+    .close {
+        color: rgba(232, 232, 232, 1) !important;
     }
     .text-muted,
-    .text-black-50 {
+    .text-black-50,
+    ::placeholder,
+    .alert {
         color: #9da4aa !important;
     }
-    a:hover, a:focus, a:active,
-    a.text-dark:focus, a.text-dark:hover {
+    select:focus option:checked,
+    select[multiple] option:checked {
         color: #9da4aa !important;
+        background-color: #0e0e0e !important;
+    }
+    
+    a:hover, a:focus, a:active,
+    a.text-dark:focus, a.text-dark:hover,
+    .close:hover {
+        color: #9da4aa !important;
+    }
+    .close {
+        text-shadow: none !important;
+    }
+    [style*=url],
+    .jarallax {
+        opacity: 0.9;
     }
 
     /* borders */
     .card:not(.border-top-primary),
+    .card-header,
+    .card-footer,
     .border,
     .border-bottom,
     .border-top,
     .border-left,
     .border-right,
     .list-group-item,
-    .b4 .tile-single {
+    .b4 .tile-single,
+    .alert,
+    .form-control,
+    .custom-file-label,
+    .custom-select,
+    .table,
+    .input-group-text,
+    .page-link,
+    .heading, .container h1:not(.no-border) {
         border-color: rgba(255,255,255,.125) !important;
+    }
+    .nav-tabs .nav-link:not(.active),
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        border-color: transparent !important;
+    }
+    .nav-tabs .nav-link.active {
+        border-top-color: #2f75bb !important;
     }
 
     /* others */
@@ -64,6 +123,16 @@
     }
     a.badge-light.focus, a.badge-light:focus {
         box-shadow: 0 0 0 .125rem rgba(255,255,255,.125) !important;
+    }
+    abbr[title] {
+        text-decoration: underline wavy #353535 !important;
+    }
+    .heading, .container h1:not(.no-border) {
+        border-bottom-width: 2px;
+    }
+
+    img {
+        filter: grayscale(0.15) opacity(0.85);
     }
 
     @media screen and (max-width: 1200px) {
