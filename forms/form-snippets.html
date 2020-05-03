@@ -157,7 +157,7 @@ $  // end
 
 [0-9]{4}\s?-?[A-Za-z]{2}  // NL PostCode (1742NL OR 1742 NL)
 ^[0-9+\(\)#\.\s\/-]+$  // Phone
-^[a-zA-Z0-9.!#$%&'*+\-/=?\^_`{|}~]+@[a-z0-9-]+(\.[a-zA-Z0-9-]+)*$ // Email
+^[a-zA-Z0-9.!#$%&'*+\-/=?\^_`{|}~]+@[a-z0-9-]+(\.[a-zA-Z0-9-]+)+$ // Email
 ^[\d\s?\-?\/?\(\)])${6,8}  // Branch number and Customer number
 
 
@@ -169,7 +169,7 @@ $  // end
 
 {% if( Country.Value == "Austria" ){ "28" } %}
 {% if( Country.Value.Contains("Austria") ){ "28" } %}
-{% Email.Value.Matches("^[a-zA-Z0-9.!#$%&'*+\-/=?\^_`{|}~]+@[a-z0-9-]+(\.[a-zA-Z0-9-]+)*$") && Email.Value.Length < 255 %}
+{% Email.Value.Matches("^[a-zA-Z0-9.!#$%&'*+\-/=?\^_`{|}~]+@[a-z0-9-]+(\.[a-zA-Z0-9-]+)+$") && Email.Value.Length < 255 %}
 
 -- CurrentUser
 

@@ -31,6 +31,9 @@
 }
 
 
+::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
 select.custom, 
 input.ui-autocomplete-input, 
 input[list]:hover,
@@ -113,9 +116,16 @@ input[list]:focus {
 </style>
 </head>
 <body>
+    
+    <div class="affix progress mb-5 z-index-max p-0" style="top: 0;">
+        <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+    </div>
+    
     <div class="row">
-        <div style="max-width: 500px;" class="col mx-auto my-5">
+        <div style="max-width: 500px;" class="col mx-auto my-5" id="form">
             <h6 class="initialism my-4">Common inputs</h6>
+            
+
             <div class="form-group">
                 <label for="cust-number">Customer number:</label>        
                 <div class="input-group">
@@ -256,9 +266,11 @@ $(document).ready(function() {
 
     // File upload
     var input    = $( '.uploader-input-file' ),
-        label	 = $( '.custom-file-label' );
+        label	 = $( '.custom-file-label' ),
+        fileName = '';
 
-        input.on( 'change', function() {
+    input.on( 'change', function() {
+        if ( input.get(0).files.length > 1) {
             var names = [];
             for (var i = 0; i < input.get(0).files.length; ++i) {
                 var fileSize = (input.get(0).files[i].size / 1024 / 1024).toFixed(2);
@@ -266,7 +278,12 @@ $(document).ready(function() {
             };
             label.append(' <ins>' + input.get(0).files.length + ' file(s) selected</ins>');
             $( '.custom-file-multiple' ).append(names);
-        });
+            
+        } else {
+            fileName = input.val().split( '\\' ).pop();
+            $( '.custom-file-label' ).append(' <ins>' + fileName + '</ins>');
+        }
+    });
 
     // Textarea count
     $('.textarea').on("keyup", function() {
@@ -278,6 +295,24 @@ $(document).ready(function() {
             var char = max - len;
             $('#charNum').text(char + '/' + max);
         }
+    });
+
+    // Progress bar
+    var bar = $('.progress-bar'),
+        form = $('#form'),
+        cntreq = form.find('input, textarea, select, button').length + 1;
+
+    $('#form input').on('change', function(){
+        
+        var cntvals = 0;
+        $('input').each(function(i, val) {
+                if($(this).val() != '') {
+                    cntvals++;
+                }
+        });
+        var count = ((cntvals/cntreq)*100).toFixed(0);
+
+        bar.text(count + '%').attr('aria-valuenow',count).attr('style','width:'+count+'%;')
     });
 
 
