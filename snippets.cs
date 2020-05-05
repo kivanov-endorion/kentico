@@ -181,7 +181,7 @@ if () {
 
 // Subsite Navigation Root
 {% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") %}
-{% IMMacros.GetPageAttribute("SubSiteNavigationRoot")|(default)/% %} // enhanced
+{% IMMacros.GetPageAttribute("SubSiteNavigationRoot","oneIM.subSite")|(default)/% %} // enhanced
 
 // IMMacros
 {% IMMacros.GetPageAttribute("MenuItemTeaserImageContent") %}  // searches up the tree until it finds != null
