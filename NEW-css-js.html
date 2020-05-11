@@ -288,6 +288,19 @@ code:focus {
 
         }
 
+        /* Nested decimals */
+        ol {
+            list-style: none;
+            counter-reset: nested;
+            padding-left: 32px;
+        }
+        ol li {
+            counter-increment: nested;
+        }
+        ol li:before {
+            content: counters(nested, ".") ". ";
+        }
+
 
         /* NEW DEV (not yet implemented) */
 
@@ -331,7 +344,12 @@ code:focus {
         article> :is(h1, h2, h3, h4, h5, h6) {
             display: -webkit-box;
         }
+        /* Firefox */
+        ul li::marker {
+            color: red;
+        }
 
+        /* gap available in Chrome Canary */
         .box-group {
             display: flex;
             flex-wrap: wrap;
@@ -371,10 +389,16 @@ code:focus {
             scale: 0.95;
             translate: 10px 10px;
         }
+
+        .inline-icon {
+            display: inline-block;
+            width: 1lh; /* line-height; rlh = root line-height*/
+            height: 1lh;
+        }
   
         @supports (-webkit-background-clip: text) {
             .grad-text {
-                background: linear-gradient(rgb(25, 53, 95), steelblue);
+                background: linear-gradient(rgba(25 53 95 / 1), steelblue);
                 -webkit-background-clip: text;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
