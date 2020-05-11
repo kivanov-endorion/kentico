@@ -54,3 +54,39 @@
     });
   });
 </script>
+
+// JS Updated
+<script type="text/javascript">
+    $(document).ready(function () {
+      $('.second-menu-item').each(function () {
+        $(this).next('ul').css('display', 'none');
+        if ($(this).next().is('ul.sub-menu')) {
+            $(this).find('a').contents().unwrap();
+            $(this).addClass('parent');
+        }
+      });
+      $('.sidebar a').each(function () {
+        if (this.href == window.location.href) {
+            var granddad = $(this).parent().parent();
+            $(granddad).css('display', 'block');
+            $(granddad).prev().addClass('Highlighted');
+            var grandgranddad = $(this).parent().parent();
+            $(grandgranddad).css('display', 'block');
+            $(grandgranddad).prev().addClass('Highlighted');
+        }
+      });
+      $('.parent.second-menu-item').click(function (e) {
+        e.stopPropagation();
+        $(this).toggleClass('Highlighted');
+        var subMenu = $(this).next('ul');
+        if ($(this).next().is('ul.sub-menu')) {
+            $(this).siblings().next('ul').slideUp();
+            $(this).siblings().removeClass('Highlighted');
+        }
+        subMenu.stop(true, true).slideToggle(400);
+      });    
+      $('.second-menu-item > ul > li').click(function (e) {
+        e.stopImmediatePropagation();
+      });
+    });
+  </script>
