@@ -282,6 +282,11 @@ SiteID  SiteName                    SK_Valid
 {% DocumentMenuItemLeftImage %}
 {% DocumentMenuItemRightImage %}
 
+// Check if CurrentDocument is on path
+{% if ( IsDocumentOnSelectedPath() || IsCurrentDocument() ) { "active" } %}
+{% IfCompare( NodeAliasPath, CurrentDocument.NodeAliasPath, "", "active" ) %}
+{% if( CurrentDocument.NodeAliasPath.Contains(NodeAliasPath) ) { "active" } %}
+
 {% NodeAlias %}
 {% NodeAliasPath %}
 {% NodeID %}

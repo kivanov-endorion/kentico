@@ -56,26 +56,16 @@
 </script>
 
 // JS Updated
-<script type="text/javascript">
+<script>
     $(document).ready(function () {
-      $('.second-menu-item').each(function () {
-        $(this).next('ul').css('display', 'none');
+      $('.second-menu-item').each(function() {
         if ($(this).next().is('ul.sub-menu')) {
             $(this).find('a').contents().unwrap();
             $(this).addClass('parent');
-        }
+        }        
+        $('.second-menu-item.Highlighted').next().css('display', 'block');
       });
-      $('.sidebar a').each(function () {
-        if (this.href == window.location.href) {
-            var granddad = $(this).parent().parent();
-            $(granddad).css('display', 'block');
-            $(granddad).prev().addClass('Highlighted');
-            var grandgranddad = $(this).parent().parent();
-            $(grandgranddad).css('display', 'block');
-            $(grandgranddad).prev().addClass('Highlighted');
-        }
-      });
-      $('.parent.second-menu-item').click(function (e) {
+      $('.parent.second-menu-item').click(function(e) {
         e.stopPropagation();
         $(this).toggleClass('Highlighted');
         var subMenu = $(this).next('ul');
@@ -89,4 +79,4 @@
         e.stopImmediatePropagation();
       });
     });
-  </script>
+</script>
