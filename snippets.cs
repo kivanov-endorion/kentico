@@ -72,6 +72,15 @@
     Format("<img alt='{0}' class='img-fluid lazyload' data-src='{1}?width=600'>", DocumentName, GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ))
 } %}
 
+// GetEditableImage ( image, alt, size, width, height )
+{% GetEditableImage(EditableImage, "alt", 0, 300, 150) %}
+
+// GetEditableImage URL
+{% GetEditableImageUrl(EditableImage) %}
+{% if ( EditableImage ) {
+    Format("<img alt='{1}' class='img-fluid lazyload' data-src='{0}?width=600'>", GetEditableImageUrl(EditableImage).Split("?")[0], WebPart.GetValue("EditableImage", "WebpartControlID"))
+} %}
+
 // GetLogo (Vendors)
 <img class="wow flipInX" src="/logos/GetLogo.ashx?name={% NodeAlias.Replace("-","") %}&size=120" alt="{% DocumentName %}" data-wow-delay="{% DataItemIndex*100 %}ms">
 
@@ -351,6 +360,12 @@ SiteID  SiteName                    SK_Valid
 {% WebPart.GetValue("Repeater", "TransformationName") %}
 {% WebPart.GetValue("Repeater", "Visible") %}
 {% WebPart.GetValue("StaticHTML_1", "isWidget") %}
+
+// EditableImage values
+{% WebPart.GetValue("EditableImage", "DefaultImage") %}
+{% WebPart.GetValue("EditableImage", "AlternateText") %}
+{% WebPart.GetValue("EditableImage", "ImageCssClass") %}
+{% WebPart.GetValue("EditableImage", "ImageStyle") %}
 
 // Webpart / Widget Zones
 {% WebPartZone.GetValue("zoneWidgetA", "ContentBefore") %}

@@ -1,0 +1,69 @@
+<div id="form-event-registration">
+    <h6 class="horizontal divider">Firmendaten</h6>
+    
+    <div class="row form-row">
+    <div class="col-lg-6 form-group">$$label:CustomerNumber$$$$input:CustomerNumber$$$$validation:CustomerNumber$$</div>
+    
+    <div class="col-lg-6 form-group">$$label:Company$$$$input:Company$$$$validation:Company$$</div>
+    </div>
+    
+    <div class="row form-row">
+    <div class="col-lg-6 form-group">$$label:Street$$$$input:Street$$$$validation:Street$$</div>
+    
+    <div class="col-lg-6 form-group">$$label:ZipCity$$$$input:ZipCity$$$$validation:ZipCity$$</div>
+    </div>
+    
+    <h6 class="horizontal divider">Teilnehmerdaten</h6>
+    
+    <div class="row form-row">
+    <div class="col-lg-6 form-group">$$label:Title$$$$input:Title$$$$validation:Title$$</div>
+    
+    <div class="col-lg-6 form-group">$$label:Function$$$$input:Function$$$$validation:Function$$</div>
+    </div>
+    
+    <div class="row form-row">
+    <div class="col-lg-6 form-group">$$label:FirstName$$$$input:FirstName$$$$validation:FirstName$$</div>
+    
+    <div class="col-lg-6 form-group">$$label:LastName$$$$input:LastName$$$$validation:LastName$$</div>
+    </div>
+    
+    <div class="row form-row">
+    <div class="col-lg-6 form-group">$$label:Email$$$$input:Email$$$$validation:Email$$</div>
+    
+    <div class="col-lg-6 form-group">$$label:Phone$$$$input:Phone$$$$validation:Phone$$</div>
+    </div>
+    <div class="row form-row">
+        <div class="col-12 form-group mx-auto text-center">$$label:DataPrivacy$$$$input:DataPrivacy$$$$validation:DataPrivacy$$</div>
+        </div> 
+    <div class="row form-row">
+    <div class="col-6 form-group mx-auto text-center">$$submitbutton$$</div>
+    </div>
+    </div>
+    <style type="text/css">::-webkit-calendar-picker-indicator {
+      display: none !important;
+    }
+    select.custom, 
+    input.ui-autocomplete-input, 
+    input[list]:hover,
+    input[list]:focus {
+        display: inline-block;
+        width: 100%;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem 1.75rem .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        vertical-align: middle;
+        background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3e%3cpath fill='%232f75bb' d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z'/%3e%3c/svg%3e") no-repeat right .75rem center/12px 14px;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    </style>
+    
+
+    {%  CurrentDocument["EventTitle"] #%} - Default value for events
