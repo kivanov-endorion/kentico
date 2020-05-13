@@ -199,6 +199,22 @@ input[list]:focus {
                 </div>
             </div>
 
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" class="form-control date" name="date">
+            </div>
+
+            <div class="form-group">
+                <label for="time">Time</label>
+                <input type="time" class="form-control time" name="time">
+            </div>
+            <div class="form-group">
+                <div id="date_filter" class="d-flex">
+                    <input class="date_range_filter date form-control mr-2" type="text" id="datepicker_from" placeholder="From:" />
+                    <input class="date_range_filter date form-control" type="text" id="datepicker_to" placeholder="Until:" />
+                '</div>
+            </div>
+
             <div class="form-group form-group-range">
             <label for="foo">How do you feel?</label>
             <input class="form-control-range custom-range" type="range" name="foo" min="1" max="5">
@@ -318,6 +334,128 @@ $(document).ready(function() {
 
 
 });
+</script>
+
+
+<!-- DataTimePicker -->
+
+<link rel="stylesheet" type="text/css" href="//starter.ingrammicro.eu/1IMv2/ext/css/bootstrap-datetimepicker.min-4.17.44.css">
+<link rel="stylesheet" type="text/css" href="//starter.ingrammicro.eu/1IMv2/ext/css/datetimepicker-and-custom-styles.css">
+<script src="//starter.ingrammicro.eu/1IMv2/ext/js/moment-with-locales.min-4.17.44.js"></script>
+<script src="//starter.ingrammicro.eu/1IMv2/ext/js/bootstrap-datetimepicker.min-4.17.44.js"></script>
+<script>
+    $(".date").datetimepicker({
+        icons: {
+            time: "far fa-clock",
+            date: "fas fa-calendar-alt",
+            up: "fas fa-arrow-up",
+            down: "fas fa-arrow-down"
+        },
+        format: "YYYY-MM-DD",
+        locale: 'de'
+
+    });
+    $(".time").datetimepicker({
+        icons: {
+            time: "far fa-clock",
+            date: "fas fa-calendar-alt",
+            up: "fas fa-arrow-up",
+            down: "fas fa-arrow-down"
+        },
+        format: "HH:mm",
+        locale: 'de'
+    });
+
+    // Datetimepicker From - Until
+
+    $("#datepicker_from").datetimepicker({
+        icons: {
+            time: "far fa-clock",
+            date: "fas fa-calendar-alt",
+            up: "fas fa-arrow-up",
+            down: "fas fa-arrow-down"
+        },
+        format:"DD.MM.YYYY",
+        locale: "{%LocalizationContext.CurrentCulture.CultureCode.Split("-")[1]#%}"
+    });
+    $("#datepicker_to").datetimepicker({
+        icons: {
+            time: "far fa-clock",
+            date: "fas fa-calendar-alt",
+            up: "fas fa-arrow-up",
+            down: "fas fa-arrow-down"
+        },
+        format:"DD.MM.YYYY",
+        locale: "{%LocalizationContext.CurrentCulture.CultureCode.Split("-")[1]#%}",
+        useCurrent: false
+    });
+
+    $("#datepicker_from").on("dp.change", function (e) {
+        $('#datepicker_to').data("DateTimePicker").minDate(e.date);
+        });
+    $("#datepicker_to").on("dp.change", function (e) {
+        $('#datepicker_from').data("DateTimePicker").maxDate(e.date);
+    });
+        
+    $.fn.dataTableExt.afnFiltering.push(
+    function( oSettings, aData, iDataIndex ) {
+        var iFini = document.getElementById('datepicker_from').value;
+        var iFfin = document.getElementById('datepicker_to').value;
+        var iStartDateCol = 3;
+        var iEndDateCol = 3;
+    
+        iFini=iFini.substring(6,10) + iFini.substring(3,5)+ iFini.substring(0,2);
+        iFfin=iFfin.substring(6,10) + iFfin.substring(3,5)+ iFfin.substring(0,2);
+    
+        var datofini=aData[iStartDateCol].substring(6,10) + aData[iStartDateCol].substring(3,5)+ aData[iStartDateCol].substring(0,2);
+        var datoffin=aData[iEndDateCol].substring(6,10) + aData[iEndDateCol].substring(3,5)+ aData[iEndDateCol].substring(0,2);
+    
+        if ( iFini === "" && iFfin === "" )
+        {
+            return true;
+        }
+        else if ( iFini <= datofini && iFfin === "")
+        {
+            return true;
+        }
+        else if ( iFfin >= datoffin && iFini === "")
+        {
+            return true;
+        }
+        else if (iFini <= datofini && iFfin >= datoffin)
+        {
+            return true;
+        }
+        return false;
+    }
+);
+
+// Date range filter
+minDateFilter = "";
+maxDateFilter = "";
+
+$.fn.dataTableExt.afnFiltering.push(
+  function(oSettings, aData, iDataIndex) {
+    if (typeof aData._date == 'undefined') {
+      aData._date = new Date(aData[0]).getTime();
+    }
+
+    if (minDateFilter && !isNaN(minDateFilter)) {
+      if (aData._date < minDateFilter) {
+        return false;
+      }
+    }
+
+    if (maxDateFilter && !isNaN(maxDateFilter)) {
+      if (aData._date > maxDateFilter) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+);
+
 </script>
 
 </body>

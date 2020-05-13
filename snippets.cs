@@ -186,7 +186,7 @@ if () {
 {% if ( Settings.CustomSettings["LegalDisclosureLink"] ) {} %}
 
 // Page Template
-{% if ( CurrentDocument.Parent.NodeTemplate.CodeName != "1IMVendorB4" ) { return true; } else { return false; } %}
+{% if ( CurrentDocument.NodeTemplate.CodeName != "1IMVendorB4" ) { return true; } else { return false; } %}
 
 // Subsite Navigation Root
 {% Documents["/" + CurrentDocument.NodeAliasPath.Split("/")[1]].GetValue("SubSiteNavigationRoot","/%") %}

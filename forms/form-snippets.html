@@ -171,6 +171,10 @@ $  // end
 {% if( Country.Value.Contains("Austria") ){ "28" } %}
 {% Email.Value.Matches("^[a-zA-Z0-9.!#$%&'*+\-/=?\^_`{|}~]+@[a-z0-9-]+(\.[a-zA-Z0-9-]+)+$") && Email.Value.Length < 255 %}
 
+-- Get values from page
+
+{%  CurrentDocument["EventTitle"] %}
+
 -- CurrentUser
 
 {% FirstName %}
@@ -241,7 +245,21 @@ $(document).ready(function() {
     });
 });
 </script>
-
+<style>
+    .WatermarkText {
+        color: #6c757d !important;
+    }
+    .fas {
+        font-weight: 900;
+    }
+    .FormButton {
+        font-size: 90%;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        padding-left: 3rem!important;
+        padding-right: 3rem!important;
+    }
+</style>
 
 
 <!-- DataTimePicker -->
@@ -273,23 +291,6 @@ $(document).ready(function() {
         locale: 'de'
     });
 </script>
-
-<style>
-    .WatermarkText {
-        color: #6c757d !important;
-    }
-    .fas {
-        font-weight: 900;
-    }
-    .FormButton {
-        font-size: 90%;
-        text-transform: uppercase;
-        letter-spacing: .4px;
-        padding-left: 3rem!important;
-        padding-right: 3rem!important;
-    }
-</style>
-
 
 
 <!-- Form Wizard  -->
@@ -327,5 +328,4 @@ $(document).ready(function(){
         wrap: false
     });
 });
-   
 </script>
