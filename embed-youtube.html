@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Title</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/core/CORE/css/0-css-bundle-feb-2020.css">
+<link rel="stylesheet" href="/core/CORE/css/2-1im-master-bootstrap4.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+</head>
+<body class="flex-center bg-light" style="height: 100vh;">
+
+    <div class="bg-dark w-100 py-4 flex-center">
+        <iframe data-src="https://www.youtube-nocookie.com/embed/wYZdaYobCSU" 
+        class="lazyload" width="640" height="360" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <iframe data-src="https://player.vimeo.com/video/76979871" 
+        class="lazyload" width="640" height="360" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    <!-- Background videos: <iframe src="https://player.vimeo.com/video/76979871?background=1" 
+    width="640" height="360" frameborder="0" allowfullscreen></iframe> -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="/core/CORE/js/js-bundle-feb-2020.js"></script>
+<script>
+$(document).ready(function () {
+    $('iframe').each(function(){
+        var domain = $(this).attr('data-src').split('/')[2], 
+            videoId = $(this).attr('data-src').split('/')[4];
+        
+        if(domain.includes('vimeo')) {
+            $(this).attr('data-src', 'https://player.vimeo.com/video/' + videoId + '?dnt=1&autoplay=0&byline=0&color=2f75bb&title=0');
+        } else {
+            $(this).attr('data-src', 'https://www.youtube-nocookie.com/embed/' + videoId + '?hl=de&modestbranding=1&rel=0');
+        }
+        $(this).attr('title', 'Video with ID: ' + videoId);
+    });
+});
+</script>
+</body>
+</html>
