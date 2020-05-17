@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/core/CORE/css/0-css-bundle-feb-2020.css">
-    <link rel="stylesheet" href="/core/CORE/css/2-1im-master-bootstrap4.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); /* Variable font */
-    </style>
-    <style>
+<title>Title</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/core/CORE/css/0-css-bundle-feb-2020.css">
+<link rel="stylesheet" href="/core/CORE/css/2-1im-master-bootstrap4.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); /* Variable font */
+</style>
+<style>
 .gallery {
   display: grid;
   grid-gap: 2rem;
@@ -32,16 +32,8 @@
   height: 40vh;
   display: block;
 }
-@media screen and (prefers-reduced-motion: no-preference) {
-    .gallery .card img {
-        transform: scale(1.2) translate(5%, 0);
-        transition: transform 1200ms ease-in;
-        will-change: transform;
-    }
-    .gallery .card:hover img {
-        transform: scale(1.3) translate(-1%, -3%);
-    }
-}
+
+
 @media screen and (prefers-reduced-motion: no-preference) {
   html,
   body {
@@ -50,43 +42,22 @@
 }
 
 
-        body {
-            min-height: 100vh;
-        }
-        @media not all and (min-resolution: .001dpcm) {
-            @supports (-webkit-appearance:none) and (stroke-color: transparent) {
-                body { min-height: -webkit-fill-available; }
-            }
-        }
-        :root{
-            --blue:#2f75bb;
-        }
+body {
+    min-height: 100vh;
+}
+@media not all and (min-resolution: .001dpcm) {
+    @supports (-webkit-appearance:none) and (stroke-color: transparent) {
+        body { min-height: -webkit-fill-available; }
+    }
+}
+:root{
+    --blue:#2f75bb;
+}
 
-        i[class*="fa-"] {
+i[class*="fa-"] {
   -webkit-user-select: none;
   user-select: none;
 }
-
-code {
-  -webkit-user-select: all;
-  user-select: all;
-  display: block;
-  padding: 20px;
-  border: 2px dashed #c9baa7;
-  color: #31808c;
-  background-color: #f5f4ef;
-  text-align: left;
-  font: 0.85rem/1.5 'Roboto Mono', monospace;
-  overflow: auto;
-}
-
-code:focus {
-  border: 2px dashed #31808c;
-  outline: none;
-  animation: select 100ms step-end forwards;
-}
-
-
 
 .vs-column {
   height: 100%;
@@ -117,14 +88,9 @@ code:focus {
   font: 1.25rem/1 'Rubik', sans-serif;
 }
 
-@keyframes select {
-  to {
-    -webkit-user-select: text;
-    user-select: text;
-  }
-}
 
-        .masthead {
+
+.masthead {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,363 +113,177 @@ code:focus {
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
   margin-bottom: 40px;
 }
-    
 
-/* @media (prefers-color-scheme: dark) {
-  img {
-    opacity: .75;
-    transition: opacity .5s ease-in-out;
-  }
-  img:hover {
+/* NEW DEV (not yet implemented) */
+
+/* all except IE */
+[aria-label=menu]:focus-within,
+[aria-label=submenu]:focus-within {
     opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {}
+
+@media (prefers-contrast: high) {}
+
+@media (prefers-reduced-transparency: reduce) {}
+
+@media (forced-colors: high) {}
+
+@media (light-level: dim) {}
+
+section {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scroll-snap-type: y mandatory;
+}
+
+section>picture {
+    scroll-snap-align: center;
+}
+
+.backdrop-filter {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+button:is(.focus, :focus),
+button:-moz-any(.focus, :focus),
+button:-webkit-any(.focus, :focus) {
+    display: -webkit-box;
+}
+
+article> :is(h1, h2, h3, h4, h5, h6) {
+    display: -webkit-box;
+}
+/* Firefox */
+ul li::marker {
+    color: red;
+}
+
+/* gap available in Chrome Canary */
+.box-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.flex-button {
+    display: inline-flex;
+    place-items: center;
+    gap: 1rem;
+}
+
+.size {
+    size: 50vw;
+    /* width: 50vw; height: 50vw; */
+}
+
+.aspect-ratio {
+    aspect-ratio: 16 / 9;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 5vw, 5rem);
+}
+
+.card {
+    /* width: 10%;
+    max-width: 500px; */
+    width: min(500px, 100%);
+}
+
+.el {
+    inset: 4px 0; /* top: 4px, bottom: 4px, left: 0, right: 0 */
+}
+.transform {
+    rotate: 10deg;
+    scale: 0.95;
+    translate: 10px 10px;
+}
+
+.inline-icon {
+    display: inline-block;
+    width: 1lh; /* line-height; rlh = root line-height*/
+    height: 1lh;
+}
+
+@supports (-webkit-background-clip: text) {
+    .grad-text {
+        background: linear-gradient(rgba(25 53 95 / 1), steelblue);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+
+/*TODO: Add these to the CSS: */
+.border-radius-none {
+    border-radius: 0 !important;
+}
+.select-all {
+        -webkit-user-select: all;
+        user-select: all;
+}
+.select-all:focus {
+    animation: select 100ms step-end forwards;
+}
+@keyframes select {
+  to {
+    -webkit-user-select: text;
+    user-select: text;
   }
-} */
+}
+.select-none {
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+.filter-sepia {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'old-photo\'><feColorMatrix type=\'matrix\' values=\'0.39 0.769 0.189 0  0  0.349 0.686 0.168 0  0 0.272 0.534 0.131 0  0  0  0 0 1  0\'/></filter></svg>#old-photo");
+    filter: sepia(1) grayscale(0.5) contrast(1.1) blur(0.3px);
+    -webkit-filter: sepia(1) grayscale(0.5) contrast(1.1) blur(0.3px);    
+}
+.bg-sepia {
+    backdrop-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'old-photo\'><feColorMatrix type=\'matrix\' values=\'0.39 0.769 0.189 0  0  0.349 0.686 0.168 0  0 0.272 0.534 0.131 0  0  0  0 0 1  0\'/></filter></svg>#old-photo");
+    backdrop-filter: sepia(1) grayscale(0.5) contrast(1.1) blur(0.3px);
+    -webkit-backdrop-filter: sepia(1) grayscale(0.5) contrast(1.1) blur(0.3px);
+}
 
+.filter-gray {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(99%);
+    -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
+}
 
+.nested ol {
+    list-style: none;
+    counter-reset: nested;
+    padding-left: 1rem;
+}
+.nested ol li {
+    counter-increment: nested;
+}
+.nested ol li:before {
+    content: counters(nested, ".") ". ";
+}
 
-        /* main tag raised */
-        .raised {
-            margin-top: -60px;
-            padding-bottom: 60px;
-            border-radius: .25rem;
-            box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
-        }
-
-        .pulse-icon-primary,
-        .pulse-icon-light {
-            border-radius: 50%;
-            box-shadow: 0 0 0 30px transparent;
-            transform: translate3d(0, 0, 0);
-            transition: box-shadow .6s ease-in-out;
-        }
-
-        .pulse-icon-primary:hover,
-        .pulse-icon-primary:active,
-        .pulse-icon-primary:focus {
-            box-shadow: 0 0 0 0 rgba(70, 130, 180, 0.5);
-            transition: box-shadow .4s ease-in-out;
-        }
-
-        .pulse-icon-light:hover,
-        .pulse-icon-light:active,
-        .pulse-icon-light:focus {
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
-            transition: box-shadow .4s ease-in-out;
-        }
-
-
-        .teasers ul {
-            max-width: 1240px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0;
-            list-style: none;
-            font-size: 1.5em;
-            font-weight: 300;
-            ;
-
-        }
-
-        .teasers li span {
-            display: block;
-        }
-
-        .teasers a {
-            display: block;
-            color: rgba(249, 249, 249, .9);
-            text-decoration: none;
-            text-align: center;
-            padding: 5px 0;
-            transition: color .5s, background .5s, height .5s;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        }
-
-        .teasers ul:hover a {
-            color: rgba(249, 249, 249, .5);
-        }
-
-        .teasers ul:hover a:hover {
-            color: rgba(249, 249, 249, 0.99);
-        }
-
-        .teasers li:nth-child(4n+1) {
-            background: rgb(22, 145, 190);
-        }
-
-        .teasers li:nth-child(4n+2) {
-            background: rgb(22, 107, 162);
-        }
-
-        .teasers li:nth-child(4n+3) {
-            background: rgb(27, 54, 71);
-        }
-
-        .teasers li:nth-child(4n+4) {
-            background: rgb(5, 30, 45);
-        }
-
-
-        @media (min-width: 38.688em) {
-
-            .teasers ul {
-                display: flex;
-                justify-content: space-around;
-                justify-content: space-evenly;
-                align-items: flex-start;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .teasers+* {
-                margin-top: 250px;
-            }
-
-            .teasers li {
-                flex: 0 0 25%;
-                text-align: center;
-                transition: border .5s;
-                margin: 0 0.5vw;
-                border-radius: .25rem;
-            }
-
-            .teasers i+span {
-                margin-top: 1.1em;
-                transition: margin .5s;
-            }
-
-            .teasers a {
-                display: block;
-                width: auto;
-                height: 9em;
-                box-shadow: 0px 0px 25px rgba(10, 75, 117, 0.5);
-            }
-
-            .teasers a:hover,
-            .teasers a:active,
-            .teasers a:focus {
-                height: 10em;
-            }
-
-            .teasers a:hover i+span {
-                margin-top: 2.2em;
-                transition: margin .5s;
-            }
-
-            .teasers i {
-                position: relative;
-                display: inline-flex;
-                margin: 1rem auto 0;
-                padding: 0.4em;
-                width: 5rem;
-                height: 5rem;
-                font-size: 3rem;
-                justify-content: center;
-                align-items: center;
-            }
-
-
-        }
-
-        @media (max-width: 38.688em) {
-            .teasers ul {
-                transform: translateY(0);
-                position: relative;
-            }
-
-            .teasers li span {
-                display: inline-block;
-                height: 100%;
-            }
-
-            .teasers a {
-                padding: 0.5em;
-                display: flex;
-                justify-content: space-between;
-                flex-direction: row-reverse;
-            }
-
-            .teasers i+span {
-                margin-left: 1em;
-                font-size: 0.8em;
-            }
-
-        }
-
-        /* Nested decimals */
-        ol {
-            list-style: none;
-            counter-reset: nested;
-            padding-left: 32px;
-        }
-        ol li {
-            counter-increment: nested;
-        }
-        ol li:before {
-            content: counters(nested, ".") ". ";
-        }
-
-
-        /* NEW DEV (not yet implemented) */
-
-        /* all except IE */
-        [aria-label=menu]:focus-within,
-        [aria-label=submenu]:focus-within {
-            opacity: 1;
-        }
-
-        @media (prefers-color-scheme: dark) {}
-
-        @media (prefers-contrast: high) {}
-
-        @media (prefers-reduced-transparency: reduce) {}
-
-        @media (forced-colors: high) {}
-
-        @media (light-level: dim) {}
-
-        section {
-            overflow-y: auto;
-            overscroll-behavior-y: contain;
-            scroll-snap-type: y mandatory;
-        }
-
-        section>picture {
-            scroll-snap-align: center;
-        }
-
-        .backdrop-filter {
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-        }
-
-        button:is(.focus, :focus),
-        button:-moz-any(.focus, :focus),
-        button:-webkit-any(.focus, :focus) {
-            display: -webkit-box;
-        }
-
-        article> :is(h1, h2, h3, h4, h5, h6) {
-            display: -webkit-box;
-        }
-        /* Firefox */
-        ul li::marker {
-            color: red;
-        }
-
-        /* gap available in Chrome Canary */
-        .box-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .flex-button {
-            display: inline-flex;
-            place-items: center;
-            gap: 1rem;
-        }
-
-        .size {
-            size: 50vw;
-            /* width: 50vw; height: 50vw; */
-        }
-
-        .aspect-ratio {
-            aspect-ratio: 16 / 9;
-        }
-
-        h1 {
-            font-size: clamp(1.5rem, 5vw, 5rem);
-        }
-
-        .card {
-            /* width: 10%;
-            max-width: 500px; */
-            width: min(500px, 100%);
-        }
-
-        .el {
-            inset: 4px 0; /* top: 4px, bottom: 4px, left: 0, right: 0 */
-        }
-        .transform {
-            rotate: 10deg;
-            scale: 0.95;
-            translate: 10px 10px;
-        }
-
-        .inline-icon {
-            display: inline-block;
-            width: 1lh; /* line-height; rlh = root line-height*/
-            height: 1lh;
-        }
-  
-        @supports (-webkit-background-clip: text) {
-            .grad-text {
-                background: linear-gradient(rgba(25 53 95 / 1), steelblue);
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-        }
-    </style>
+</style>
 </head>
 
 <body>
+    
     <section class="masthead" role="img" aria-label="Image Description">
-        <h1>
-          The Hero Generator
-        </h1>
-          <input class="form-control w-25" type="text" inputmode="decimal" />
-          <input class="form-control w-25" list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
-
-<datalist id="ice-cream-flavors">
-  <option value="Rocky Road">
-  <option value="Dark Choc">
-  <option value="Mint Chip">
-  <option value="Mint">
-</datalist>
+        <h1>Masthead H1</h1>
       </section>
-          
 
-
-    <nav class="nav teasers mt-n5">
-        <ul>
-            <li>
-                <a href="#">
-                    <i aria-hidden="true" class="fas fa-laptop pulse-icon-light">&hairsp;</i>
-                    <span>Technology Solutions</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i aria-hidden="true" class="fas fa-cloud pulse-icon-light">&hairsp;</i>
-                    <span>Cloud</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i aria-hidden="true" class="fas fa-credit-card pulse-icon-light">&hairsp;</i>
-                    <span>Commerce &amp; Lifecycle</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="header-filter p-5" style="background-image: url(img/rick.jpg); height: 400px;">
-        <pre><code tabindex="0">function wall(x, y, width, height) {
-            return Matter.Bodies.rectangle(x, y, width, height, {
-              chamfer: { radius: 10 }
-            });
-          }</code></pre>
-    </div>
-
-    <div style="height: 100vh;" class="raised container bg-light">
+    <div class="raised container bg-light">
         <div class="text-center w-100 z-index-max">
-            <h1 class="grad-text font-weight-900">HEADING</h1>
-            <p class="text-3d  font-weight-900 text-center text-shadow mt-n4" style="font-size: 6vmin;">Technology <span
-                    class="amp">&</span> Solutions</p>
-
+            <h1 class="text-3d font-weight-bold py-5 no-border">
+                Technology Solutions
+            </h1>
         </div>
 
         <div class="row mb-5">
@@ -564,46 +344,20 @@ code:focus {
                 </div>
             </div>
         </div>
-
     </div>
-
-    <table class="form-table">
-        <tbody>
-            <tr class="form-table-group">
-                <td class="form-table-label-cell">$$label:Kundennummer$$</td>
-                <td class="form-table-value-cell">$$input:Kundennummer$$</td>
-                <td class="form-table-validation-cell">$$validation:Kundennummer$$</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="gallery my-5 mx-auto">
-        <div class="card">
-          <img class="" alt="" src="https://picsum.photos/400" />
-        </div>
-        <div class="card">
-          <img class="" alt="" src="https://picsum.photos/600" />
-        </div>
-        <div class="card">
-          <img class="" alt="" src="https://picsum.photos/650" />
-        </div>
-      </div>
     
-
-    <script>
-        var loadScript = function (src) {
-            var tag = document.createElement('script');
-            tag.async = false;
-            tag.src = src;
-            document.getElementsByTagName('body').appendChild(tag);
-        }
-        window.addEventListener("load", function () {
-            loadScript('//cdnjs.com/some/library.js')
-            loadScript('//cdnjs.com/some/other/library.js')
-        });
-    </script>
-
-
+    <section class="gallery my-5 mx-auto">
+        <div class="card zoom">
+          <img class="filter-sepia" alt="" src="https://picsum.photos/400" />
+        </div>
+        <div class="card zoom">
+          <img class="filter-sepia" alt="" src="https://picsum.photos/600" />
+        </div>
+        <div class="card zoom">
+          <img class="filter-sepia" alt="" src="https://picsum.photos/650" />
+        </div>
+      </section>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="/core/CORE/js/js-bundle-feb-2020.js"></script>
 </body>

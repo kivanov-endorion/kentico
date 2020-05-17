@@ -1,0 +1,2 @@
+<h6 class="initialism mb-0 mt-4" id="{% Documents[NodeAliasPath].NodeAlias %}">{% Documents[NodeAliasPath].DocumentName %}</h6>
+{% Documents[NodeAliasPath].RelatedDocuments["isrelatedto"].ClassNames("oneIM.Contact").WithAllData.ApplyTransformation("oneIM.ContainerB4.Contacts-Card-Small-2-in-a-row") %}
