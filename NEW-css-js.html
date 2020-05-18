@@ -42,54 +42,6 @@
 }
 
 
-body {
-    min-height: 100vh;
-}
-@media not all and (min-resolution: .001dpcm) {
-    @supports (-webkit-appearance:none) and (stroke-color: transparent) {
-        body { min-height: -webkit-fill-available; }
-    }
-}
-:root{
-    --blue:#2f75bb;
-}
-
-i[class*="fa-"] {
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-.vs-column {
-  height: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.vs-column::before, .vs-column::after {
-  content: '';
-  flex: 1;
-  align-self: center;
-  border-left: 2px dashed #2f75bb;
-}
-
-.vs {
-  width: 50px;
-  height: 50px;
-  margin: 20px 10px;
-  border-radius: 50%;
-  color: #f5f4ef;
-  background-color: #2f75bb;
-  line-height: 50px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font: 1.25rem/1 'Rubik', sans-serif;
-}
-
-
-
 .masthead {
   display: flex;
   justify-content: center;
@@ -217,59 +169,6 @@ h1 {
     }
 }
 
-
-/*TODO: Add these to the CSS: */
-.border-radius-none {
-    border-radius: 0 !important;
-}
-.select-all {
-        -webkit-user-select: all;
-        user-select: all;
-}
-.select-all:focus {
-    animation: select 100ms step-end forwards;
-}
-@keyframes select {
-  to {
-    -webkit-user-select: text;
-    user-select: text;
-  }
-}
-.select-none {
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-}
-.filter-sepia {
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'old-photo\'><feColorMatrix type=\'matrix\' values=\'0.39 0.769 0.189 0  0  0.349 0.686 0.168 0  0 0.272 0.534 0.131 0  0  0  0 0 1  0\'/></filter></svg>#old-photo");
-    filter: sepia(1) grayscale(0.5) contrast(1.1) blur(0.3px);
-    -webkit-filter: sepia(1) grayscale(0.5) contrast(1.1) blur(0.3px);    
-}
-.bg-sepia {
-    backdrop-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'old-photo\'><feColorMatrix type=\'matrix\' values=\'0.39 0.769 0.189 0  0  0.349 0.686 0.168 0  0 0.272 0.534 0.131 0  0  0  0 0 1  0\'/></filter></svg>#old-photo");
-    backdrop-filter: sepia(1) grayscale(0.5) contrast(1.1) blur(0.3px);
-    -webkit-backdrop-filter: sepia(1) grayscale(0.5) contrast(1.1) blur(0.3px);
-}
-
-.filter-gray {
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-    filter: gray;
-    -webkit-filter: grayscale(99%);
-    -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
-}
-
-.nested ol {
-    list-style: none;
-    counter-reset: nested;
-    padding-left: 1rem;
-}
-.nested ol li {
-    counter-increment: nested;
-}
-.nested ol li:before {
-    content: counters(nested, ".") ". ";
-}
-
 </style>
 </head>
 
@@ -312,10 +211,6 @@ h1 {
                                 &gt;</a></small> <time class="text-muted small" datetime="2019-01-15T12:00:00">January
                             15, 2019</time></div>
                 </div>
-            </div>
-
-            <div class="vs-column">
-                <div class="vs">vs</div>
             </div>
 
             <div class="col mb-4">
