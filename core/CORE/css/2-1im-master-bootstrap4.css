@@ -5222,6 +5222,7 @@ i[class*="fa-"] {
 }
 .select-all:focus {
     animation: select 100ms step-end forwards;
+    outline: none;
 }
 @keyframes select {
   to {
