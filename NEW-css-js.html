@@ -2,181 +2,189 @@
 <html lang="en">
 
 <head>
-<title>Title</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="/core/CORE/css/0-css-bundle-feb-2020.css">
-<link rel="stylesheet" href="/core/CORE/css/2-1im-master-bootstrap4.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); /* Variable font */
-</style>
-<style>
-.gallery {
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
-  width: 100%;
-  max-width: calc(40ch * 3 + 6rem);
-}
-.gallery .card {
-  overflow: hidden;
-  height: 40vh;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-}
-.gallery .card img {
-  object-fit: cover;
-  font-family: 'object-fit: cover';
-  width: 100%;
-  height: 40vh;
-  display: block;
-}
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/core/CORE/css/0-css-bundle-feb-2020.css">
+    <link rel="stylesheet" href="/core/CORE/css/2-1im-master-bootstrap4.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        /* Variable font */
+    </style>
+    <style>
+
+        .gallery {
+            display: grid;
+            grid-gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+            width: 100%;
+            max-width: calc(40ch * 3 + 6rem);
+        }
+
+        .gallery .card {
+            overflow: hidden;
+            height: 40vh;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery .card img {
+            object-fit: cover;
+            font-family: 'object-fit: cover';
+            width: 100%;
+            height: 40vh;
+            display: block;
+        }
 
 
-@media screen and (prefers-reduced-motion: no-preference) {
-  html,
-  body {
-    scroll-behavior: smooth;
-  }
-}
+        @media screen and (prefers-reduced-motion: no-preference) {
+
+            html,
+            body {
+                scroll-behavior: smooth;
+            }
+        }
 
 
-.masthead {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  background-size: cover;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,0.65) 100%), url(img/header.jpg) no-repeat center center scroll;
-}
+        .masthead {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background-size: cover;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 37%, rgba(0, 0, 0, 0.65) 100%), url(img/header.jpg) no-repeat center center scroll;
+        }
 
-.masthead h1 {
-  font-style: normal;
-  font-weight: bold;
-  color: #eee;
-  font-size: 11vmin;
-  letter-spacing: 0.03em;
-  line-height: 1;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
-  margin-bottom: 40px;
-}
+        .masthead h1 {
+            font-style: normal;
+            font-weight: bold;
+            color: #eee;
+            font-size: 11vmin;
+            letter-spacing: 0.03em;
+            line-height: 1;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+            margin-bottom: 40px;
+        }
 
-/* NEW DEV (not yet implemented) */
+        /* NEW DEV (not yet implemented) */
 
-/* all except IE */
-[aria-label=menu]:focus-within,
-[aria-label=submenu]:focus-within {
-    opacity: 1;
-}
+        /* all except IE */
+        [aria-label=menu]:focus-within,
+        [aria-label=submenu]:focus-within {
+            opacity: 1;
+        }
 
-@media (prefers-color-scheme: dark) {}
+        @media (prefers-color-scheme: dark) {}
 
-@media (prefers-contrast: high) {}
+        @media (prefers-contrast: high) {}
 
-@media (prefers-reduced-transparency: reduce) {}
+        @media (prefers-reduced-transparency: reduce) {}
 
-@media (forced-colors: high) {}
+        @media (forced-colors: high) {}
 
-@media (light-level: dim) {}
+        @media (light-level: dim) {}
 
-section {
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    scroll-snap-type: y mandatory;
-}
+        section {
+            overflow-y: auto;
+            overscroll-behavior-y: contain;
+            scroll-snap-type: y mandatory;
+        }
 
-section>picture {
-    scroll-snap-align: center;
-}
+        section>picture {
+            scroll-snap-align: center;
+        }
 
-.backdrop-filter {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
+        .backdrop-filter {
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
 
-button:is(.focus, :focus),
-button:-moz-any(.focus, :focus),
-button:-webkit-any(.focus, :focus) {
-    display: -webkit-box;
-}
+        button:is(.focus, :focus),
+        button:-moz-any(.focus, :focus),
+        button:-webkit-any(.focus, :focus) {
+            display: -webkit-box;
+        }
 
-article> :is(h1, h2, h3, h4, h5, h6) {
-    display: -webkit-box;
-}
-/* Firefox */
-ul li::marker {
-    color: red;
-}
+        article> :is(h1, h2, h3, h4, h5, h6) {
+            display: -webkit-box;
+        }
 
-/* gap available in Chrome Canary */
-.box-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
+        /* Firefox */
+        ul li::marker {
+            color: red;
+        }
 
-.flex-button {
-    display: inline-flex;
-    place-items: center;
-    gap: 1rem;
-}
+        /* gap available in Chrome Canary */
+        .box-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
-.size {
-    size: 50vw;
-    /* width: 50vw; height: 50vw; */
-}
+        .flex-button {
+            display: inline-flex;
+            place-items: center;
+            gap: 1rem;
+        }
 
-.aspect-ratio {
-    aspect-ratio: 16 / 9;
-}
+        .size {
+            size: 50vw;
+            /* width: 50vw; height: 50vw; */
+        }
 
-h1 {
-    font-size: clamp(1.5rem, 5vw, 5rem);
-}
+        .aspect-ratio {
+            aspect-ratio: 16 / 9;
+        }
 
-.card {
-    /* width: 10%;
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 5rem);
+        }
+
+        .card {
+            /* width: 10%;
     max-width: 500px; */
-    width: min(500px, 100%);
-}
+            width: min(500px, 100%);
+        }
 
-.el {
-    inset: 4px 0; /* top: 4px, bottom: 4px, left: 0, right: 0 */
-}
-.transform {
-    rotate: 10deg;
-    scale: 0.95;
-    translate: 10px 10px;
-}
+        .el {
+            inset: 4px 0;
+            /* top: 4px, bottom: 4px, left: 0, right: 0 */
+        }
 
-.inline-icon {
-    display: inline-block;
-    width: 1lh; /* line-height; rlh = root line-height*/
-    height: 1lh;
-}
+        .transform {
+            rotate: 10deg;
+            scale: 0.95;
+            translate: 10px 10px;
+        }
 
-@supports (-webkit-background-clip: text) {
-    .grad-text {
-        background: linear-gradient(rgba(25 53 95 / 1), steelblue);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-}
+        .inline-icon {
+            display: inline-block;
+            width: 1lh;
+            /* line-height; rlh = root line-height*/
+            height: 1lh;
+        }
 
-</style>
+        @supports (-webkit-background-clip: text) {
+            .grad-text {
+                background: linear-gradient(rgba(25 53 95 / 1), steelblue);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    
+
     <section class="masthead" role="img" aria-label="Image Description">
         <h1>Masthead H1</h1>
-      </section>
+    </section>
 
     <div class="raised container bg-light">
         <div class="text-center w-100 z-index-max">
@@ -240,19 +248,19 @@ h1 {
             </div>
         </div>
     </div>
-    
+
     <section class="gallery my-5 mx-auto">
         <div class="card zoom">
-          <img class="filter-sepia" alt="" src="https://picsum.photos/400" />
+            <img class="filter-sepia" alt="" src="https://picsum.photos/400" />
         </div>
         <div class="card zoom">
-          <img class="filter-sepia" alt="" src="https://picsum.photos/600" />
+            <img class="filter-sepia" alt="" src="https://picsum.photos/600" />
         </div>
         <div class="card zoom">
-          <img class="filter-sepia" alt="" src="https://picsum.photos/650" />
+            <img class="filter-sepia" alt="" src="https://picsum.photos/650" />
         </div>
-      </section>
-    
+    </section>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="/core/CORE/js/js-bundle-feb-2020.js"></script>
 </body>
