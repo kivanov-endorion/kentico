@@ -135,6 +135,20 @@
         filter: grayscale(0.15) opacity(0.85);
     }
 
+    
+    .accordion .card {
+        background: transparent !important;
+        box-shadow: none  !important;
+    }
+    .accordion .card .card-header {
+        all: unset;
+        background: rgba(52,58,64,.5);
+    }
+    .accordion .card button,
+    .accordion.arrows button:after {
+        color: #fff !important;
+    }
+
     @media screen and (max-width: 1200px) {
         .slide-menu, .user-slide-menu {
             background-color: #1d1d1d;
