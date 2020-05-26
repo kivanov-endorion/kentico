@@ -1867,6 +1867,13 @@ ul#maps-tab .nav-link:hover {
     -webkit-transform: translate3d(0, -3px, 0);
     transform: translate3d(0, -3px, 0);
 }
+img.lift:focus,
+img.lift:hover,
+a.lift>img:focus,
+a.lift>img:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
 
 .collapse-chevron {
     display: inline-block;
@@ -2273,16 +2280,13 @@ a.download:before {
 }
 
 
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+.sr-only-focusable:focus-within {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
 }
 
 .disabled,
@@ -3634,8 +3638,20 @@ img[src*=".svg"] {
 .text-shadow {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
 }
+.text-condensed {
+    font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe Condensed", "Roboto Condensed", "AvenirNextCondensed-Bold", "Futura-CondensedExtraBold",
+        "Ubuntu Condensed", "Liberation Sans Narrow", "Fira Sans Condensed",
+        "Open Sans Condensed", "Helvetica Neue Condensed", "Arial Narrow", sans-serif-condensed, sans-serif;
+    font-stretch: condensed;
+}
 
-
+.accordion button,
+.accordion button:focus,
+.accordion button:active {
+    outline: none;
+    box-shadow: none !important;
+}
 
 .accordion.arrows button:after,
 .accordion.arrows .card-header a:after,
@@ -4035,7 +4051,8 @@ img[src*=".svg"] {
         display: none;
     }
 
-    #menuElem.collapse.show {
+    #menuElem.collapse.show,
+    .custom-slide-menu #menuElem:not(.show) {
         display: initial;
     }
 
@@ -4676,7 +4693,7 @@ main .searchBox svg {
 }
 
 article aside.sidebar,
-.sidebar+.sidebar {
+.sidebar + .sidebar {
     display: none !important;
 }
 
@@ -4858,8 +4875,6 @@ footer .container,
     margin-left: auto;
 }
 
-
-
 .floatingY {
     -webkit-animation: floatingY 3s ease infinite;
     animation: floatingY 3s ease infinite;
@@ -4951,8 +4966,6 @@ footer .container,
 }
 
 /* Read More button NEW */
-
-
 
 .tip-more,
 .tip-all {
@@ -5056,7 +5069,6 @@ footer .container,
     }    
 }
 
-
 .text-col-2,
 .text-col-3,
 .text-col-4 {
@@ -5102,14 +5114,14 @@ footer .container,
     widows: 1;
 }
 
-.align-items-center > * {
+/* .align-items-center > * {
     max-width: 100%;
     -ms-flex: 1 1 0px;
     -ms-flex-wrap: wrap;    
     -ms-overflow-x: hidden;
     -ms-overflow-y: hidden;
     -ms-text-overflow: ellipsis;
-}
+} */
 .fa,.fas{font-weight:900;}
 
 div[id], section[id] {
@@ -5213,16 +5225,12 @@ i[class*="fa-"] {
     line-height: 1;
 }
 
-.border-radius-none {
-    border-radius: 0 !important;
-}
 .select-all {
         -webkit-user-select: all;
         user-select: all;
 }
 .select-all:focus {
     animation: select 100ms step-end forwards;
-    outline: none;
 }
 @keyframes select {
   to {
@@ -5245,7 +5253,10 @@ i[class*="fa-"] {
     backdrop-filter: sepia(1) grayscale(0.5) contrast(1.1) blur(0.3px);
     -webkit-backdrop-filter: sepia(1) grayscale(0.5) contrast(1.1) blur(0.3px);
 }
-
+.bg-blur {
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
 .filter-gray {
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
     filter: gray;
@@ -5263,4 +5274,10 @@ i[class*="fa-"] {
 }
 .nested ol li:before {
     content: counters(nested, ".") ". ";
+}
+
+/* IE-specigic classes*/
+.InternetExplorer div[class*=col-] {
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
 }
