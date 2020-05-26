@@ -2,36 +2,24 @@ using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
-using System.Xml;
 
-using CMS.FormEngine.Web;
+using CMS.DocumentEngine.Web.UI;
+using CMS.Base.Web.UI;
+using CMS.FormEngine.Web.UI;
+using CMS.Base;
 using CMS.Base.Web.UI;
 using CMS.Helpers;
+using CMS.MacroEngine;
 using CMS.PortalEngine.Web.UI;
 using CMS.PortalEngine;
-using CMS.Base;
 using CMS.DocumentEngine;
 
-public partial class JarallaxImage : CMSAbstractEditableWebPart, IDialogControl
+
+public partial class Jarallax : CMSAbstractLayoutWebPart
 {
     #region "Public properties"
 
-    /// <summary>
-    /// Configuration of the dialog for inserting Images.
-    /// </summary>
-    public DialogConfiguration DialogConfig
-    {
-        get
-        {
-            return ucEditableImage.DialogConfig;
-        }
-        set
-        {
-            ucEditableImage.DialogConfig = value;
-        }
-    }
-
-
+    
     /// <summary>
     /// Use Jarallax
     /// </summary>
@@ -128,6 +116,21 @@ public partial class JarallaxImage : CMSAbstractEditableWebPart, IDialogControl
     }
 
     /// <summary>
+    /// Background Image
+    /// </summary>
+    public string BackgroundImage
+    {
+        get
+        {
+            return ValidationHelper.GetString(GetValue("BackgroundImage"), "");
+        }
+        set
+        {
+            SetValue("BackgroundImage", value);
+        }
+    }
+
+    /// <summary>
     /// Background Color
     /// </summary>
     public string BackgroundColor
@@ -209,15 +212,45 @@ public partial class JarallaxImage : CMSAbstractEditableWebPart, IDialogControl
     /// <summary>
     /// Use Overlay (linear, radial gradient in rgba() format)
     /// </summary>
-    public bool Overlay
+    public string Overlay
     {
         get
         {
-            return ValidationHelper.GetBoolean(GetValue("UseOverlay"), false);
+            return ValidationHelper.GetString(GetValue("Overlay"), "");
         }
         set
         {
-            SetValue("UseOverlay", value);
+            SetValue("Overlay", value);
+        }
+    }
+
+    /// <summary>
+    /// CSS Class
+    /// </summary>
+    public string CSSClass
+    {
+        get
+        {
+            return ValidationHelper.GetString(GetValue("CSSClass"), "");
+        }
+        set
+        {
+            SetValue("CSSClass", value);
+        }
+    }
+
+    /// <summary>
+    /// CSS Inline Style
+    /// </summary>
+    public string CSSStyle
+    {
+        get
+        {
+            return ValidationHelper.GetString(GetValue("CSSStyle"), "");
+        }
+        set
+        {
+            SetValue("CSSStyle", value);
         }
     }
 
@@ -228,193 +261,156 @@ public partial class JarallaxImage : CMSAbstractEditableWebPart, IDialogControl
     #region "Methods"
 
     /// <summary>
-    /// Content loaded event handler.
+    /// Prepares the layout of the web part.
     /// </summary>
-    public override void OnContentLoaded()
+    protected override void PrepareLayout()
     {
-        base.OnContentLoaded();
-        SetupControl();
-    }
+        StartLayout();
 
-
-    /// <summary>
-    /// Initializes the control properties.
-    /// </summary>
-    protected void SetupControl()
-    {
-        this.Visible = true;
-
-        // Do not hide for roles in edit or preview mode
-        switch (ViewMode)
+        if (!String.IsNullOrEmpty(URL) && PortalContext.ViewMode != ViewModeEnum.Edit)
         {
-            case ViewModeEnum.Edit:
-            case ViewModeEnum.EditLive:
-            case ViewModeEnum.EditDisabled:
-            case ViewModeEnum.Design:
-            case ViewModeEnum.DesignDisabled:
-            case ViewModeEnum.EditNotCurrent:
-            case ViewModeEnum.Preview:
-                DisplayToRoles = "";
-                break;
-        }
+            Append("<a class=\"card-link\" href=\"",URL,"\" ");
 
-        ucEditableImage.StopProcessing = StopProcessing;
-
-        if (!StopProcessing)
-        {
-            ucEditableImage.ContentID = this.WebPartID;
-            ucEditableImage.DataControl = this as ISimpleDataContainer;
-            ucEditableImage.PageManager = PageManager;
-            ucEditableImage.PagePlaceholder = PagePlaceholder;
-            ucEditableImage.SetupControl();
-        }
-    }
-
-
-    /// <summary>
-    /// Overridden CreateChildControls method.
-    /// </summary>
-    protected override void CreateChildControls()
-    {
-        SetupControl();
-        base.CreateChildControls();
-    }
-
-
-    /// <summary>
-    /// Loads the control content.
-    /// </summary>
-    /// <param name="content">Content to load</param>
-    /// <param name="forceReload">If true, the content is forced to reload</param>
-    public override void LoadContent(string content, bool forceReload)
-    {
-        if (!StopProcessing)
-        {
-            ucEditableImage.LoadContent(content, forceReload);
-
-            if (!string.IsNullOrEmpty(ucEditableImage.DefaultImage))
+            if (!String.IsNullOrEmpty(Target))
             {
-                // Default image defined => content is not empty
-                EmptyContent = false;
+                Append("Target=\"",Target,"\"");
             }
 
+            Append(">");
+
+        }   // end URL
+
+        Append("<div id=\"", ShortClientID, "\" ");
+
+        if (UseJarallax)
+        {
+            Append("class=\"jarallax position-relative d-print-none ", CSSClass,"\" ");
+
+            if (!String.IsNullOrEmpty(JarallaxSpeed))
+            {
+                Append("data-speed=\"",JarallaxSpeed,"\" ");
+            }
             
-            if (URL != "")
+        }
+        else
+        {
+            Append("class=\"", CSSClass,"\" ");
+        }
+
+        Append("style=\"");
+        
+        if (!String.IsNullOrEmpty(Height))
+        {
+            Append("height:", Height, ";");
+        }
+
+        if (!String.IsNullOrEmpty(CSSStyle))
+        {
+            Append(" ", CSSStyle);
+        }
+
+        if (!String.IsNullOrEmpty(BackgroundColor)) {
+            Append("background-color:", BackgroundColor, ";");
+        }                
+
+        if (!String.IsNullOrEmpty(BackgroundImage) || !String.IsNullOrEmpty(Overlay))
+        {
+            Append("background-image:");
+        }
+
+        if (!String.IsNullOrEmpty(Overlay))
+        {
+            if (!UseJarallax)
+            {
+                Append("", Overlay, "");
+            }
+            else
+            {
+
+            }
+        }
+        
+        if (!String.IsNullOrEmpty(BackgroundImage))
+        {
+            if (!String.IsNullOrEmpty(Overlay))
+            {
+                if (!UseJarallax)
                 {
-                    Append("<a href=\"",URL,"\" ");
+                    Append(", ");
+                }
+                else
+                {
 
-                    if (Target != "")
-                    {
-                        Append("Target=\"",Target,"\">");
-                    }
+                }
+            }
 
-                }   // end URL
+            if ( BackgroundImage.Contains(".webp") && CMS.DocumentEngine.DocumentContext.CurrentBodyClass.Contains("InternetExplorer") )
+            {
+                Append("url(", BackgroundImage.Replace(".webp", ".jpg"), ");");
+            }
+            else
+            {
+                Append("url(", BackgroundImage, ");");
+            }
 
-                Append("<div id=\"", ucEditableImage.ContentID, "\" ");
+            if (!String.IsNullOrEmpty(BackgroundPosition))
+            {
+                Append("background-position:", BackgroundPosition, ";");
+            }
+            if (!String.IsNullOrEmpty(BackgroundRepeat))
+            {
+                Append("background-repeat:", BackgroundRepeat, ";");
+            }
+            if (!String.IsNullOrEmpty(BackgroundSize))
+            {
+                Append("background-size:", BackgroundSize, ";");
+            }
+            if (!String.IsNullOrEmpty(BackgroundAttachment))
+            {
+                Append("background-attachment:", BackgroundAttachment, ";");
+            }
+        }
 
+        Append("\">");
+
+        if (!String.IsNullOrEmpty(InnerContent))
+            {
+                Append("", InnerContent ,"");
+            }
+
+        Append("</div>");
+
+        if (!String.IsNullOrEmpty(URL) && PortalContext.ViewMode != ViewModeEnum.Edit)
+        {
+            Append("</a>");
+        }
+
+         if (!String.IsNullOrEmpty(BackgroundImage))
+        {
+            if (!String.IsNullOrEmpty(Overlay))
+            {
                 if (UseJarallax)
                 {
-                    Append("class=\"jarallax position-relative d-print-none\" ");
-
-                    if (JarallaxSpeed)
-                    {
-                        Append("data-speed=\"",JarallaxSpeed,"\" ");
-                    }
-                    
+                    Append("<style type=\"text/css\">[id*=jarallax-container]:after {background-image: ", Overlay,"; content: \"\"; display: block; position: absolute; z-index: 1; width: 100%; height: 100%; top: 0; lefT: 0;}</style>");
+                    Append("<style type=\"text/css\">.jarallax {position: relative;z-index: 0;min-height: 20vh;background-size: cover !important;background-repeat: no-repeat !important;} .jarallax>.jarallax-img {position: absolute;-o-object-fit: cover;object-fit: cover;font-family: 'object-fit: cover;';top: 0;left: 0;width: 100%;height: 100%;z-index: -1;}</style>");
                 }
-
-                Append("style=\"");
-
-
-                if (BackgroundColor != "") {
-                    Append("background-color:", BackgroundColor, ";");
-                }                
-
-                if (BackgroundPosition != "")
-                {
-                    Append("background-position:", BackgroundPosition, ";");
-                }
-                if (BackgroundRepeat != "")
-                {
-                    Append("background-repeat:", BackgroundRepeat, ";");
-                }
-                if (BackgroundSize != "")
-                {
-                    Append("background-size:", BackgroundSize, ";");
-                }
-                if (BackgroundAttachment != "")
-                {
-                    Append("background-attachment:", BackgroundAttachment, ";");
-                }
-                if (Height != "")
-                {
-                    Append("background-height:", Height, ";");
-                }
-
-                // HOW TO GET THE EDITABLE IMAGE?????
-                // Append("background-image:url(", ucEditableImage, ");");
-                
-                Append("background-image:");
-
-                if (Overlay != "")
-                {
-                    Append("",Overlay,",");
-                }
-
-                Append("url(", ucEditableImage.GetContent(), ");");
-
-
-
-
-            Append("\">");
-
-            if (URL != "")
-            {
-                Append("</a>");
             }
-            
         }
-    }
+        if (PortalContext.ViewMode != ViewModeEnum.Design)
+{
+    ScriptHelper.RegisterStartupScript(Page, typeof(string),ShortClientID, "<script type=\"text/javascript\" src=\"~/pages/GetResource.ashx?js=/1IMv2/core/js/jarallax.min-1.10.7.js\"></script>\r\n");
+}
 
-
-    /// <summary>
-    /// Gets the current control content.
-    /// </summary>
-    public override string GetContent()
-    {
-        if (!StopProcessing)
+        if (UseJarallax)
         {
-            EnsureChildControls();
-
-            return ucEditableImage.GetContent();
-        }
-        return null;
-    }
-
-
-    /// <summary>
-    /// Reloads the control data.
-    /// </summary>
-    public override void ReloadData()
-    {
-        base.ReloadData();
-        SetupControl();
-    }
-
-
-    /// <summary>
-    /// OnPreRender event
-    /// </summary>
-    protected override void OnPreRender(EventArgs e)
-    {
-        if (!ViewMode.IsEditLive())
-        {
-            // Use the control visibility
-            this.Visible = ucEditableImage.Visible;
+            ScriptHelper.RegisterStartupScript(Page, typeof(string), "StartUpScript", "$(\".jarallax\").jarallax({ speed: 0.5 });", true);
         }
 
-        base.OnPreRender(e);
+        FinishLayout();
+        
     }
-
     #endregion
+
+
+
 }

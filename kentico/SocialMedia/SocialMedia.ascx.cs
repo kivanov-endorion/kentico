@@ -1,19 +1,15 @@
 using System;
-using System.Linq;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using CMS.ExtendedControls;
+
 using CMS.Helpers;
-using CMS.PortalControls;
 using CMS.PortalEngine;
-using CMS.Base;
+using CMS.PortalEngine.Web.UI;
 
 public partial class SocialMedia : CMSAbstractWebPart
 {
     #region "Public properties"
 
     /// <summary>
-    /// Number of tabs.
+    /// Facebook user name.
     /// </summary>
     public string Facebook
     {
@@ -26,9 +22,9 @@ public partial class SocialMedia : CMSAbstractWebPart
             SetValue("Facebook", value);
         }
     }
-    
+
     /// <summary>
-    /// Number of tabs.
+    /// Twitter handle.
     /// </summary>
     public string Twitter
     {
@@ -43,7 +39,7 @@ public partial class SocialMedia : CMSAbstractWebPart
     }
 
     /// <summary>
-    /// Number of tabs.
+    /// LinkedIn user name.
     /// </summary>
     public string LinkedIn
     {
@@ -58,7 +54,7 @@ public partial class SocialMedia : CMSAbstractWebPart
     }
 
     /// <summary>
-    /// Number of tabs.
+    /// Instagram user name.
     /// </summary>
     public string Instagram
     {
@@ -73,7 +69,22 @@ public partial class SocialMedia : CMSAbstractWebPart
     }
 
     /// <summary>
-    /// Number of tabs.
+    /// YouTube type.
+    /// </summary>
+    public string YouTubeType
+    {
+        get
+        {
+            return ValidationHelper.GetString(GetValue("YouTubeType"), "user");
+        }
+        set
+        {
+            SetValue("YouTubeType", value);
+        }
+    }
+
+    /// <summary>
+    /// YouTube user name.
     /// </summary>
     public string YouTube
     {
@@ -88,7 +99,7 @@ public partial class SocialMedia : CMSAbstractWebPart
     }
 
     /// <summary>
-    /// Number of tabs.
+    /// Xing channel name.
     /// </summary>
     public string Xing
     {
@@ -103,7 +114,7 @@ public partial class SocialMedia : CMSAbstractWebPart
     }
 
     /// <summary>
-    /// Number of tabs.
+    /// Other.
     /// </summary>
     public string Other
     {
@@ -147,43 +158,43 @@ public partial class SocialMedia : CMSAbstractWebPart
             if (Facebook != "")
             {
                 ltlSocialMedia.Text += "<a class=\"col fb\" data-placement=\"top\" data-toggle=\"tooltip\" href=\"//www.facebook.com/" + Facebook + "\" target=\"_blank\" rel=\"noopener\" title=\"" + localizedString + " Facebook\">";
-                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-facebook-f\">&nbsp;</i>";
+                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-facebook-f\">&nbsp;</i><span class=\"sr-only\">Facebook</span>";
                 ltlSocialMedia.Text += "</a >";
             }
             if (Twitter != "")
             {
                 ltlSocialMedia.Text += "<a class=\"col tw\" data-placement=\"top\" data-toggle=\"tooltip\" href=\"//www.twitter.com/" + Twitter + "\" target=\"_blank\" rel=\"noopener\" title=\"" + localizedString + " Twitter\">";
-                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-twitter\">&nbsp;</i>";
+                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-twitter\">&nbsp;</i><span class=\"sr-only\">Twitter</span>";
                 ltlSocialMedia.Text += "</a >";
             }
             if (LinkedIn != "")
             {
                 ltlSocialMedia.Text += "<a class=\"col ln\" data-placement=\"top\" data-toggle=\"tooltip\" href=\"//www.linkedin.com/company/" + LinkedIn + "\" target=\"_blank\" rel=\"noopener\" title=\"" + localizedString + " LinkedIn\">";
-                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-linkedin-in\">&nbsp;</i>";
+                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-linkedin-in\">&nbsp;</i><span class=\"sr-only\">LinkedIn</span>";
                 ltlSocialMedia.Text += "</a >";
             }
             if (Instagram != "")
             {
                 ltlSocialMedia.Text += "<a class=\"col instagram\" data-placement=\"top\" data-toggle=\"tooltip\" href=\"//www.instagram.com/" + Instagram + "\" target=\"_blank\" rel=\"noopener\" title=\"" + localizedString + " Instagram\">";
-                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-instagram\">&nbsp;</i>";
+                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-instagram\">&nbsp;</i><span class=\"sr-only\">Instagram</span>";
                 ltlSocialMedia.Text += "</a >";
             }
             if (YouTube != "")
             {
-                ltlSocialMedia.Text += "<a class=\"col yt\" data-placement=\"top\" data-toggle=\"tooltip\" href=\"//www.youtube.com/user/" + YouTube + "\" target=\"_blank\" rel=\"noopener\" title=\"" + localizedString + " YouTube\">";
-                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-youtube\">&nbsp;</i>";
+                ltlSocialMedia.Text += "<a class=\"col yt\" data-placement=\"top\" data-toggle=\"tooltip\" href=\"//www.youtube.com/" + YouTubeType + "/"+ YouTube + "\" target=\"_blank\" rel=\"noopener\" title=\"" + localizedString + " YouTube\">";
+                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-youtube\">&nbsp;</i><span class=\"sr-only\">YouTube</span>";
                 ltlSocialMedia.Text += "</a >";
             }
             if (Xing != "")
             {
                 ltlSocialMedia.Text += "<a class=\"col xi\" data-placement=\"top\" data-toggle=\"tooltip\" href=\"//www.xing.com/companies/" + Xing + "\" target=\"_blank\" rel=\"noopener\" title=\"" + localizedString + " Xing\">";
-                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-xing\">&nbsp;</i>";
+                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fab fa-xing\">&nbsp;</i><span class=\"sr-only\">Xing</span>";
                 ltlSocialMedia.Text += "</a >";
             }
             if (Other != "")
             {
                 ltlSocialMedia.Text += "<a class=\"col ot\" data-placement=\"top\" data-toggle=\"tooltip\" href=\"" + Other + "\" target=\"_blank\" rel=\"noopener\" title=\"" + localizedString + "\">";
-                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fas fa-share\">&nbsp;</i>";
+                ltlSocialMedia.Text += "<i aria-hidden=\"true\" class=\"fas fa-share\">&nbsp;</i><span class=\"sr-only\">Other</span>";
                 ltlSocialMedia.Text += "</a >";
             }
 

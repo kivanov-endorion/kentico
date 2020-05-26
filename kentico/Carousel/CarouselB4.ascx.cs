@@ -1,15 +1,9 @@
 using System;
-using System.Linq;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-//using AjaxControlToolkit;
-
-using CMS.ExtendedControls;
+using CMS.Base.Web.UI;
 using CMS.Helpers;
-using CMS.PortalControls;
 using CMS.PortalEngine;
-using CMS.Base;
+using CMS.PortalEngine.Web.UI;
 
 public partial class CarouselB4 : CMSAbstractLayoutWebPart
 {
@@ -72,7 +66,7 @@ public partial class CarouselB4 : CMSAbstractLayoutWebPart
     /// <summary>
     /// Controls.
     /// </summary>
-    public string Controls
+    public new string Controls
     {
         get
         {
@@ -144,6 +138,38 @@ public partial class CarouselB4 : CMSAbstractLayoutWebPart
             SetValue("Keyboard", value);
         }
     }
+
+ /// <summary>
+    /// Fade.
+    /// </summary>
+    public bool Fade
+    {
+        get
+        {
+            return ValidationHelper.GetBoolean(GetValue("Fade"), false);
+        }
+        set
+        {
+            SetValue("Fade", value);
+        }
+    }
+
+
+    /// <summary>
+    /// Tabs Design.
+    /// </summary>
+    public string TabsDesign
+    {
+        get
+        {
+            return ValidationHelper.GetString(GetValue("TabsDesign"), "pills");
+        }
+        set
+        {
+            SetValue("TabsDesign", value);
+        }
+    }
+
     /// <summary>
     /// Hide empty tabs
     /// </summary>
@@ -225,9 +251,17 @@ public partial class CarouselB4 : CMSAbstractLayoutWebPart
         switch (Controls)
             {
                 case "controls":
-                    Append("<!-- BEGIN Carousel B4 --><div  class=\"carousel slide\" data-ride=\"carousel\"");
+                    Append("<!-- BEGIN Carousel B4 --><div data-ride=\"carousel\"");
                     if (!IsDesign)
                     {
+                        if (Fade)
+                        {
+                            Append(" class=\"carousel slide carousel-fade\"");
+                        }
+                        else
+                        {
+                            Append(" class=\"carousel slide\"");
+                        }
 
                         Append(" data-interval=\"", Speed.ToString(), "\"");
 
@@ -255,6 +289,11 @@ public partial class CarouselB4 : CMSAbstractLayoutWebPart
                     break;
                 case "tabs":
                     Append("<!-- BEGIN Tabs B4 -->");
+
+                        if (TabsDesign=="slidein") {
+                            Append("<div  class=\"custom-slide-menu\">");
+                        }
+
                     break;
 
                 case "accordion":
@@ -308,8 +347,28 @@ public partial class CarouselB4 : CMSAbstractLayoutWebPart
                     Append("<ol class=\"carousel-indicators dropped\">");
                     break;
                 case "tabs":
-                    Append("<ul class=\"nav nav-pills mb-5 nav-justified flex-md-row align-items-start\">");
-                    break;
+                    if (TabsDesign=="pills") {
+                        Append("<ul class=\"nav nav-pills mb-5 nav-justified flex-md-row align-items-start\">");
+                        break;
+                    }
+                    else {
+                        if (TabsDesign=="icons") {
+                            Append("<ul class=\"nav icon-pills nav-pills mb-5 nav-justified flex-md-row align-items-start\">");
+                            break;
+                        }
+                        else
+                        {
+                            if (TabsDesign=="slidein") {
+                            Append("<ul class=\"nav icon-pills nav-pills mb-5 nav-justified flex-md-row align-items-start\">");
+                            break;
+                        }
+                        else
+                        {
+                            Append("<ul class=\"nav nav-tabs mb-5 nav-justified flex-md-row align-items-start\">");
+                            break;
+                        }
+                        }
+                    }
             }
            
         }
@@ -484,7 +543,7 @@ public partial class CarouselB4 : CMSAbstractLayoutWebPart
             Append("<i class=\"fas fa-chevron-left text-primary fa-2x\" aria-hidden=\"true\">&nbsp;</i>");
             Append("<span class=\"sr-only\">Previous</span>");
             Append("</a>");
-            Append("<a class=\"carousel-control-next\" data-scroll-ignore href=\"#", ShortClientID, "\" data-target=\"#", ShortClientID, "\"role=\"button\" data-slide=\"next\">");
+            Append("<a class=\"carousel-control-next\" data-scroll-ignore href=\"#", ShortClientID, "\" data-target=\"#", ShortClientID, "\" role=\"button\" data-slide=\"next\">");
             Append("<i class=\"fas fa-chevron-right text-primary fa-2x\" aria-hidden=\"true\">&nbsp;</i>");
             Append("<span class=\"sr-only\">Next</span>");
             Append("</a>");
@@ -521,7 +580,7 @@ public partial class CarouselB4 : CMSAbstractLayoutWebPart
 
         if (!IsDesign)
         {
-           Append("</div>");
+           Append("</div>");           
         }
 
 
@@ -538,10 +597,12 @@ public partial class CarouselB4 : CMSAbstractLayoutWebPart
                 break;
         }
 
+        if (TabsDesign=="slidein") {
+            Append("</div>");
+        }
 
         FinishLayout();
     }
-
 
     #endregion
 }

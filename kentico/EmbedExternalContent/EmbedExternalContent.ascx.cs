@@ -276,7 +276,7 @@ public partial class EmbedExternalContent : CMSAbstractLayoutWebPart
                         Append(" ",EmbedTags," ");
                     }
 
-                    Append("frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen\" allowfullscreen></iframe></div>");
+                    Append(" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen\" allowfullscreen></iframe></div>");
                     
                 }
 
@@ -324,7 +324,7 @@ public partial class EmbedExternalContent : CMSAbstractLayoutWebPart
                         Append(EmbedTags," ");
                     }
 
-                    Append("frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen\" allowfullscreen></iframe>");
+                    Append(" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen\" allowfullscreen></iframe>");
                 }
 
             }
@@ -332,7 +332,25 @@ public partial class EmbedExternalContent : CMSAbstractLayoutWebPart
 
         FinishLayout();
         
-}
+    }
+
+    protected override void OnPreRender(EventArgs e)
+    {
+        base.OnPreRender(e);
+        
+        if (!StopProcessing)
+        {
+            if (VideoURL.Contains("youtube"))
+            {
+                Page.Header.Controls.Add(new LiteralControl("<link rel=\"preconnect\" href=\"//www.youtube-nocookie.com\" />\r\n"));
+            }
+            else
+            {
+                Page.Header.Controls.Add(new LiteralControl("<link rel=\"preconnect\" href=\"//player.vimeo.com\" />\r\n"));
+            }
+        }
+    }
+
     private int GetCurrentCookieLevel()
     {
         return cookieLevelProvider.GetCurrentCookieLevel();

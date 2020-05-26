@@ -328,7 +328,15 @@ public partial class HeaderImage : CMSAbstractLayoutWebPart
         }    
         if (!String.IsNullOrEmpty(BackgroundImage)) 
         {
-            cssinline += "background-image:url(" + BackgroundImage + ");";
+            if ( BackgroundImage.Contains(".webp") && CMS.DocumentEngine.DocumentContext.CurrentBodyClass.Contains("InternetExplorer") )
+            {
+                cssinline += "background-image:url(" + BackgroundImage.Replace(".webp", ".jpg") + ");";
+            }
+            else
+            {
+                cssinline += "background-image:url(" + BackgroundImage + ");";
+            }
+            
         }
         if (!String.IsNullOrEmpty(BackgroundPosition))
         {
@@ -373,7 +381,14 @@ public partial class HeaderImage : CMSAbstractLayoutWebPart
 
             cssinline += "#hero" + ShortClientID + " {";
 
-            cssinline += "background-image:url(" + MobileBackgroundImage + ");";
+            if ( BackgroundImage.Contains(".webp") && CMS.DocumentEngine.DocumentContext.CurrentBodyClass.Contains("InternetExplorer") )
+            {
+                cssinline += "background-image:url(" + MobileBackgroundImage.Replace(".webp", ".jpg") + ");";
+            }
+            else
+            {
+                cssinline += "background-image:url(" + MobileBackgroundImage + ");";
+            }
 
             if (!String.IsNullOrEmpty(MobileHeight))
             {
