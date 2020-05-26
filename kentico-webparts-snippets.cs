@@ -32,3 +32,14 @@ GetResizedImage(width, height)
 IsImage(jpg)
 EnsureMaximumLineLength("",100,"<br>")
 IsAnchor() // Returns true for url's starting with hash (#) character.
+
+
+// Replace .webp with .jpg
+if ( BackgroundImage.Contains(".webp") && CMS.DocumentEngine.DocumentContext.CurrentBodyClass.Contains("InternetExplorer") )
+{
+    cssinline += "background-image:url(" + MobileBackgroundImage.Replace(".webp", ".jpg") + ");";
+}
+else
+{
+    cssinline += "background-image:url(" + MobileBackgroundImage + ");";
+}
