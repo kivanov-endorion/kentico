@@ -71,8 +71,9 @@
         transform: translateX(-50%);
     }
 
-    #heartbeat h6 {
-        font-size: 1em;
+    #heartbeat h6, #heartbeat .h6 {
+        font-size: 16px;
+        font-weight: 500;
     }
 
     #heartbeat h6+p {
@@ -218,6 +219,9 @@
         cursor: pointer;
         position: relative;
         color: transparent;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
     }
 
     .custom-stars label:after {
