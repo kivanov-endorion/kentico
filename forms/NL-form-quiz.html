@@ -9,8 +9,9 @@
                 <p>Test hier uw kennis en doe inspiratie op over duurzaam ondernemen. Deze vragen nemen een tijd in
                     beslag van ongeveer 10&nbsp;minuten.</p>
 
-                <p>Ontvang 50 IM+ punten met het maken van deze quiz en spaar voor <a href="https://www.implus.nl"
-                        rel="noopener" target="_blank">toffe cadeaus</a></p>
+                <p>Ontvang 50 IM+ punten met het maken van deze quiz en spaar voor <a
+                        href="https://www.implus.nl/site/?tc=Webshop" rel="noopener" target="_blank">toffe cadeaus</a>
+                </p>
             </div>
 
             <p class="text-right"><a class="btn btn-primary" data-slide="next" href="#quiz" role="button">Volgende</a>
@@ -104,7 +105,9 @@
 
             <div class="form-group q8a d-none">$$input:Question8a$$</div>
 
-            <p class="text-right"><a class="btn btn-primary" data-slide="next" href="#quiz" role="button">Indienen</a>
+            <p class="text-right">
+                <a class="btn btn-primary mr-2 validate-page-6" href="#" role="button">Indienen</a>
+                <a class="btn btn-primary animated fadeIn next-page-6 d-none" data-slide="next" href="#quiz" role="button">Volgende</a>
             </p>
         </div>
 
@@ -192,11 +195,11 @@
                 <div class="form-group col-md-6">$$label:Question12$$ $$input:Question12$$ $$validation:Question12$$
                 </div>
 
-                <div class="form-group col-12">$$label:DataPrivacy$$ $$input:DataPrivacy$$ $$validation:DataPrivacy$$
+                <div class="form-group col-12 text-center">$$label:DataPrivacy$$ $$input:DataPrivacy$$ $$validation:DataPrivacy$$
                 </div>
             </div>
 
-            <p class="text-right">$$submitbutton$$</p>
+            <p class="text-center submit disabled">$$submitbutton$$</p>
         </div>
     </div>
 </div>
@@ -313,6 +316,9 @@
                 $('.targus').removeClass('d-none');
                 $('.next4').removeClass('d-none');
             }
+            if ($('.question9 input[value=none]:checked').length > 0) {
+                $('.next4').removeClass('d-none');
+            }
         });
 
         $('.question4').on('change', function (e) {
@@ -337,6 +343,43 @@
                 $('.q8a').removeClass('d-none');
             } else {
                 $('.q8a').addClass('d-none');
+            }
+        });
+
+        $('.validate-page-6').on('click', function (e) {
+            e.preventDefault();
+            if ($('.question4 input:checked').length > 0 &&
+            $('.question5 input:checked').length > 0 &&
+            $('.question6 input:checked').length > 0 &&
+            $('.question7 input:checked').length > 0 &&
+            $('.question8 input:checked').length > 0 &&
+            $('.question11 input').val() != '' ) {
+                $('.next-page-6').removeClass('d-none');
+            }
+        });
+
+        $('.q-DataPrivacy input').on('change', function (e) {
+            e.preventDefault();
+            if ($('.q-company').val() != '' &&
+            $('.q-CustomerNumber').val() != '' &&
+            $('.form-email').val() != '' &&
+            $('.q-DataPrivacy input:checked').length > 0) {
+                $('.submit').removeClass('disabled');
+            }
+            else {
+                $('.submit').addClass('disabled');
+            }
+        });
+        $('.q-company, .q-CustomerNumber, .form-email').on('keyup', function (e) {
+            e.preventDefault();
+            if ($('.q-company').val() != '' &&
+            $('.q-CustomerNumber').val() != '' &&
+            $('.form-email').val() != '' &&
+            $('.q-DataPrivacy input:checked').length > 0) {
+                $('.submit').removeClass('disabled');
+            }
+            else {
+                $('.submit').addClass('disabled');
             }
         });
 
