@@ -266,6 +266,8 @@ SiteID  SiteName                    SK_Valid
 57	    ph.ingrammicro-asia.com	    63
 58	    sg.ingrammicro-asia.com	    64
 63	    sk.ingrammicro.eu	        27
+68      ro.ingrammicro.eu           46
+71      dcpos.ingrammicro.eu (NEW)  5
 */
 
 /* Testing Macros: Go to: System > Macros > Console */
