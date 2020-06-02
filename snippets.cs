@@ -54,6 +54,7 @@
 {% EventDate.Format("{0:MM/dd/yyyy}") %} // 09/12/2016
 {% EventDate.Format("{0:T}") %} // 1:42:31 PM
 {% EventDate.ToShortTimeString() %} // 3:22 PM
+{% ToTimeSpan(CurrentDateTime - DocumentModifiedWhen).Days %}
 
 // Format Numbers
 {% Price.Format( "{0:C}" ) %}  // $100,000.00
@@ -342,6 +343,7 @@ SiteID  SiteName                    SK_Valid
 {% CategoryLevel %}
 {% CategorySiteID %}
 {% CategoryParentID %}
+{% CurrentDocument.IsInCategories("ABC;ABCD") %}
 
 
 /* WEBPARTS / WIDGETS */
@@ -405,3 +407,25 @@ SiteID  SiteName                    SK_Valid
             FormatDateTime(EventDateEnd, GetResourceString("oneIM.Localtime"))+ "</time>"
     )
 } %}
+
+/* Add Categories as Breadcrumbs */
+<span class="CMSBreadCrumbsCurrentItem">
+{% if ( CurrentDocument.Categories.Count > 0 ) { 
+    foreach ( category in CurrentDocument.Categories ) { 
+        Format("<a href='/one-im-b4{0}?categoryID={1}' title='{2}'>{2}</a>", 
+        category.CategoryNamePath.ToLower().Replace(" & ","-and-").Replace(" ", "-"),
+        category.ID,
+        category.CategoryDisplayName)
+    } 
+} %}
+{% CurrentDocument.DocumentName #%}
+</span>
+
+// Gets the path of the parent master page
+{%
+    node = Documents[NodeAliasPath];
+    while (!node.NodeTemplate.PageTemplateShowAsMasterTemplate && !node.DocumentPageTemplate.PageTemplateShowAsMasterTemplate) {
+        node = node.Parent;
+    }
+    node.NodeAliasPath + "/%"; 
+%}

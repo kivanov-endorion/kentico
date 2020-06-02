@@ -163,39 +163,6 @@ $  // end
 
 -->
 
-
-
-<!-- Form Macros
-
-{% if( Country.Value == "Austria" ){ "28" } %}
-{% if( Country.Value.Contains("Austria") ){ "28" } %}
-{% Email.Value.Matches("^[a-zA-Z0-9.!#$%&'*+\-/=?\^_`{|}~]+@[a-z0-9-]+(\.[a-zA-Z0-9-]+)+$") && Email.Value.Length < 255 %}
-
--- Get values from page
-
-{%  CurrentDocument["EventTitle"] %}
-
--- CurrentUser
-
-{% FirstName %}
-{% LastName %}
-{% FullName %}
-{% Email %}
-{% UserPhone %}
-{% UserPosition %}
-{% IsAuthenticated %}
-{% IsInRole("") %}
-
-{% imBranchNbr %}
-{% imCustomerNbr %}
-{% imCustName %}
-{% imCountryCode %}
-{% imSK_Cust %}
-{% imSK_Valid %} 
-
--->
-
-
 <!-- JS -->
 
 <!-- Textarea counter: 
@@ -329,3 +296,49 @@ $(document).ready(function(){
     });
 });
 </script>
+
+
+
+
+/* Form Macros */
+
+{% if( Country.Value == "Austria" ){ "28" } %}
+{% if( Country.Value.Contains("Austria") ){ "28" } %}
+{% Email.Value.Matches("^[a-zA-Z0-9.!#$%&'*+\-/=?\^_`{|}~]+@[a-z0-9-]+(\.[a-zA-Z0-9-]+)+$") && Email.Value.Length < 255 %}
+
+-- Get values from page
+
+{%  CurrentDocument["EventTitle"] %}
+
+
+// Validation: check if already existing email
+{%
+foreach (i IN SiteObjects.Forms["FormName"].Items) {
+ if (i.email == email.Value) {
+  return false;
+ }
+}
+return true;
+%}
+
+// Validation: make dependent (hidden) field mandatory
+radio.Value!="other" || text.Value!=""
+
+-- CurrentUser
+
+{% FirstName %}
+{% LastName %}
+{% FullName %}
+{% Email %}
+{% UserPhone %}
+{% UserPosition %}
+{% IsAuthenticated %}
+{% IsInRole("") %}
+
+{% imBranchNbr %}
+{% imCustomerNbr %}
+{% imCustName %}
+{% imCountryCode %}
+{% imSK_Cust %}
+{% imSK_Valid %} 
+
