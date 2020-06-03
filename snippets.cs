@@ -268,6 +268,7 @@ SiteID  SiteName                    SK_Valid
 58	    sg.ingrammicro-asia.com	    64
 63	    sk.ingrammicro.eu	        27
 68      ro.ingrammicro.eu           46
+70      dk.ingrammicro.eu           7
 71      dcpos.ingrammicro.eu (NEW)  5
 */
 
