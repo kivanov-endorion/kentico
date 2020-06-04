@@ -20,3 +20,9 @@ Goal: Apple DEP portals for Germany, France, UK, Sweden, Denmark, and Spain
 
 #### Description
 Businesses need an Apple portal accessible to resellers that are agree to and are part of the Apple deployment program with information about products, unique marketing materials, etc. This poses an unique opportunity to attract the Nordics back to the One Ingram websites. 
+
+Moin - Hello
+Na toll - oh, great
+Na klar - of course
+Kein Ding - no problem
+Geil - awesome
