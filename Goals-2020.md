@@ -26,3 +26,12 @@ Na toll - oh, great
 Na klar - of course
 Kein Ding - no problem
 Geil - awesome
+
+b-ok.org
+ebooks-shares.org
+ebookhunter.ch
+ebooklogin.com
+sci-hub.tw
+libgen.is
+sanet.st
+github.com/nextgens/anti-paywall
