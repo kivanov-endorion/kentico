@@ -37,3 +37,4 @@ sanet.st
 github.com/nextgens/anti-paywall
 
 https://jshint.com/
+https://babeljs.io/
