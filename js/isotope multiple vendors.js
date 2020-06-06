@@ -64,20 +64,20 @@ $(function(){
       var isoFilters = [];
       for ( var prop in filters ) {
         if (filters[ prop ].length>0) {
-          isoFilters.push( filters[ prop ] )
+          isoFilters.push( filters[ prop ] );
         }
-      };
+      }
       
-     
+      var selector = '';
       if($this.attr('data-filter')=='all' || $this.attr('data-filter')==''){
-          var selector = '';
+          
           filters[ group ]=[];
           $this.addClass('Highlighted');
           $this.siblings('.Highlighted').removeClass('Highlighted');
       
       }else {
           //var selector = isoFilters.join(', ');
-          var selector = isoFilters.join('');
+          selector = isoFilters.join('');
           if(group!='vendors' ){
             $this.siblings('.Highlighted').removeClass('Highlighted');
           }
@@ -96,7 +96,7 @@ $(function(){
       var stringComboFilter = "#filter="+encodeURIComponent(JSON.stringify(filters));
       
       // Write current filters to URL hash
-      var stateObj ={}
+      var stateObj = {};
       window.history.pushState(stateObj, 'Title', stringComboFilter);
       
       console.log("Combo: "+ comboFilter);

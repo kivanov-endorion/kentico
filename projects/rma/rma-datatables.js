@@ -74,7 +74,7 @@
               type: "num-fmt",
               render: function (data, type, row, meta) {
                  
-                    var abbr = row['CurrencyCd'];
+                    var abbr = row.CurrencyCd;
 
                     var symbol = "";              
                     if(abbr == "USD"){

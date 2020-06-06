@@ -10,15 +10,16 @@ $(document).ready(function () {
 
     var getMax = function () {
         return $(document).height() - $(window).height();
-    }
+    };
 
     var getValue = function () {
         return $(window).scrollTop();
-    }
+    };
+    var progressBar = {};
 
     if ('max' in document.createElement('progress')) {
         // Browser supports progress element
-        var progressBar = $('progress');
+        progressBar = $('progress');
 
         // Set the Max attr for the first time
         progressBar.attr({
@@ -40,8 +41,8 @@ $(document).ready(function () {
             });
         });
     } else {
-        var progressBar = $('.progress-bar'),
-            max = getMax(),
+        progressBar = $('.progress-bar');
+        var max = getMax(),
             value, width;
 
         var getWidth = function () {
@@ -50,13 +51,13 @@ $(document).ready(function () {
             width = (value / max) * 100;
             width = width + '%';
             return width;
-        }
+        };
 
         var setWidth = function () {
             progressBar.css({
                 width: getWidth()
             });
-        }
+        };
 
         $(document).on('scroll', setWidth);
         $(window).on('resize', function () {

@@ -4,7 +4,7 @@ $(document).ready(function(e) {
       var sLetter = $(this).attr("class").slice(-1);
       if ($(".vendorFilter > button[data-filter='" + sLetter + "']").length == 0) {
         $(".vendorFilter").append("<button class='btn btn-form' data-filter='" + sLetter + "'>" + sLetter.replace("0", "#") + "</button> ");
-      };
+      }
     });
     var $first = $(".vendorFilter").find("button[data-filter]").attr("data-filter");
   

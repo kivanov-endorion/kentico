@@ -31,7 +31,7 @@ $(function(){
       // convert object into array
       var isoFilters = [];
       for ( var prop in filters ) {
-        isoFilters.push( filters[ prop ] )
+        isoFilters.push( filters[ prop ] );
       }
       var selector = isoFilters.join('');
       console.log(selector);

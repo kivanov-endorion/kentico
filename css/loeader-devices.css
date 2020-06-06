@@ -51,7 +51,7 @@ body {
 
   background-color: #1e3f57;
 
-  transform-type: preserve-3d;
+  transform-style: preserve-3d;
 
   animation: dot1 3s cubic-bezier(.55,.3,.24,.99) infinite;
 }

@@ -9,7 +9,7 @@ $(document).ready(function(){
             $(this).next('.articleHide').addClass('visible-content');
             $(this).addClass('selected');
           // Clear all minuses
-          $('i.fa.fa-minus-square-o').toArray().forEach(function (obj, index) {
+          $('i.fa.fa-minus-square-o').toArray().forEach(function (obj) {
               $(obj).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
           });
               $(this).find('i.fa.fa-plus-square-o').removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
