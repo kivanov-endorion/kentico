@@ -35,3 +35,5 @@ sci-hub.tw
 libgen.is
 sanet.st
 github.com/nextgens/anti-paywall
+
+https://jshint.com/
