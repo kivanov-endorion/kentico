@@ -14,26 +14,142 @@
         /* Variable font */
     </style>
     <style>
-        .gallery {
-            display: grid;
-            grid-gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
-            width: 100%;
-            max-width: calc(40ch * 3 + 6rem);
+        details {
+            font-size: 80%;
         }
 
-        .gallery .card {
+        summary:focus {
+            outline: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:before {
+            padding-right: .5em;
+            content: '\f105';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: #2f75bb;
+            transition: .3s all ease-in-out;
+        }
+
+        details[open] summary:before {
+            content: '\f107';
+        }
+
+        details.info summary:before,
+        details.info[open] summary:before {
+            content: '\f05a';
+        }
+
+        details.cookie summary:before,
+        details.cookie[open] summary:before {
+            content: '\f563';
+        }
+
+        details:not(.timeline)[open] summary {
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        dl,
+        details > p {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            position: relative;
+            padding: .75rem 1.25rem 0 1rem;
+            margin-bottom: .75rem;
+        }
+
+        details > p + p {
+            padding-top: 0;
+        }
+
+        dt,
+        dd {
+            flex: 0 0 50%;
+        }
+
+        dd+dd {
+            margin-left: 50%;
+        }
+
+        summary,
+        dt {
+            font-weight: 600;
+            letter-spacing: .4px;
+            font-size: 90%;
+            text-transform: uppercase;
+            margin-right: 1rem;
+            flex-basis: calc(50% - 1rem);
+            position: relative;
+        }
+
+        dt > p {
+            font-weight: 400;
+            font-size: .9rem;
+            letter-spacing: 0px;
+            text-transform: none;
+        }
+
+        details.timeline {
             overflow: hidden;
-            height: 40vh;
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+            font-size: 1rem;
+        }
+        details.timeline:not(.info) summary:before {
+            padding-left: 2px;
         }
 
-        .gallery .card img {
-            object-fit: cover;
-            font-family: 'object-fit: cover';
-            width: 100%;
-            height: 40vh;
-            display: block;
+        details.timeline dt {
+            flex: 0 0 25%;
+        }
+
+        details.timeline dd {
+            flex: 0 0 75%;
+        }
+
+        details.timeline dd+dd {
+            margin-left: 25%;
+        }
+
+        details.timeline dl {
+
+            margin-left: -1rem;
+        }
+
+        details.timeline p {
+            padding-left: 2.2rem;
+        }
+
+        details.timeline dt {
+            padding-left: 2rem;
+            flex-basis: calc(25% - 3rem);
+        }
+
+        details.timeline dt:before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 10rem;
+            background: #dee2e6;
+            left: 0.4rem;
+            top: 8px;
+        }
+
+        details.timeline dt:first-of-type:before {
+            top: -.9rem;
+        }
+
+        details.timeline dt:after {
+            content: '';
+            position: absolute;
+            width: 1rem;
+            height: 1px;
+            background: #dee2e6;
+            left: 0.4rem;
+            top: 11px;
         }
 
 
@@ -146,7 +262,7 @@
 
         .card {
             /* width: 10%;
-    max-width: 500px; */
+            max-width: 500px; */
             width: min(500px, 100%);
         }
 
@@ -176,6 +292,45 @@
                 -webkit-text-fill-color: transparent;
             }
         }
+
+        .b4 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .b4 .tile-single {
+            float: left;
+            flex: 0 0 150px;
+            margin: 0.3rem;
+            text-align: center;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 150px;
+            height: 150px;
+            background-color: #f8f9fa;
+            position: relative;
+            padding: .25rem;
+            border: 1px solid #dee2e6;
+            border-radius: .25rem;
+        }
+
+        .b4 .tile-single:hover {
+            background-image: linear-gradient(60deg, #f8f9fa, #efefef);
+        }
+
+        @media (min-width: 518px) {
+            .b4 {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, 150px);
+                gap: .6rem;
+            }
+
+            .b4 .tile-single {
+                margin: 0
+            }
+        }
     </style>
 </head>
 
@@ -185,320 +340,417 @@
         <h1>Masthead H1</h1>
     </section>
 
-    <div class="raised container bg-light">
-        <div class="text-center w-100 z-index-max">
-            <h1 class="text-3d font-weight-bold py-5 no-border">
-                Technology Solutions
-            </h1>
-        </div>
 
-        <div class="row mb-5">
-            <div class="col mb-4">
-                <h6 class="initialism pt-3">News Card (big)</h6>
+    <section class="my-5 container">
+        <div class="row">
+            <details class="col-lg-6 info" open>
+                <summary>Specification Metadata</summary>
 
-                <div class="card h-100">
-                    <div class="view overlay zoom"><a
-                            href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know"><img
-                                alt="AMD Ryzen 3000 CPUs: Everything you need to know" class="card-img-top"
-                                src="https://unsplash.it/446/200"
-                                srcset="https://unsplash.it/446/200,https://unsplash.it/975/438 2x"> </a></div>
+                <dl>
+                    <dt>This version:</dt>
+                    <dd><a class="u-url"
+                            href="https://drafts.csswg.org/css-sizing-4/">https://drafts.csswg.org/css-sizing-4/</a>
+                    </dd>
+                    <dt>Latest published version:</dt>
+                    <dd><a href="https://www.w3.org/TR/css-sizing-4/">https://www.w3.org/TR/css-sizing-4/</a>
+                    </dd>
+                    <dt>Issue Tracking:</dt>
+                    <dd><a href="#issues-index">Inline In Spec</a>
+                    </dd>
+                    <dd><a href="https://github.com/w3c/csswg-drafts/labels/css-sizing-4">GitHub Issues</a>
+                    </dd>
+                    <dt class="editor">Editors:</dt>
+                    <dd class="editor p-author h-card vcard" data-editor-id="42199"><a class="p-name fn u-url url"
+                            href="http://xanthir.com/contact/">Tab Atkins</a> (<span class="p-org org">Google</span>)
+                    </dd>
+                    <dd class="editor p-author h-card vcard" data-editor-id="35400"><a class="p-name fn u-url url"
+                            href="http://fantasai.inkedblade.net/contact">Elika J. Etemad / fantasai</a> (<span
+                            class="p-org org">Invited Expert</span>)
+                    </dd>
+                    <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url"
+                            href="http://jensimmons.com/">Jen
+                            Simmons</a> (<span class="p-org org">Mozilla</span>)
+                    </dd>
+                    <dt>Suggest an Edit for this Spec:</dt>
+                    <dd><a href="https://github.com/w3c/csswg-drafts/blob/master/css-sizing-4/Overview.bs">GitHub
+                            Editor</a>
+                    </dd>
+                </dl>
+                <p>Requires a computer running an operating system. The computer
+                    must have some memory and ideally some kind of long-term storage.
+                    An input device as well as some form of output device is
+                    recommended.</p>
+            </details>
+            <details class="col-lg-6 timeline" open>
+                <summary>TIMELINE</summary>
 
-                    <div class="card-body">
-                        <h6 class="card-title"><a class="card-link" href="sidebar" target="_blank">AMD Ryzen 3000 CPUs:
-                                Everything you need to know</a></h6>
+                <dl>
+                    <dt>1999</dt>
+                    <dd>Requires a computer running an operating system.
+                    </dd>
+                    <dt>2001</dt>
+                    <dd>The computer
+                        must have some memory and ideally some kind of long-term storage.
+                        An input device as well as some form of output device is
+                        recommended
+                    </dd>
+                    <dt>2002</dt>
+                    <dd>The computer
+                        must have some memory and ideally some kind of long-term storage.
+                    </dd>
+                    <dd>An input device as well as some form of output device is
+                        recommended.
+                    </dd>
+                </dl>
+            </details>
+            <details class="col-lg-6 cookie my-4" open>
+                <summary>Privacy Preference Center</summary>
+                <p>We process user's data to deliver content or advertisements and measure the delivery of such content
+                    or advertisements, extract insights and generate reports to understand service usage; and/or
+                    accessing or storing information on devices for that purpose. Below you may read further about the
+                    purposes for which we process data, exercise your preferences for processing, and/or see our
+                    partners. Cookie Policy</p>
+                <dt>Manage Consent Preferences</dt>
+                <dl>
+                    <dt>Functional Cookies</dt>
+                    <dd class="text-right">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" id="functional" name="functional" class="custom-control-input" >
+                            <label for="functional"  class="custom-control-label" ></label>
+                        </div>
+                    </dd>
+                    <p>These cookies enable the website to provide enhanced functionality and personalisation.
+                        They may be set by us or by third party providers whose services we have added to our
+                        pages. If you do not allow these cookies then some or all of these services may not
+                            function properly.</p>
+                    <dt>Performance Cookies</dt>
+                    <dd class="text-right">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" id="performance" name="performance" class="custom-control-input" >
+                            <label for="performance"  class="custom-control-label" ></label>
+                        </div>
+                    </dd>
+                    <p>These cookies allow us to count visits and traffic sources so we can measure and improve the
+                        performance of our site. They help us to know which pages are the most and least popular and
+                        see how visitors move around the site. All information these cookies collect is aggregated
+                        and therefore anonymous. If you do not allow these cookies we will not know when you have
+                        visited our site, and will not be able to monitor its performance.
+                    </p>
+                    <dt>Targeting Cookies</dt>
+                    <dd class="text-right">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" id="targeting" name="targeting" class="custom-control-input" >
+                            <label for="targeting"  class="custom-control-label" ></label>
+                        </div>
+                    </dd>
+                    <p>These cookies may be set through our site by our advertising partners. They may be used by
+                        those companies to build a profile of your interests and show you relevant adverts on other
+                        sites. They do not store directly personal information, but are based on uniquely
+                        identifying your browser and internet device. If you do not allow these cookies, you will
+                        experience less targeted advertising.
+                    </p>
+                    <dt>Social Media Cookies</dt>
+                    <dd class="text-right">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" id="social" name="social" class="custom-control-input" >
+                            <label for="social"  class="custom-control-label" ></label>
+                        </div>
+                    </dd>
+                    <p>These cookies are set by a range of social media services that we have added to the site to
+                        enable you to share our content with your friends and networks. They are capable of tracking
+                        your browser across other sites and building up a profile of your interests. This may impact
+                        the content and messages you see on other websites you visit. If you do not allow these
+                        cookies you may not be able to use or see these sharing tools.</p>
+                    <dt>Strictly Necessary Cookies</dt>
+                    <dd class="text-right">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" id="necessary" name="necessary" class="custom-control-input" checked readonly>
+                            <label for="necessary"  class="custom-control-label" ></label>
+                        </div>                 
+                    </dd>
+                    <p>These cookies are necessary for the website to function and cannot be switched off in our
+                        systems. They are usually only set in response to actions made by you which amount to a
+                        request for services, such as setting your privacy preferences, logging in or filling in
+                        forms. You can set your browser to block or alert you about these cookies, but some parts of
+                        the site will not then work. These cookies do not store any personally identifiable
+                        information.
+                    </p>
+                </dl>
+                <p><a href="#" class="btn btn-sm btn-primary">Confirm my choices</a></p>
+            </details>
+            <div class="col-lg-6 d-flex">
+                <picture class="d-block w-100 ml-2">
+                    <source srcset="https://picsum.photos/200/300.webp">
+                    <img src="https://picsum.photos/200/300.jpg" alt="A huge party with cakes.">
+                </picture>
 
-                        <p class="card-text text-justify max-lines-6 d-none d-sm-block">AMD has a brand new generation
-                            of Ryzen CPUs coming in 2019. Based on a next-gen Zen 2 architecture, the 3rd generation AMD
-                            Ryzen processors should offer dramatic…</p>
-                    </div>
-
-                    <div class="card-footer d-flex justify-content-between bg-transparent border-0"><small><a
-                                class="card-link"
-                                href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know">Read more
-                                &gt;</a></small> <time class="text-muted small" datetime="2019-01-15T12:00:00">January
-                            15, 2019</time></div>
-                </div>
+                <picture class="d-block w-100 ml-2">
+                    <source srcset="https://picsum.photos/200/300.webp" type="image/webp" alt="Modern" />
+                    <source srcset="https://picsum.photos/200/300.jp2" type="image/jp2" alt="Safari" />
+                    <img src="https://picsum.photos/200/300.jxr" type="image/vnd.ms-photo" alt="IE11" />
+                </picture>
             </div>
-
-            <div class="col mb-4">
-                <h6 class="initialism pt-3">Events Card (big)</h6>
-
-                <div class="card h-100">
-                    <div class="view overlay zoom"><a
-                            href="/en/news/news/amd-ryzen-3000-cpus-everything-you-need-to-know"><img
-                                alt="AMD Ryzen 3000 CPUs: Everything you need to know" class="card-img-top"
-                                src="https://unsplash.it/446/200"
-                                srcset="https://unsplash.it/446/200,https://unsplash.it/975/438 2x"> </a></div>
-
-                    <div class="card-body">
-                        <h6 class="card-title"><a class="card-link" href="sidebar">Save the date: Microsoft Cloud
-                                Architect Boot Camp</a></h6>
-
-                        <p class="card-text text-justify max-lines-6 d-none d-sm-block">Join Ingram Micro at our free
-                            Microsoft Cloud Bootcamp to further understand the benefits of EMS and Office 365 and how
-                            enabling a mobile workforce can be both…</p>
-                    </div>
-
-                    <div class="card-footer d-flex justify-content-between bg-transparent border-0"><small><a
-                                class="card-link" href="/en/news/events/test-event-2">Read more &gt;</a></small> <time
-                            class="small text-muted text-right">April 12, 2019<br>
-                            09:00 AM – 05:00 PM</time></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section class="gallery my-5 mx-auto">
-        <div class="card zoom">
-            <img class="filter-sepia" alt="" src="https://picsum.photos/400" />
-        </div>
-        <div class="card zoom">
-            <img class="filter-sepia" alt="" src="https://picsum.photos/600" />
-        </div>
-        <div class="card zoom">
-            <img class="filter-sepia" alt="" src="https://picsum.photos/650" />
         </div>
     </section>
 
 
     <section class="container my-5">
+        <div class="b4">
+            <div id="ADS-TEC" class="animated flipInX lift menu-item tile-single">
 
-        <div id="samurai" class="carousel d-flex flex-column-reverse slide" data-ride="carousel">
-            <ol class="carousel-indicators position-relative ">
-                <li data-target="#samurai" data-slide-to="0" class="active">義</li>
-                <li data-target="#samurai" data-slide-to="1">勇</li>
-                <li data-target="#samurai" data-slide-to="2">仁</li>
-                <li data-target="#samurai" data-slide-to="3">礼</li>
-                <li data-target="#samurai" data-slide-to="4">誠</li>
-                <li data-target="#samurai" data-slide-to="5">名誉</li>
-                <li data-target="#samurai" data-slide-to="6">忠義</li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 kanji text-center text-shadow flex-center">
-                            <p aria-label="Gi">義</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>Aufrichtigkeit & Gerechtigkeit</h6>
-                            <p>Für die Samurai ist die Aufrichtigkeit eine der wichtigsten Verhaltensregeln. Daher ist
-                                die
-                                persönliche Rechtschaffenheit eines Samurai ein wertvolles Gut, das im öffentlichen
-                                Ansehen
-                                einen hohen Stellenwert einnimmt. Wir von Fujitsu versetzen uns in die Lage des Kunden
-                                und
-                                handeln aufrichtig. Wir handeln als verantwortungsbewusste globale Bürger, entsprechend
-                                den
-                                Bedürfnissen der Gesellschaft und der Umwelt.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 kanji text-center text-shadow flex-center">
-                            <p aria-label="Isamu">勇</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>Mut</h6>
-                            <p>Mut zeigt sich in den Handlungen eines Samurai. Dies bedeutet für den Samurai, sich allen
-                                Gefahren zu stellen und auch Risiken einzugehen. Wir als Fujitsu wollen unsere
-                                hochgesteckten Ziele erreichen. Wir streben an durch Innovation.</p>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 kanji text-center text-shadow flex-center">
-                            <p aria-label="Jin">仁</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>Güte</h6>
-                            <p>Das Beachten der Gefühle anderer Personen sowie das Zulassen eigener Gefühle führen dazu,
-                                dass die Samurai ein Fundament für Güte errichten. Mitgefühl ist dabei ein Zeichen von
-                                Stärke. Fujitsu und seine Mitarbeiter respektieren kulturelle und individuelle Vielfalt
-                                und unterstützen die persönliche Entwicklung. Wir nutzen unsere Position in der
-                                Organisation nicht zum persönlichen Vorteil aus, sondern haben das Wohl aller im Blick.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 kanji text-center text-shadow flex-center">
-                            <p aria-label="Rei">礼</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>Höflichkeit</h6>
-                            <p>Ein Charakterzug der japanischen Gesellschaft ist die Freundlichkeit und Zuvorkommenheit,
-                                was durch die Samurai geprägt wurde. Aus der Tugend der Höflichkeit entstand eine
-                                strikte Etikette für richtige Verhaltensregeln im Umgang miteinander. Für Fujitsu
-                                bedeutet das, dass wir respektvolle faire Beziehungen zum gegenseitigen Nutzen aufbauen.
-                                Wir verfolgen gemeinsame Ziele organisationsübergreifend, arbeiten als Team und handeln
-                                als verantwortungsvolle Teammitglieder</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 kanji text-center text-shadow flex-center">
-                            <p aria-label="Makoto">誠</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>Wahrheit</h6>
-                            <p>Zweideutigkeiten oder Unwahrheiten zu äußern ist für einen Samurai unwürdig. Vielmehr
-                                zählt das gesprochene Wort – eine schriftliche Beglaubigung ist oft nicht notwendig. Wir
-                                als Mitarbeiter von Fujitsu versetzen uns in die Lage des Kunden und handeln aufrichtig.
-                                Auch verhalten wir uns fair in unseren Geschäftsbeziehungen.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 kanji text-center text-shadow flex-center">
-                            <p aria-label="Meiyo">名誉</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>Ehre</h6>
-                            <p>Eine der zentralen Bedeutungen der Samurai ist es, Ehre und Ruhm zu erlangen. Dies
-                                beinhaltet auch, Pflichten zu erfüllen. Als Fujitsu wollen wir die geschätzten und
-                                vertrauenswürdigen Partner unserer Kunden sein. Wir streben danach, die Erwartungen der
-                                Kunden, Mitarbeiter und Aktionäre zu erfüllen.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 kanji text-center text-shadow flex-center">
-                            <p aria-label="Chuugi">忠義</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>Treue</h6>
-                            <p>Die Treue zu seinem familiären Umfeld sowie zu sich selbst prägt das gesamte Leben eines
-                                Samurai. Im Weiteren gilt die Treue des Samurai auch denen, für die er verantwortlich
-                                ist. Fujitsu baut respektvolle faire Beziehungen zum gegenseitigen Nutzen auf. Wir
-                                schützen die Umwelt und nehmen unsere gesellschaftliche Verantwortung wahr.</p>
-                        </div>
-                    </div>
-                </div>
+                <a href="/products/vendors/ads-tec">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=ADS-TEC&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=ADS-TEC&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=ADS-TEC&amp;size=300 2x"
+                        alt="ADS-TEC">
+
+                </a>
+
+            </div>
+
+            <div id="Advantech" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/advantech">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Advantech&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Advantech&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Advantech&amp;size=300 2x"
+                        alt="Advantech">
+
+                </a>
+
+            </div>
+
+            <div id="APG Cash Drawer" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/apgcashdrawer">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=APG-Cash-Drawer&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=APG-Cash-Drawer&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=APG-Cash-Drawer&amp;size=300 2x"
+                        alt="APG Cash Drawer">
+
+                </a>
+
+            </div>
+
+            <div id="Badgy Evolis" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/badgy-evolis">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Badgy-Evolis&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Badgy-Evolis&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Badgy-Evolis&amp;size=300 2x"
+                        alt="Badgy Evolis">
+
+                </a>
+
+            </div>
+
+            <div id="BarTender" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/bartender">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=BarTender&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=BarTender&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=BarTender&amp;size=300 2x"
+                        alt="BarTender">
+
+                </a>
+
+            </div>
+
+            <div id="Bixolon" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/bixolon">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bixolon&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bixolon&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bixolon&amp;size=300 2x"
+                        alt="Bixolon">
+
+                </a>
+
+            </div>
+
+            <div id="Blue Parrott" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/blue-parrott">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Blue-Parrott&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Blue-Parrott&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Blue-Parrott&amp;size=300 2x"
+                        alt="Blue Parrott">
+
+                </a>
+
+            </div>
+
+            <div id="Bluebird" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/bluebird">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bluebird&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bluebird&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bluebird&amp;size=300 2x"
+                        alt="Bluebird">
+
+                </a>
+
+            </div>
+
+            <div id="Brother" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/brother">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Brother&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Brother&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Brother&amp;size=300 2x"
+                        alt="Brother">
+
+                </a>
+
+            </div>
+
+            <div id="CIPI Europe" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/cipi-europe">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=CIPI-Europe&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=CIPI-Europe&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=CIPI-Europe&amp;size=300 2x"
+                        alt="CIPI Europe">
+
+                </a>
+
+            </div>
+
+            <div id="Citizen" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/citizen-systems">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Citizen&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Citizen&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Citizen&amp;size=300 2x"
+                        alt="Citizen">
+
+                </a>
+
+            </div>
+
+            <div id="Cognitive" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/cognitive">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cognitive&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cognitive&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cognitive&amp;size=300 2x"
+                        alt="Cognitive">
+
+                </a>
+
+            </div>
+
+            <div id="Compulocks" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/compulocks">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Compulocks&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Compulocks&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Compulocks&amp;size=300 2x"
+                        alt="Compulocks">
+
+                </a>
+
+            </div>
+
+            <div id="Cradlepoint" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/cradlepoint">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cradlepoint&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cradlepoint&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cradlepoint&amp;size=300 2x"
+                        alt="Cradlepoint">
+
+                </a>
+
+            </div>
+
+            <div id="Custom" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/custom/home">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Custom&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Custom&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Custom&amp;size=300 2x"
+                        alt="Custom">
+
+                </a>
+
+            </div>
+
+            <div id="Datacard" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/datacard">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datacard&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datacard&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datacard&amp;size=300 2x"
+                        alt="Datacard">
+
+                </a>
+
+            </div>
+
+            <div id="Datalogic" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/datalogic">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datalogic&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datalogic&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datalogic&amp;size=300 2x"
+                        alt="Datalogic">
+
+                </a>
+
+            </div>
+
+            <div id="Dymo" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/dymo">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Dymo&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Dymo&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Dymo&amp;size=300 2x"
+                        alt="Dymo">
+
+                </a>
+
+            </div>
+
+            <div id="ECD" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/ecd">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=ECD&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=ECD&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=ECD&amp;size=300 2x"
+                        alt="ECD">
+
+                </a>
+
+            </div>
+
+            <div id="Elo" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/elo-touch-solutions">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Elo&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Elo&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Elo&amp;size=300 2x"
+                        alt="Elo">
+
+                </a>
+
+            </div>
+
+            <div id="Epson" class="tile-single menu-item animated lift flipInX">
+
+                <a href="/products/vendors/epson">
+
+                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Epson&amp;size=150"
+                        srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Epson&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Epson&amp;size=300 2x"
+                        alt="Epson">
+
+                </a>
+
             </div>
         </div>
     </section>
 
-    <details>
-        <summary>Specification Metadata</summary>
-        <dl>
-            <dt>This version:</dt>
-            <dd><a class="u-url"
-                    href="https://drafts.csswg.org/css-sizing-4/">https://drafts.csswg.org/css-sizing-4/</a>
-            </dd>
-            <dt>Latest published version:</dt>
-            <dd><a href="https://www.w3.org/TR/css-sizing-4/">https://www.w3.org/TR/css-sizing-4/</a>
-            </dd>
-            <dt>Issue Tracking:</dt>
-            <dd><a href="#issues-index">Inline In Spec</a>
-            </dd>
-            <dd><a href="https://github.com/w3c/csswg-drafts/labels/css-sizing-4">GitHub Issues</a>
-            </dd>
-            <dt class="editor">Editors:</dt>
-            <dd class="editor p-author h-card vcard" data-editor-id="42199"><a class="p-name fn u-url url"
-                    href="http://xanthir.com/contact/">Tab Atkins</a> (<span class="p-org org">Google</span>)
-            </dd>
-            <dd class="editor p-author h-card vcard" data-editor-id="35400"><a class="p-name fn u-url url"
-                    href="http://fantasai.inkedblade.net/contact">Elika J. Etemad / fantasai</a> (<span
-                    class="p-org org">Invited Expert</span>)
-            </dd>
-            <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="http://jensimmons.com/">Jen
-                    Simmons</a> (<span class="p-org org">Mozilla</span>)
-            </dd>
-            <dt>Suggest an Edit for this Spec:</dt>
-            <dd><a href="https://github.com/w3c/csswg-drafts/blob/master/css-sizing-4/Overview.bs">GitHub Editor</a>
-            </dd>
-        </dl>
-    </details>
 
-    <picture class="d-block w-100 ml-5">
-        <source srcset="https://picsum.photos/200/300.webp">
-        <img src="https://picsum.photos/200/300.jpg" alt="A huge party with cakes.">
-    </picture>
-
-    <picture class="d-block w-100 ml-5">
-        <source srcset="https://picsum.photos/200/300.webp" type="image/webp" alt="Modern" />
-        <source srcset="https://picsum.photos/200/300.jp2" type="image/jp2" alt="Safari" />
-        <img src="https://picsum.photos/200/300.jxr" type="image/vnd.ms-photo" alt="IE11" />
-    </picture>
-
-
-    <style>
-        .kanji p {
-            font-family: 'Noto Sans', 'Microsoft JhengHei', '微軟正黑體', 'Heiti TC', '黑體-繁', sans-serif !important;
-            font-size: 12rem;
-            font-size: clamp(6rem, 12vw, 11rem);
-            font-weight: 700;
-            color: red;
-            margin-bottom: 0;
-            user-select: none;
-            pointer-events: none;
-        }
-
-        #samurai .carousel-indicators li {
-            box-sizing: content-box;
-            -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
-            width: unset;
-            height: unset;
-            margin-right: 1rem;
-            margin-left: 1rem;
-            text-indent: 0;
-            cursor: pointer;
-            background-color: transparent;
-            background-clip: padding-box;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            opacity: .75;
-            color: red;
-            font-family: 'Noto Sans', 'Microsoft JhengHei', '微軟正黑體', 'Heiti TC', '黑體-繁', sans-serif !important;
-            font-size: 3rem;
-            font-size: clamp(1rem, 3vw, 3rem);
-            transition: opacity .6s ease;
-        }
-
-        #samurai .carousel-indicators li.active {
-            font-weight: 700;
-        }
-
-        #samurai h6 {
-            letter-spacing: .4px;
-            font-size: 90%;
-            text-transform: uppercase;
-            color: red;
-        }
-
-        details {
-            margin: 10em;
-        }
-
-        summary:focus {
-            outline: none;
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary:before {
-            padding-right: .5em;
-            content: '\f105';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            color: #2f75bb;
-            transition: .3s all ease-in-out;
-        }
-
-        details[open] summary:before {
-            content: '\f107';
-        }
-    </style>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="/core/CORE/js/js-bundle-feb-2020.js"></script>
