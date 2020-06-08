@@ -49,6 +49,11 @@
             content: '\f563';
         }
 
+        details.agenda summary:before,
+        details.agenda[open] summary:before {
+            content: '\f017';
+        }
+
         details:not(.timeline)[open] summary {
             border-bottom: 1px solid #dee2e6;
         }
@@ -401,6 +406,20 @@
                     <dd>An input device as well as some form of output device is
                         recommended.
                     </dd>
+                </dl>
+            </details>
+            <details class="col-lg-6 agenda timeline" open>
+                <summary>PROGRAMME</summary>
+
+                <dl>
+                    <dt>9.00 </dt>
+                    <dd>Breakfast and welcome to the showroom</dd>
+                    <dt>10.30 </dt>
+                    <dd>Vendor introduction</dd>
+                    <dt>11.30 </dt>
+                    <dd>Return to the showroom</dd>
+                    <dt>12.00 </dt>
+                    <dd>Gourmet lunch and cocktail </dd>
                 </dl>
             </details>
             <details class="col-lg-6 cookie my-4" open>
