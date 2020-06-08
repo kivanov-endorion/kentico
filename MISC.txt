@@ -16,8 +16,3 @@ sci-hub.tw
 libgen.is
 sanet.st
 github.com/nextgens/anti-paywall
-
-JS
-
-https://jshint.com/
-https://babeljs.io/
