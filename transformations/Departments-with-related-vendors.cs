@@ -1,0 +1,2 @@
+<h6 class="initialism mb-0 mt-4" id="{% Documents[NodeAliasPath].NodeAlias.ToLower() #%}">{% Documents[NodeAliasPath].DocumentName #%}</h6>
+{% Documents[NodeAliasPath].RelatedDocuments["isrelatedto"].ClassNames("CMS.MenuItem").WithAllData.ApplyTransformation("oneIM.ContainerB4.Tiles-Vendors-New") #%}
