@@ -1,23 +1,13 @@
 {% 
   if( ViewMode == "LiveSite" || ViewMode == "Preview" ) {
-    /*
-    if( SiteContext.CurrentSite.DataContext.Settings.CustomSettings["UseCookieConsent"] == "True" )
-    {
-    */
        if( Cookies["CMSCookieLevel"] == "1000" ) {
          return false;
-       } else { // if CMSCookieLevel is different from 1000 or not set show notice
+       } else {
          return true;
        }
-    /* 
-    } else {
-       return false; 
-     }
-    */
   } else { 
      return false;
   }
-
 %}
 
 // COOKIE LEVELS
