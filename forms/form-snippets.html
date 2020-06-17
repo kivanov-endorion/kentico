@@ -342,3 +342,50 @@ radio.Value!="other" || text.Value!=""
 {% imSK_Cust %}
 {% imSK_Valid %} 
 
+
+
+
+<div class="form-group col-md-6 pt-1">
+    $$label:StandardUserPassword$$
+</div>
+<div class="form-group col-md-6" id="user-password">
+    <div class="input-group">
+        $$input:StandardUserPassword$$
+        $$validation:StandardUserPassword$$
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <i id="user-password-check" class="fas fa-eye fa-fw">&hairsp;</i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#user-password-check').on('click', function () {
+            $(this).toggleClass('fa-eye').toggleClass('fa-eye-slash');
+            var userpassword = $('#user-password input');
+            if (userpassword.attr('type') == "password") {
+                userpassword.attr('type','text');
+            } else {
+                userpassword.attr('type','password');
+            }
+        });
+    });
+</script>
+
+<style>
+    #user-password .editing-form-control-nested-control {
+        width: calc(100% - 45px);
+        
+    }
+    .input-group .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    #user-password .input-group-text {
+        cursor: pointer;
+    }
+</style>

@@ -64,7 +64,8 @@
 </div>
 <div class="row">
     <div class="col-12">
-        <h5 class="caps py-4 bg-light text-center"><i class="fas fa-server text-muted mr-2">&hairsp;</i>RAID Gruppen:</h5>
+        <h5 class="caps py-4 bg-light text-center"><i class="fas fa-server text-muted mr-2">&hairsp;</i>RAID Gruppen:
+        </h5>
         <h6 class="horizontal divider">RAID Set 1 (Partition für das Betriebssystem)</h6>
         <p class="initialism mb-5 mt-n4 text-center">Installationsdaten:</p>
     </div>
@@ -112,8 +113,10 @@
         <div class="alert alert-info">
             <h6>Achtung Mindestgröße für das Betriebssystem beachten:</h6>
             <ul class="disc">
-                <li>Windows Server 2016 (Essentials, Standard, Datacenter)<span class="ml-5">min.&nbsp;32&thinsp;GB</span></li>
-                <li>Windows Server 2019 (Essentials, Standard, Datacenter)<span class="ml-5">min.&nbsp;32&thinsp;GB</span></li>
+                <li>Windows Server 2016 (Essentials, Standard, Datacenter)<span
+                        class="ml-5">min.&nbsp;32&thinsp;GB</span></li>
+                <li>Windows Server 2019 (Essentials, Standard, Datacenter)<span
+                        class="ml-5">min.&nbsp;32&thinsp;GB</span></li>
             </ul>
         </div>
     </div>
@@ -171,7 +174,7 @@
             </ul>
         </div>
     </div>
-    
+
     <div class="form-group col-md-6 pt-1">
         $$label:PCCompanyName$$
     </div>
@@ -210,9 +213,16 @@
     <div class="form-group col-md-6 pt-1">
         $$label:AdminPassword$$
     </div>
-    <div class="form-group col-md-6">
-        $$input:AdminPassword$$
-        $$validation:AdminPassword$$
+    <div class="form-group col-md-6" id="admin-password">
+        <div class="input-group">
+            $$input:AdminPassword$$
+            $$validation:AdminPassword$$
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <i id="admin-password-check" class="fas fa-eye-slash fa-fw">&hairsp;</i>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="form-group col-md-6 pt-1">
         $$label:StandardUsername$$
@@ -224,15 +234,116 @@
     <div class="form-group col-md-6 pt-1">
         $$label:StandardUserPassword$$
     </div>
-    <div class="form-group col-md-6">
-        $$input:StandardUserPassword$$
-        $$validation:StandardUserPassword$$
+    <div class="form-group col-md-6" id="user-password">
+        <div class="input-group">
+            $$input:StandardUserPassword$$
+            $$validation:StandardUserPassword$$
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <i id="user-password-check" class="fas fa-eye-slash fa-fw">&hairsp;</i>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="form-group col-12 pt-2">
         $$label:OtherInformation$$
         $$input:OtherInformation$$
         $$validation:OtherInformation$$
     </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h6 class="horizontal divider">Installationsdaten:</h6>
+        <p class="initialism mb-5 mt-n4 text-center">Beispiele für RAID-Systeme erklärt</p>
+    </div>
+    <div class="col-12">
+        <table class="table small table-responsive bg-light border">
+            <thead class="bg-danger text-white">
+                <tr>
+                    <th class="h6">RAID-Level Variante</th>
+                    <th class="h6">MIndestanzahl Festplatten oder SSDs</th>
+                    <th class="h6">Toleranz gegen Ausfall</th>
+                    <th class="h6">Informationen zum RAID-Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row" class="h6">RAID 1</td>
+                    <td>zwei Festplatten</td>
+                    <td>eine Festplatte</td>
+                    <td>Der RAID 1 ist ein Festplatten-Verbund von zwei oder mehr Festplatten. Bei RAID-Level 1
+                        werden
+                        die Daten doppelt, also mindestens auf zwei Festplatten gespeichert. Man bezeichnet das als
+                        Datenspiegelung oder Mirroring.</td>
+                </tr>
+                <tr>
+                    <td scope="row" class="h6">RAID 5</td>
+                    <td>drei oder mehr Festplatten</td>
+                    <td>eine Festplatte</td>
+                    <td>Fällt im RAID 5 eine Festplatte aus, so sind die Daten in höchstem Maße gefährdet. Denn
+                        fällt
+                        noch eine Festplatte aus, so sind die Daten endgültig verloren. Ein RAID 5 verkraftet den
+                        Ausfall einer zweiten Festplatte nicht.</td>
+                </tr>
+                <tr>
+                    <td scope="row" class="h6">RAID 6</td>
+                    <td>vier Festplatten</td>
+                    <td>Bis zu zwei Festplatten</td>
+                    <td>Im Gegensatz zu RAID 5 werden zweifache Paritätsinformationen berechnet und gespeichert,
+                        wodurch
+                        der Verbund den Ausfall von bis zu zwei Festplatten ohne Datenverlust verkraftet. Die
+                        zusätzliche Fehlertoleranz wird durch eine verringerte Gesamtspeicherkapazität gegenüber
+                        RAID 5
+                        erkauft.</td>
+                </tr>
+                <tr>
+                    <td scope="row" class="h6">RAID 10</td>
+                    <td>vier Festplatten</td>
+                    <td>Siehe Info zum RAID-Level</td>
+                    <td>RAID 10 ist sicher, weil es alle Daten doppelt oder sogar mehrfach ablegt. Es ist außerdem
+                        schnell, weil die Daten auf mehrere Platten verteilt sind, auf die simultan zugegriffen
+                        werden
+                        kann.<br>
+                        Um RAID 10 einzurichten benötigen Sie mindestens vier physische Speicherlaufwerke und einen
+                        Festplatten-Controller, der RAID 10 beherrscht.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h6 class="horizontal divider">Hot-Spare-Festplatte erklärt:</h6>
+        <p>Eine Hot-Spare-Festplatte ist eine in einem System in Reserve (spare) gehaltene (normalerweise nicht
+            verwendete) Festplatte. Fällt eine andere Platte aus, wird die Hot-Spare-Platte im laufenden Betrieb
+            (hot)
+            automatisch anstelle der defekten eingebunden.</p>
+    </div>
+</div>
+<div class="row">
+    <dl>
+        <dt>Global Spare</dt>
+        <dd>Eine Global Spare springt für alle passende Festplatten bzw. SSDs ein, die in einem Server oder Storage
+            System vorhanden sind.</dd>
+        <dt>Dedicated Spare</dt>
+        <dd>Eine Dedicated Spare kann nur für ein bestimmtes RAID-Set einspringen</dd>
+    </dl>
+    <div class="alert alert-info">
+        <h6>HINWEIS:</h6>
+        <p>Unsere Beratung ist ausdrücklich begrenzt auf die von Ihnen gestellte(n) Frage(n) und basiert einzig auf
+            den
+            damit uns zur Verfügung gestellten Informationen. Probleme und deren Lösungen können von der Art Ihrer
+            Systemumgebung und zahlreichen anderen Faktoren abhängen, die Ingram-Micro nicht bekannt sind. Deshalb
+            kann
+            Ingram-Micro außer im Falle von Vorsatz und grober Fahrlässigkeit keinerlei Haftung übernehmen. Bitte
+            beachten Sie, dass technische Informationen mit dem Vorhandensein neuen Datenmaterials Veränderungen
+            unterliegen.</p>
+    </div>
+</div>
+<div class="row">
     <div class="form-group col-12">
         $$label:DataPrivacy$$
         $$input:DataPrivacy$$
@@ -243,3 +354,42 @@
 
 
 <link rel="stylesheet" type="text/css" href="/1IMv2/ext/css/datetimepicker-and-custom-styles.css">
+
+<script>
+    $(document).ready(function () {
+        $('#admin-password-check').on('click', function () {
+            $(this).toggleClass('fa-eye').toggleClass('fa-eye-slash');
+            var adminpassword = $('#admin-password input');
+            if (adminpassword.attr('type') == "password") {
+                adminpassword.attr('type','text');
+            } else {
+                adminpassword.attr('type','password');
+            }
+        });
+        $('#user-password-check').on('click', function () {
+            $(this).toggleClass('fa-eye').toggleClass('fa-eye-slash');
+            var userpassword = $('#user-password input');
+            if (userpassword.attr('type') == "password") {
+                userpassword.attr('type','text');
+            } else {
+                userpassword.attr('type','password');
+            }
+        });
+    });
+</script>
+
+<style>
+    #admin-password .editing-form-control-nested-control,
+    #user-password .editing-form-control-nested-control {
+        width: calc(100% - 45px);
+        
+    }
+    .input-group .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    #admin-password .input-group-text,
+    #user-password .input-group-text {
+        cursor: pointer;
+    }
+</style>
