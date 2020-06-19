@@ -1,0 +1,10 @@
+CUSTOMER APPLICATION FORM
+https://partner-apac.ingrammicro.com/LP=500
+
+PART 1
+
+IF Singapore -> no GST fields
+
+Cloud Marketplace -> IF yes add another notif. email + email to reseller
+
+Terms and conditions -> PDF
