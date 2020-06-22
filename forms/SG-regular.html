@@ -1,4 +1,16 @@
 <div class="row">
+	<div class="col-12 mb-4">
+		<h5 class="alert alert-danger alert-dismissible caps mb-4 text-center animated flipInX">
+			TO BE COMPLETED BY NEW CUSTOMERS ONLY
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</h5>
+		<h1 class="alert-light bg-light caps no-border p-2 text-center text-condensed">Customer Application Form</h1>
+		<address class="text-center">Ingram Micro Asia Ltd 205 Kallang Bahru #04-00 Singapore 339341</address>
+		<p class="text-center"><a href="mailto:newreseller.sg@ingrammicro-asia.com"><i
+					class="fas fa-envelope fa-fw mr-2">&hairsp;</i>newreseller.sg@ingrammicro-asia.com</a></p>
+	</div>
 	<div class="col-12">
 		<h6 class="mb-0 mt-4 text-center">PART 1:</h6>
 		<h3 class="heading mb-5 text-center">General information</h3>
@@ -91,7 +103,7 @@
 		$$validation:BusinessProfile$$
 	</div>
 	<div class="form-group col-md-6 pt-1">
-		$$label:BusinessProfileOther$$
+		&nbsp;
 	</div>
 	<div class="form-group col-md-6">
 		$$input:BusinessProfileOther$$
@@ -100,7 +112,7 @@
 	<div class="form-group col-md-6 pt-1">
 		$$label:SolutionsAndApplication$$
 	</div>
-	<div class="form-group col-md-6">
+	<div class="form-group col-md-6 text-col-2">
 		$$input:SolutionsAndApplication$$
 		$$validation:SolutionsAndApplication$$
 	</div>
@@ -242,10 +254,18 @@
 	<div class="form-group col-md-6">
 		$$input:ShippingStateOrProvince$$
 		$$validation:ShippingStateOrProvince$$
-	</div>	
+	</div>
 	<div class="col-12">
 		<h6 class="mb-0 mt-4 text-center">PART 2:</h6>
-		<h3 class="heading mb-5 text-center">Webshop Access</h3>
+		<h3 class="heading text-center">Webshop Access</h3>
+		<dl class="alert alert-info mb-4">
+			<dt class="col-1">IMOnline</dt>
+			<dd class="col">Company’s appointed administrator’s application (refer to <a class="alert-link"
+					href="/getattachment/dda0ded3-c255-4c1f-989f-e9f00fd280d8/Annex_C.pdf.aspx" target="_blank">Annex
+					C</a> for web application terms and
+				conditions)</a>
+			</dd>
+		</dl>
 	</div>
 	<div class="form-group col-md-6 pt-1">
 		$$label:AdminName$$
@@ -363,22 +383,9 @@
 		$$input:CreditAmountProvided$$
 		$$validation:CreditAmountProvided$$
 	</div>
+
 	<div class="col-12">
 		<h6 class="mb-0 mt-4 text-center">PART 4:</h6>
-		<h3 class="heading mb-5 text-center">Supporting Documents</h3>
-	</div>
-	<div class="form-group col-md-12 pt-1">
-		$$label:ACRACertificate$$
-		$$input:ACRACertificate$$
-		$$validation:ACRACertificate$$
-	</div>
-	<div class="form-group col-md-12 pt-1">
-		$$label:FinancialStatement$$
-		$$input:FinancialStatement$$
-		$$validation:FinancialStatement$$
-	</div>
-	<div class="col-12">
-		<h6 class="mb-0 mt-4 text-center">PART 5:</h6>
 		<h3 class="heading mb-5 text-center">Declaration</h3>
 	</div>
 	<div class="form-group col-md-6 pt-1">
@@ -417,36 +424,45 @@
 		$$validation:CaseDesciption$$
 	</div>
 	<div class="col-12">
+		<h6 class="mb-0 mt-4 text-center">PART 5:</h6>
+		<h3 class="heading mb-5 text-center">Supporting Documents</h3>
+	</div>
+	<div class="form-group col-md-12 pt-1 doc1">
+		$$label:ACRACertificate$$
+		$$input:ACRACertificate$$
+		$$validation:ACRACertificate$$
+	</div>
+	<div class="form-group col-md-12 pt-1 mt-4 doc2">
+		$$label:FinancialStatement$$
+		$$input:FinancialStatement$$
+		$$validation:FinancialStatement$$
+	</div>
+	<div class="col-12">
 		<h6 class="mb-0 mt-4 text-center">PART 6:</h6>
 		<h3 class="heading mb-5 text-center">Applicable Sales Terms &amp; Conditions</h3>
 	</div>
 	<div class="form-group col-md-12">
-		$$label:CertifyInfoIsTrueAndCorrect$$
 		$$input:CertifyInfoIsTrueAndCorrect$$
 		$$validation:CertifyInfoIsTrueAndCorrect$$
 	</div>
 	<div class="form-group col-md-12">
-		$$label:AgreeToInformIfChanges$$
 		$$input:AgreeToInformIfChanges$$
 		$$validation:AgreeToInformIfChanges$$
 	</div>
 	<div class="form-group col-md-12">
-		$$label:AgreeToApplicableTerms$$
 		$$input:AgreeToApplicableTerms$$
 		$$validation:AgreeToApplicableTerms$$
 	</div>
 	<div class="form-group col-md-12">
-		$$label:OnlyResellToEndUsers$$
 		$$input:OnlyResellToEndUsers$$
 		$$validation:OnlyResellToEndUsers$$
 	</div>
 	<div class="form-group col-md-12">
-		$$label:DataPrivacy$$
 		$$input:DataPrivacy$$
 		$$validation:DataPrivacy$$
 	</div>
 	<div class="col-12">
-		<h6 class="horizontal divider">Please provide the following information for official usage:</h6>
+		<h6 class="horizontal divider">Please provide the following <wbr>information for official usage:</h6>
 	</div>
 	<div class="form-group col-md-6 pt-1">
 		$$label:AuthorizedSignatory$$
@@ -482,6 +498,9 @@
 			<p>This Form and the applicable Terms must be signed by a duly authorized registered director of the ..</p>
 		</div>
 	</div>
+	<div class="col-12 text-center">
+		$$submitbutton$$
+	</div>
 </div>
 
 <style>
@@ -506,7 +525,8 @@
 	.form-group>label+div {
 		margin: -1rem 0 1rem;
 	}
-	.form-group>.custom-file-label + div {
+
+	.form-group>.custom-file-label+div {
 		margin-top: 0;
 	}
 
@@ -518,11 +538,15 @@
 		visibility: hidden;
 	}
 
-	.custom [type="checkbox"]+label, .custom [type="radio"]+label {
+	.custom [type="checkbox"]+label,
+	.custom [type="radio"]+label {
 		padding-top: 0.25rem;
 	}
-	.custom [type="checkbox"]+label:before, .custom [type="checkbox"]+label:after,
-	.custom [type="radio"]+label:before, .custom [type="radio"]+label:after {
+
+	.custom [type="checkbox"]+label:before,
+	.custom [type="checkbox"]+label:after,
+	.custom [type="radio"]+label:before,
+	.custom [type="radio"]+label:after {
 		top: 0.25rem !important;
 	}
 
@@ -535,4 +559,47 @@
 		display: block;
 	}
 
+	small+.EditingFormErrorLabel {
+		margin-top: 0;
+	}
+
+	.InfoLabel {
+		text-transform: uppercase;
+		letter-spacing: .4px;
+		text-align: center !important;
+		display: block;
+		color: #155724;
+		background-color: #d4edda;
+		border-color: #c3e6cb;
+		position: relative;
+		padding: .75rem 1.25rem;
+		margin-bottom: 1rem;
+		border: 1px solid transparent;
+		border-radius: .25rem;
+	}
 </style>
+
+<script>
+	$(document).ready(function () {
+
+		// File upload
+		var input1 = $('.doc1 .uploader-input-file'),
+			label1 = $('.doc1 .custom-file-label'),
+			fileName1 = '';
+
+		input1.on('change', function () {
+			fileName1 = input1.val().split('\\').pop();
+			label1.html(' <ins>' + fileName1 + '</ins>');
+		});
+
+		// File upload
+		var input2 = $('.doc2 .uploader-input-file'),
+			label2 = $('.doc2 .custom-file-label'),
+			fileName2 = '';
+
+		input2.on('change', function () {
+			fileName2 = input2.val().split('\\').pop();
+			label2.html(' <ins>' + fileName2 + '</ins>');
+		});
+	});
+</script>
