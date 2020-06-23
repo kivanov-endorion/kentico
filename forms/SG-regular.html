@@ -112,7 +112,7 @@
 	<div class="form-group col-md-6 pt-1">
 		$$label:SolutionsAndApplication$$
 	</div>
-	<div class="form-group col-md-6 text-col-2">
+	<div class="form-group col-md-6">
 		$$input:SolutionsAndApplication$$
 		$$validation:SolutionsAndApplication$$
 	</div>
@@ -355,6 +355,9 @@
 		$$input:CreditTerm$$
 		$$validation:CreditTerm$$
 	</div>
+	<div class="col-12">
+		<h6 class="horizontal divider">Bank Information [Primary Banker(s)]</h6>
+	</div>
 	<div class="form-group col-md-6 pt-1">
 		$$label:BankName$$
 	</div>
@@ -425,7 +428,8 @@
 	</div>
 	<div class="col-12">
 		<h6 class="mb-0 mt-4 text-center">PART 5:</h6>
-		<h3 class="heading mb-5 text-center">Supporting Documents</h3>
+		<h3 class="heading text-center">Supporting Documents</h3>
+		<p class="initialism mb-5 mt-n3 text-center text-muted">Documents required to be submitted with this Form</p>
 	</div>
 	<div class="form-group col-md-12 pt-1 doc1">
 		$$label:ACRACertificate$$
@@ -440,6 +444,7 @@
 	<div class="col-12">
 		<h6 class="mb-0 mt-4 text-center">PART 6:</h6>
 		<h3 class="heading mb-5 text-center">Applicable Sales Terms &amp; Conditions</h3>
+		<p>By providing the following information,</p>
 	</div>
 	<div class="form-group col-md-12">
 		$$input:CertifyInfoIsTrueAndCorrect$$
@@ -492,12 +497,12 @@
 		$$input:SignatoryEmail$$
 		$$validation:SignatoryEmail$$
 	</div>
-	<div class="col-12">
+	<!-- <div class="col-12">
 		<div class="alert alert-info">
 			<h6>NOTE:</h6>
 			<p>This Form and the applicable Terms must be signed by a duly authorized registered director of the ..</p>
 		</div>
-	</div>
+	</div> -->
 	<div class="col-12 text-center">
 		$$submitbutton$$
 	</div>
@@ -576,6 +581,21 @@
 		margin-bottom: 1rem;
 		border: 1px solid transparent;
 		border-radius: .25rem;
+	}
+
+	.checkbox-list-vertical {
+		display: block;
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+		-webkit-column-width: 50%;
+		column-width: 50%;
+		-webkit-perspective: 1;
+		-webkit-column-gap: 1.25rem;
+		-moz-column-gap: 1.25rem;
+		column-gap: 1.25rem;
+		orphans: 1;
+		widows: 1;
 	}
 </style>
 
