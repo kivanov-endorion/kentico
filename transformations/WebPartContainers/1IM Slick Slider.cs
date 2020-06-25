@@ -1,4 +1,4 @@
-<section id="{% IsNullOrEmpty(ContainerTitle) ? "slickslider" + GetRandomInt() : ContainerTitle %}" class="{% ContainerCSSClass %}">
+<section id="{% IsNullOrEmpty(ContainerTitle.ToLower().Replace(" ","-")) ? "slickslider" + GetRandomInt() : ContainerTitle.ToLower().Replace(" ","-") %}" class="{% ContainerCSSClass %}">
   □
 </section>
 
@@ -7,7 +7,7 @@
 
 <script>
 $(document).ready(function(){
-  $('#{% IsNullOrEmpty(ContainerTitle) ? "slickslider" + GetRandomInt() : ContainerTitle %}').slick({
+  $('#{% IsNullOrEmpty(ContainerTitle.ToLower().Replace(" ","-")) ? "slickslider" + GetRandomInt() : ContainerTitle.ToLower().Replace(" ","-") %}').slick({
     dots: true,
     dotsClass: 'carousel-indicators dropped',
     arrows: false,
