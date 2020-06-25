@@ -39,6 +39,7 @@
 {% CurrentBrowser.IsMobileDevice %}
 {% CurrentUser.IsAuthenticated %}
 {% if ( CurrentBodyClass.Contains("InternetExplorer") ) { } %}
+{% GetRandomInt() %}
 
 // SQL Escape
 {% SQLEscape( QueryString.cat ) %}
