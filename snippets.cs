@@ -431,3 +431,8 @@ SiteID  SiteName                    SK_Valid
     }
     node.NodeAliasPath + "/%"; 
 %}
+
+// Contacts with related vendors
+{% foreach ( vendor in Documents[NodeAliasPath].RelatedDocuments["VendorCardContact"] ) { 
+    vendor.DocumentName.InList(CurrentDocument.RelatedDocuments.isrelatedto) ? Format("<p class='small mt-n2 text-center'>{0}</p>",vendor.DocumentName) : ""
+} #%}
