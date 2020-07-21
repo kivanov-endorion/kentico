@@ -101,7 +101,7 @@
 {% DocumentMenuCaption ?? DocumentName %} // Returns the left if not null, otherwise the right. Empty strings are not considered as null
 {% CurrentDocument.GetValue("DocumentMenuCaption", DocumentName) %} // Sets default value if field is null (optional)
 {% CurrentDocument.NewsTitle|(default)Default Title %}
-{% IfCompare( Documents[NodeAliasPath].DocumentName, CurrentDocument.DocumentName, "", "active" ) %} // item, item, if not equal, if equal
+{% IfCompare( Documents[NodeAliasPath].DocumentName, CurrentDocument.DocumentName, String.Empty, "active" ) %} // item, item, if not equal, if equal; String.Empty = ""
 
 // ViewMode: Edit, Design, LiveSite, Preview
 {% if ( ViewMode=="Edit" || ViewMode=="Design" ) { return false; } else { return true; } %}
@@ -304,7 +304,7 @@ SiteID  SiteName                    SK_Valid
 {% NodeAlias %}
 {% NodeAliasPath %}
 {% NodeID %}
-{% NodeHasChildren %}
+{% NodeHasChildren %} // = Documents.Where("NodeID = " + NodeID).FirstItem.Children.Count > 0
 {% NodeLevel %}
 {% NodeOrder %}
 {% NodeParentID %}
