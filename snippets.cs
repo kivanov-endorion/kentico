@@ -271,6 +271,7 @@ SiteID  SiteName                    SK_Valid
 68      ro.ingrammicro.eu           46
 70      dk.ingrammicro.eu           7
 71      dcpos.ingrammicro.eu (NEW)  5
+72      il-corp.ingrammicro.com     29
 */
 
 /* Testing Macros: Go to: System > Macros > Console */
@@ -436,3 +437,7 @@ SiteID  SiteName                    SK_Valid
 {% foreach ( vendor in Documents[NodeAliasPath].RelatedDocuments["VendorCardContact"] ) { 
     vendor.DocumentName.InList(CurrentDocument.RelatedDocuments.isrelatedto) ? Format("<p class='small mt-n2 text-center'>{0}</p>",vendor.DocumentName) : ""
 } #%}
+
+
+// Search index per site
+{% "1IM-" + ToUpper(domain.RegexReplace("(-corp)?(-|.)(ingrammicro)(-asia)?(-|.)?(com|eu)?","")) + "-Search" #%}
