@@ -39,6 +39,12 @@
 		"prefix": "imblue",
 		"body": "#2f75bb"
 	},
+	"Font Awesome Icon": {
+		"scope": "",
+		"prefix": "ifa",
+		"body": "<i class=\"fas fa-$0\">​</i>",
+		"description": "Non empty <i> for Font Awesome"
+	},
 	"If Else": {
 		"scope": "csharp",
 		"prefix": "ifelse",
