@@ -35,7 +35,7 @@
 		"body": "d-flex justify-content-center align-items-center"
 	},
 	"Ingram Micro brand blue": {
-		"scope": "html,csharp,css",
+		"scope": "",
 		"prefix": "imblue",
 		"body": "#2f75bb"
 	},
@@ -44,6 +44,21 @@
 		"prefix": "ifa",
 		"body": "<i class=\"fas fa-$0\">​</i>",
 		"description": "Non empty <i> for Font Awesome"
+	},
+	"Zero Width Space": {
+		"scope": "",
+		"prefix": "zwsp",
+		"body": "&#8203;"
+	},
+	"Numeric Space": {
+		"scope": "",
+		"prefix": "numsp",
+		"body": "&#8199;"
+	},
+	"Numeric Dash": {
+		"scope": "",
+		"prefix": "numdash",
+		"body": "&#8210;"
 	},
 	"If Else": {
 		"scope": "csharp",
