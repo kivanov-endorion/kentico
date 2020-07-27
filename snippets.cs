@@ -227,36 +227,33 @@ if () {
 {% SiteContext.CurrentSite.DataContext.Settings.CMSPageTitlePrefix %}
 
 /* CurrentSite.SiteID:
-SiteID  SiteName                    SK_Valid
+SiteID  SiteName                    SK_Valid    B4
 	    all	                        0
 2	    nl.ingrammicro.eu	        15
-4	    de.ingrammicro.eu	        5
+4	    de.ingrammicro.eu	        5           *
 8	    be.ingrammicro.eu	        2
 13	    de-inside	                5   
 18	    ch.ingrammicro.eu	        4
-19	    oneIM (starter)             5   
+19	    oneIM (starter)             5           *
 20	    uk.ingrammicro.eu	        10
-21	    hu1.ingrammicro.eu	        22
-23	    fr.ingrammicro.eu	        9
+23	    fr.ingrammicro.eu	        9           *
 24	    at.ingrammicro.eu	        1
 25	    dcpos.ingrammicro.eu	    5
-26	    ba.ingrammicro.eu	        4
-27	    it.ingrammicro.eu	        12
+26	    ba.ingrammicro.eu	        4           *
+27	    it.ingrammicro.eu	        12          *
 28	    cz.ingrammicro.eu	        50
 29	    pl.ingrammicro.eu	        49
-31	    al2.ingrammicro.eu	        42
-32	    es.ingrammicro.eu	        6
+32	    es.ingrammicro.eu	        6           *
 33	    hr.ingrammicro.eu	        44
 34	    mk.ingrammicro.eu	        45
 35	    rs.ingrammicro.eu	        47
 36	    si.ingrammicro.eu	        48
-37	    bg.ingrammicro.eu	        32
-38	    hu.ingrammicro.eu	        22
+37	    bg.ingrammicro.eu	        32          *
+38	    hu.ingrammicro.eu	        22          *
 40	    fi.ingrammicro.eu	        8
 41	    no.ingrammicro.eu	        19
 42	    one.ingrammicro.eu	        5
 43	    se.ingrammicro.eu	        17
-45	    sk1.ingrammicro.eu	        27
 47	    th.ingrammicro-asia.com	    65
 50	    nz.ingrammicro-asia.com	    62
 51	    my.ingrammicro-asia.com	    61
@@ -266,12 +263,12 @@ SiteID  SiteName                    SK_Valid
 55	    cn.ingrammicro-asia.com	    57
 56	    au.ingrammicro-asia.com	    56
 57	    ph.ingrammicro-asia.com	    63
-58	    sg.ingrammicro-asia.com	    64
-63	    sk.ingrammicro.eu	        27
+58	    sg.ingrammicro-asia.com	    64          *
+63	    sk.ingrammicro.eu	        27          *
 68      ro.ingrammicro.eu           46
 70      dk.ingrammicro.eu           7
-71      dcpos.ingrammicro.eu (NEW)  5
-72      il-corp.ingrammicro.com     29
+71      al.ingrammicro.eu (NEW)     5           *
+72      il-corp.ingrammicro.com     29          *
 */
 
 /* Testing Macros: Go to: System > Macros > Console */
