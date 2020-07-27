@@ -439,4 +439,5 @@ SiteID  SiteName                    SK_Valid    B4
 // Search index per site
 {% "1IM-" + ToUpper(domain.RegexReplace("(-corp)?(-|.)(ingrammicro)(-asia)?(-|.)?(com|eu)?","")) + "-Search" #%}
 
+// Cookie visibility
 {% !domain.Matches("[a-z]{2}(-)(ingrammicro)(-asia)?(-)?(eu)?") && CurrentSite.SiteID.ToString().InList("4;19;23;26;27;32;37;38;58;63;71;72".Split(";")) && ViewMode=="LiveSite" #%}
