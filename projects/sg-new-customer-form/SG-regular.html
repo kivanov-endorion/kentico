@@ -230,7 +230,11 @@
     
     <div class="form-group col-md-6 pt-1">$$label:PaymentContactPhone$$</div>
     
-    <div class="form-group col-md-6">$$input:PaymentContactPhone$$ $$validation:PaymentContactPhone$$</div>
+    <div class="form-group col-md-6">
+        <div class="input-group">$$input:PaymentContactPhoneCode$$ $$input:PaymentContactPhone$$
+            <small class="ExplanationText text-muted w-100">(country code + phone number)</small>
+        </div>         
+        $$validation:PaymentContactPhoneCode$$ $$validation:PaymentContactPhone$$</div>
     
     <div class="form-group col-md-6 pt-1">$$label:EstYearlyPurchase$$</div>
     
