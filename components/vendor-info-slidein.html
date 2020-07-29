@@ -52,14 +52,17 @@
           mouse_is_inside=false; 
       });
       $("body").mouseup(function(){ 
-          if(! mouse_is_inside) $("#vendors").removeClass('slide-menu-open');
+          if(! mouse_is_inside) {
+            $("#vendors").removeClass('slide-menu-open');
+            $(".vendor-logo").removeClass('is-open').removeClass('grad-light');
+          }
       }); 
   });
   
-    </script>
+</script>
 
 
-    <style>
+<style>
 .custommenulink.side {
   position: fixed;
   width: 50px;
