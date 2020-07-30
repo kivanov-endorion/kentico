@@ -1,0 +1,21 @@
+﻿#DT_RMA > tbody > tr:not(.row-details) {
+  cursor: pointer;
+}
+
+.item-details thead th {
+  font-size: 1.4rem;
+}
+
+.item-details tbody tr, .item-details tbody tr:hover {
+  box-shadow: none;
+}
+
+.item-details tbody td {
+  font-size: 1.2rem;
+}
+
+.item-details tfoot td {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: right !important;
+}

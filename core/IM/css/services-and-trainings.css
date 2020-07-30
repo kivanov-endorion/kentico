@@ -189,7 +189,9 @@
 .card .box-ws,
 .card .box-ft,
 .card .box-edi,
-.card .box-st {
+.card .box-st,
+.card .box-el,
+.card .box-xml {
   background-color: rgb(13, 70, 143) !important;
 }
 
@@ -202,8 +204,21 @@
 .card .box-ay, 
 .card .box-ts,
 .card .box-poc,
-.card .box-ral {
+.card .box-ral,
+.card .box-wy {
   background-color: rgb(175, 96, 162) !important;
+}
+
+.box-ce .periodic-table-box,
+.box-nav .box-ce,
+.card .box-ce,
+.card .box-gtm,
+.card .box-cm,
+.card .box-io,
+.card .box-il,
+.card .box-im,
+.card .box-ic {
+  background-color: rgb(168, 167, 167) !important;
 }
 
 .box-md .periodic-table-box,
@@ -211,7 +226,6 @@
 .card .box-md,
 .card .box-co,
 .card .box-sp,
-.card .box-ce,
 .card .box-lm {
   background-color: rgb(240, 127, 0) !important;
 }

@@ -1,0 +1,27 @@
+﻿.cto-iframe {
+  border: 0pt;
+  height: 100%;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.cto-popup {
+  display: none;
+}
+
+.cto-popup-close {
+  background-color: white;
+  border-radius: 25px;
+  border: 3px solid #AAA;
+  color: #888;
+  cursor: pointer;  
+  font-size: 3em;
+  height: 50px;
+  overflow: hidden;
+  position: absolute;
+  right: -25px;
+  text-align: center;
+  top: -25px;
+  vertical-align: middle;
+  width: 50px;
+}

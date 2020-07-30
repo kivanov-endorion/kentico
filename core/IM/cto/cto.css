@@ -1,0 +1,449 @@
+﻿/* #region Generic */
+input::-ms-clear {
+  display: none;
+}
+
+.content-area-block {
+  padding: 20px 10px 10px;
+  width: calc(100% - 50px);
+}
+
+.hover-container {
+  margin: 20px 0px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: .25s;
+  width: 100%;
+}
+
+  .hover-container:hover {
+    transform: scale(1.1);
+  }
+
+  .hover-container .overlay {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .hover-container .overlay .btn {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.btn {
+  font-size: 1.25em;
+}
+
+.logo img {
+  float: left;
+  margin-right: 10px;
+  margin-top: -20px;
+}
+
+.loader {
+  z-index: 999;
+}
+
+.wait {
+  cursor: wait !important;
+}
+/* #endregion */
+
+/* #region SlideIn */
+/* SlideIn Menu */
+
+#slidein-modal {
+  background-color: transparent;
+  display: none;
+  overflow-y: auto;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 999;
+}
+
+#slidein-menu {
+  background-color: #fff;
+  min-height: 200px;
+  overflow-y: auto;
+  position: fixed;
+  right: calc(-50% - 50px);
+  top: 0px;
+  transition: all 0.3s ease, top 0s;
+  width: 50%;
+  z-index: 1000;
+  -webkit-transition: all 0.3s ease, height 0s, top 0s;
+}
+
+#slidein-ribbon {
+  cursor: default;
+  min-height: 200px;
+  padding: 5px;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  transition: all 0.3s ease, top 0s;
+  white-space: normal;
+  width: 50px;
+  z-index: 1000;
+  -webkit-transition: all 0.3s ease, height 0s, top 0s;
+}
+
+  #slidein-ribbon a {
+    color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    font-size: 0.75em;
+    height: 40px;
+    margin: 5px 0px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    width: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    position: relative;
+  }
+    #slidein-ribbon a:hover {
+      color: rgba(0, 0, 0, 0.75);
+      transform: scale(1.25);
+    }
+
+    #slidein-ribbon a svg {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+    }
+
+    #slidein-ribbon a.plain-text {
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+
+#slidein-close {
+  color: #777;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+}
+
+/* SlideIn Menu - Open */
+#slidein-menu.open {
+  right: 0px;
+}
+
+#slidein-ribbon.open {
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 46px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+  right: 50%;
+  -webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 46px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
+  #slidein-ribbon.open a.selected {
+    color: rgba(0, 0, 0, 0.90);
+  }
+
+/* #region SlideIn Menu - Scrollbars */
+#slidein-menu {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -ms-scrollbar-track-color: rgb(226, 230, 234);
+  -ms-scrollbar-base-color: rgb(226, 230, 234);
+  -ms-scrollbar-highlight-color: rgb(14, 18, 20);
+  -ms-scrollbar-face-color: rgb(226, 230, 234);
+  -ms-scrollbar-arrow-color: rgb(226, 230, 234);
+  scrollbar-gutter: always;
+}
+
+  #slidein-menu::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    background: rgb(226, 230, 234) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(218, 224, 229) !important;
+    border-image: initial !important;
+  }
+
+  #slidein-menu::-webkit-scrollbar-button {
+    display: none !important;
+  }
+
+  #slidein-menu::-webkit-scrollbar-track {
+    background: rgb(248, 249, 250) !important;
+  }
+
+  #slidein-menu::-webkit-scrollbar-thumb {
+    min-height: 28px !important;
+    background: rgb(218, 224, 229) !important;
+  }
+  /* #endregion */
+
+/* SlideIn Menu - Items */
+#slidein-menu .slidein-item {
+  display: none;
+}
+
+/* SlideIn Menu - COntainer*/
+  #slidein-menu .slidein-item h2 {
+    border-bottom: 1px solid #999;
+    font-size: 24px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+  }
+
+/* #endregion */
+
+/* #region DataTables */
+.dataTables_empty {
+  padding: 1.5em;
+}
+
+
+.dataTables_info, .dataTables_length {
+  font-size: 1em !important;
+}
+
+
+  .dataTables_length label:after {
+    color: #2375b7;
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: relative;
+    right: 20px;
+    top: 2px;
+    z-index: -1;
+  }
+
+  .dataTables_length select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    color: #495057;
+    cursor: pointer;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    position: relative;
+    line-height: 1.5;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+
+
+.dataTables_paginate a.paginate_button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 3px;
+  padding: 6px 10px;
+}
+
+  .dataTables_paginate a.paginate_button:hover {
+    border: none;
+  }
+
+  .dataTables_paginate a.paginate_button.current {
+    background-color: #2375bb;
+    color: #fff;
+    cursor: default;
+    font-weight: bold;
+  }
+
+.dataTables_paginate a {
+  cursor: pointer;
+  padding: 6px 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+  .dataTables_paginate a.paginate_button {
+    border: 1px solid transparent;
+  }
+
+  .dataTables_paginate a.current {
+    background-color: #2375bb;
+    color: #fff;
+  }
+
+.dataTables_search {
+  margin: 1.5rem 0px;
+  width: 100%;
+}
+
+  .dataTables_search .searchItem {
+    height: 41px;
+    line-height: 39px;
+    padding: 0px 5px;
+  }
+
+    .dataTables_search .searchItem > label {
+      border: 1px solid #979797;
+      border-right: none;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      font-weight: normal;
+      height: 100%;
+      padding: 0px 5px;
+    }
+
+    .dataTables_search .searchItem > input, .dataTables_search .searchItem .searchContainer {
+      border: 1px solid #979797;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      color: #999;
+      height: 100%;
+    }
+
+    .dataTables_search .searchItem > input {
+      padding: 0 5px !important;
+    }
+
+    .dataTables_search .searchItem .bootstrap-select {
+      display: block !important;
+      height: 100%;
+    }
+
+      .dataTables_search .searchItem .bootstrap-select button {
+        height: 100%;
+        padding-bottom: 0px;
+        padding-top: 0px;
+      }
+
+        .dataTables_search .searchItem .bootstrap-select button:after {
+          color: #2f75bb;
+        }
+
+        .dataTables_search .searchItem .bootstrap-select button .bs-caret {
+          display: none;
+        }
+
+    .dataTables_search .searchItem .reset {
+      color: #2375b7;
+      cursor: pointer;
+      display: none;
+      font-size: 1.5em;
+      position: relative;
+      right: 20px;
+      top: 5px;
+    }
+/* #endregion */
+
+/* #region DTProducts */
+#DTProductList td {
+  font-size: 1.1rem;
+  padding-bottom: 0.5rem;
+}
+
+#DTProductList tr td:last-child {
+  padding-left: 1rem;
+}
+
+#DTProductList tfoot tr:first-child td {
+  padding-top: 1rem;
+}
+
+#DTProductList tfoot td {
+  font-size: 1.25rem;
+}
+
+#DTProductList tfoot .configTotal td {
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+
+#DTProductList #configQuantity {
+  padding-right: 25px;
+  text-align: right;
+  width: 60px;
+}
+
+#DTProductList .arrows {
+  color: #2375bb;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  width: 15px;
+}
+
+#DTProductList .configAmount, #DTProductList .configTotal {
+  border-top: 1px solid #999;
+}
+/* #endregion */
+
+/* #region Basket + Orders + Projects */
+.DTBasket tbody tr {
+  border-bottom: 1px solid #2f75bb;
+  border-top: 1px solid #2f75bb;
+  position: relative;
+}
+
+  .DTBasket tbody tr:first-child {
+    border-top: 3px solid #2f75bb;
+  }
+
+.DTBasket td > div {
+  box-shadow: 0 0 0 #999;
+  padding: 1.5em 0px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+  .DTBasket td > div:hover, .DTBasket .active td > div {
+    box-shadow: 0 2px 6px #999;
+  }
+
+.DTBasket td {
+}
+
+.DTBasket img {
+  display: block;
+  max-height: 150px;
+  max-width: 150px;
+}
+
+
+.basketFilter input {
+  border: 1px solid #979797;
+  border-radius: 0 5px 5px 0 !important;
+  color: #999;
+  font-size: 1em;
+  height: 42px;
+  line-height: 40px;
+  padding: 0 6px;
+}
+
+.basketFilter label {
+  border: 1px solid #979797;
+  border-radius: 5px 0 0 5px;
+  font-size: 1em;
+  font-weight: normal;
+  height: 42px;
+  line-height: 40px;
+  padding: 0 6px;
+}
+
+.basketFilter .reset {
+  color: #2375b7;
+  cursor: pointer;
+  display: none;
+  font-size: 1.5em;
+  height: 42px;
+  left: -25px;
+  position: relative;
+  vertical-align: middle;
+}
+/* #endregion */

@@ -924,10 +924,8 @@
 }
 
 .WatermarkText {
-    color: #ced4da!important;
+    color: #6c757d !important;
   }
-
-
 
 select.custom, .custom select,
 input.ui-autocomplete-input, 
@@ -1146,4 +1144,38 @@ input[type=number].custom:hover::-webkit-inner-spin-button {
 }
 .custom-range:active:-ms-thumb {
     background-color: #2f75bb;
+}
+
+.custom-stars label {
+    display: inline-block;
+    width: 45px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    color: transparent;
+    font-style: normal;
+}
+
+.custom-stars label:after {
+    content: '\f005';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 1.2em;
+    color: #fb0;
+    position: absolute;
+    left: 1.1em;
+    top: -0.1em;
+    transform-origin: center;
+    transform: scale(1.1) rotate(72deg);
+    transition: transform 200ms ease-in-out;
+}
+
+.custom-stars input:checked~input~label:after {
+    color: #ced4da;
+    transform: scale(1) rotate(0deg);
+}
+
+.custom-stars input {
+    position: absolute;
+    left: -999vh;
 }

@@ -1,0 +1,100 @@
+/* Modal Content */
+
+/*#homeModal>.modal-dialog {
+    max-width: 95vw !important;
+}*/
+
+#homeModal.modal {
+    z-index: 2147483647 !important;
+    flex-flow: wrap;
+}
+
+#homeModal>.modal-dialog>.modal-content {
+    /* 15% from the top and centered */
+    border: 0px solid #353535cc;
+    max-width: 60vw;
+    border-radius: 1rem;
+}
+
+#homeModal>.modal-dialog>.modal-content .modal-header {
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    min-height: 0px !important;
+}
+
+/* Pop-up Switch */
+
+.wcpopupswitch {
+    width: 54px;
+    height: 28px;
+}
+
+.wcpopupswitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.wcpopupslider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: gray;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.wcpopupslider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.wcpopupslider {
+    background-color: orangered;
+}
+
+input:focus+.wcpopupslider {
+    box-shadow: 0 0 1px orangered;
+}
+
+input:checked+.wcpopupslider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+}
+
+.wcpopupslider.wcpopupround {
+    border-radius: 30px;
+}
+
+.wcpopupslider.wcpopupround:before {
+    border-radius: 50%;
+}
+
+.vertical-center {
+    transform: translateY(-15%);
+}
+
+
+/* The Close Button */
+
+.wcpopupclose {
+    font-size: 2rem;
+    font-weight: 500;
+    z-index: 2147483647;
+}
+
+.wcpopupclose:hover,
+.wcpopupclose:focus {
+    cursor: pointer;
+}

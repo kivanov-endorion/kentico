@@ -87,12 +87,12 @@ li:lang(zh-Hans) {
 
 /*# Thai #*/
 
-.thai,
+/* .thai,
 :lang(th) {
     font-family: "Noto Sans", "Kanit", "Thonburi", "Leelawadee UI", "Cordia New", Noto, "Noto Sans Thai", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
     font-size: 1.1em;
     line-height: 1.6em;
-}
+} */
 
 /*# Hindi #*/
 
@@ -103,6 +103,32 @@ li:lang(zh-Hans) {
     line-height: 1.6em;
 }
 
+/*# Hebrew #*/
+
+:lang(he-IL) main {    
+    direction: rtl;
+    text-align: start;
+    font-size: 1.2rem;
+}
+:lang(he-IL) main p, 
+:lang(he-IL) main h6 {
+    font-size: 1.2rem;
+}
+:lang(he-IL) main h1 {
+    font-size: 4rem;
+}
+:lang(he-IL) main h2 {
+    font-size: 3.5rem;
+}
+:lang(he-IL) main h3 {
+    font-size: 3rem;
+}
+:lang(he-IL) main .text-left {
+text-align: start !important;
+}
+:lang(he-IL) main .text-right {
+text-align: end !important;
+}
 
 
 /*# Fonts #*/

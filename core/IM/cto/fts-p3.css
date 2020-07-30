@@ -1,0 +1,264 @@
+﻿li {
+  margin: 5px 0px;
+}
+
+#DTProductList .arrows {
+  margin-top: 5px;
+}
+
+.dataTables_search .searchItem .reset {
+  top: 10px;
+}
+
+.dataTables_filter, .dataTables_info, .dataTables_length, .dataTables_paginate {
+  display: none;
+}
+
+
+#bmGroups, #bmGroups li {
+  display: inline-block;
+}
+
+#bmGroups a {
+  border-bottom: 3px solid #fff !important;
+  height: 100%;
+  text-align: center;
+  text-transform: none;
+  white-space: normal;
+}
+
+  #bmGroups a:hover {
+    background-color: #fff !important;
+  }
+
+  #bmGroups a.active {
+    background-color: #fff !important;
+    border-bottom: 3px solid #2f75bb !important;
+    transition: all 0.3s ease-in-out;
+  }
+
+#bmGroups span {
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}
+
+#bmGroups img {
+  bottom: 30px;
+  display: block;
+  max-height: 100px;
+  max-width: 100px;
+  position: absolute;
+}
+
+#bmDetails .fade, #cGroupItems .fade, #slidein-basket .basketContinue.fade {
+  opacity: 1;
+  transition: opacity .15s linear;
+}
+
+  #bmDetails .fade:not(.show), #cGroupItems .fade:not(.show), #slidein-basket .basketContinue.fade:not(.show) {
+    opacity: 0;
+  }
+
+.group-desc {
+  border-bottom: 3px solid #2f75bb;
+  padding: 1.5em 0px;
+}
+
+.group-items .basemodel {
+  box-shadow: 0 0 0 #999;
+  transition: box-shadow 0.3s ease-in-out;
+}
+  .group-items .basemodel:hover {
+    box-shadow: 0 2px 6px #999;
+  }
+
+  .group-items .basemodel, .group-items .component {
+  border-bottom: 1px solid #2f75bb;
+  padding: 1.5em 0px;
+}
+
+.basemodel img {
+  display: block;
+  max-height: 150px;
+  max-width: 150px;
+}
+
+#bmHeader {
+  border-bottom: 3px solid #2f75bb;
+  padding: 1.5em 0px;
+}
+
+#cGroups {
+  margin-top: 1.5em;
+}
+
+#cGroups, #cGroups li {
+  display: inline-block;
+}
+
+#cGroups li a.nav-link {
+  border-top-width: 3px !important;
+}
+
+#cGroupItems .tab-pane:first-child #btnPrevious, #cGroupItems .tab-pane:last-child #btnNext {
+  display: none;
+}
+#cGroupItems .tab-pane #btnSave {
+  display: none;
+}
+#cGroupItems .tab-pane:last-child #btnSave {
+  display: inline;
+}
+
+
+.DTComponent {
+  font-size: 1.2rem;
+}
+
+  .DTComponent input[type='number'] {
+    padding-right: 25px;
+    text-align: right;
+    width: 100px;
+  }
+
+  .DTComponent tbody tr:hover {
+    box-shadow: 0 2px 6px #999;
+  }
+
+  .DTComponent td, .DTComponent th {
+    padding: 5px;
+  }
+
+  .DTComponent thead tr, .DTComponent tbody tr {
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 0 0 #999;
+    position: relative;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .DTComponent .arrows {
+    color: #2375bb;
+    cursor: pointer;
+    font-size: 1.1em;
+    position: relative;
+    right: -105px;
+    top: 5px;
+    width: 15px;
+  }
+
+  .DTComponent .linePrice {
+    font-weight: bold;
+  }
+
+  .DTComponent .builtIn {
+    background: rgba(135, 206, 250, 0.25);
+  }
+
+
+#DTConfigErrors td {
+  border-bottom: 3px solid #2f75bb;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+#DTConfigErrors tr td:first-child {
+  padding-right: 10px;
+}
+
+.errorIndicator {
+  display: none;
+}
+
+#slidein-ribbon sup {
+  right: -1em;
+  top: 0em;
+  font-size: 1em;
+}
+
+#slidein-ribbon #menu-reset {
+  cursor: pointer;
+}
+
+#menu-price span {
+  font-size: 2rem;
+  padding: 5px;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+}
+
+
+
+.dot-pulse {
+  display: inline-block;
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  animation: dot-pulse 1.5s infinite linear;
+  animation-delay: .25s;
+  margin-left: 20px;
+  margin-right: 15px;
+}
+
+  .dot-pulse::before, .dot-pulse::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+  }
+
+  .dot-pulse::before {
+    animation: dot-pulse-before 1.5s infinite linear;
+    animation-delay: 0s;
+  }
+
+  .dot-pulse::after {
+    animation: dot-pulse-after 1.5s infinite linear;
+    animation-delay: .5s;
+  }
+
+@keyframes dot-pulse-before {
+  0% {
+    box-shadow: 9984px 0 0 -5px #fff;
+  }
+
+  30% {
+    box-shadow: 9984px 0 0 2px #fff;
+  }
+
+  60%, 100% {
+    box-shadow: 9984px 0 0 -5px #fff;
+  }
+}
+
+@keyframes dot-pulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px #fff;
+  }
+
+  30% {
+    box-shadow: 9999px 0 0 2px #fff;
+  }
+
+  60%, 100% {
+    box-shadow: 9999px 0 0 -5px #fff;
+  }
+}
+
+@keyframes dot-pulse-after {
+  0% {
+    box-shadow: 10004px 0 0 -5px #fff;
+  }
+
+  30% {
+    box-shadow: 10004px 0 0 2px #fff;
+  }
+
+  60%, 100% {
+    box-shadow: 10004px 0 0 -5px #fff;
+  }
+}

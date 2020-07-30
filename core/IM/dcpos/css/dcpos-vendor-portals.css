@@ -1,0 +1,47 @@
+/* Header Image */
+
+@media (min-width: 768px) and (max-width: 992px){
+    .header-img>.header-img {
+        height: 50vh !important; 
+     }
+}
+
+/* Header Image By Vendor */
+
+/* Custom */
+
+@media (min-width: 992px){
+    .header-img-custom .header-img>.header-img{
+        background-position: top right !important;
+    }    
+}
+
+@media (min-width: 768px) and (max-width: 992px){
+    .header-img-custom .header-img>.header-img{
+        background-position: top left !important;
+    } 
+}
+
+@media (max-width: 768px){
+    .header-img-custom .header-img>.header-img{
+        height: 150vw !important;
+        background-size: contain !important;
+    }
+
+    .header-img-custom #chevron {
+        color: #2f75bb !important;
+    }
+}
+
+
+/* Products */
+
+/*.card-deck .card {
+    flex: auto;
+    margin: 0 !important;
+}
+*/
+
+.small-card {
+    height: auto !important;    
+}

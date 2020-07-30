@@ -1,0 +1,456 @@
+/* #region SlideIn */
+/* SlideIn Menu */
+#slidein-modal {
+  background-color: transparent;
+  display: none;
+  overflow-y: auto;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 999;
+}
+
+#slidein-menu {
+  background-color: #fff;
+  overflow-y: auto;
+  position: fixed;
+  /*right: calc(-33rem - 50px);*/
+ 	left:-20rem!important;
+	width:20rem!important;
+  top: 0px;
+  transition: all 0.4s ease;
+  z-index: 1000;
+  -webkit-transition: all 0.4s ease;
+}
+
+#slidein-ribbon {
+  cursor: default;
+  padding-top: 5rem;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  transition: all 0.4s ease;
+  width: 50px;
+  white-space: normal;
+  z-index: 1000;
+  -webkit-transition: all 0.4s ease;
+}
+
+#slidein-ribbon a {
+  color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  font-size: 0.75em;
+  height: 50px;
+  margin: 5px 0px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+  
+#slidein-ribbon a:hover {
+  color: rgba(0, 0, 0, 0.75);
+  transform: scale(1.25);
+}
+
+#slidein-ribbon a.plain-text {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#slidein-close {
+  color: #777;
+  position: absolute;
+  left: 270px;
+  top: 100px;
+  text-decoration: none;
+}
+
+#slidein-close:hover {
+	transform: scale(1.25);
+}
+
+/* SlideIn Menu - Open */
+#slidein-menu.open {
+  /*right: 0px;*/
+	left:0px!important;
+	right:auto!important;
+}
+
+#slidein-ribbon.open {
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 46px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+  left: 20rem;
+  -webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 46px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
+#slidein-ribbon.open a.selected {
+  color: rgba(0, 0, 0, 0.90);
+}
+
+/* #region SlideIn Menu - Scrollbars */
+#slidein-menu {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -ms-scrollbar-track-color: rgb(226, 230, 234);
+  -ms-scrollbar-base-color: rgb(226, 230, 234);
+  -ms-scrollbar-highlight-color: rgb(206, 226, 241);
+  -ms-scrollbar-face-color: rgb(226, 230, 234);
+  -ms-scrollbar-arrow-color: rgb(226, 230, 234);
+  scrollbar-gutter: always;
+}
+
+#slidein-menu::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+  background: rgb(226, 230, 234) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(218, 224, 229) !important;
+  border-image: initial !important;
+}
+
+#slidein-menu::-webkit-scrollbar-button {
+  display: none !important;
+}
+
+#slidein-menu::-webkit-scrollbar-track {
+  background: rgb(248, 249, 250) !important;
+}
+
+#slidein-menu::-webkit-scrollbar-thumb {
+  min-height: 28px !important;
+  background: rgb(218, 224, 229) !important;
+}
+/* #endregion */
+
+/* SlideIn Menu - Items */
+#slidein-menu .slidein-item {
+  display: none;
+}
+
+/* SlideIn Menu - COntainer*/
+#slidein-menu .slidein-item h2 {
+  border-bottom: 1px solid #999;
+  font-size: 24px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+.h-100 {
+	padding-top:100px!important;
+	height:500px!important;/*calc(100vh - 30%)!important;*/
+	min-height:400px;
+}
+/* #endregion */
+
+/*animation for delete button custom attributes*/
+.customattributes-delete:hover {
+	transform: scale(1.25);
+}
+
+/*bring all material icons 3px down to align with text*/
+.material-icons {
+	position:relative;
+	top:3px;
+}
+
+/*left padding for the container to align between menu end and right side correctly*/
+.my-3 {
+	padding-left:50px
+}
+
+/*region speech bubble for history*/
+.speech-bubble {
+	position: relative;
+	background: #2f75bb;
+	border-radius: .4em;
+	color:#ffffff;
+	padding-left:10px;
+	margin-right:15px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 27px solid transparent;
+	border-top-color: #2f75bb;
+	border-bottom: 0;
+	margin-left: -27px;
+	margin-bottom: -27px;
+}
+/*#region speech bubble for history*/
+
+/*region scroll body for e.g. history chat text*/
+.modal-body-scroll{
+  padding-left:15px;
+  padding-right:15px;
+}
+
+.modal-body-scroll {
+	max-height: 35vh;
+	overflow-y: auto;
+}
+/*#region scroll body for e.g. history chat text*/
+
+/*dialog position for modals=top center*/
+.modal-dialog {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10040;
+}
+
+/*no click pointer for filter symbol*/
+#label-btn {
+  pointer-events: none;
+}
+
+/*region filter bar*/
+/* Blocks Mobile Screen Size buttons
+   .btn-xs-block
+   .btn-sm-block
+   .btn-md-block
+   .btn-lg-block
+   used for filter bar
+*/
+
+@media (max-width: 767px) {
+  .btn-xs-block {
+      display: inline-block;
+      width: 100%;
+  }
+  /*
+  Extra config:
+  .btn-xs-block .btn {
+      flex-grow: 1;
+  }
+  */
+  input[type="radio"].btn-xs-block,
+  input[type="submit"].btn-xs-block,
+  input[type="reset"].btn-xs-block,
+  input[type="button"].btn-xs-block {
+      width: 100%;
+  }
+  .btn-block+.btn-xs-block,
+  .btn-xs-block+.btn-block,
+  .btn-xs-block+.btn-xs-block {
+      margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .btn-sm-block {
+      display: inline-block;
+      width: 100%;
+  }
+  input[type="radio"].btn-xs-block,
+  input[type="submit"].btn-sm-block,
+  input[type="reset"].btn-sm-block,
+  input[type="button"].btn-sm-block {
+      width: 100%;
+  }
+  .btn-block+.btn-sm-block,
+  .btn-sm-block+.btn-block,
+  .btn-sm-block+.btn-sm-block {
+      margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .btn-md-block {
+      display: inline-block;
+      width: 100%;
+  }
+  input[type="radio"].btn-xs-block,
+  input[type="submit"].btn-md-block,
+  input[type="reset"].btn-md-block,
+  input[type="button"].btn-md-block {
+      width: 100%;
+  }
+  .btn-block+.btn-md-block,
+  .btn-md-block+.btn-block,
+  .btn-md-block+.btn-md-block {
+      margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .btn-lg-block {
+      display: inline-block;
+      width: 100%;
+  }
+  input[type="radio"].btn-xs-block,
+  input[type="submit"].btn-lg-block,
+  input[type="reset"].btn-lg-block,
+  input[type="button"].btn-lg-block {
+      width: 100%;
+  }
+  .btn-block+.btn-lg-block,
+  .btn-lg-block+.btn-block,
+  .btn-lg-block+.btn-lg-block {
+      margin-top: 0.5rem;
+  }
+}
+/*#region filter bar*/
+
+/*active elements like tabs, button, always with ingram color*/
+.active{
+	background-color: #0f6194 !important;
+}
+ 
+/*region ios fix for modal*/
+body {
+  width: 100%;
+  max-width: 100%;
+  will-change: position;
+}
+
+/*Prevent Bootstrap 4.x iOS issue where user scrolls the body behind the modal when body height > 100vh*/
+body.modal-open {
+  position: fixed;
+  top:    0;
+  right:  0;
+  bottom: 0;
+  left:   0;
+}
+
+.modal {
+	will-change: display;
+}
+
+.modal-dialog {
+	will-change: transform;
+}
+
+.modal-body {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/*#region ios fix for modal*/
+
+/*modal with yes/no buttons*/
+.btn-yes.active{ background-color:#2F75BB!important;color:#fff!important; }
+.btn-yes:hover{ background-color:#0f6194!important;color:#fff!important; }
+.btn-yes{ border-color:#CED4DA!important;color:#000!important;width:80px; }
+  
+.btn-no.active{ background-color:#2F75BB!important;color:#fff!important; }
+.btn-no:hover{ background-color:#0f6194!important;color:#fff!important; }
+.btn-no{ border-color:#CED4DA!important;color:#000!important;width:80px; }
+
+/*fixed size button for action bar*/
+.btn-im {
+	width:100px!important;
+	height:100px!important;
+	min-width:100px!important;
+	min-height:100px!important;
+	max-width:100px!important;
+	max-height:100px!important;
+	font-size:14px!important;
+	font-weight:bold;
+}
+
+/*handle z-index to be able to show modal inside modal (yes/no)*/
+.modal:nth-of-type(even) {
+  z-index: 1052 !important;
+}
+.modal-backdrop.show:nth-of-type(even) {
+  z-index: 1051 !important;
+}
+
+/*resize datetimepicker table for use with BS4*/
+.bootstrap-datetimepicker-widget table td,
+.bootstrap-datetimepicker-widget table th {
+  padding: 0.3em;
+}
+
+/*mouse pointer on datetimepicker hover*/
+.datetimepicker-input:hover {
+  cursor: pointer;
+}
+
+/*region datatable*/
+table.dataTable.stripe tbody tr.odd,
+table.dataTable.display tbody tr.odd,
+table.dataTable.stripe tbody tr.even,
+table.dataTable.display tbody tr.even,
+table.dataTable tbody tr {
+  background: #FFFFFF;
+}
+
+.search-pager li a, .dataTables_paginate li a, .PagerNumberArea a, .PagerNumberArea .SelectedPage, .PagerNumberArea>span>span {
+	margin-left:0px!important;
+}
+
+#DT_Result tbody tr.selected {
+	background: #FFFFFF;
+}
+
+#DT_Result tbody tr.selected td {
+  /*border: 1px solid #2f75bb!important;*/
+	border-radius: 0.2rem!important;
+  background-color: #2f75bb!important;
+}
+
+#DT_Result tbody tr.selected a {
+	color: white;
+}
+
+.dataTables_wrapper table thead{
+	visibility:hidden;
+}
+
+#DT_Result tbody tr:hover {
+  color: white;
+}
+
+#DT_Result tbody tr:hover td {
+  /*border: 1px solid #2f75bb;*/
+	border-radius: 0.2rem;
+	background-color: #2f75bb;  
+}
+
+#DT_Result tbody tr:hover a {
+	color: white;
+}
+
+table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+	border-top:none;
+}
+  
+div.dataTables_processing { z-index: 1; }
+    
+table.dataTable.no-footer {
+	border-bottom: none;
+}
+
+#DT_Result tbody tr {
+  cursor: pointer; 
+}
+  
+.dataTables_wrapper .dataTables_paginate .paginate_button { 
+	padding:0!important;
+}
+
+.page-item.active .page-link {
+	background-color:#0f6194 !important;
+	color:white;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+	border: 1px solid transparent!important;
+}
+
+.paginate_button.current, .paginate_button:not(.disabled):hover, .paginate_button.current, #BO_Export:hover {
+  color: unset !important;
+  color: #fff !important;
+  border: 1px solid transparent;
+  background: #2f75bb !important;
+}
+/*#region datatable*/   
+  
+ 

@@ -1,0 +1,373 @@
+﻿input::-ms-clear {
+  display: none;
+}
+
+/* #region Legacy iFrame Includes */
+div.container div.container h1.heading {
+  display: none;
+}
+/* #endregion*/
+
+/* #region DataTables Adjustments */
+.dataTable > thead > tr > th {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+  .dataTable > thead > tr > th.sorting, .dataTable > thead > tr > th.sorting_asc, .dataTable > thead > tr > th.sorting_desc {
+    cursor: pointer;
+    color: #2375bb;
+    position: relative;
+  }
+
+    .dataTable > thead > tr > th.sorting:after, .dataTable > thead > tr > th.sorting_asc:after, .dataTable > thead > tr > th.sorting_desc:after {
+      color: #ddd;
+      content: "\f078";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      opacity: 1;
+      position: absolute;
+      right: 5px;
+      top: 45%;
+    }
+
+    .dataTable > thead > tr > th.sorting:before, .dataTable > thead > tr > th.sorting_asc:before, .dataTable > thead > tr > th.sorting_desc:before {
+      color: #ddd;
+      content: "\f077";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      opacity: 1;
+      position: absolute;
+      right: 5px;
+      top: 10%;
+    }
+
+    .dataTable > thead > tr > th.sorting_asc:before, .dataTable > thead > tr > th.sorting_desc:after {
+      color: #2375bb;
+    }
+
+
+.dataTable > tbody > tr {
+  box-shadow: 0 0 0 #999;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+  .dataTable > tbody > tr:hover, .dataTable > tbody > tr.shown, .dataTable > tbody > tr.row-details {
+    box-shadow: 0 2px 6px #999;
+  }
+
+  .dataTable > tbody > tr.alert-success {
+    transition: all 0.3s ease-in-out;
+  }
+
+    .dataTable > tbody tr.alert-success > td {
+      font-weight: bold;
+    }
+
+  .dataTable > tbody > tr > td {
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid rgba(255, 255, 255, 0);
+    border-right: 1px solid rgba(255, 255, 255, 0);
+    padding: 1rem;
+  }
+
+  .dataTable > tbody > tr > td.no-padding {
+    padding: 0;
+  }
+
+  .dataTable > tbody > tr > td > div.row-details {
+    display: none;
+    padding: 1rem;
+  }
+
+.dataTable > tfoot > tr > td {
+  padding: 1rem;
+}
+
+.dataTables_empty {
+  padding: 1.5em;
+}
+
+
+.dataTables_info {
+  font-size: 1em;
+}
+
+.dataTables_length {
+  font-size: 1em;
+}
+
+  .dataTables_length label:after {
+    color: #2375b7;
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: relative;
+    right: 20px;
+    top: 2px;
+    z-index: -1;
+  }
+
+  .dataTables_length select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    color: #495057;
+    cursor: pointer;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    position: relative;
+    line-height: 1.5;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+
+  
+.dataTables_paginate a.paginate_button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 3px;
+  padding: 6px 10px;
+}
+
+  .dataTables_paginate a.paginate_button:hover {
+    border: none;
+  }
+
+  .dataTables_paginate a.paginate_button.current {
+    background-color: #2375bb;
+    color: #fff;
+    cursor: default;
+    font-weight: bold;
+  }
+
+
+.dataTables_search {
+  margin: 1.5rem 0px;
+  width: 100%;
+}
+
+  .dataTables_search .searchItem {
+    height: 41px;
+    line-height: 39px;
+    padding: 0px 5px;
+  }
+
+    .dataTables_search .searchItem > label {
+      border: 1px solid #979797;
+      border-right: none;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      font-weight: normal;
+      height: 100%;
+      padding: 0px 5px;
+    }
+
+    .dataTables_search .searchItem > input, .dataTables_search .searchItem .searchContainer {
+      border: 1px solid #979797;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      /*color: #999;*/
+      height: 100%;
+    }
+
+      .dataTables_search .searchItem > input {
+        padding: 0 5px !important;
+      }
+
+      .dataTables_search .searchItem .bootstrap-select {
+        display: block !important;
+        height: 100%;
+      }
+
+      .dataTables_search .searchItem .bootstrap-select button {
+        height: 100%;
+        padding-bottom: 0px;
+        padding-top: 0px;
+      }
+
+        .dataTables_search .searchItem .bootstrap-select button:after {
+          color: #2f75bb;
+        }
+
+      .dataTables_search .searchItem .bootstrap-select button .bs-caret {
+        display: none;
+      }
+
+    .dataTables_search .searchItem .reset {
+      color: #2375b7;
+      cursor: pointer;
+      display: none;
+      font-size: 1.5em;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+/* #endregion */
+
+/* #region BreadCrumbs */
+#breadcrumb .breadcrumb-arrow {
+  color: #2375bb;
+  margin-right: 12px;
+}
+
+#breadcrumb .breadcrumb-item {
+  font-size: 0.85em;
+}
+/* #endregion */
+
+/* #region SlideIn */
+  /* SlideIn Menu */
+  #slidein-modal {
+    background-color: transparent;
+    display: none;
+    overflow-y: auto;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 990;
+  }
+
+#slidein-menu {
+  background-color: #fff;
+  min-height: 200px;
+  overflow-y: auto;
+  position: fixed;
+  right: calc(-25% - 50px);
+  top: 0px;
+  transition: all 0.3s ease, top 0s;
+  width: 25%;
+  z-index: 1000;
+  -webkit-transition: all 0.3s ease, height 0s, top 0s;
+}
+
+#slidein-ribbon {
+  cursor: default;
+  min-height: 200px;
+  padding: 5px;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  transition: all 0.3s ease, top 0s;
+  white-space: normal;
+  width: 50px;
+  z-index: 1000;
+  -webkit-transition: all 0.3s ease, height 0s, top 0s;
+}
+
+  #slidein-ribbon a {
+    color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    font-size: 0.75em;
+    height: 40px;
+    margin: 5px 0px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    width: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    position: relative;
+  }
+
+    #slidein-ribbon a:hover {
+      color: rgba(0, 0, 0, 0.75);
+      transform: scale(1.25);
+    }
+
+    #slidein-ribbon a svg {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+    }
+
+    #slidein-ribbon a.plain-text {
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+
+#slidein-close {
+  color: #777;
+  font-size: 2em;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+  top: 0px;
+}
+
+/* SlideIn Menu - Open */
+#slidein-menu.open {
+  right: 0px;
+}
+
+#slidein-ribbon.open {
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 46px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+  right: 50%;
+  -webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 46px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
+  #slidein-ribbon.open a.selected {
+    color: rgba(0, 0, 0, 0.90);
+  }
+
+/* SlideIn Menu - Scrollbars */
+#slidein-menu {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -ms-scrollbar-track-color: rgb(226, 230, 234);
+  -ms-scrollbar-base-color: rgb(226, 230, 234);
+  -ms-scrollbar-highlight-color: rgb(14, 18, 20);
+  -ms-scrollbar-face-color: rgb(226, 230, 234);
+  -ms-scrollbar-arrow-color: rgb(226, 230, 234);
+  scrollbar-gutter: always;
+}
+
+  #slidein-menu::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    background: rgb(226, 230, 234) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(218, 224, 229) !important;
+    border-image: initial !important;
+  }
+
+  #slidein-menu::-webkit-scrollbar-button {
+    display: none !important;
+  }
+
+  #slidein-menu::-webkit-scrollbar-track {
+    background: rgb(248, 249, 250) !important;
+  }
+
+  #slidein-menu::-webkit-scrollbar-thumb {
+    min-height: 28px !important;
+    background: rgb(218, 224, 229) !important;
+  }
+
+  /* SlideIn Menu - Items */
+  #slidein-menu .slidein-item {
+    display: none;
+  }
+
+    /* SlideIn Menu - COntainer*/
+    #slidein-menu .slidein-item h2 {
+      border-bottom: 1px solid #999;
+      font-size: 24px;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+    }
+/* #endregion */
