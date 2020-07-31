@@ -9,57 +9,6 @@
             background: #fff;
             font-family: "Poppins", sans-serif;
         }
-
-        aside.context {
-            text-align: center;
-            color: #333;
-            line-height: 1.7;
-        }
-
-        aside.context a {
-            text-decoration: none;
-            color: #333;
-            padding: 3px 0;
-            border-bottom: 1px dashed;
-        }
-
-        aside.context a:hover {
-            border-bottom: 1px solid;
-        }
-
-        aside.context .explanation {
-            max-width: 700px;
-            margin: 8em auto 0;
-        }
-
-        footer {
-            text-align: center;
-            margin: 4em auto;
-            width: 100%;
-        }
-
-        footer a {
-            text-decoration: none;
-            display: inline-block;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: transparent;
-            border: 1px dashed #333;
-            color: #333;
-            margin: 5px;
-        }
-
-        footer a:hover {
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        footer a .icons {
-            margin-top: 12px;
-            display: inline-block;
-            font-size: 20px;
-        }
-
         .main-content {
             margin: 6em auto;
             display: grid;
@@ -68,6 +17,18 @@
             border: 4px solid #096b72;
             border-width: 4px 0 0 4px;
             position: relative;
+        }
+        .container {
+            width: 1000px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            user-select: none;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+        .container.active {
+            cursor: grabbing;
+            cursor: -webkit-grabbing;
         }
 
         .main-content>div {
@@ -895,7 +856,7 @@
 </head>
 
 <body>
-
+<div class="container">
     <div class="main-content">
         <div class="door-hor"></div>
         <div class="utility">
@@ -988,6 +949,37 @@
             <div class="patio-chair"></div>
         </div>
     </div>
+</div>
+
+    <script>
+        const slider = document.querySelector('.container');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('active');
+        });
+        slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('active');
+        });
+        slider.addEventListener('mousemove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1; //scroll-fast
+        slider.scrollLeft = scrollLeft - walk;
+        // console.log(walk);
+        });
+    </script>
 </body>
 
 </html>
