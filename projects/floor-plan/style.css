@@ -1,5 +1,16 @@
+:root {
+    --primary: #096b72;
+    --primary-light: rgb(9 107 114 / 50%);
+    --dark: #074246;
+    --light: #f0f8ff;
+    --white: #fff;
+    --yellow: #ffc107;
+    --red: #ff4500;
+    --green: #228b22;
+}
+
 body {
-    background: #fff;
+    background: var(--white);
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;
 }
@@ -25,10 +36,10 @@ body {
     width: 2200px;
     height: 1300px;
     grid: repeat(26, 50px)/repeat(44, 50px);
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px 0 0 4px;
     position: relative;
-    background-color: #fff;
+    background-color: var(--white);
     box-shadow: -8px -8px 0.6rem rgba(0 0 0 / .125);    
 }
 
@@ -57,6 +68,7 @@ body {
 .isometric .title {
     top: -100px;
     left: -840px;
+    text-shadow: -8px 4px 2px var(--dark);
 }
 
 .main-content>div {
@@ -66,7 +78,7 @@ body {
 .main-floor {
     grid-column: 22 / span 23;
     grid-row: 1 / span 17;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 0 4px 4px 0;
     border-style: solid double double solid;
 }
@@ -90,7 +102,7 @@ body {
     height: 100px;
     top: 200px;
     left: 347px;
-    border-left: 2px solid #0c6d74;
+    border-left: 2px solid var(--primary);
 }
 .step:before {
     content: '';
@@ -99,7 +111,7 @@ body {
     lefT: 0;
     width: 200px;
     height: 2px;
-    background-image: linear-gradient(90deg, #0c6d74, transparent);
+    background-image: linear-gradient(90deg, var(--primary), transparent);
 }
 
 .exit1 {    
@@ -125,32 +137,32 @@ body {
 .outside {
     grid-column: 1 / span 6;
     grid-row: 9 / span 18;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px 4px 4px 0;
-    background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(9, 107, 114, 0.5) 6px, rgba(9, 107, 114, 0.5) 8px);
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
 .elevators {
     grid-column: 7 / span 4;
     grid-row: 9 / span 9;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px 4px 4px 0;
-    background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(9, 107, 114, 0.5) 6px, rgba(9, 107, 114, 0.5) 8px);
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
 
 .inbetween {
     grid-column: 11 / span 8;
     grid-row: 12 / span 2;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px 4px 0 0;
-    background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(9, 107, 114, 0.5) 6px, rgba(9, 107, 114, 0.5) 8px);
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
 
 .wall1 {
     grid-column: 22 / span 1;
     grid-row: 9 / span 3;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px;
-    background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(9, 107, 114, 0.5) 6px, rgba(9, 107, 114, 0.5) 8px);
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, var(--primary-light) 6px, var(--primary-light) 8px);
     height: 160px;
     left: -4px;
 }
@@ -158,9 +170,9 @@ body {
 .wall2 {
     grid-column: 22 / span 1;
     grid-row: 14 / span 4;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px;
-    background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(9, 107, 114, 0.5) 6px, rgba(9, 107, 114, 0.5) 8px);
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, var(--primary-light) 6px, var(--primary-light) 8px);
     height: 210px;
     bottom: 18px;
     left: -4px;
@@ -169,17 +181,17 @@ body {
 .wall3 {
     grid-column: 7 / span 2;
     grid-row: 18 / span 9;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 0 4px 4px 0;
-    background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(9, 107, 114, 0.5) 6px, rgba(9, 107, 114, 0.5) 8px);
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
 
 .pillar1 {
     grid-column: 34 / span 1;
     grid-row: 9 / span 1;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px;
-    background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(9, 107, 114, 0.5) 6px, rgba(9, 107, 114, 0.5) 8px);
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
 
 .cooler2 {
@@ -199,15 +211,15 @@ body {
 .pillar2 {
     grid-column: 44 / span 1;
     grid-row: 9 / span 1;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px;
-    background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(9, 107, 114, 0.5) 6px, rgba(9, 107, 114, 0.5) 8px);
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
 
 .utility {
     grid-column: 17 / span 2;
     grid-row: 9 / span 3;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px 4px 0 0;
 }
 
@@ -220,7 +232,7 @@ body {
 .utility2 {
     grid-column: 17 / span 2;
     grid-row: 14 / span 3;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px 4px 4px 0;
 }
 
@@ -233,7 +245,7 @@ body {
 .mens {
     grid-column: 11 / span 6;
     grid-row: 9 / span 3;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px 4px 0 0;
     display: flex;
     justify-content: space-between;
@@ -244,7 +256,7 @@ body {
 .womens {
     grid-column: 11 / span 6;
     grid-row: 14 / span 3;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 4px 4px 4px 0;
     display: flex;
     justify-content: space-between;
@@ -271,7 +283,7 @@ body {
     left: -2px;
     bottom: 0;
     top: auto;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     border-width: 2px 0 0 2px;
 }
 
@@ -312,7 +324,7 @@ body {
     width: 73px;
     height: 30px;
     position: relative;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     border-width: 0 0 2px 2px;
     top: 2px;
     left: -2px;
@@ -321,8 +333,8 @@ body {
 .vanity:before {
     content: "";
     position: absolute;
-    border: 1px solid #096b72;
-    box-shadow: 0 0 0 2px #fff, 0 0 0 3px #096b72;
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 0 2px var(--white), 0 0 0 3px var(--primary);
     height: 15px;
     width: 15px;
     border-radius: 50%;
@@ -335,7 +347,7 @@ body {
     width: 30px;
     height: 8px;
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     bottom: -2px;
     left: 40px;
 }
@@ -343,7 +355,7 @@ body {
 .toilet:after {
     content: "";
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     height: 22px;
     width: 20px;
     border-radius: 20px 20px 0 0;
@@ -355,7 +367,7 @@ body {
 .cantina {
     grid-column: 1 / span 4;
     grid-row: 1 / span 8;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 0 4px 0 0;
 }
 
@@ -368,7 +380,7 @@ body {
     position: absolute;
     left: 50px;
     bottom: -58px;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 36px;
     height: 145px;
     transform: rotate(90deg);
@@ -379,7 +391,7 @@ body {
     position: absolute;
     width: 19px;
     height: 15px;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     right: 9px;
     bottom: 121px;
     border-radius: 4px;
@@ -396,14 +408,14 @@ body {
     border-radius: 50%;
     width: 4px;
     height: 4px;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
     right: -8px;
     top: -8px;
 }
 
 .cantina .ref {
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 42px;
     height: 40px;
     right: 3px;
@@ -420,7 +432,7 @@ body {
     position: absolute;
     width: 100px;
     height: 45px;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     top: -2px;
     left: 50px;
 }
@@ -434,9 +446,9 @@ body {
     height: 25px;
     bottom: -35px;
     border-radius: 50%;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     left: 5px;
-    background: #ffc107;
+    background: var(--yellow);
 }
 
 .cantina .island:after {
@@ -450,7 +462,7 @@ body {
 .server {
     grid-column: 5 / span 3;
     grid-row: 1 / span 4;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 0 4px 4px 0;
 }
 
@@ -467,7 +479,7 @@ body {
 .triavna {
     grid-column: 8 / span 6;
     grid-row: 1 / span 4;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 0 4px 4px 0;
     border-style: solid solid double solid;
 }
@@ -475,14 +487,14 @@ body {
 .silistra {
     grid-column: 14 / span 6;
     grid-row: 1 / span 4;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 0 4px 4px 0;
     border-style: solid solid double solid;
 }
 .eusd {
     grid-column: 9 / span 13;
     grid-row: 17 / span 10;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 0 4px 4px 0;
     border-style: solid double double solid;
 }
@@ -505,9 +517,9 @@ body {
     height: 25px;
     top: -27px;
     left: 0;
-    border: 4px solid #096b72;
+    border: 4px solid var(--primary);
     border-width: 0 4px 4px;
-    background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(9, 107, 114, 0.5) 6px, rgba(9, 107, 114, 0.5) 8px);
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
 
 .cubicles2 {
@@ -589,12 +601,12 @@ body {
 
 /* utilities */
 .room {
-    /* background-color: whitesmoke; */
+    /* background-color: var(--white)smoke; */
     box-shadow: -2px 2px 0.6rem rgba(0 0 0 / .25);
 }
 
 .room:hover {
-    background-color: aliceblue;
+    background-color: var(--light);
 }
 
 .cubicles {
@@ -609,7 +621,7 @@ body {
 
 .btn {
     position: relative;
-    background-color: antiquewhite;
+    background-color: antiquevar(--white);
     transition: .15s ease-in;
     display: flex;
     align-items: center;
@@ -621,8 +633,8 @@ body {
 
 .btn:hover,
 .btn:hover:after {
-    background-color: orangered;
-    color: white;
+    background-color: var(--red);
+    color: var(--white);
 }
 .btn:hover:after,
 .btn:hover:before {
@@ -631,24 +643,24 @@ body {
 
 .btn:before {
     content: '';
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     border-radius: 4px;
     position: absolute;
     width: 4px;
     height: 30px;
-    background-color: white;
+    background-color: var(--white);
     box-shadow: 2px 2px 1rem rgba(0 0 0 / .5);
 }
 
 .btn:after {
     content: '';
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     border-radius: 4px;
     border-width: 2px 2px 2px 2px;
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: white;
+    background-color: var(--white);
     box-shadow: 2px 2px 1rem rgba(0 0 0 / .25);
 }
 
@@ -702,19 +714,19 @@ body {
 .cubicles .btn:nth-of-type(odd):not(.hor) {
     width: 40px;
     height: 75px;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
 }
 
 .cubicles .btn:nth-of-type(even) {
     width: 40px;
     height: 75px;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
 }
 
 .cubicles .btn.hor {
     width: 82px;
     height: 40px;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
 }
 
 
@@ -727,7 +739,7 @@ body {
 .cubicles.cubicles-top .btn:nth-of-type(n) {
     width: 75px;
     height: 40px;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
 }
 
 .cubicles.cubicles-bottom {
@@ -784,13 +796,13 @@ body {
 .cubicles.cubicles-left .btn:nth-of-type(n) {
     width: 40px;
     height: 75px;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
 }
 
 .cubicles.cubicles-right .btn:nth-of-type(n) {
     width: 40px;
     height: 75px;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
 }
 
 .cubicles.cubicles-left .btn:nth-of-type(n):before {
@@ -843,7 +855,7 @@ body {
     position: absolute;
     top: -6px;
     height: 6px;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 80px;
     background: #e2f0f1;
     z-index: 10;
@@ -854,14 +866,14 @@ body {
     right: -6px;
     top: 8px;
     height: 140px;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 6px;
     background: #e2f0f1;
 }
 
 .wall-gap {
     position: absolute;
-    background: #fff;
+    background: var(--white);
     width: 4px;
     height: 40px;
 }
@@ -872,17 +884,17 @@ body {
     height: 35px;
     overflow: hidden;
     z-index: 10;
-    background-color: white;
+    background-color: var(--white);
     clip-path: circle(116% at 7% -39%);
 }
 
 .door-hor:before {
     content: "";
     position: absolute;
-    background: #fff;
+    background: var(--white);
     width: 2px;
     height: 31px;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
 }
 
 .door-hor:after {
@@ -894,7 +906,7 @@ body {
     right: -1px;
     bottom: -0.5px;
     border-radius: 50%;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
 }
 
 
@@ -904,17 +916,17 @@ body {
     width: 35px;
     overflow: hidden;
     z-index: 10;
-    background-color: white;
+    background-color: var(--white);
     clip-path: circle(123% at -43% -3%);
 }
 
 .door-ver:before {
     content: "";
     position: absolute;
-    background: #fff;
+    background: var(--white);
     height: 2px;
     width: 31px;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
 }
 
 .door-ver:after {
@@ -926,7 +938,7 @@ body {
     right: -1px;
     bottom: 0.5px;
     border-radius: 50%;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
 }
 
 .room:hover .door-hor {
@@ -946,10 +958,10 @@ body {
     transition: .2s ease-in;
 }
 .room:hover .door-hor:after{
-    background: linear-gradient(aliceblue 0%, aliceblue 35%,  transparent);
+    background: linear-gradient(var(--light) 0%, var(--light) 35%,  transparent);
 }
 .room:hover .door-ver:after {
-    background: linear-gradient(90deg, aliceblue 0%, aliceblue 35%,  transparent);
+    background: linear-gradient(90deg, var(--light) 0%, var(--light) 35%,  transparent);
 }
 /* .room:hover .door-hor:after,
 .room:hover .door-ver:after {
@@ -998,25 +1010,25 @@ body {
 }
 
 .printer {
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 30px;
     height: 30px;    
-    background: #ffc107;
+    background: var(--yellow);
 }
 .printer:before {
     content: '';
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 12px;
     height: 20px;
     left: 3px;
     bottom: 2px;
-    background: repeating-linear-gradient(90deg, white, white 2px, rgba(9, 107, 114, 0.5) 2px, rgba(9, 107, 114, 0.5) 4px)
+    background: repeating-linear-gradient(90deg, var(--white), var(--white) 2px, var(--primary-light) 2px, var(--primary-light) 4px)
 }
 .printer:after {
     content: "";
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 3px;
     height: 20px;
     left: 30px;
@@ -1028,15 +1040,15 @@ body {
 
 .cooler {
     position: relative;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 30px;
     height: 30px;    
-    background: #ffc107;
+    background: var(--yellow);
 }
 .cooler:before {
     content: "";
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 3px;
     height: 3px;
     left: -7px;
@@ -1045,7 +1057,7 @@ body {
 .cooler:after {
     content: "";
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     border-radius: 50%;
     width: 18px;
     height: 18px;
@@ -1055,8 +1067,8 @@ body {
 }
 
 .exit {
-    background: green;
-    color: #fff;
+    background: var(--green);
+    color: var(--white);
     padding: 5px 10px;
     width: 70px;
     height: 15px;
@@ -1082,12 +1094,12 @@ body {
 }
 
 .title {
-    top: -73px;
+    top: -83px;
     left: -880px;
     width: 100vw;
     font-size: 5em;
     font-weight: 900;
-    color: #096b72fc;
+    color: var(--primary)fc;
     z-index: -1;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe Condensed","Roboto Condensed","AvenirNextCondensed-Bold","Futura-CondensedExtraBold","Ubuntu Condensed","Liberation Sans Narrow","Fira Sans Condensed","Open Sans Condensed","Helvetica Neue Condensed","Arial Narrow",sans-serif-condensed,sans-serif;
     font-stretch: condensed;
@@ -1099,35 +1111,35 @@ body {
     bottom: -358px;
     right: 560px;
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     border-radius: 8px 8px 0 0;
-    background: #ffc107;
+    background: var(--yellow);
     box-shadow: -2px 2px 0.6rem rgba(0 0 0 / .25);
 }
 
 .sofa:before {
     content: "";
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     border-width: 0 2px 2px;
     width: 80%;
     height: 70%;
     left: 8%;
     border-radius: 0 0 4px 4px;
-    background: #fff;
+    background: var(--white);
 }
 
 .sofa:after {
     content: "";
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 30px;
     height: 30px;
     transform: rotate(60deg);
     left: -50px;
     bottom: 50px;
     border-radius: 6px;
-    background: #ffc107;
+    background: var(--yellow);
     box-shadow: -2px 2px 0.6rem rgba(0 0 0 / .25);
 }
 .big-coffee-table {
@@ -1136,21 +1148,21 @@ body {
     bottom: -250px;
     right: 500px;
     position: absolute;
-    border: 2px solid #096b72;
-    background: #fff;
+    border: 2px solid var(--primary);
+    background: var(--white);
     box-shadow: -2px 2px 0.6rem rgba(0 0 0 / .25);
 }
 .big-coffee-table:after {
     content: "";
     position: absolute;
-    border: 2px solid #096b72;
+    border: 2px solid var(--primary);
     width: 30px;
     height: 30px;
     transform: rotate(21deg);
     right: -55px;
     bottom: -6px;
     border-radius: 6px;
-    background: #ffc107;
+    background: var(--yellow);
     box-shadow: -2px 2px 0.6rem rgba(0 0 0 / .25);
 }
 
@@ -1162,8 +1174,8 @@ body {
     z-index: 25;
     border-radius: 50%;
     position: absolute;
-    border: 2px solid #096b72;
-    background: #fff;
+    border: 2px solid var(--primary);
+    background: var(--white);
 }
 
 .coffee-chair {
@@ -1173,8 +1185,8 @@ body {
     right: 590px;
     border-radius: 20px 20px 0 0;
     position: absolute;
-    border: 2px solid #096b72;
-    background: #ffc107;
+    border: 2px solid var(--primary);
+    background: var(--yellow);
     z-index: 25;
     transform: rotate(-65deg);
 }
@@ -1185,10 +1197,10 @@ body {
     width: 25px;
     height: 82%;
     border-radius: inherit;
-    background: #fff;
+    background: var(--white);
     bottom: 0;
     left: 10%;
-    border: 1px solid #096b72;
+    border: 1px solid var(--primary);
     border-width: 1px 1px 0;
 }
 
@@ -1207,11 +1219,11 @@ body {
 }
 
 .btn.red:nth-of-type(n):after {
-    background: orangered;
+    background: var(--red);
 }
 .btn.yellow:nth-of-type(n):after {
-    background: #ffc107;
+    background: var(--yellow);
 }
 .btn.green:nth-of-type(n):after {
-    background: forestgreen;
+    background: var(--green);
 }
