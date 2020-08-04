@@ -104,13 +104,13 @@ body {
 
 .exit1 {    
     top: 15px;
-    left: 25px;
+    left: 10px;
     grid-column: 5 / span 1;
     grid-row: 8 / span 1;
 }
 .exit2 {
     bottom: -90px;
-    left: -16px;
+    left: -33px;
     grid-column: 17 / span 1;
     grid-row: 26 / span 1;
     background-color: red !important;
@@ -873,6 +873,7 @@ body {
     overflow: hidden;
     z-index: 10;
     background-color: white;
+    clip-path: circle(116% at 7% -39%);
 }
 
 .door-hor:before {
@@ -904,6 +905,7 @@ body {
     overflow: hidden;
     z-index: 10;
     background-color: white;
+    clip-path: circle(123% at -43% -3%);
 }
 
 .door-ver:before {
@@ -927,20 +929,32 @@ body {
     border: 1px solid #096b72;
 }
 
+.room:hover .door-hor {
+    clip-path: circle(123% at 100% -41%);
+    transition: .2s ease-in;
+}
 .room:hover .door-hor:before {
-    transform: rotate(-45deg) translate(8px, 7px);
+    transform: rotate(-42deg) translate(8px, 4px);
     transition: .2s ease-in;
 }
-
+.room:hover .door-ver {
+    clip-path: circle(123% at -53% 67%);
+    transition: .2s ease-in;
+}
 .room:hover .door-ver:before {
-    transform: rotate(45deg) translate(7px, 7px);
+    transform: rotate(29deg) translate(2px, 7px);
     transition: .2s ease-in;
 }
-
-.room:hover .door-hor:after,
+.room:hover .door-hor:after{
+    background: linear-gradient(aliceblue 0%, aliceblue 35%,  transparent);
+}
+.room:hover .door-ver:after {
+    background: linear-gradient(90deg, aliceblue 0%, aliceblue 35%,  transparent);
+}
+/* .room:hover .door-hor:after,
 .room:hover .door-ver:after {
     opacity: 0.35;
-}
+} */
 
 .name {
     font: 600 14px/1 "Poppins", sans-serif;
@@ -1052,6 +1066,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: .12s all ease-in;    
+} 
+.exit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 3px 4px rgba(0 0 0 / .5)
+}
+.exit:hover i[class*=arrow] {
+    transform: rotate(360deg);
+    transition: .3s transform ease-in;
 }
 
 .shadow {
