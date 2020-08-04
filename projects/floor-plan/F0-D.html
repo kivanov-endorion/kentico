@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <div class="switch btn"></div>
+    <div class="switch btn" title="Turn isometric mode on/off"></div>
+    <div class="poi-switch btn hor" title="Turn points of interest on/off"></div>
     <div class="container">
         <div class="main-content">
             <div class="title">GROUND FLOOR &ndash; Building D</div>
@@ -20,7 +21,7 @@
             <div class="door-hor door-hor2"></div>
             <div class="exit exit1" title="MAIN ENTRANCE / EXIT">EXIT&ensp;<i class="fas fa-running"></i>&ensp;<i class="fas fa-arrow-left"></i></div>
             <div class="exit exit2" title="EMERGENCY EXIT">EXIT&ensp;<i class="fas fa-running"></i>&ensp;<i class="fas fa-arrow-down"></i></div>
-            <div class="printer printer1 shadow" title="Printer"></div>
+            <div class="printer printer1 point-of-interest shadow" title="Printer"></div>
             <div class="coffee-table shadow"></div>
             <div class="coffee-chair shadow"></div>
             <div class="coffee-chair shadow"></div>
@@ -32,7 +33,7 @@
             <div class="wall2 shadow"></div>
             <div class="wall3"></div>
             <div class="pillar1 shadow"></div>
-            <div class="cooler cooler2 shadow" title="Water cooler"></div>
+            <div class="cooler cooler2 point-of-interest shadow" title="Water cooler"></div>
             <div class="pillar2 shadow"></div>
             <div class="room mens">
                 <div class="name">WC &ndash; Men</div>
@@ -89,6 +90,9 @@
             <div class="room server">
                 <div class="door-hor"></div>
                 <div class="name">server <wbr>room</div>
+                    <div class="amenities">
+                        <i class="fad fa-server"></i>
+                    </div>
             </div>
             <div class="room cantina">
                 <div class="door-ver"></div>
@@ -97,12 +101,15 @@
                     <div class="sink-tap-2"></div>
                 </div>
                 <div class="ref"></div>
-                <div class="cooler cooler1 shadow" title="Water cooler"></div>
+                <div class="cooler cooler1 point-of-interest shadow" title="Water cooler"></div>
                 <div class="cabinets"></div>
                 <div class="island">
                     <div class="chair"></div>
                 </div>
                 <div class="name">cantina</div>
+                <div class="amenities">
+                    <i class="fad fa-utensils"></i>
+                </div>
             </div>
             <div class="room triavna">
                 <div class="door-hor"></div>
@@ -128,7 +135,7 @@
                 
             </div>
             <div class="eusd">
-                <div class="cooler cooler3 shadow" title="Water cooler"></div>
+                <div class="cooler cooler3 point-of-interest shadow" title="Water cooler"></div>
                 <div class="cubicles cubicles-left">
                     <div class="btn"><span>8</span></div>
                     <div class="btn"><span>9</span></div>
@@ -248,7 +255,7 @@
 
             <div class="cubicles cubicles-left cubicles11">
                 <div class="btn"><span>8</span></div>
-                <div class="btn" style="top: -1px;"><span>9</span></div>
+                <div class="btn"><span>9</span></div>
             </div>
         </div>
     </div>
@@ -308,6 +315,9 @@
                 main.addClass('isometric');
                 window.scrollTo(400, 200);
             }
+        })
+        $('body').on('click', '.poi-switch', function(){
+            $('.point-of-interest').toggleClass('d-none');
         })
     </script>
 </body>

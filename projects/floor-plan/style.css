@@ -7,6 +7,7 @@
     --yellow: #ffc107;
     --red: #ff4500;
     --green: #228b22;
+    --antique: antiquewhite;
 }
 
 body {
@@ -580,19 +581,19 @@ body {
 }
 
 .eusd .cubicles.cubicles-left {
-    position: relative;
-    top: 155px;
+    position: absolute;
+    bottom: 20px;
 }
 
 .eusd .cubicles.cubicles12 {
-    position: relative;
-    bottom: 155px;
-    left: 240px;
+    position: absolute;
+    bottom: 20px;
+    left: 220px;
 }
 .eusd .cubicles.cubicles13 {
-    position: relative;
-    bottom: 465px;
-    left: 490px;
+    position: absolute;
+    bottom: 20px;
+    right: 80px;
 }
 
 
@@ -621,7 +622,7 @@ body {
 
 .btn {
     position: relative;
-    background-color: antiquevar(--white);
+    background-color: var(--antique);
     transition: .15s ease-in;
     display: flex;
     align-items: center;
@@ -650,6 +651,7 @@ body {
     height: 30px;
     background-color: var(--white);
     box-shadow: 2px 2px 1rem rgba(0 0 0 / .5);
+    z-index: 1;
 }
 
 .btn:after {
@@ -662,6 +664,7 @@ body {
     height: 20px;
     background-color: var(--white);
     box-shadow: 2px 2px 1rem rgba(0 0 0 / .25);
+    z-index: 0;
 }
 
 .btn:nth-of-type(odd):before {
@@ -689,12 +692,19 @@ body {
 
 .btn.hor:before {
     top: 56px;
-    transform: rotate(90deg) translate(0px, -69px);
+    left: 35px;
+    transform: rotate(90deg);
 }
 
 .btn.hor:after {
-    top: 40px;
-    transform: rotate(90deg) translate(7px, -56px);
+    top: 47px;
+    left: 27px;
+    transform: rotate(90deg);
+}
+
+.btn.hor:hover:before,
+.btn.hor:hover:after {
+    transform: rotate(95deg);
 }
 
 .cubicles .btn.hor.first {
@@ -703,12 +713,16 @@ body {
 
 .btn.hor.first:before {
     top: -56px;
-    transform: rotate(90deg) translate(6px, -71px)
+    transform: rotate(90deg);
 }
 
 .btn.hor.first:after {
     top: -40px;
-    transform: rotate(90deg) translate(9px, -57px)
+    transform: rotate(90deg);
+}
+.btn.hor.first:hover:before,
+.btn.hor.first:hover:after {
+    transform: rotate(95deg);
 }
 
 .cubicles .btn:nth-of-type(odd):not(.hor) {
@@ -1099,7 +1113,7 @@ body {
     width: 100vw;
     font-size: 5em;
     font-weight: 900;
-    color: var(--primary)fc;
+    color: var(--primary);
     z-index: -1;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe Condensed","Roboto Condensed","AvenirNextCondensed-Bold","Futura-CondensedExtraBold","Ubuntu Condensed","Liberation Sans Narrow","Fira Sans Condensed","Open Sans Condensed","Helvetica Neue Condensed","Arial Narrow",sans-serif-condensed,sans-serif;
     font-stretch: condensed;
@@ -1218,6 +1232,13 @@ body {
     z-index: 999
 }
 
+.poi-switch {
+    position: fixed;
+    top: 30px; 
+    left: 5px; 
+    z-index: 999
+}
+
 .btn.red:nth-of-type(n):after {
     background: var(--red);
 }
@@ -1226,4 +1247,26 @@ body {
 }
 .btn.green:nth-of-type(n):after {
     background: var(--green);
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary);
+}
+.icon i {
+    text-align: center;
+    width: 1.25em;
+    font-size: 1.33333em;
+    line-height: .75em;
+    vertical-align: -.0667em;
+}
+
+.d-none {
+    display: none;
+    user-select: none;
+    pointer-events: none;;
 }
