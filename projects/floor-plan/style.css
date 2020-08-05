@@ -636,9 +636,17 @@ body {
 }
 
 .desk:hover,
-.desk:hover:after {
+.desk:hover:after,
+.desk.found,
+.room.found {
     background-color: var(--red);
     color: var(--white);
+}
+.room.found .name,
+.room.found:hover .name,
+.room.found i {
+    color: var(--white);
+    text-shadow: none !important;
 }
 .desk:hover:after,
 .desk:hover:before {
