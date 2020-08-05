@@ -46,11 +46,12 @@
                     class="fas fa-arrow-left"></i></div>
             <div class="exit exit2" title="EMERGENCY EXIT">EXIT&ensp;<i class="fas fa-running"></i>&ensp;<i
                     class="fas fa-arrow-down"></i></div>
-            <div class="printer printer1 office-amenities shadow" title="Printer"></div>
+            <div class="printer printer1 office-amenities shadow" title="Printer" data-content="Canon DX C5735i"></div>
             <div class="coffee-table shadow"></div>
             <div class="coffee-chair shadow"></div>
             <div class="coffee-chair shadow"></div>
             <div class="step"></div>
+            <div class="icon office-amenities fire-ext" title="Fire extinguishers"><i class="fad fa-fire-extinguisher"></i></div>
             <div class="outside"></div>
             <div class="elevators"></div>
             <div class="inbetween"></div>
@@ -358,7 +359,7 @@
                     })
 
                     $(function () {
-                        $('.desk').popover({
+                        $('.desk, .office-amenities').popover({
                             container: '.floor',
                             trigger: 'hover',
                             placement: 'top'

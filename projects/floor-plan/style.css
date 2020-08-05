@@ -1244,6 +1244,10 @@ body {
     justify-content: center;
     align-items: center;
     color: var(--primary);
+    border: 2px solid transparent;
+}
+.icon:hover {
+    border-color: var(--primary);
 }
 .icon i {
     text-align: center;
@@ -1273,3 +1277,9 @@ body {
     width: 100vw;
 }
 
+.fire-ext {
+    position: absolute !important;
+    top: 364px;
+    left: 345px;
+    color:red ;
+}
