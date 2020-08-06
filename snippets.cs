@@ -441,3 +441,6 @@ SiteID  SiteName                    SK_Valid    B4
 
 // Cookie visibility
 {% !domain.Matches("[a-z]{2}(-)(ingrammicro)(-asia)?(-)?(eu)?") && CurrentSite.SiteID.ToString().InList("4;19;23;26;27;32;37;38;58;63;71;72".Split(";")) && ViewMode=="LiveSite" #%}
+
+// Check if children of type
+{% CurrentDocument.AllChildren.ClassNames("CMS.SimpleArticle;oneIM.EmbedVideo").Count>0 #%}
