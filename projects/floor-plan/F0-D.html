@@ -30,8 +30,6 @@
             <button class="btn btn-outline-info mr-2">Find</button>
         </div>
         <div class="col-4 text-right">
-            <button class="zoomin btn btn-info btn-lg mr-2"><i class="fad fa-plus fa-fw"
-                style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i></button>
             <button class="switch btn btn-info btn-lg mr-2"><i class="fad fa-layer-group fa-fw"
                     style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i></button>
             <button class="poi-switch btn btn-info btn-lg mr-2"><i class="fad fa-print fa-fw"
@@ -102,7 +100,8 @@
             <div class="cooler cooler2 office-amenities shadow" title="Water cooler"></div>
             <div class="pillar2 shadow wall"></div>
             <div class="room mens">
-                <div class="name">WC &ndash; Men</div>
+                <div class="name d-inline-flex align-items-center">WC <br> Men <i class="fad fa-male fa-2x fa-fw"></i></div>
+                
                 <div class="door-ver"></div>
                 <div class="stall">
                     <div class="toilet"></div>
@@ -132,7 +131,7 @@
                 <div class="name">utility <wbr>room</div>
             </div>
             <div class="room womens">
-                <div class="name">WC &ndash; Women</div>
+                <div class="name d-inline-flex align-items-center">WC <br> Women <i class="fad fa-female fa-2x fa-fw"></i></div>
                 <div class="door-ver"></div>
                 <div class="stall">
                     <div class="toilet"></div>
@@ -403,11 +402,6 @@
                 placement: 'top'
             })
         })
-        $('body').on('click', '.zoomin', function () {
-            $(this).click(function(){
-                $('.floor').width($('.floor').width()+$('.floor').width())
-            });
-        });
     </script>
 
 

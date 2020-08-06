@@ -273,11 +273,17 @@ body {
     top: 40px;
     transform: rotate(180deg);
 }
-
+.mens .name {
+    text-align: right;
+}
 .womens .door-ver {
     right: -4px;
     top: 60px;
     transform: rotate(180deg);
+}
+.womens .name {
+    top: calc(50% + 15px);
+    text-align: right;
 }
 
 .stall {
