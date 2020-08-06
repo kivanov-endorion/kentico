@@ -30,6 +30,8 @@
             <button class="btn btn-outline-info mr-2">Find</button>
         </div>
         <div class="col-4 text-right">
+            <button class="zoomin btn btn-info btn-lg mr-2"><i class="fad fa-plus fa-fw"
+                style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i></button>
             <button class="switch btn btn-info btn-lg mr-2"><i class="fad fa-layer-group fa-fw"
                     style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i></button>
             <button class="poi-switch btn btn-info btn-lg mr-2"><i class="fad fa-print fa-fw"
@@ -90,15 +92,15 @@
             </div>
             <div class="icon office-amenities fire-ext" title="Fire extinguishers"><i
                     class="fad fa-fire-extinguisher"></i></div>
-            <div class="outside"></div>
-            <div class="elevators"></div>
-            <div class="inbetween"></div>
-            <div class="wall1 shadow"></div>
-            <div class="wall2 shadow"></div>
-            <div class="wall3"></div>
-            <div class="pillar1 shadow"></div>
+            <div class="outside wall"></div>
+            <div class="elevators wall"></div>
+            <div class="inbetween wall"></div>
+            <div class="wall wall1 shadow"></div>
+            <div class="wall wall2 shadow"></div>
+            <div class="wall wall3"></div>
+            <div class="pillar1 shadow wall"></div>
             <div class="cooler cooler2 office-amenities shadow" title="Water cooler"></div>
-            <div class="pillar2 shadow"></div>
+            <div class="pillar2 shadow wall"></div>
             <div class="room mens">
                 <div class="name">WC &ndash; Men</div>
                 <div class="door-ver"></div>
@@ -401,6 +403,11 @@
                 placement: 'top'
             })
         })
+        $('body').on('click', '.zoomin', function () {
+            $(this).click(function(){
+                $('.floor').width($('.floor').width()+$('.floor').width())
+            });
+        });
     </script>
 
 
