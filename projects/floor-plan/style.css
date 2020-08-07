@@ -12,8 +12,14 @@
 
 body {
     background: var(--white);
-    font-family: "Poppins", sans-serif;
     overflow-x: hidden;
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: start;
 }
 
 .floor {
@@ -1094,6 +1100,13 @@ body {
     font-size: 1.25rem;
     margin: 0 .5rem;
 }
+.seats {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -1.1px;
+    margin: 0 .5rem 0 -0.6rem;
+    opacity: 0.5;
+}
 
 .printer {
     border: 2px solid var(--primary);
@@ -1336,6 +1349,9 @@ body {
     z-index: 999;
     width: 100vw;
 }
+.progress-bar {
+    background-color: var(--primary);
+}
 
 .fire-ext {
     grid-column: 8 / span 1;
@@ -1387,7 +1403,7 @@ body {
 
     10% {
         offset-distance: 10%;
-        transform: rotate(-0deg);
+        transform: rotate(0deg);
     }
 
     50% {

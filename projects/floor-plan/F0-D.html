@@ -14,78 +14,55 @@
 </head>
 
 <body>
-    <section class="row p-3 vw-100 affix position-fixed bg-light" style="top: 0; z-index: 999;">
-        <div class="col-4">
 
-            <button class="btn btn-info mr-2 font-weight-bold">D0</button>
-            <button class="btn btn-info mr-2 font-weight-bold">B2</button>
-            <button class="btn btn-info mr-2 font-weight-bold">C2</button>
-            <button class="btn btn-info mr-2 font-weight-bold">D2</button>
-            <button class="btn btn-info mr-2 font-weight-bold">D3</button>
-        </div>
-        <div class="col-4 d-inline-flex align-items-center text-center">
-            <input class="form-control mr-2" id="findFulltextInput" list="fulltextSearch" type="text"
-                name="fulltextSearch" placeholder="Search for a person, place or room&hellip;">
-            <button class="btn btn-info mr-2">Open</button>
-            <button class="btn btn-outline-info mr-2">Find</button>
-        </div>
-        <div class="col-4 text-right">
-            <button class="potter btn btn-info btn-lg mr-2" title="Harry Potter mode">
-                <i class="fad fa-bolt fa-fw" style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
-            </button>
-            <button class="switch btn btn-info btn-lg mr-2" title="Isometric view">
-                <i class="fad fa-layer-group fa-fw"
-                    style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
-            </button>
-            <button class="poi-switch btn btn-info btn-lg mr-2" title="Amenities">
-                <i class="fad fa-print fa-fw" style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
-            </button>
-            <span class="dropdown">
-                <button class="btn btn-info btn-lg mr-2" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false" title="Login">
-                    <i class="fad fa-user fa-fw" style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="user-dropdown"
-                    style="width: 300px;">
-                    <li class="px-3 py-2">
-                        <form class="form" role="form" action="/users/logIn" method="POST">
-                            <input type="hidden" name="currentUrl" value="home">
-                            <div class="form-group">
-                                <input name="username" placeholder="Active Directory Username"
-                                    class="form-control form-control-sm" type="text" required="required">
-                            </div>
-                            <div class="form-group">
-                                <input name="password" placeholder="Password" class="form-control form-control-sm"
-                                    type="password" required="required">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-info btn-block btn-sm">Login</button>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-            </span>
-            <span class="dropdown">
-                <button class="btn btn-info btn-lg" id="nav-dropdown" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false" title="MENU">
-                    <i class="fad fa-bars fa-fw" style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="nav-dropdown" style="width: 300px;">
-                    <li class="px-3 py-2">
-                        <a href="/" class="btn btn-info btn-sm btn-block initialism">Home</a>
-                        <a href="/" class="btn btn-info btn-sm btn-block initialism">Floor plans</a>
-                        <a href="/" class="btn btn-info btn-sm btn-block initialism">Reports</a>
-                    </li>
-                </ul>
-            </span>
-        </div>
-    </section>
+    <p name="use_different_browser" style="text-align: center; color: #F00; font-size: 1.5em; display: none;">
+        Please use a browser different than Internet Explorer
+    </p>
+    <script>
+        if (!(window.ActiveXObject) && "ActiveXObject" in window) {
+            document.querySelector('p[name="use_different_browser"]').style.display = "block";
+        }
+    </script>
+    
+
+    <aside style="top: 70px" id="capacity" class="collapse w-100 position-relative">
+        <div class="row">
+            <div class="col-lg-6">
+                <h6 class="mx-4 mt-4 mb-1 small initialism">Total places:</h6>
+                <div class="progress mx-4">            
+                    <div class="progress-bar" role="progressbar" style="width: 91.20879120879121%;" aria-valuenow="91.20879120879121" aria-valuemin="0" aria-valuemax="100">83 / 91</div>
+                </div>
+                <h6 class="mx-4 mt-4 mb-1 small initialism">Open area places:</h6>
+                <div class="progress mx-4">
+                    <div class="progress-bar" role="progressbar" style="width: 91.20879120879121%;" aria-valuenow="91.20879120879121" aria-valuemin="0" aria-valuemax="100">83 / 91</div>
+                </div>
+                <h6 class="mx-4 mt-4 mb-1 small initialism">Office places:</h6>
+                  <div class="progress mx-4">
+                    <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0 / 0</div>
+                  </div>
+            </div>
+            <div class="col-lg-6">
+                <h6 class="mx-4 mt-4 mb-1 small initialism">All total places:</h6>
+                <div class="progress mx-4">            
+                    <div class="progress-bar" role="progressbar" style="width: 80.98654708520179%;" aria-valuenow="80.98654708520179" aria-valuemin="0" aria-valuemax="100">903 / 1115</div>
+                </div>
+                <h6 class="mx-4 mt-4 mb-1 small initialism">All open area places:</h6>
+                <div class="progress mx-4">
+                    <div class="progress-bar" role="progressbar" style="width: 82.66913809082483%;" aria-valuenow="82.66913809082483" aria-valuemin="0" aria-valuemax="100">892 / 1079</div>
+                </div>
+                <h6 class="mx-4 mt-4 mb-1 small initialism">All office places:</h6>
+                  <div class="progress mx-4">
+                    <div class="progress-bar" role="progressbar" style="width: 30.555555555555557%;" aria-valuenow="30.555555555555557" aria-valuemin="0" aria-valuemax="100">11 / 36</div>
+                  </div>
+            </div>
+        </div>          
+    </aside>
+
+
     <div class="floor">
         <div class="main-content">
             <div class="title">GROUND FLOOR &ndash; Building D</div>
-
             <i class="fad fa-shoe-prints"></i>
-
             <div class="main-floor"></div>
             <div class="door-hor door-hor1"></div>
             <div class="door-hor door-hor2"></div>
@@ -137,303 +114,391 @@
             <div class="room utility">
                 <div class="door-hor"></div>
                 <div class="name">utility <wbr>room</div>
+                    <div class="amenities">
+                        <i class="fad fa-broom"></i>
+                    </div>
+            </div>
+            <div class="room utility2">
+                <div class="door-ver"></div>
+                <div class="name">utility <wbr>room</div>
+                    <div class="amenities">
+                        <i class="fad fa-broom"></i>
+                    </div>
+            </div>
+            <div class="room womens">
+                <div class="name d-inline-flex align-items-center">WC <br> Women <i
+                        class="fad fa-female fa-2x fa-fw"></i></div>
+                <div class="door-ver"></div>
+                <div class="stall">
+                    <div class="toilet"></div>
                 </div>
-                <div class="room utility2">
+                <div class="stall">
+                    <div class="toilet"></div>
+                </div>
+                <div class="stall">
+                    <div class="toilet"></div>
+                </div>
+                <div class="stall">
+                    <div class="toilet"></div>
+                </div>
+                <div class="vanities">
+                    <div class="vanity"></div>
+                    <div class="vanity"></div>
+                    <div class="vanity"></div>
+                    <div class="vanity"></div>
+                </div>
+            </div>
+            <div class="room server">
+                <div class="door-hor"></div>
+                <div class="name">server <wbr>room</div>
+                    <div class="amenities">
+                        <i class="fad fa-server"></i>
+                    </div>
+                </div>
+                <div class="room cantina">
                     <div class="door-ver"></div>
-                    <div class="name">utility <wbr>room</div>
+                    <div class="sink">
+                        <div class="sink-tap-1"></div>
+                        <div class="sink-tap-2"></div>
                     </div>
-                    <div class="room womens">
-                        <div class="name d-inline-flex align-items-center">WC <br> Women <i
-                                class="fad fa-female fa-2x fa-fw"></i></div>
-                        <div class="door-ver"></div>
-                        <div class="stall">
-                            <div class="toilet"></div>
-                        </div>
-                        <div class="stall">
-                            <div class="toilet"></div>
-                        </div>
-                        <div class="stall">
-                            <div class="toilet"></div>
-                        </div>
-                        <div class="stall">
-                            <div class="toilet"></div>
-                        </div>
-                        <div class="vanities">
-                            <div class="vanity"></div>
-                            <div class="vanity"></div>
-                            <div class="vanity"></div>
-                            <div class="vanity"></div>
-                        </div>
+                    <div class="ref"></div>
+                    <div class="cooler cooler1 office-amenities shadow" title="Water cooler"></div>
+                    <div class="cabinets"></div>
+                    <div class="island">
+                        <div class="chair"></div>
                     </div>
-                    <div class="room server">
-                        <div class="door-hor"></div>
-                        <div class="name">server <wbr>room</div>
-                            <div class="amenities">
-                                <i class="fad fa-server"></i>
-                            </div>
-                        </div>
-                        <div class="room cantina">
-                            <div class="door-ver"></div>
-                            <div class="sink">
-                                <div class="sink-tap-1"></div>
-                                <div class="sink-tap-2"></div>
-                            </div>
-                            <div class="ref"></div>
-                            <div class="cooler cooler1 office-amenities shadow" title="Water cooler"></div>
-                            <div class="cabinets"></div>
-                            <div class="island">
-                                <div class="chair"></div>
-                            </div>
-                            <div class="name">cantina</div>
-                            <div class="amenities">
-                                <i class="fad fa-utensils"></i>
-                            </div>
-                        </div>
-                        <div class="room triavna">
-                            <div class="door-hor"></div>
-                            <div class="name">Triavna</div>
-                            <div class="amenities">
-                                <i class="fad fa-tv-alt" title="TV"></i>
-                                <i class="fad fa-camera-home" title="Video"></i>
-                                <i class="fad fa-phone-office" title="Phone"></i>
-                                <i class="fad fa-chalkboard" title="Whiteboard"></i>
-                            </div>
-                        </div>
-                        <div class="room silistra">
-                            <div class="door-hor"></div>
-                            <div class="name">Silistra</div>
-                            <div class="amenities">
-                                <i class="fad fa-tv-alt" title="TV"></i>
-                                <i class="fad fa-camera-home" title="Video"></i>
-                                <i class="fad fa-phone-office" title="Phone"></i>
-                                <i class="fad fa-chalkboard" title="Whiteboard"></i>
-                                <i class="fad fa-projector" title="Projector"></i>
-                                <i class="fad fa-speaker" class="Speakers"></i>
-                            </div>
-                        </div>
-                        <div class="eusd">
-                            <div class="cooler cooler3 office-amenities shadow" title="Water cooler"></div>
-                            <div class="desks desks-left">
-                                <div class="desk"><span>8</span></div>
-                                <div class="desk"><span>9</span></div>
-                                <div class="desk"><span>10</span></div>
-                                <div class="desk"><span>11</span></div>
-                            </div>
-                            <div class="desks desks12">
-                                <div class="desk"><span>1</span></div>
-                                <div class="desk"><span>2</span></div>
-                                <div class="desk"><span>3</span></div>
-                                <div class="desk"><span>4</span></div>
-                                <div class="desk"><span>5</span></div>
-                                <div class="desk"><span>6</span></div>
-                                <div class="desk"><span>7</span></div>
-                                <div class="desk"><span>8</span></div>
-                            </div>
-                            <div class="desks desks13">
-                                <div class="desk"><span>1</span></div>
-                                <div class="desk"><span>2</span></div>
-                                <div class="desk"><span>3</span></div>
-                                <div class="desk"><span>4</span></div>
-                                <div class="desk"><span>5</span></div>
-                                <div class="desk"><span>6</span></div>
-                                <div class="desk"><span>7</span></div>
-                                <div class="desk"><span>8</span></div>
-                            </div>
-                        </div>
-                        <div class="desks desks1">
-                            <div class="desk red"><span>8</span></div>
-                            <div class="desk green"><span>9</span></div>
-                            <div class="desk yellow"><span>10</span></div>
-                            <div class="desk red"><span>11</span></div>
-                            <div class="desk red" title="12: Ivanov, Kaloyan" data-content="IS"><span>12</span></div>
-                            <div class="desk yellow"><span>13</span></div>
-                            <div class="desk green hor"><span>14</span></div>
-                        </div>
-                        <div class="desks desks2">
-                            <div class="desk"><span>8</span></div>
-                            <div class="desk"><span>9</span></div>
-                            <div class="desk"><span>10</span></div>
-                            <div class="desk"><span>11</span></div>
-                            <div class="desk"><span>12</span></div>
-                            <div class="desk"><span>13</span></div>
-                            <div class="desk"><span>14</span></div>
-                            <div class="desk"><span>15</span></div>
-                        </div>
-                        <div class="desks desks3">
-                            <div class="desk"><span>1</span></div>
-                            <div class="desk"><span>2</span></div>
-                            <div class="desk"><span>3</span></div>
-                            <div class="desk"><span>4</span></div>
-                            <div class="desk"><span>5</span></div>
-                            <div class="desk"><span>6</span></div>
-                            <div class="desk hor"><span>7</span></div>
-                        </div>
-                        <div class="desks desks4">
-                            <div class="desk"><span>8</span></div>
-                            <div class="desk"><span>9</span></div>
-                            <div class="desk"><span>10</span></div>
-                            <div class="desk"><span>11</span></div>
-                            <div class="desk"><span>12</span></div>
-                            <div class="desk"><span>13</span></div>
-                            <div class="desk"><span>14</span></div>
-                            <div class="desk"><span>15</span></div>
-                        </div>
-                        <div class="desks desks5">
-                            <div class="desk"><span>8</span></div>
-                            <div class="desk"><span>9</span></div>
-                            <div class="desk"><span>10</span></div>
-                            <div class="desk"><span>11</span></div>
-                            <div class="desk"><span>12</span></div>
-                            <div class="desk"><span>13</span></div>
-                            <div class="desk"><span>14</span></div>
-                            <div class="desk"><span>15</span></div>
-                        </div>
-                        <div class="desks desks6">
-                            <div class="desk"><span>1</span></div>
-                            <div class="desk"><span>2</span></div>
-                            <div class="desk"><span>3</span></div>
-                            <div class="desk"><span>4</span></div>
-                            <div class="desk"><span>5</span></div>
-                            <div class="desk"><span>6</span></div>
-                            <div class="desk hor first"><span>7</span></div>
-                        </div>
-                        <div class="desks desks7">
-                            <div class="desk"><span>1</span></div>
-                            <div class="desk"><span>2</span></div>
-                            <div class="desk"><span>3</span></div>
-                            <div class="desk"><span>4</span></div>
-                            <div class="desk"><span>5</span></div>
-                            <div class="desk"><span>6</span></div>
-                            <div class="desk hor first"><span>7</span></div>
-                        </div>
-                        <div class="desks desks8">
-                            <div class="desk"><span>1</span></div>
-                            <div class="desk"><span>2</span></div>
-                            <div class="desk"><span>3</span></div>
-                            <div class="desk"><span>4</span></div>
-                            <div class="desk"><span>5</span></div>
-                            <div class="desk"><span>6</span></div>
-                            <div class="desk hor first"><span>7</span></div>
-                        </div>
-                        <div class="desks desks9">
-                            <div class="desk"><span>1</span></div>
-                            <div class="desk"><span>2</span></div>
-                            <div class="desk"><span>3</span></div>
-                            <div class="desk"><span>4</span></div>
-                            <div class="desk"><span>5</span></div>
-                            <div class="desk"><span>6</span></div>
-                            <div class="desk hor first"><span>7</span></div>
-                        </div>
-
-                        <div class="desks desks-left desks10">
-                            <div class="desk"><span>8</span></div>
-                            <div class="desk"><span>9</span></div>
-                        </div>
-
-                        <div class="desks desks-left desks11">
-                            <div class="desk"><span>8</span></div>
-                            <div class="desk"><span>9</span></div>
-                        </div>
+                    <div class="name">cantina</div>
+                    <div class="amenities">
+                        <i class="fad fa-utensils"></i>
                     </div>
                 </div>
+                <div class="room triavna">
+                    <div class="door-hor"></div>
+                    <div class="name">Triavna</div>
+                    <div class="amenities">
+                        <i class="fad fa-user-tie" title="Seats 8"></i>                        
+                        <span class="seats">8</span>
+                        <i class="fad fa-tv-alt" title="TV"></i>
+                        <i class="fad fa-camera-home" title="Video"></i>
+                        <i class="fad fa-phone-office" title="Phone"></i>
+                        <i class="fad fa-chalkboard" title="Whiteboard"></i>
+                    </div>
+                </div>
+                <div class="room silistra">
+                    <div class="door-hor"></div>
+                    <div class="name">Silistra</div>                    
+                    <div class="amenities">
+                        <i class="fad fa-user-tie" title="Seats 8"></i>                        
+                        <span class="seats">8</span>
+                        <i class="fad fa-tv-alt" title="TV"></i>
+                        <i class="fad fa-camera-home" title="Video"></i>
+                        <i class="fad fa-phone-office" title="Phone"></i>
+                        <i class="fad fa-chalkboard" title="Whiteboard"></i>
+                        <i class="fad fa-projector" title="Projector"></i>
+                        <i class="fad fa-speaker" class="Speakers"></i>
+                    </div>
+                </div>
+                <div class="eusd">
+                    <div class="cooler cooler3 office-amenities shadow" title="Water cooler"></div>
+                    <div class="desks desks-left">
+                        <div class="desk"><span>8</span></div>
+                        <div class="desk"><span>9</span></div>
+                        <div class="desk"><span>10</span></div>
+                        <div class="desk"><span>11</span></div>
+                    </div>
+                    <div class="desks desks12">
+                        <div class="desk"><span>1</span></div>
+                        <div class="desk"><span>2</span></div>
+                        <div class="desk"><span>3</span></div>
+                        <div class="desk"><span>4</span></div>
+                        <div class="desk"><span>5</span></div>
+                        <div class="desk"><span>6</span></div>
+                        <div class="desk"><span>7</span></div>
+                        <div class="desk"><span>8</span></div>
+                    </div>
+                    <div class="desks desks13">
+                        <div class="desk"><span>1</span></div>
+                        <div class="desk"><span>2</span></div>
+                        <div class="desk"><span>3</span></div>
+                        <div class="desk"><span>4</span></div>
+                        <div class="desk"><span>5</span></div>
+                        <div class="desk"><span>6</span></div>
+                        <div class="desk"><span>7</span></div>
+                        <div class="desk"><span>8</span></div>
+                    </div>
+                </div>
+                <div class="desks desks1">
+                    <div class="desk red"><span>8</span></div>
+                    <div class="desk green"><span>9</span></div>
+                    <div class="desk yellow"><span>10</span></div>
+                    <div class="desk red"><span>11</span></div>
+                    <div class="desk red" title="12: Ivanov, Kaloyan" data-content="IS"><span>12</span></div>
+                    <div class="desk yellow"><span>13</span></div>
+                    <div class="desk green hor"><span>14</span></div>
+                </div>
+                <div class="desks desks2">
+                    <div class="desk"><span>8</span></div>
+                    <div class="desk"><span>9</span></div>
+                    <div class="desk"><span>10</span></div>
+                    <div class="desk"><span>11</span></div>
+                    <div class="desk"><span>12</span></div>
+                    <div class="desk"><span>13</span></div>
+                    <div class="desk"><span>14</span></div>
+                    <div class="desk"><span>15</span></div>
+                </div>
+                <div class="desks desks3">
+                    <div class="desk"><span>1</span></div>
+                    <div class="desk"><span>2</span></div>
+                    <div class="desk"><span>3</span></div>
+                    <div class="desk"><span>4</span></div>
+                    <div class="desk"><span>5</span></div>
+                    <div class="desk"><span>6</span></div>
+                    <div class="desk hor"><span>7</span></div>
+                </div>
+                <div class="desks desks4">
+                    <div class="desk"><span>8</span></div>
+                    <div class="desk"><span>9</span></div>
+                    <div class="desk"><span>10</span></div>
+                    <div class="desk"><span>11</span></div>
+                    <div class="desk"><span>12</span></div>
+                    <div class="desk"><span>13</span></div>
+                    <div class="desk"><span>14</span></div>
+                    <div class="desk"><span>15</span></div>
+                </div>
+                <div class="desks desks5">
+                    <div class="desk"><span>8</span></div>
+                    <div class="desk"><span>9</span></div>
+                    <div class="desk"><span>10</span></div>
+                    <div class="desk"><span>11</span></div>
+                    <div class="desk"><span>12</span></div>
+                    <div class="desk"><span>13</span></div>
+                    <div class="desk"><span>14</span></div>
+                    <div class="desk"><span>15</span></div>
+                </div>
+                <div class="desks desks6">
+                    <div class="desk"><span>1</span></div>
+                    <div class="desk"><span>2</span></div>
+                    <div class="desk"><span>3</span></div>
+                    <div class="desk"><span>4</span></div>
+                    <div class="desk"><span>5</span></div>
+                    <div class="desk"><span>6</span></div>
+                    <div class="desk hor first"><span>7</span></div>
+                </div>
+                <div class="desks desks7">
+                    <div class="desk"><span>1</span></div>
+                    <div class="desk"><span>2</span></div>
+                    <div class="desk"><span>3</span></div>
+                    <div class="desk"><span>4</span></div>
+                    <div class="desk"><span>5</span></div>
+                    <div class="desk"><span>6</span></div>
+                    <div class="desk hor first"><span>7</span></div>
+                </div>
+                <div class="desks desks8">
+                    <div class="desk"><span>1</span></div>
+                    <div class="desk"><span>2</span></div>
+                    <div class="desk"><span>3</span></div>
+                    <div class="desk"><span>4</span></div>
+                    <div class="desk"><span>5</span></div>
+                    <div class="desk"><span>6</span></div>
+                    <div class="desk hor first"><span>7</span></div>
+                </div>
+                <div class="desks desks9">
+                    <div class="desk"><span>1</span></div>
+                    <div class="desk"><span>2</span></div>
+                    <div class="desk"><span>3</span></div>
+                    <div class="desk"><span>4</span></div>
+                    <div class="desk"><span>5</span></div>
+                    <div class="desk"><span>6</span></div>
+                    <div class="desk hor first"><span>7</span></div>
+                </div>
 
-                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                    crossorigin="anonymous"></script>
-                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-                    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-                    crossorigin="anonymous"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
-                    integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
-                    crossorigin="anonymous"></script>
-                <script>
-                    (function ($) {
-                        $.dragScroll = (options) => {
-                            var settings = $.extend({
-                                scrollVertical: true,
-                                scrollHorizontal: true,
-                                cursor: null
-                            }, options);
+                <div class="desks desks-left desks10">
+                    <div class="desk"><span>8</span></div>
+                    <div class="desk"><span>9</span></div>
+                </div>
 
-                            var clicked = false,
-                                clickY, clickX;
+                <div class="desks desks-left desks11">
+                    <div class="desk"><span>8</span></div>
+                    <div class="desk"><span>9</span></div>
+                </div>
+            </div>
+        </div>
 
-                            var getCursor = () => {
-                                if (settings.cursor) return settings.cursor;
-                                if (settings.scrollVertical && settings.scrollHorizontal) return 'grabbing';
-                                if (settings.scrollVertical) return 'desks-resize';
-                                if (settings.scrollHorizontal) return 'col-resize';
-                            }
+        <section class="row p-3 vw-100 affix position-fixed bg-light" style="top: 0; z-index: 999;">
+            <div class="col-4">
 
-                            var updateScrollPos = (e, el) => {
-                                $('.floor').css('cursor', getCursor());
-                                var $el = $(el);
-                                settings.scrollVertical && $el.scrollTop($el.scrollTop() + (clickY - e
-                                    .pageY));
-                                settings.scrollHorizontal && $el.scrollLeft($el.scrollLeft() + (clickX - e
-                                    .pageX));
-                            }
+                <button class="btn btn-info mr-2 font-weight-bold">D0</button>
+                <button class="btn btn-info mr-2 font-weight-bold">B2</button>
+                <button class="btn btn-info mr-2 font-weight-bold">C2</button>
+                <button class="btn btn-info mr-2 font-weight-bold">D2</button>
+                <button class="btn btn-info mr-2 font-weight-bold">D3</button>
+            </div>
+            <div class="col-4 d-inline-flex align-items-center text-center">
+                <input class="form-control mr-2" id="findFulltextInput" list="fulltextSearch" type="text"
+                    name="fulltextSearch" placeholder="Search for a person, place or room&hellip;">
+                <button class="btn btn-info mr-2">Open</button>
+                <button class="btn btn-outline-info mr-2">Find</button>
+            </div>
+            <div class="col-4 text-right">
+                <button class="potter btn btn-info btn-lg mr-2" title="Harry Potter mode">
+                    <i class="fad fa-bolt fa-fw"
+                        style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
+                </button>
+                <button class="switch btn btn-info btn-lg mr-2" title="Isometric view">
+                    <i class="fad fa-layer-group fa-fw"
+                        style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
+                </button>
+                <button class="poi-switch btn btn-info btn-lg mr-2" title="Amenities">
+                    <i class="fad fa-print fa-fw"
+                        style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
+                </button>
+                    <button class="btn btn-info btn-lg mr-2" id="user-dropdown" data-toggle="collapse" data-target="#capacity" aria-expanded="false" aria-controls="capacity" title="Additional info">
+                        <i class="fad fa-info-circle fa-fw"
+                            style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
+                    </button>
+                <aside class="dropdown d-inline">
+                    <button class="btn btn-info btn-lg" id="nav-dropdown" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" title="MENU">
+                        <i class="fad fa-bars fa-fw"
+                            style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="nav-dropdown"
+                        style="width: 300px;">                        
+                        <li class="px-3 py-2">
+                            <a href="/" class="btn btn-info btn-sm btn-block initialism">Home</a>
+                            <a href="/" class="btn btn-info btn-sm btn-block initialism">Floor plans</a>
+                            <a href="/" class="btn btn-info btn-sm btn-block initialism">Reports</a>
+                            <a href="/" class="btn btn-info btn-sm btn-block initialism">Evacuation procedures</a>
+                            <a href="/" class="btn btn-info btn-sm btn-block initialism">Parking policy</a>
+                        </li>
+                        <li class="px-3 py-2">
+                            <form class="form" role="form" action="/users/logIn" method="POST">
+                                <hr>
+                                <input type="hidden" name="currentUrl" value="home">
+                                <div class="form-group">
+                                    <input name="username" placeholder="Active Directory Username"
+                                        class="form-control form-control-sm" type="text" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input name="password" placeholder="Password"
+                                        class="form-control form-control-sm" type="password"
+                                        required="required">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info btn-block btn-sm">Login</button>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
 
-                            $(document).on({
-                                'mousemove': (e) => {
-                                    clicked && updateScrollPos(e, this);
-                                },
-                                'mousedown': (e) => {
-                                    clicked = true;
-                                    clickY = e.pageY;
-                                    clickX = e.pageX;
-                                },
-                                'mouseup': () => {
-                                    clicked = false;
-                                    $('.floor').css('cursor', 'pointer');
-                                }
-                            });
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+            integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
+            crossorigin="anonymous"></script>
+        <script>
+            (function ($) {
+                $.dragScroll = (options) => {
+                    var settings = $.extend({
+                        scrollVertical: true,
+                        scrollHorizontal: true,
+                        cursor: null
+                    }, options);
+
+                    var clicked = false,
+                        clickY, clickX;
+
+                    var getCursor = () => {
+                        if (settings.cursor) return settings.cursor;
+                        if (settings.scrollVertical && settings.scrollHorizontal) return 'grabbing';
+                        if (settings.scrollVertical) return 'desks-resize';
+                        if (settings.scrollHorizontal) return 'col-resize';
+                    }
+
+                    var updateScrollPos = (e, el) => {
+                        $('.floor').css('cursor', getCursor());
+                        var $el = $(el);
+                        settings.scrollVertical && $el.scrollTop($el.scrollTop() + (clickY - e
+                            .pageY));
+                        settings.scrollHorizontal && $el.scrollLeft($el.scrollLeft() + (clickX - e
+                            .pageX));
+                    }
+
+                    $(document).on({
+                        'mousemove': (e) => {
+                            clicked && updateScrollPos(e, this);
+                        },
+                        'mousedown': (e) => {
+                            clicked = true;
+                            clickY = e.pageY;
+                            clickX = e.pageX;
+                        },
+                        'mouseup': () => {
+                            clicked = false;
+                            $('.floor').css('cursor', 'pointer');
                         }
-                    }(jQuery))
+                    });
+                }
+            }(jQuery))
 
-                    $.dragScroll();
+            $.dragScroll();
 
-                    // Isometric view on/off
-                    $('body').on('click', '.switch', () => {
-                        $('.switch').toggleClass('active');
-                        var main = $('.main-content');
-                        if (main.hasClass('isometric')) {
-                            main.removeClass('isometric');
-                        } else {
-                            main.addClass('isometric');
-                            window.scrollTo(400, 400);
-                        }
-                    })
+            // Isometric view on/off
+            $('body').on('click', '.switch', () => {
+                $('.switch').toggleClass('active');
+                var main = $('.main-content');
+                if (main.hasClass('isometric')) {
+                    main.removeClass('isometric');
+                } else {
+                    main.addClass('isometric');
+                    window.scrollTo(400, 400);
+                }
+            })
 
-                    // Show/hide amenities
-                    $('body').on('click', '.poi-switch', () => {
-                        $('.poi-switch').toggleClass('active');
-                        $('.office-amenities').toggleClass('show');
-                    })
+            // Show/hide amenities
+            $('body').on('click', '.poi-switch', () => {
+                $('.poi-switch').toggleClass('active');
+                $('.office-amenities').toggleClass('show');
+            })
 
-                    // Popover
-                    $(() => {
-                        $('.desk, .office-amenities').popover({
-                            container: '.floor',
-                            trigger: 'hover',
-                            placement: 'top'
-                        })
-                    })
-                    
-                    // Harry Potter Mode ;)
-                    $('body').on('click', '.potter', () => {
-                        if( $('.fa-shoe-prints').hasClass('active') ) {
-                            location.reload();
-                        } else {
-                            $('.potter, .fa-shoe-prints').addClass('active');
-                            window.scrollTo(0, 0);
-                            setTimeout( () => { $('.silistra').addClass('found') }, 12000);
-                            setTimeout( () => { $('.silistra').find('.door-hor').css('opacity','0') }, 12000);
-                            setTimeout( () => { $('.silistra').find('.name').text('Hogwarts') }, 14000);
-                            setTimeout( () => { $('.silistra').css('transition','.3s opacity').css('opacity','0') }, 20000);
-                        }
-                    })
-                </script>
+            // Popover
+            $(() => {
+                $('.desk, .office-amenities').popover({
+                    container: '.floor',
+                    trigger: 'hover',
+                    placement: 'top'
+                })
+            })
+
+            // Harry Potter Mode ;)
+            $('body').on('click', '.potter', () => {
+                if ($('.fa-shoe-prints').hasClass('active')) {
+                    location.reload();
+                } else {
+                    $('.potter, .fa-shoe-prints').addClass('active');
+                    $('.office-amenities').removeClass('show');
+                    setTimeout(() => {
+                        $('.silistra').addClass('found')
+                    }, 12000);
+                    setTimeout(() => {
+                        $('.silistra').find('.door-hor').css('opacity', '0')
+                    }, 12000);
+                    setTimeout(() => {
+                        $('.silistra').find('.name').text('Hogwarts')
+                    }, 14000);
+                    setTimeout(() => {
+                        $('.silistra').css('transition', '.3s opacity').css('opacity', '0')
+                    }, 20000);
+                }
+            })
+        </script>
 
 
 </body>
