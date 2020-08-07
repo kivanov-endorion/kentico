@@ -1,8 +1,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Ground Floor, Building D</title>
     <link rel="stylesheet" href="assets/fontawesome-5-pro.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
@@ -14,17 +15,6 @@
 </head>
 
 <body>
-
-    <p name="use_different_browser" style="text-align: center; color: #F00; font-size: 1.5em; display: none;">
-        Please use a browser different than Internet Explorer
-    </p>
-    <script>
-        if (!(window.ActiveXObject) && "ActiveXObject" in window) {
-            document.querySelector('p[name="use_different_browser"]').style.display = "block";
-        }
-    </script>
-    
-
     <aside style="top: 70px" id="capacity" class="collapse w-100 position-relative">
         <div class="row">
             <div class="col-lg-6">
@@ -78,8 +68,19 @@
             </div>
             <div class="icon office-amenities fire-ext" title="Fire extinguishers"><i
                     class="fad fa-fire-extinguisher"></i></div>
-            <div class="outside wall"></div>
-            <div class="elevators wall"></div>
+            <div class="foyer wall"></div>
+            <div class="elevators wall">
+                <div class="elevator">
+                    <div class="door-ver"></div>
+                    <div class="toilet"></div>
+                </div>
+                <div class="elevator">
+                    <p class="name">Elevator</p>
+                </div>
+                <div class="elevator">
+                    <p class="name">Elevator</p>
+                </div>
+            </div>
             <div class="inbetween wall"></div>
             <div class="wall wall1 shadow"></div>
             <div class="wall wall2 shadow"></div>
@@ -200,13 +201,13 @@
                 </div>
                 <div class="eusd">
                     <div class="cooler cooler3 office-amenities shadow" title="Water cooler"></div>
-                    <div class="desks desks-left">
+                    <div class="desks no-shifts desks-left">
                         <div class="desk"><span>8</span></div>
                         <div class="desk"><span>9</span></div>
                         <div class="desk"><span>10</span></div>
                         <div class="desk"><span>11</span></div>
                     </div>
-                    <div class="desks desks12">
+                    <div class="desks no-shifts desks12">
                         <div class="desk"><span>1</span></div>
                         <div class="desk"><span>2</span></div>
                         <div class="desk"><span>3</span></div>
@@ -216,7 +217,7 @@
                         <div class="desk"><span>7</span></div>
                         <div class="desk"><span>8</span></div>
                     </div>
-                    <div class="desks desks13">
+                    <div class="desks no-shifts desks13">
                         <div class="desk"><span>1</span></div>
                         <div class="desk"><span>2</span></div>
                         <div class="desk"><span>3</span></div>
@@ -227,7 +228,7 @@
                         <div class="desk"><span>8</span></div>
                     </div>
                 </div>
-                <div class="desks desks1">
+                <div class="desks no-shifts desks1">
                     <div class="desk red"><span>8</span></div>
                     <div class="desk green"><span>9</span></div>
                     <div class="desk yellow"><span>10</span></div>
@@ -236,7 +237,7 @@
                     <div class="desk yellow"><span>13</span></div>
                     <div class="desk green hor"><span>14</span></div>
                 </div>
-                <div class="desks desks2">
+                <div class="desks no-shifts desks2">
                     <div class="desk"><span>8</span></div>
                     <div class="desk"><span>9</span></div>
                     <div class="desk"><span>10</span></div>
@@ -246,7 +247,7 @@
                     <div class="desk"><span>14</span></div>
                     <div class="desk"><span>15</span></div>
                 </div>
-                <div class="desks desks3">
+                <div class="desks no-shifts desks3">
                     <div class="desk"><span>1</span></div>
                     <div class="desk"><span>2</span></div>
                     <div class="desk"><span>3</span></div>
@@ -255,7 +256,7 @@
                     <div class="desk"><span>6</span></div>
                     <div class="desk hor"><span>7</span></div>
                 </div>
-                <div class="desks desks4">
+                <div class="desks no-shifts desks4">
                     <div class="desk"><span>8</span></div>
                     <div class="desk"><span>9</span></div>
                     <div class="desk"><span>10</span></div>
@@ -265,7 +266,7 @@
                     <div class="desk"><span>14</span></div>
                     <div class="desk"><span>15</span></div>
                 </div>
-                <div class="desks desks5">
+                <div class="desks no-shifts desks5">
                     <div class="desk"><span>8</span></div>
                     <div class="desk"><span>9</span></div>
                     <div class="desk"><span>10</span></div>
@@ -275,7 +276,7 @@
                     <div class="desk"><span>14</span></div>
                     <div class="desk"><span>15</span></div>
                 </div>
-                <div class="desks desks6">
+                <div class="desks no-shifts desks6">
                     <div class="desk"><span>1</span></div>
                     <div class="desk"><span>2</span></div>
                     <div class="desk"><span>3</span></div>
@@ -284,7 +285,7 @@
                     <div class="desk"><span>6</span></div>
                     <div class="desk hor first"><span>7</span></div>
                 </div>
-                <div class="desks desks7">
+                <div class="desks no-shifts desks7">
                     <div class="desk"><span>1</span></div>
                     <div class="desk"><span>2</span></div>
                     <div class="desk"><span>3</span></div>
@@ -293,7 +294,7 @@
                     <div class="desk"><span>6</span></div>
                     <div class="desk hor first"><span>7</span></div>
                 </div>
-                <div class="desks desks8">
+                <div class="desks no-shifts desks8">
                     <div class="desk"><span>1</span></div>
                     <div class="desk"><span>2</span></div>
                     <div class="desk"><span>3</span></div>
@@ -302,7 +303,7 @@
                     <div class="desk"><span>6</span></div>
                     <div class="desk hor first"><span>7</span></div>
                 </div>
-                <div class="desks desks9">
+                <div class="desks no-shifts desks9">
                     <div class="desk"><span>1</span></div>
                     <div class="desk"><span>2</span></div>
                     <div class="desk"><span>3</span></div>
@@ -312,12 +313,12 @@
                     <div class="desk hor first"><span>7</span></div>
                 </div>
 
-                <div class="desks desks-left desks10">
+                <div class="desks no-shifts desks-left desks10">
                     <div class="desk"><span>8</span></div>
                     <div class="desk"><span>9</span></div>
                 </div>
 
-                <div class="desks desks-left desks11">
+                <div class="desks no-shifts desks-left desks11">
                     <div class="desk"><span>8</span></div>
                     <div class="desk"><span>9</span></div>
                 </div>
@@ -325,7 +326,7 @@
         </div>
 
         <section class="row p-3 vw-100 affix position-fixed bg-light" style="top: 0; z-index: 999;">
-            <div class="col-4">
+            <div class="col-3">
 
                 <button class="btn btn-info mr-2 font-weight-bold">D0</button>
                 <button class="btn btn-info mr-2 font-weight-bold">B2</button>
@@ -339,17 +340,25 @@
                 <button class="btn btn-info mr-2">Open</button>
                 <button class="btn btn-outline-info mr-2">Find</button>
             </div>
-            <div class="col-4 text-right">
-                <button class="potter btn btn-info btn-lg mr-2" title="Harry Potter mode">
+            <div class="col-5 text-right">
+                <button class="btn-potter btn btn-info btn-lg mr-2" title="Harry Potter mode">
                     <i class="fad fa-bolt fa-fw"
                         style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
                 </button>
-                <button class="switch btn btn-info btn-lg mr-2" title="Isometric view">
+                <button class="btn-isometric btn btn-info btn-lg mr-2" title="Isometric view">
                     <i class="fad fa-layer-group fa-fw"
                         style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
                 </button>
-                <button class="poi-switch btn btn-info btn-lg mr-2" title="Amenities">
+                <button class="btn-blueprint btn btn-info btn-lg mr-2" title="Blueprint view">
+                    <i class="fad fa-map fa-fw"
+                        style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
+                </button>
+                <button class="btn-amenities btn btn-info btn-lg mr-2" title="Amenities">
                     <i class="fad fa-print fa-fw"
+                        style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
+                </button>
+                <button class="btn-shifts btn btn-info btn-lg mr-2" title="Shifts">
+                    <i class="fad fa-user-lock fa-fw"
                         style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
                 </button>
                     <button class="btn btn-info btn-lg mr-2" id="user-dropdown" data-toggle="collapse" data-target="#capacity" aria-expanded="false" aria-controls="capacity" title="Additional info">
@@ -393,6 +402,7 @@
                 </aside>
             </div>
         </section>
+        
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -451,7 +461,7 @@
             $.dragScroll();
 
             // Isometric view on/off
-            $('body').on('click', '.switch', () => {
+            $('body').on('click', '.btn-isometric', () => {
                 $('.switch').toggleClass('active');
                 var main = $('.main-content');
                 if (main.hasClass('isometric')) {
@@ -463,9 +473,21 @@
             })
 
             // Show/hide amenities
-            $('body').on('click', '.poi-switch', () => {
-                $('.poi-switch').toggleClass('active');
+            $('body').on('click', '.btn-amenities', () => {
+                $('.btn-amenities').toggleClass('active');
                 $('.office-amenities').toggleClass('show');
+            })
+
+            // Blueprint mode
+            $('body').on('click', '.btn-blueprint', () => {
+                $('.btn-blueprint').toggleClass('active');
+                $('body').toggleClass('blueprint');
+            })
+
+            // Show hide shifts
+            $('body').on('click', '.btn-shifts', () => {
+                $('.btn-shifts').toggleClass('active');
+                $('.desks').toggleClass('no-shifts');
             })
 
             // Popover
@@ -474,15 +496,16 @@
                     container: '.floor',
                     trigger: 'hover',
                     placement: 'top'
-                })
+                });
+                
             })
-
+            
             // Harry Potter Mode ;)
-            $('body').on('click', '.potter', () => {
+            $('body').on('click', '.btn-potter', () => {
                 if ($('.fa-shoe-prints').hasClass('active')) {
                     location.reload();
                 } else {
-                    $('.potter, .fa-shoe-prints').addClass('active');
+                    $('.btn-potter, .fa-shoe-prints').addClass('active');
                     $('.office-amenities').removeClass('show');
                     setTimeout(() => {
                         $('.silistra').addClass('found')
@@ -498,7 +521,9 @@
                     }, 20000);
                 }
             })
-        </script>
+
+        
+    </script>
 
 
 </body>
