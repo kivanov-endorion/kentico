@@ -537,7 +537,7 @@ body {
 
 /* COMPONENTS */
 
-.printer {
+/* .printer {
     border: 2px solid var(--primary);
     width: 30px;
     height: 30px;
@@ -567,9 +567,9 @@ body {
 
 .printer:hover {
     background-color: var(--yellow);
-}
+} */
 
-.cooler {
+/* .cooler {
     position: relative;
     border: 2px solid var(--primary);
     width: 30px;
@@ -597,7 +597,7 @@ body {
     left: 4px;
     bottom: 4px;
     background-color: #ccefff;
-}
+} */
 
 .exit {
     background: var(--green);
@@ -846,12 +846,15 @@ body {
     transition: .1s all ease-in-out;
 }
 
-.fire-ext {
-    grid-column: 8 / span 1;
-    grid-row: 8 / span 1;
-    transform: translateY(20px);
-    --fa-primary-color: var(--red);
-    --fa-secondary-opacity: 1;
+.floor .fad.office-amenities {
+    color: var(--primary);
+    z-index: 99;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 2px dashed var(--primary-light);
+    width: 30px;
+    height: 30px;
 }
 
 .switches {
@@ -1002,14 +1005,8 @@ body {
     left: -33px;
     grid-column: 17 / span 1;
     grid-row: 26 / span 1;
-    background-color: var(--red) !important;
 }
 
-.printer1 {
-    grid-column: 13 / span 1;
-    grid-row: 8 / span 1;
-    transform: translateY(14px);
-}
 
 .foyer {
     grid-column: 1 / span 6;
@@ -1395,6 +1392,72 @@ body {
     right: 80px;
 }
 
+/* Office amenities */
+
+.fa-fire-extinguisher:nth-of-type(1n) {
+    grid-column: 8 / span 1;
+    grid-row: 8 / span 1;
+    transform: translateY(10px);
+    --fa-primary-color: var(--red);
+    --fa-secondary-opacity: .75;
+}
+.fa-air-conditioner:nth-of-type(1n) {
+    grid-column: 8 / span 1;
+    grid-row: 8 / span 1;
+    transform: translate(42px, 10px);
+}
+.fa-air-conditioner:nth-of-type(2n) {
+    grid-column: 24 / span 1;
+    grid-row: 1 / span 1;
+    transform: translateY(5px);
+}
+.fa-air-conditioner:nth-of-type(3n) {
+    grid-column: 4 / span 1;
+    grid-row: 6 / span 1;
+    transform: translate(10px, -15px);
+}
+.floor .fa-print:nth-of-type(1n) {
+    grid-column: 14 / span 1;
+    grid-row: 8 / span 1;
+    transform: translateY(10px);
+}
+.floor .fa-shredder:nth-of-type(1n) {
+    grid-column: 21 / span 1;
+    grid-row: 15 / span 1;
+    transform: translate(10px, -32px);
+}
+.floor .fa-glass:nth-of-type(1n) {
+    grid-column: 21 / span 1;
+    grid-row: 18 / span 1;
+    transform: translate(10px, 0px);
+}
+.floor .fa-glass:nth-of-type(2n) {
+    grid-column: 1 / span 1;
+    grid-row: 7 / span 1;
+    transform: translate(5px, -20px);
+}
+.floor .fa-glass:nth-of-type(3n) {
+    grid-column: 33 / span 1;
+    grid-row: 9 / span 1;
+    transform: translate(15px, 10px);
+}
+.floor .fa-thermometer-half:nth-of-type(1n) {
+    grid-column: 7 / span 1;
+    grid-row: 5 / span 1;
+    transform: translate(10px, 5px);
+}
+.floor .fa-pump-medical:nth-of-type(1n) {
+    grid-column: 7 / span 1;
+    grid-row: 8 / span 1;
+    transform: translate(8px, 10px);
+}
+.floor .fa-pump-medical:nth-of-type(1n) {
+    grid-column: 27 / span 1;
+    grid-row: 8 / span 1;
+    transform: translate(26px, -11px);
+}
+
+
 /* Blueprint mode */
 
 body.blueprint {
@@ -1405,7 +1468,7 @@ body.blueprint {
     --light: transparent;
     --white: transparent;
     --yellow: transparent;
-    --red: transparent;
+    --red: #fff;
     --green: transparent;
     --antique: transparent;
     --grey: #fff;
