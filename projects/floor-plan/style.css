@@ -1000,3 +1000,25 @@ body.blueprint .popover {
 .bg-paper {
     background: repeating-linear-gradient(90deg, #f0f0f0 0, #f0f0f0 5%, transparent 0, transparent 50%) 0 / 15px 15px, repeating-linear-gradient(180deg, #f0f0f0 0, #f0f0f0 5%, transparent 0, transparent 50%) 0 / 15px 15px;
 }
+
+
+@media only print {
+    @page {size: landscape}
+    body {
+        overflow-x: visible;
+        overflow-y: visible;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #fff;
+        transform: scale(0.4);
+    }
+    .floor {
+        overflow-x: visible;
+        overflow-y: visible;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #fff;
+        perspective: 0px;
+        transform: translate(-1100px, -1600px);
+    }    
+}
