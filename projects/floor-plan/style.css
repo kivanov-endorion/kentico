@@ -893,6 +893,7 @@ body {
 .isometric {
     transform: scale(.55) translate(280px, 0px) rotate(-45deg) skew(15deg, 15deg);
 }
+
 .zoomedin {
     transform: scale(.55);
 }
@@ -901,9 +902,7 @@ body {
 .zoomedin .title {
     top: -100px;
     left: -840px;
-    text-shadow: -14px 9px 6px rgb(84 132 135 / 50%);
 }
-
 
 /* Blueprint mode */
 
@@ -997,6 +996,7 @@ body.blueprint .popover {
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
+
 .bg-paper {
     background: repeating-linear-gradient(90deg, #f0f0f0 0, #f0f0f0 5%, transparent 0, transparent 50%) 0 / 15px 15px, repeating-linear-gradient(180deg, #f0f0f0 0, #f0f0f0 5%, transparent 0, transparent 50%) 0 / 15px 15px;
 }

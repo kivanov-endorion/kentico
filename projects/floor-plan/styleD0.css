@@ -114,15 +114,19 @@
     border-width: 2px 2px 2px 0;
     top: 30px;
 }
+
 .elevators .elevator:nth-of-type(2n) {
     top: 170px;
 }
+
 .elevators .elevator:nth-of-type(3n) {
     top: 290px;
 }
+
 .elevator .toilet {
     left: 40%;
 }
+
 .elevator .door-ver {
     transform: rotate(-180deg);
     left: -35px;
@@ -472,56 +476,67 @@
     --fa-primary-color: var(--red);
     --fa-secondary-opacity: .75;
 }
+
 .fa-air-conditioner:nth-of-type(1n) {
     grid-column: 8 / span 1;
     grid-row: 8 / span 1;
     transform: translate(42px, 10px);
 }
+
 .fa-air-conditioner:nth-of-type(2n) {
     grid-column: 24 / span 1;
     grid-row: 1 / span 1;
     transform: translateY(5px);
 }
+
 .fa-air-conditioner:nth-of-type(3n) {
     grid-column: 4 / span 1;
     grid-row: 6 / span 1;
     transform: translate(10px, -15px);
 }
+
 .floor .fa-print:nth-of-type(1n) {
     grid-column: 14 / span 1;
     grid-row: 8 / span 1;
     transform: translateY(10px);
 }
+
 .floor .fa-shredder:nth-of-type(1n) {
     grid-column: 21 / span 1;
     grid-row: 15 / span 1;
     transform: translate(10px, -32px);
 }
+
 .floor .fa-glass:nth-of-type(1n) {
     grid-column: 21 / span 1;
     grid-row: 18 / span 1;
     transform: translate(10px, 0px);
 }
+
 .floor .fa-glass:nth-of-type(2n) {
     grid-column: 1 / span 1;
     grid-row: 7 / span 1;
     transform: translate(5px, -20px);
 }
+
 .floor .fa-glass:nth-of-type(3n) {
     grid-column: 33 / span 1;
     grid-row: 9 / span 1;
     transform: translate(15px, 10px);
 }
+
 .floor .fa-thermometer-half:nth-of-type(1n) {
     grid-column: 7 / span 1;
     grid-row: 5 / span 1;
     transform: translate(10px, 5px);
 }
+
 .floor .fa-pump-medical:nth-of-type(1n) {
     grid-column: 7 / span 1;
     grid-row: 8 / span 1;
     transform: translate(8px, 10px);
 }
+
 .floor .fa-pump-medical:nth-of-type(1n) {
     grid-column: 27 / span 1;
     grid-row: 8 / span 1;
