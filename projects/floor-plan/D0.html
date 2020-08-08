@@ -481,29 +481,38 @@
             $.dragScroll();
 
             // Isometric view on/off
-            $('body').on('click', '.btn-isometric', () => {
-                $('.switch').toggleClass('active');
-                var main = $('.main-content');
-                if (main.hasClass('isometric')) {
-                    main.removeClass('isometric');
-                } else {
-                    main.addClass('isometric');
-                    window.scrollTo(400, 400);
-                }
-            })
-
-            // Zoomed in view on/off
-            $('body').on('click', '.btn-zoomed', () => {
-                $('.btn-zoomed').toggleClass('active');
+        $('body').on('click', '.btn-isometric', () => {
+            $('.btn-isometric').toggleClass('active');
+            var main = $('.main-content');
+            if (main.hasClass('zoomedin')) {
+                main.removeClass('zoomedin');
+                $('.btn-zoomed').removeClass('active');
+            };
+            if (main.hasClass('isometric')) {
+                main.removeClass('isometric');
+            } else {
+                main.addClass('isometric');
                 $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus');
-                var main = $('.main-content');
-                if (main.hasClass('zoomedin')) {
-                    main.removeClass('zoomedin');
-                } else {
-                    main.addClass('zoomedin');
-                    window.scrollTo(400, 350);
-                }
-            })
+                window.scrollTo(700, 900);
+            }
+        })
+
+        // Zoomed in view on/off
+        $('body').on('click', '.btn-zoomed', () => {
+            $('.btn-zoomed').toggleClass('active');
+            $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus');
+            var main = $('.main-content');
+            if (main.hasClass('isometric')) {
+                main.removeClass('isometric');
+                $('.btn-isometric').removeClass('active');
+            }
+            else if (main.hasClass('zoomedin')) {
+                main.removeClass('zoomedin');
+            } else {
+                main.addClass('zoomedin');
+                window.scrollTo(800, 500);
+            }
+        })
 
             // Show/hide amenities
             $('body').on('click', '.btn-amenities', () => {

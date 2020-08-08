@@ -658,11 +658,16 @@
         $('body').on('click', '.btn-isometric', () => {
             $('.btn-isometric').toggleClass('active');
             var main = $('.main-content');
+            if (main.hasClass('zoomedin')) {
+                main.removeClass('zoomedin');
+                $('.btn-zoomed').removeClass('active');
+            };
             if (main.hasClass('isometric')) {
                 main.removeClass('isometric');
             } else {
                 main.addClass('isometric');
-                window.scrollTo(500, 900);
+                $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus');
+                window.scrollTo(700, 900);
             }
         })
 
@@ -671,7 +676,11 @@
             $('.btn-zoomed').toggleClass('active');
             $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus');
             var main = $('.main-content');
-            if (main.hasClass('zoomedin')) {
+            if (main.hasClass('isometric')) {
+                main.removeClass('isometric');
+                $('.btn-isometric').removeClass('active');
+            }
+            else if (main.hasClass('zoomedin')) {
                 main.removeClass('zoomedin');
             } else {
                 main.addClass('zoomedin');
