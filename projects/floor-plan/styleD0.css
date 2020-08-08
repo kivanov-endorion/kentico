@@ -341,11 +341,6 @@
     bottom: -2px;
 }
 
-.cantina .cooler1 {
-    transform: rotate(180deg);
-    left: -2px;
-    top: 270px;
-}
 
 .cantina .island {
     position: absolute;

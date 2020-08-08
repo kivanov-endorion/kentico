@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Ground Floor, Building D</title>
+    <title>Ground Floor, Building B</title>
     <link rel="stylesheet" href="assets/fontawesome-5-pro.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
         integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styleD2.css">
+    <link rel="stylesheet" href="styleB2.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -58,7 +58,7 @@
 
     <div class="floor">
         <div class="main-content">
-            <div class="title">SECOND FLOOR &ndash; Building D</div>
+            <div class="title">SECOND FLOOR &ndash; Building B</div>
             <div class="top-left-out"></div>
             <div class="top-left"></div>
             <div class="top-center"></div>
@@ -73,7 +73,7 @@
 
             <div class="room pirin">
                 <div class="door-hor"></div>
-                <div class="name">Pirin</div>
+                <div class="name">Meeting room</div>
                 <div class="amenities">
                     <i class="fad fa-user-tie" title="Seats 6"></i>                        
                     <span class="seats">6</span>
@@ -85,7 +85,7 @@
             </div>
             <div class="room rila">
                 <div class="door-hor"></div>
-                <div class="name">Rila</div>                    
+                <div class="name">Meeting room</div>                    
                 <div class="amenities">
                     <i class="fad fa-user-tie" title="Seats 6"></i>                        
                     <span class="seats">6</span>
@@ -99,14 +99,62 @@
             </div>
             <div class="room room1">
                 <div class="door-hor"></div>
-                <div class="name">Room 1</div>   
+                <div class="name">Meeting room</div>   
             </div>
             <div class="room room2">
                 <div class="door-hor"></div>
-                <div class="name">Room 2</div>   
+                <div class="name">Meeting room</div>   
+            </div>
+
+            <div class="room booth1">
+                <div class="door-ver"></div>
+                <div class="name">Phone booth</div>
+                <div class="amenities">
+                    <i class="fad fa-user-tie" title="Seats 1"></i>                        
+                    <span class="seats">1</span>
+                    <i class="fad fa-phone-office" title="Phone"></i>
+                </div>
+            </div>
+            <div class="room booth2">
+                <div class="door-ver"></div>
+                <div class="name">Phone booth</div>
+                <div class="amenities">
+                    <i class="fad fa-user-tie" title="Seats 1"></i>                        
+                    <span class="seats">1</span>
+                    <i class="fad fa-phone-office" title="Phone"></i>
+                </div>
+            </div>
+
+            <div class="room room3">
+                <div class="door-hor"></div>
+                <div class="name">Meeting room</div>   
+            </div>
+
+            <div class="room room4">
+                <div class="door-hor"></div>
+                <div class="name">Meeting room</div>   
+            </div>
+
+            <div class="room cantina">
+                <div class="door-ver"></div>
+                <div class="sink">
+                    <div class="sink-tap-1"></div>
+                    <div class="sink-tap-2"></div>
+                </div>
+                <div class="ref"></div>
+                <div class="island">
+                    <div class="chair"></div>
+                </div>
+                <div class="sofa"></div>
+                <div class="name">Cantina</div>
+                <div class="window-hor"></div>
+                <div class="amenities">
+                    <i class="fad fa-utensils"></i>
+                </div>
             </div>
 
             <div class="wall wall1 shadow"></div>
+            <div class="wall wall2 shadow"></div>
 
             <div class="desks no-shifts desks1">
                 <div class="desk"><span>1</span></div>
@@ -231,11 +279,11 @@
     <section class="row p-3 vw-100 affix position-fixed bg-light" style="top: 0; z-index: 999;">
         <div class="col-3">
 
-            <button class="btn btn-info mr-2 font-weight-bold">D0</button>
-            <button class="btn btn-info mr-2 font-weight-bold">B2</button>
-            <button class="btn btn-info mr-2 font-weight-bold">C2</button>
-            <button class="btn btn-info mr-2 font-weight-bold">D2</button>
-            <button class="btn btn-info mr-2 font-weight-bold">D3</button>
+            <a href="D0.html" class="btn btn-info mr-2 font-weight-bold">D0</a>
+            <a href="B2.html" class="btn btn-info mr-2 font-weight-bold">B2</a>
+            <a href="#" class="btn btn-info mr-2 font-weight-bold">C2</a>
+            <a href="#" class="btn btn-info mr-2 font-weight-bold">D2</a>
+            <a href="#" class="btn btn-info mr-2 font-weight-bold">D3</a>
         </div>
         <div class="col-4 d-inline-flex align-items-center text-center">
             <input class="form-control mr-2" id="findFulltextInput" list="fulltextSearch" type="text"
@@ -244,9 +292,6 @@
             <button class="btn btn-outline-info mr-2">Find</button>
         </div>
         <div class="col-5 text-right">
-            <button class="btn-potter btn btn-info btn-lg mr-2" title="Harry Potter mode">
-                <i class="fad fa-bolt fa-fw" style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
-            </button>
             <button class="btn-isometric btn btn-info btn-lg mr-2" title="Isometric view">
                 <i class="fad fa-layer-group fa-fw"
                     style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
@@ -358,6 +403,8 @@
 
         $.dragScroll();
 
+        window.scrollTo(500, 0);
+
         // Isometric view on/off
         $('body').on('click', '.btn-isometric', () => {
             $('.switch').toggleClass('active');
@@ -366,7 +413,7 @@
                 main.removeClass('isometric');
             } else {
                 main.addClass('isometric');
-                window.scrollTo(400, 400);
+                window.scrollTo(500, 900);
             }
         })
 
