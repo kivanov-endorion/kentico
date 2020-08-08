@@ -481,37 +481,43 @@
             $.dragScroll();
 
             // Isometric view on/off
-        $('body').on('click', '.btn-isometric', () => {
-            $('.btn-isometric').toggleClass('active');
-            var main = $('.main-content');
-            if (main.hasClass('zoomedin')) {
-                main.removeClass('zoomedin');
-                $('.btn-zoomed').removeClass('active');
-            };
-            if (main.hasClass('isometric')) {
-                main.removeClass('isometric');
-            } else {
-                main.addClass('isometric');
-                $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus');
-                window.scrollTo(700, 900);
-            }
-        })
+            $('body').on('click', '.btn-isometric', () => {
+                $('.btn-isometric').toggleClass('active');
+                var main = $('.main-content'),
+                    info = $('#user-dropdown');
+                if (main.hasClass('zoomedin')) {
+                    main.removeClass('zoomedin');
+                    $('.btn-zoomed').removeClass('active');
+                };
+                if (main.hasClass('isometric')) {
+                    main.removeClass('isometric');
+                    info.removeClass('disabled');
+                } else {
+                    main.addClass('isometric');
+                    $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus');
+                    info.addClass('disabled');
+                    window.scrollTo(700, 900);
+                }
+            })
+            $('body').on('click', '#user-dropdown.disabled', (e) => {
+                e.stopPropagation();
+            })
 
-        // Zoomed in view on/off
-        $('body').on('click', '.btn-zoomed', () => {
-            $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus');
-            var main = $('.main-content');
-            if (main.hasClass('isometric')) {
-                main.removeClass('isometric');
-                $('.btn-isometric').removeClass('active');
-            }
-            else if (main.hasClass('zoomedin')) {
-                main.removeClass('zoomedin');
-            } else {
-                main.addClass('zoomedin');
-                window.scrollTo(800, 500);
-            }
-        })
+            // Zoomed in view on/off
+            $('body').on('click', '.btn-zoomed', () => {
+                $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus');
+                var main = $('.main-content');
+                if (main.hasClass('isometric')) {
+                    main.removeClass('isometric');
+                    $('.btn-isometric').removeClass('active');
+                }
+                else if (main.hasClass('zoomedin')) {
+                    main.removeClass('zoomedin');
+                } else {
+                    main.addClass('zoomedin');
+                    window.scrollTo(800, 500);
+                }
+            })
 
             // Show/hide amenities
             $('body').on('click', '.btn-amenities', () => {
@@ -522,11 +528,12 @@
             // Blueprint mode
             $('body').on('click', '.btn-blueprint', () => {
                 $('.btn-blueprint').toggleClass('active');
+                $('.btn-shifts').toggleClass('disabled');
                 $('body').toggleClass('blueprint');
             })
 
             // Show hide shifts
-            $('body').on('click', '.btn-shifts', () => {
+            $('body').on('click', '.btn-shifts:not(.disabled)', () => {
                 $('.btn-shifts').toggleClass('active');
                 $('.desks').toggleClass('no-shifts');
             })

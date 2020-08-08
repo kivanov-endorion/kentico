@@ -657,18 +657,24 @@
         // Isometric view on/off
         $('body').on('click', '.btn-isometric', () => {
             $('.btn-isometric').toggleClass('active');
-            var main = $('.main-content');
+            var main = $('.main-content'),
+                info = $('#user-dropdown');
             if (main.hasClass('zoomedin')) {
                 main.removeClass('zoomedin');
                 $('.btn-zoomed').removeClass('active');
             };
             if (main.hasClass('isometric')) {
                 main.removeClass('isometric');
+                info.removeClass('disabled');
             } else {
                 main.addClass('isometric');
                 $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus');
+                info.addClass('disabled');
                 window.scrollTo(700, 900);
             }
+        })
+        $('body').on('click', '#user-dropdown.disabled', (e) => {
+            e.stopPropagation();
         })
 
         // Zoomed in view on/off
