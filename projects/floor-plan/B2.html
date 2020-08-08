@@ -238,7 +238,7 @@
                 </div>
             </div>
 
-            <div class="wall wall3"></div>
+            <div class="wall wall3 shadow"></div>
 
             <div class="room womens">
                 <div class="name d-inline-flex align-items-center">WC <br> Women <i
@@ -271,7 +271,7 @@
                     <div class="sink-tap-2"></div>
                 </div>
                 <div class="ref"></div>
-                <div class="island">
+                <div class="island shadow">
                     <div class="chair"></div>
                 </div>
                 <div class="sofa"></div>
@@ -313,7 +313,7 @@
                 </div>
             </div>
 
-            <div class="stairs stairs1 wall"></div>
+            <div class="stairs stairs1 wall shadow"></div>
             <div class="foyer room">
                 <div class="name">Foyer</div>
                 <div class="double-door-1">
@@ -329,7 +329,7 @@
                     <div class="door-hor door2"></div>
                 </div>
             </div>
-            <div class="stairs stairs2 wall"></div>
+            <div class="stairs stairs2 wall shadow"></div>
 
             <div class="room server">
                 <div class="door-hor"></div>
@@ -342,7 +342,7 @@
             <div class="room mens mens2">
                 <div class="name d-inline-flex align-items-center">WC <br> Men <i class="fad fa-male fa-2x fa-fw"></i>
                 </div>
-                <div class="wall"></div>
+                <div class="wall shadow"></div>
 
                 <div class="door-ver"></div>
                 <div class="accessible-toilet">
@@ -367,7 +367,7 @@
                 </div>
             </div>
 
-            <div class="wall wall4"></div>
+            <div class="wall wall4 shadow"></div>
 
             <div class="room womens womens2">
                 <div class="name d-inline-flex align-items-center">WC <br> Women <i
@@ -510,6 +510,7 @@
                 <div class="desk"><span>8</span></div>
             </div>
 
+
         </div>
     </div>
 
@@ -533,13 +534,17 @@
                 <i class="fad fa-layer-group fa-fw"
                     style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
             </button>
+            <button class="btn-zoomed btn btn-info btn-lg mr-2" title="Zoomed in view">
+                <i class="fad fa-search-minus fa-fw"
+                    style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
+            </button>
             <button class="btn-blueprint btn btn-info btn-lg mr-2" title="Blueprint view">
                 <i class="fad fa-map fa-fw" style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
             </button>
             <button class="btn-amenities btn btn-info btn-lg mr-2" title="Amenities">
                 <i class="fad fa-print fa-fw" style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
             </button>
-            <button class="btn-shifts btn btn-info btn-lg mr-2" title="Shifts">
+            <button class="btn-shifts btn btn-info btn-lg mr-2" title="COVID-19 shifts">
                 <i class="fad fa-head-side-mask fa-fw"
                     style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
             </button>
@@ -644,13 +649,25 @@
 
         // Isometric view on/off
         $('body').on('click', '.btn-isometric', () => {
-            $('.switch').toggleClass('active');
+            $('.btn-isometric').toggleClass('active');
             var main = $('.main-content');
             if (main.hasClass('isometric')) {
                 main.removeClass('isometric');
             } else {
                 main.addClass('isometric');
                 window.scrollTo(500, 900);
+            }
+        })
+
+        // Zoomed in view on/off
+        $('body').on('click', '.btn-zoomed', () => {
+            $('.btn-zoomed').toggleClass('active');
+            var main = $('.main-content');
+            if (main.hasClass('zoomedin')) {
+                main.removeClass('zoomedin');
+            } else {
+                main.addClass('zoomedin');
+                window.scrollTo(800, 500);
             }
         })
 

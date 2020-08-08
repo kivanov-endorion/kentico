@@ -22,7 +22,7 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: start;
-    
+
 }
 
 .floor {
@@ -33,7 +33,7 @@ body {
     margin: 0 5rem 0 0;
     padding-top: 5rem;
     perspective: 1300px;
-    
+
 }
 
 .floor *,
@@ -342,6 +342,7 @@ body {
 .desk.green:nth-of-type(n):after {
     background: var(--green);
 }
+
 .no-shifts .desk:after {
     background: var(--white) !important;
 }
@@ -483,7 +484,6 @@ body {
 .room:hover .door-ver:after {
     background: linear-gradient(90deg, var(--light) 0%, var(--light) 35%, transparent);
 }
-
 
 /* ROOM EQUIPMENT */
 
@@ -852,7 +852,7 @@ body {
 
 .floor .fad.office-amenities {
     color: var(--primary);
-    z-index: 99;    
+    z-index: 99;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -888,7 +888,21 @@ body {
 }
 
 
+/* Isometric and zoomed-in mode */
 
+.isometric {
+    transform: scale(.55) translate(280px, 0px) rotate(-45deg) skew(15deg, 15deg);
+}
+.zoomedin {
+    transform: scale(.55);
+}
+
+.isometric .title,
+.zoomedin .title {
+    top: -100px;
+    left: -840px;
+    text-shadow: -14px 9px 6px rgb(84 132 135 / 50%);
+}
 
 
 /* Blueprint mode */
@@ -906,33 +920,83 @@ body.blueprint {
     --antique: transparent;
     --grey: #fff;
     background-image: linear-gradient(#5480D3, #3256A7);
-    color: #fff;    
+    color: #fff;
 }
+
 body.blueprint .floor {
     background-color: transparent;
     background: linear-gradient(0deg, transparent 9%, rgba(255, 255, 255, 0.2) 10%, rgba(255, 255, 255, 0.2) 12%, transparent 13%, transparent 29%, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.1) 31%, transparent 32%, transparent 49%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 51%, transparent 52%, transparent 69%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.1) 71%, transparent 72%, transparent 89%, rgba(255, 255, 255, 0.1) 90%, rgba(255, 255, 255, 0.1) 91%, transparent 92%, transparent) 0% 0% / 50px 50px, linear-gradient(90deg, transparent 9%, rgba(255, 255, 255, 0.2) 10%, rgba(255, 255, 255, 0.2) 12%, transparent 13%, transparent 29%, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.1) 31%, transparent 32%, transparent 49%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 51%, transparent 52%, transparent 69%, rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.1) 71%, transparent 72%, transparent 89%, rgba(255, 255, 255, 0.1) 90%, rgba(255, 255, 255, 0.1) 91%, transparent 92%, transparent);
-    background-size:50px 50px;
+    background-size: 50px 50px;
+
+    /* background-color: #269;
+    background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+    background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px; */
 }
+
 body.blueprint .floor .main-content {
     background: none;
 }
+
 body.blueprint *,
 body.blueprint *:before,
 body.blueprint *:after {
     box-shadow: none !important;
 }
+
 body.blueprint .title {
     text-decoration: underline;
     font: 2rem monospace;
     text-transform: uppercase;
 }
+
 body.blueprint .name,
 body.blueprint .desk {
     font: 1.1rem monospace;
 }
+
 body.blueprint .name i {
     font-size: 28px;
 }
+
 body.blueprint .popover {
     color: #212529 !important;
+}
+
+
+/* Background patterns: */
+.bg-ver-stripes {
+    background-color: rgb(128 128 128 / 20%);
+    background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, .5) 50%);
+    background-size: 50px 50px;
+}
+
+.bg-rhombus {
+    background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(127, 215, 245, 0.4) 0, rgba(127, 215, 245, 0.1) 2em, transparent 0, transparent 1em, rgba(127, 215, 245, 0.3) 0, rgba(127, 215, 245, 0.2) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(192, 235, 250, 0.2) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(127, 215, 245, 0.4) 0, rgba(127, 215, 245, 0.1) 2em, transparent 0, transparent 1em, rgba(127, 215, 245, 0.3) 0, rgba(127, 215, 245, 0.2) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.4) 0, rgba(192, 235, 250, 0.1) 2em), #FFF;
+    background-blend-mode: luminosity;
+}
+
+.bg-zigzag {
+    --stripe: #cfd8dc;
+    --bg: #e1e1e1;
+    background: linear-gradient(135deg, var(--bg) 25%, transparent 25%) -50px 0,
+        linear-gradient(225deg, var(--bg) 25%, transparent 25%) -50px 0,
+        linear-gradient(315deg, var(--bg) 25%, transparent 25%),
+        linear-gradient(45deg, var(--bg) 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: var(--stripe);
+}
+
+.bg-checkerboard {
+    background-color: white;
+    background-image:
+        linear-gradient(45deg, #ccc 25%, transparent 25%),
+        linear-gradient(-45deg, #ccc 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #ccc 75%),
+        linear-gradient(-45deg, transparent 75%, #ccc 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+.bg-paper {
+    background: repeating-linear-gradient(90deg, #f0f0f0 0, #f0f0f0 5%, transparent 0, transparent 50%) 0 / 15px 15px, repeating-linear-gradient(180deg, #f0f0f0 0, #f0f0f0 5%, transparent 0, transparent 50%) 0 / 15px 15px;
 }

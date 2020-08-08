@@ -359,6 +359,10 @@
                     <i class="fad fa-layer-group fa-fw"
                         style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
                 </button>
+                <button class="btn-zoomed btn btn-info btn-lg mr-2" title="Zoomed in view">
+                    <i class="fad fa-search-minus fa-fw"
+                        style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
+                </button>
                 <button class="btn-blueprint btn btn-info btn-lg mr-2" title="Blueprint view">
                     <i class="fad fa-map fa-fw"
                         style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
@@ -367,7 +371,7 @@
                     <i class="fad fa-print fa-fw"
                         style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
                 </button>
-                <button class="btn-shifts btn btn-info btn-lg mr-2" title="Shifts">
+                <button class="btn-shifts btn btn-info btn-lg mr-2" title="COVID-19 shifts">
                     <i class="fad fa-head-side-mask fa-fw"
                         style="--fa-secondary-color: #fcbf07; --fa-secondary-opacity: 1"></i>
                 </button>
@@ -479,6 +483,19 @@
                 } else {
                     main.addClass('isometric');
                     window.scrollTo(400, 400);
+                }
+            })
+
+            // Zoomed in view on/off
+            $('body').on('click', '.btn-zoomed', () => {
+                $('.btn-zoomed').toggleClass('active');
+                $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus')
+                var main = $('.main-content');
+                if (main.hasClass('zoomedin')) {
+                    main.removeClass('zoomedin');
+                } else {
+                    main.addClass('zoomedin');
+                    window.scrollTo(400, 350);
                 }
             })
 
