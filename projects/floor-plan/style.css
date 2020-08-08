@@ -57,6 +57,7 @@ body {
 
 .room {
     box-shadow: -2px 2px 0.6rem rgba(0 0 0 / .25);
+    background-color: var(--white);
 }
 
 .room:hover {
