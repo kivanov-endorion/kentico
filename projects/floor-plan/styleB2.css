@@ -14,7 +14,6 @@
     height: 100%;
     top: 0;
     left: 0;
-    box-shadow: -30px 30px #074246;
 }
 
 .isometric .title {
@@ -37,9 +36,10 @@
     border: 4px solid var(--primary);
     border-width: 0;
     position: relative;
-    background-color: var(--white);    
+    background-color: var(--white);
     transition: .6s all ease-in-out;
 }
+
 .title {
     grid-column: 30 / span 11;
     grid-row: 1 / span 1;
@@ -53,6 +53,7 @@
     border: 4px double var(--primary);
     border-width: 0 4px 4px 0;
 }
+
 .top-left {
     grid-column: 12 / span 21;
     grid-row: 1 / span 11;
@@ -60,54 +61,63 @@
     border-width: 4px 0 0 0;
     box-shadow: -8px -8px 0.6rem rgba(0 0 0 / .125);
 }
+
 .top-center {
     grid-column: 33 / span 10;
     grid-row: 1 / span 9;
     border: 4px double var(--primary);
     border-width: 0 4px 4px 4px;
 }
+
 .top-right {
     grid-column: 43 / span 21;
     grid-row: 1 / span 11;
     border: 4px double var(--primary);
     border-width: 4px 4px 0 0;
 }
+
 .top-right-out {
     grid-column: 64 / span 10;
     grid-row: 1 / span 11;
     border: 4px double var(--primary);
     border-width: 0 0 4px 0;
 }
+
 .main-floor {
     grid-column: 1 / span 73;
     grid-row: 12 / span 20;
     border: 4px dotted var(--primary);
     border-width: 0 4px 0 0;
 }
+
 .bottom-left-out {
     grid-column: 1 / span 11;
     grid-row: 32 / span 10;
     border: 4px double var(--primary);
     border-width: 4px 4px 0 0;
 }
+
 .bottom-left {
     grid-column: 12 / span 21;
     grid-row: 32 / span 10;
     border: 4px double var(--primary);
     border-width: 0 0 4px 0;
 }
+
 .bottom-center {
     grid-column: 33 / span 10;
     grid-row: 40 / span 2;
     border: 4px double var(--primary);
     border-width: 4px 4px 0 4px;
 }
+
 .bottom-right {
     grid-column: 43 / span 21;
     grid-row: 32 / span 10;
     border: 4px double var(--primary);
     border-width: 0 0 4px 0;
 }
+
 .bottom-right-out {
     grid-column: 64 / span 10;
     grid-row: 32 / span 10;
@@ -121,6 +131,7 @@
     bottom: -34px;
     left: 70%;
 }
+
 .pirin {
     grid-column: 1 / span 5;
     grid-row: 12 / span 4;
@@ -157,6 +168,7 @@
     border-width: 4px 4px 4px 0;
     border-style: solid solid double solid;
 }
+
 .room2 .door-hor {
     bottom: -34px;
     left: 60%;
@@ -170,11 +182,13 @@
     border-width: 0 4px 4px 4px;
     border-style: solid double solid solid;
 }
+
 .booth1 .door-ver {
     bottom: 10%;
     right: -34px;
     transform: rotateX(180deg);
 }
+
 .booth2 {
     grid-column: 1 / span 3;
     grid-row: 19 / span 3;
@@ -182,6 +196,7 @@
     border-width: 0 4px 0 4px;
     border-style: solid double solid solid;
 }
+
 .booth2 .door-ver {
     bottom: 10%;
     right: -34px;
@@ -194,6 +209,7 @@
     border: 4px solid var(--primary);
     border-width: 4px 0 0 4px;
 }
+
 .room3 .door-hor {
     top: -4px;
     right: 10px;
@@ -207,16 +223,19 @@
     border-width: 4px 4px 0 4px;
     border-style: double solid solid solid;
 }
+
 .room4 .door-hor {
     top: -4px;
     left: 10px;
 }
+
 .cantina {
     grid-column: 1 / span 11;
     grid-row: 26 / span 6;
     border: 4px solid var(--primary);
     border-width: 4px 4px 0 4px;
 }
+
 .cantina .door-ver {
     top: 10%;
     right: -4px;
@@ -256,6 +275,7 @@
     left: -2px;
     bottom: 152px;
 }
+
 .cantina .island {
     position: absolute;
     bottom: -2px;
@@ -264,9 +284,11 @@
     width: 200px;
     height: 20px;
 }
+
 .cantina .island:before {
     left: 38px;
 }
+
 .cantina .island:after {
     left: 122px;
 }
@@ -274,6 +296,7 @@
 .cantina .island .chair {
     left: 80px;
 }
+
 .cantina .sofa {
     position: absolute;
     bottom: 145px;
@@ -289,19 +312,446 @@
     width: 300px;
 }
 
+.scanning {
+    grid-column: 14 / span 6;
+    grid-row: 19 / span 5;
+    border: 4px solid var(--primary);
+    border-width: 4px 4px 4px 4px;
+    border-style: double solid solid solid;
+}
+
+.scanning .door-hor {
+    top: -4px;
+    left: 10px;
+}
+
+.room5 {
+    grid-column: 14 / span 6;
+    grid-row: 24 / span 8;
+    border: 4px solid var(--primary);
+    border-width: 0 4px 4px 4px;
+    border-style: solid solid double solid;
+}
+
+.room5 .door-hor {
+    bottom: -34px;
+    left: 10px;
+}
+
+.office1 {
+    grid-column: 33 / span 3;
+    grid-row: 10 / span 5;
+    border: 4px solid var(--primary);
+    border-width: 0 0 0 4px;
+    border-style: solid solid double solid;
+    height: 170px;
+}
+
+.office1 .door-hor {
+    bottom: -4px;
+    right: 3px;
+    transform: rotate(180deg);
+}
+
+.office2 {
+    grid-column: 36 / span 3;
+    grid-row: 10 / span 4;
+    border: 4px solid var(--primary);
+    border-width: 0 0 4px 4px;
+    border-style: solid solid double solid;
+    height: 170px;
+}
+
+.office2 .door-hor {
+    bottom: -4px;
+    left: 3px;
+    transform: rotateX(180deg);
+}
+
+.room6 {
+    grid-column: 39 / span 4;
+    grid-row: 12 / span 4;
+    border: 4px solid var(--primary);
+    border-width: 0 4px 4px 4px;
+    border-style: solid solid solid double;
+}
+
+.room6 .door-ver {
+    bottom: 4px;
+    left: -4px;
+    transform: rotateX(180deg);
+}
+
+
+.booth6 {
+    grid-column: 33 / span 2;
+    grid-row: 14 / span 3;
+    border: 4px solid var(--primary);
+    border-width: 4px;
+    border-style: solid double solid solid;
+    height: 140px;
+    transform: translateY(-31px);
+}
+
+.booth6 .door-ver {
+    bottom: 10%;
+    right: -34px;
+    transform: rotateX(180deg);
+}
+
+.booth7 {
+    grid-column: 39 / span 4;
+    grid-row: 10 / span 2;
+    border: 4px solid var(--primary);
+    border-width: 0 4px 4px 4px;
+    border-style: solid double solid solid;
+}
+
+.booth7 .door-ver {
+    top: 10px;
+    right: -34px;
+}
+
+.switchboard {
+    grid-column: 20 / span 7;
+    grid-row: 19 / span 3;
+    border: 4px solid var(--primary);
+    border-width: 4px 4px 4px 0;
+}
+
+.switchboard .door-hor {
+    top: -4px;
+    left: 30px;
+}
+
+.mens {
+    grid-column: 20 / span 7;
+    grid-row: 22 / span 5;
+    border: 4px solid var(--primary);
+    border-width: 0 4px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.vanities {
+    right: -2px;
+}
+
+.stall {
+    width: 82px;
+}
+
+.womens {
+    grid-column: 20 / span 7;
+    grid-row: 28 / span 4;
+    border: 4px solid var(--primary);
+    border-width: 4px 4px 4px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.mens .door-ver,
+.womens .door-ver {
+    top: 70px;
+    right: -34px;
+}
+
+.womens .stall {
+    bottom: auto;
+    top: -140px;
+    left: auto;
+    right: -2px;
+    transform: rotate(180deg);
+}
+
+.womens .vanities {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 30px;
+}
+
+.womens .vanities .vanity {
+    border-width: 2px 0 2px 2px;
+}
+
+.mens .name,
+.womens .name {
+    text-align: right;
+}
+
+.mens .wall {
+    top: -4px;
+    bottom: auto;
+    left: -4px;
+    width: 82px;
+    height: 62px;
+    position: absolute;
+}
+
+.womens .wall {
+    top: auto;
+    bottom: -4px;
+    left: -4px;
+    width: 82px;
+    height: 62px;
+    position: absolute;
+}
+
+.booth3 {
+    grid-column: 30 / span 2;
+    grid-row: 19 / span 3;
+    border: 4px solid var(--primary);
+    border-width: 4px 0 0 4px;
+    border-style: double solid solid solid;
+}
+
+.booth4 {
+    grid-column: 32 / span 2;
+    grid-row: 19 / span 3;
+    border: 4px solid var(--primary);
+    border-width: 4px 0 0 4px;
+    border-style: double solid solid solid;
+}
+
+.booth5 {
+    grid-column: 34 / span 2;
+    grid-row: 19 / span 3;
+    border: 4px solid var(--primary);
+    border-width: 4px 0 0 4px;
+    border-style: double solid solid solid;
+}
+
+.booth3 .door-hor,
+.booth4 .door-hor,
+.booth5 .door-hor {
+    top: -34px;
+    left: 10px;
+    transform: rotateX(180deg);
+}
+
+.foyer {
+    grid-column: 36 / span 9;
+    grid-row: 19 / span 13;
+    border: 4px solid var(--primary);
+    border-style: solid solid double solid;
+    border-width: 4px;
+}
+
+.foyer .name {
+    left: 75px;
+    top: 50%;
+}
+
+.foyer .double-door-1 {
+    position: absolute;
+    top: -4px;
+    left: 20px;
+    width: 90px;
+    height: 35px;
+}
+
+.foyer .double-door-1 .door2 {
+    right: 0;
+    transform: rotateY(180deg);
+}
+
+.foyer .double-door-2 {
+    position: absolute;
+    top: -4px;
+    right: 80px;
+    width: 90px;
+    height: 35px;
+}
+
+.foyer .double-door-2 .door1 {
+    left: 7px;
+    top: -5px;
+    transform: scale(.75);
+}
+
+.foyer .double-door-2 .door2 {
+    right: 0;
+    transform: rotateY(180deg);
+}
+
+.foyer .double-door-3 {
+    position: absolute;
+    bottom: -4px;
+    left: 27px;
+    width: 90px;
+    height: 35px;
+    transform: rotateX(180deg);
+}
+
+.foyer .double-door-3 .door2 {
+    right: 0;
+    transform: rotateY(180deg);
+}
+
+.stairs1 {
+    grid-column: 30 / span 6;
+    grid-row: 22 / span 10;
+    border: 4px solid var(--primary);
+    border-width: 4px 0 4px 4px;
+}
+
+.stairs2 {
+    grid-column: 39 / span 6;
+    grid-row: 22 / span 10;
+    border: 4px solid var(--primary);
+    border-width: 4px;
+}
+
+.server {
+    grid-column: 48 / span 7;
+    grid-row: 19 / span 3;
+    border: 4px solid var(--primary);
+    border-width: 4px;
+}
+
+.server .door-hor {
+    top: -34px;
+    right: 50px;
+    transform: rotateX(180deg);
+}
+
+.mens2 {
+    grid-column: 48 / span 7;
+    grid-row: 22 / span 5;
+    border: 4px solid var(--primary);
+    border-width: 0 4px 0 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.mens2 .door-ver {
+    top: 60px;
+    left: -4px;
+    transform: rotateX(180deg);
+}
+
+.mens2 .stall.stall1 {
+    margin-left: auto;
+}
+
+.mens2 .name {
+    left: 75%;
+}
+
+.mens2 .accessible-toilet {
+    border: 4px solid var(--primary);
+    border-width: 4px;
+    position: absolute;
+    bottom: -20px;
+    left: -4px;
+    width: 170px;
+    height: 150px;
+    background: var(--white);
+    z-index: 1;
+}
+
+.mens2 .accessible-toilet .stall {
+    bottom: 0;
+    top: auto;
+    position: absolute;
+    right: 4px;
+    left: auto;
+}
+
+.mens2 .accessible-toilet .vanity {
+    position: absolute;
+    bottom: 0px;
+    left: -4px;
+    top: auto;
+    transform: rotate(180deg);
+}
+
+.mens2 .accessible-toilet .name {
+    left: 50%;
+    top: 50px;
+}
+
+.mens2 .accessible-toilet .door-ver {
+    top: 10px;
+    left: -39px;
+    transform: rotateY(180deg) scale(1.25);
+}
+
+.womens2 {
+    grid-column: 48 / span 7;
+    grid-row: 28 / span 4;
+    border: 4px solid var(--primary);
+    border-width: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.womens2 .door-ver {
+    top: 60px;
+    left: -4px;
+}
+
+.mens.mens2 .wall,
+.womens.womens2 .wall {
+    right: -4px;
+    left: auto;
+}
+
+.mens.mens2 .vanities,
+.womens.womens2 .vanities {
+    right: auto;
+    left: -2px;
+}
+
+.womens.womens2 .stall {
+    bottom: auto;
+    top: -140px;
+    left: auto;
+    right: -2px;
+    transform: rotate(180deg);
+}
+
+.mens.mens2 .vanities .vanity,
+.womens.womens2 .vanities .vanity {
+    border-width: 2px 2px 2px 0;
+}
+
 /* Walls */
 
-.wall1 {    
-    grid-column: 22 / span 1;
+.wall1 {
+    grid-column: 21 / span 1;
     grid-row: 12 / span 1;
     border: 4px solid var(--primary);
     border-width: 4px;
 }
-.wall2 {    
+
+.wall2 {
     grid-column: 54 / span 1;
     grid-row: 12 / span 1;
     border: 4px solid var(--primary);
     border-width: 4px;
+}
+
+.wall3 {
+    grid-column: 20 / span 7;
+    grid-row: 27 / span 1;
+    border: 4px solid var(--primary);
+    border-width: 4px 4px 0 0;
+}
+
+.wall4 {
+    grid-column: 48 / span 7;
+    grid-row: 27 / span 1;
+    border: 4px solid var(--primary);
+    border-width: 4px 4px 0 4px;
 }
 
 /* Desks */
@@ -346,18 +796,21 @@
     height: 375px;
     top: 4px;
 }
+
 .desks7 {
     grid-column: 56 / span 2;
     grid-row: 1 / span 5;
     height: 375px;
     top: 4px;
 }
+
 .desks8 {
     grid-column: 61 / span 2;
     grid-row: 1 / span 5;
     height: 375px;
     top: 4px;
 }
+
 .desks9 {
     grid-column: 25 / span 2;
     grid-row: 10 / span 5;
