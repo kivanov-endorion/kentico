@@ -499,7 +499,6 @@
 
         // Zoomed in view on/off
         $('body').on('click', '.btn-zoomed', () => {
-            $('.btn-zoomed').toggleClass('active');
             $('.btn-zoomed').find('.fad').toggleClass('fa-search-minus, fa-search-plus');
             var main = $('.main-content');
             if (main.hasClass('isometric')) {
