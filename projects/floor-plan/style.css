@@ -24,6 +24,16 @@ body {
     text-align: start;
 
 }
+#top-menu {
+    top: 0; 
+    width: 100vw;
+    z-index: 999; 
+    box-shadow: 0px 4px 0.6rem rgba(0 0 0 / .125);
+}
+#top-menu .fad {
+    --fa-secondary-color: #fcbf07; 
+    --fa-secondary-opacity: 1;
+}
 
 .floor {
     overflow-x: auto;
@@ -488,7 +498,7 @@ body {
 /* ROOM EQUIPMENT */
 
 .name {
-    font: 600 14px/1 "Poppins", sans-serif;
+    font: 600 14px/1 sans-serif;
     text-transform: uppercase;
     color: var(--primary-75);
     position: absolute;
@@ -609,7 +619,7 @@ body {
     padding: 5px 10px;
     width: 70px;
     height: 15px;
-    font: 600 14px/1 "Poppins", sans-serif;
+    font: 600 14px/1 sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: flex;

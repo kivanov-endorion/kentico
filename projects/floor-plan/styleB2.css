@@ -222,9 +222,10 @@
 
 .cantina .sink {
     position: absolute;
-    left: -2px;
+    left: px;
     bottom: -1px;
     transform: rotate(180deg);
+    border-width: 0 0 2px 2px;
 }
 
 .cantina .sink .sink-tap-1,
