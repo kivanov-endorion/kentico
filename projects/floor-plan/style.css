@@ -108,6 +108,7 @@ body {
 .desk.found,
 .room.found {
     background-color: var(--red);
+    border-color: var(--red);
     color: #fff;
 }
 
@@ -509,7 +510,10 @@ body {
     transform: translate(-50%, -50%);
     transition: .2s color ease-in;
 }
-
+.wall .name {
+    outline: 1px solid var(--white);
+    background: var(--white);
+}
 .room:hover .name {
     color: var(--primary);
     text-shadow: 0 0 3px rgba(0 0 0 / .125);
@@ -636,6 +640,33 @@ body {
 .exit:hover i[class*=arrow] {
     transform: rotate(360deg);
     transition: .3s transform ease-in;
+}
+
+.staircase {    
+    position: absolute;
+    width: 140px;
+    height: 248px;
+    border: 2px solid var(--primary);
+}
+.staircase:before {
+    content: '';
+    bottom: 50px;
+    right: -2px;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border: 2px solid var(--primary-light);
+    background: repeating-linear-gradient(0deg, transparent, transparent 16px, var(--primary-light) 16px, var(--primary-light) 18px);
+}
+.staircase:after {
+    content: '';
+    bottom: 50px;
+    right: calc(50% - 3px);
+    position: absolute;
+    width: 6px;
+    height: 136px;
+    border: 4px double var(--primary);
+    border-radius: 6px;
 }
 
 
