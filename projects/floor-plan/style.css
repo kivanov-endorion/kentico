@@ -412,7 +412,7 @@ body {
     overflow: hidden;
     z-index: 10;
     background-color: var(--white);
-    clip-path: circle(116% at 7% -39%);
+    clip-path: circle(123% at 4% -46%); 
 }
 
 .door-hor:before {
@@ -468,7 +468,7 @@ body {
 }
 
 .room:hover .door-hor {
-    clip-path: circle(123% at 100% -41%);
+    clip-path: circle(123% at 4% -56%);    
     transition: .2s ease-in;
 }
 
@@ -478,7 +478,7 @@ body {
 }
 
 .room:hover .door-ver {
-    clip-path: circle(123% at -53% 67%);
+    clip-path: circle(123% at -56% 4%);
     transition: .2s ease-in;
 }
 

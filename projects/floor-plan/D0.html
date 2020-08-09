@@ -61,7 +61,9 @@
             <div class="title">GROUND FLOOR &ndash; Building D</div>
             <i class="fad fa-shoe-prints"></i>
             <div class="main-floor"></div>
-            <div class="door-hor door-hor1"></div>
+            <div class="door-hor door-hor1" title="Card access">
+                <i class="fa-fw fa-id-card-alt fa-lg fad"></i>
+            </div>
             <div class="door-hor door-hor2"></div>
             <div class="exit exit1" title="MAIN ENTRANCE / EXIT">EXIT&ensp;<i class="fas fa-running"></i>&ensp;<i
                     class="fas fa-arrow-left"></i></div>
@@ -72,24 +74,32 @@
                 <div class="coffee-chair shadow"></div>
                 <div class="coffee-chair shadow"></div>
             </div>
-            <i class="fad office-amenities fa-print fa-lg fa-fw" title="Printer" data-content="Canon DX C5735i"></i>
-            <i class="fad office-amenities fa-fire-extinguisher fa-lg fa-fw" title="Fire extinguishers"></i>
-            <i class="fad office-amenities fa-air-conditioner fa-lg fa-fw" title="Air conditioner"></i>
-            <i class="fad office-amenities fa-air-conditioner fa-lg fa-fw" title="Air conditioner"></i>
-            <i class="fad office-amenities fa-air-conditioner fa-lg fa-fw" title="Air conditioner"></i>
-            <i class="fad office-amenities fa-glass fa-lg fa-fw" title="Water cooler"></i>
-            <i class="fad office-amenities fa-glass fa-lg fa-fw" title="Water cooler"></i>
-            <i class="fad office-amenities fa-glass fa-lg fa-fw" title="Water cooler"></i>
-            <i class="fad office-amenities fa-shredder fa-lg fa-fw" title="Shredder"></i>
-            <i class="fad office-amenities fa-thermometer-half fa-lg fa-fw" title="Temperature check"></i>
-            <i class="fad office-amenities fa-pump-medical fa-lg fa-fw" title="Disinfection pump"></i>
-            <i class="fad office-amenities fa-pump-medical fa-lg fa-fw" title="Disinfection pump"></i>
-            <div class="foyer wall"></div>
+            <i class="fad office-amenities printer fa-print fa-lg fa-fw" title="Printer" data-content="Canon DX C5735i"></i>
+            <i class="fad office-amenities fire-extinguisher fa-fire-extinguisher fa-lg fa-fw" title="Fire extinguishers"></i>
+            <i class="fad office-amenities ac1 fa-air-conditioner fa-lg fa-fw" title="Air conditioner"></i>
+            <i class="fad office-amenities ac2 fa-air-conditioner fa-lg fa-fw" title="Air conditioner"></i>
+            <i class="fad office-amenities ac3 fa-air-conditioner fa-lg fa-fw" title="Air conditioner"></i>
+            <i class="fad office-amenities cooler1 fa-glass fa-lg fa-fw" title="Water cooler"></i>
+            <i class="fad office-amenities cooler2 fa-glass fa-lg fa-fw" title="Water cooler"></i>
+            <i class="fad office-amenities cooler3 fa-glass fa-lg fa-fw" title="Water cooler"></i>
+            <i class="fad office-amenities shredder fa-shredder fa-lg fa-fw" title="Shredder"></i>
+            <i class="fad office-amenities thermometer fa-thermometer-half fa-lg fa-fw" title="Temperature check"></i>
+            <i class="fad office-amenities pump1 fa-pump-medical fa-lg fa-fw" title="Disinfection pump"></i>
+            <i class="fad office-amenities pump2 fa-pump-medical fa-lg fa-fw" title="Disinfection pump"></i>
+            <i class="fad office-amenities pump3 fa-pump-medical fa-lg fa-fw" title="Disinfection pump"></i>
+            <i class="fad office-amenities tissues1 fa-box-tissue fa-lg fa-fw" title="Tissues"></i>
+            <i class="fad office-amenities tissues2 fa-box-tissue fa-lg fa-fw" title="Tissues"></i>
+            <div class="foyer wall">
+                <div class="name">FOYER</div>
+            </div>
+            <div class="wall wall4"></div>
+            <div class="restroom wall">
+                <div class="name d-inline-flex align-items-center text-right">WC /<br> Utility<i class="fad fa-restroom fa-2x fa-fw ml-3"></i></div>
+                <div class="door-ver"></div>
+                <div class="toilet"></div>
+            </div>
             <div class="elevators wall">
-                <div class="elevator">
-                    <div class="door-ver"></div>
-                    <div class="toilet"></div>
-                </div>
+                
                 <div class="elevator">
                     <p class="name">Elevator</p>
                 </div>
@@ -258,7 +268,6 @@
                 <div class="desk"><span>13</span></div>
                 <div class="desk"><span>14</span></div>
                 <div class="desk"><span>15</span></div>
-                <div class="desk empty hor bg-transparent"></div>
             </div>
             <div class="desks desks3">
                 <div class="desk"><span>1</span></div>
@@ -355,7 +364,7 @@
         </div>
         <div class="col-5 text-right">
             <button class="btn-potter btn btn-info btn-lg mr-2" title="Harry Potter mode">
-                <i class="fad fa-bolt fa-fw"></i>
+                <i class="fad fa-magic fa-fw"></i>
             </button>
             <button class="btn-isometric btn btn-info btn-lg mr-2" title="Isometric view">
                 <i class="fad fa-layer-group fa-fw"></i>
@@ -499,7 +508,7 @@
                 main.addClass('isometric');
                 zoomed.find('.fad').toggleClass('fa-search-minus, fa-search-plus');
                 info.addClass('disabled');
-                window.scrollTo(700, 900);
+                window.scrollTo(400, 400);
             }
         })
         $('body').on('click', '#user-dropdown.disabled', (e) => {
@@ -517,7 +526,7 @@
                 main.removeClass('zoomedin');
             } else {
                 main.addClass('zoomedin');
-                window.scrollTo(800, 500);
+                window.scrollTo(400, 300);
             }
         })
 
@@ -560,7 +569,15 @@
                 location.reload();
             } else {
                 $('.btn-potter, .fa-shoe-prints').addClass('active');
-                $('.office-amenities').removeClass('show');
+                $('.printer').removeClass('show');
+                $('.fa-glass').toggleClass(['fa-glass', 'fa-flask-potion']).css('--fa-secondary-color','var(--red)');
+                $('.fa-air-conditioner').toggleClass(['fa-air-conditioner', 'fa-wind']);
+                $('.fa-pump-medical').toggleClass(['fa-pump-medical', 'fa-mortar-pestle']);
+                $('.fa-broom').toggleClass(['fa-broom', 'fa-quidditch']).css('--fa-secondary-color','var(--yellow)').parent().css('opacity', '1');
+                $('.fa-fire-extinguisher').toggleClass(['fa-fire-extinguisher', 'fa-candle-holder']);
+                $('.fa-male, .fa-female, .fa-restroom').addClass('fa-street-view');
+                $('.fa-user-tie').toggleClass(['fa-user-tie', 'fa-hat-wizard']);
+                $('.fa-thermometer-half').toggleClass(['fa-thermometer-half', 'fa-thermometer-empty']);
                 setTimeout(() => {
                     $('.silistra').addClass('found')
                 }, 12000);
