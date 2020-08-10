@@ -88,7 +88,7 @@
             <i class="fad office-amenities pump3 fa-pump-medical fa-lg fa-fw" title="Disinfection pump"></i>
             <i class="fad office-amenities tissues1 fa-box-tissue fa-lg fa-fw" title="Tissues"></i>
             <i class="fad office-amenities tissues2 fa-box-tissue fa-lg fa-fw" title="Tissues"></i>
-            <div class="foyer wall">
+            <div class="foyer wall hallway">
                 <div class="name">FOYER</div>
             </div>
             <div class="wall wall4"></div>
@@ -101,9 +101,11 @@
                 
                 <div class="elevator">
                     <p class="name">Elevator</p>
+                    <div class="wall-gap"></div>
                 </div>
                 <div class="elevator">
                     <p class="name">Elevator</p>
+                    <div class="wall-gap"></div>
                 </div>
             </div>
             <div class="inbetween wall"></div>
@@ -223,10 +225,11 @@
             </div>
             <div class="eusd">
                 <div class="desks desks-left">
-                    <div class="desk"><span>8</span></div>
-                    <div class="desk"><span>9</span></div>
-                    <div class="desk"><span>10</span></div>
-                    <div class="desk"><span>11</span></div>
+                    <div class="desk"><span>1</span></div>
+                    <div class="desk"><span>2</span></div>
+                    <div class="desk"><span>3</span></div>
+                    <div class="desk"><span>4</span></div>
+                    <div class="desk"><span>5</span></div>
                 </div>
                 <div class="desks desks12">
                     <div class="desk"><span>1</span></div>
@@ -348,7 +351,6 @@
 
     <section role="navigation" id="top-menu" class="row p-3 affix position-fixed bg-light d-print-none">
         <div class="col-3">
-
             <a href="D0.html" class="btn btn-info mr-2 font-weight-bold">D0</a>
             <a href="B2.html" class="btn btn-info mr-2 font-weight-bold">B2</a>
             <a href="#" class="btn btn-info mr-2 font-weight-bold">C2</a>
@@ -574,7 +576,6 @@
                 $('.fa-pump-medical').toggleClass(['fa-pump-medical', 'fa-mortar-pestle']);
                 $('.fa-broom').toggleClass(['fa-broom', 'fa-quidditch']).css('--fa-secondary-color','var(--yellow)').parent().css('opacity', '1');
                 $('.fa-fire-extinguisher').toggleClass(['fa-fire-extinguisher', 'fa-candle-holder']);
-                $('.fa-male, .fa-female, .fa-restroom').addClass('fa-portal-enter');
                 $('.fa-user-tie').toggleClass(['fa-user-tie', 'fa-hat-wizard']);
                 $('.fa-thermometer-half').toggleClass(['fa-thermometer-half', 'fa-thermometer-empty']);
                 setTimeout(() => {

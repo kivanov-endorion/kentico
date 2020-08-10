@@ -97,7 +97,6 @@
     grid-column: 1 / span 7;
     grid-row: 9 / span 18;
     border-width: 4px 0 4px 0;
-    background: none;
 }
 
 .foyer .name {
@@ -122,6 +121,7 @@
     border-radius: 0 0 10px 0;
     font: 600 14px/1 sans-serif;
     text-transform: uppercase;
+    background: var(--white);
     color: var(--primary-75);
     text-align: center;
     padding: 20px 0px;
@@ -169,6 +169,11 @@
     border: 6px double var(--primary);
     border-width: 6px 6px 6px 0;
     top: 30px;
+}
+.elevators .elevator .wall-gap {
+    top: 50%;
+    left: -6px;
+    transform: translateY(-50%);
 }
 
 .elevators .elevator:nth-of-type(1n) {
