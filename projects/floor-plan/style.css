@@ -389,7 +389,7 @@ body {
 
 .wall {
     border: 4px solid var(--primary);
-    background: repeating-linear-gradient(45deg, transparent, transparent 6px, var(--primary-light) 6px, var(--primary-light) 8px);
+    background: repeating-linear-gradient(45deg, var(--white), var(--white) 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
 
 .window-hor {
@@ -1075,6 +1075,10 @@ body.blueprint .popover {
 
 .bg-paper {
     background: repeating-linear-gradient(90deg, #f0f0f0 0, #f0f0f0 5%, transparent 0, transparent 50%) 0 / 15px 15px, repeating-linear-gradient(180deg, #f0f0f0 0, #f0f0f0 5%, transparent 0, transparent 50%) 0 / 15px 15px;
+}
+
+.bg-white {
+    background-color: var(--white) !important;
 }
 
 

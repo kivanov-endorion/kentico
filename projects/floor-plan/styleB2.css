@@ -284,14 +284,6 @@
     transform: rotate(90deg);
 }
 
-.cantina .window-hor {
-    position: absolute;
-    bottom: -7px;
-    left: 80px;
-    top: auto;
-    width: 300px;
-}
-
 .scanning {
     grid-column: 14 / span 7;
     grid-row: 19 / span 5;
