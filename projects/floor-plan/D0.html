@@ -56,7 +56,7 @@
     </aside>
 
 
-    <div class="floor">
+    <div class="floor ETCGfloor">
         <div class="main-content">
             <div class="title">GROUND FLOOR &ndash; Building D</div>
             <i class="fad fa-shoe-prints"></i>
@@ -404,10 +404,10 @@
                     </li>
                     <li class="px-3 py-2">
                         <a href="/" class="btn btn-info btn-sm btn-block initialism">Home</a>
-                        <a href="/" class="btn btn-info btn-sm btn-block initialism">Floor plans</a>
+                        <a href="/" class="btn btn-info btn-sm btn-block initialism active">Floor plans</a>
                         <a href="/" class="btn btn-info btn-sm btn-block initialism">Reports</a>
-                        <a href="/" class="btn btn-info btn-sm btn-block initialism">Evacuation
-                            procedures</a>
+                        <a href="/" class="btn btn-info btn-sm btn-block initialism">Tickets</a>
+                        <a href="/" class="btn btn-info btn-sm btn-block initialism">Evacuation procedures</a>
                         <a href="/" class="btn btn-info btn-sm btn-block initialism">Parking policy</a>
                     </li>
                     <li class="px-3 py-2">
@@ -508,7 +508,7 @@
                 main.addClass('isometric');
                 zoomed.find('.fad').toggleClass('fa-search-minus, fa-search-plus');
                 info.addClass('disabled');
-                window.scrollTo(400, 400);
+                window.scrollTo(main.width() / 4, main.height() / 4);
             }
         })
         $('body').on('click', '#user-dropdown.disabled', (e) => {
@@ -526,7 +526,7 @@
                 main.removeClass('zoomedin');
             } else {
                 main.addClass('zoomedin');
-                window.scrollTo(400, 300);
+                window.scrollTo(main.width() / 4, main.height() / 4);
             }
         })
 
@@ -575,7 +575,7 @@
                 $('.fa-pump-medical').toggleClass(['fa-pump-medical', 'fa-mortar-pestle']);
                 $('.fa-broom').toggleClass(['fa-broom', 'fa-quidditch']).css('--fa-secondary-color','var(--yellow)').parent().css('opacity', '1');
                 $('.fa-fire-extinguisher').toggleClass(['fa-fire-extinguisher', 'fa-candle-holder']);
-                $('.fa-male, .fa-female, .fa-restroom').addClass('fa-street-view');
+                $('.fa-male, .fa-female, .fa-restroom').addClass('fa-scarecrow');
                 $('.fa-user-tie').toggleClass(['fa-user-tie', 'fa-hat-wizard']);
                 $('.fa-thermometer-half').toggleClass(['fa-thermometer-half', 'fa-thermometer-empty']);
                 setTimeout(() => {

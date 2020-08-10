@@ -108,10 +108,8 @@ body {
 .desk.found,
 .room.found {
     background-color: var(--red);
-    border-color: var(--red);
     color: #fff;
 }
-
 
 .desk:hover:after,
 .desk:hover:before {
@@ -228,7 +226,7 @@ body {
 .desks.desks-bottom .desk:nth-of-type(n),
 .desks.desks-top .desk:nth-of-type(n) {
     width: 75px;
-    height: 40px;
+    height: 42px;
     border: 1px solid var(--primary);
 }
 
@@ -488,15 +486,11 @@ body {
     transition: .2s ease-in;
 }
 
-.room:hover .door-hor:after {
-    background: linear-gradient(var(--light) 0%, var(--light) 35%, transparent);
-}
-
-.room:hover .door-ver:after {
-    background: linear-gradient(90deg, var(--light) 0%, var(--light) 35%, transparent);
-}
-
 /* ROOM EQUIPMENT */
+
+.hallway {
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, rgb(9 107 114 / 15%) 6px, rgb(9 107 114 / 15%) 8px);
+}
 
 .name {
     font: 600 14px/1 sans-serif;
