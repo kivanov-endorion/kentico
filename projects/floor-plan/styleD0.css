@@ -99,15 +99,18 @@
     border-width: 4px 0 4px 0;
     background: none;
 }
+
 .foyer .name {
     bottom: 150px;
     top: auto;
 }
+
 .wall4 {
     grid-column: 1 / span 4;
     grid-row: 9 / span 9;
-    border-width: 0 4px 4px 0;    
+    border-width: 0 4px 4px 0;
 }
+
 .wall4:before {
     content: 'RECEPTION';
     position: absolute;
@@ -123,23 +126,26 @@
     text-align: center;
     padding: 20px 0px;
 }
+
 .wall4:after {
     content: '';
     position: absolute;
     width: 80%;
-    height: 6px;    
+    height: 6px;
     background: linear-gradient(transparent, #e2f0f1);
     z-index: 10;
     left: -2px;
     bottom: -102px;
     border: 2px solid var(--primary);
 }
+
 .restroom {
     grid-column: 8 / span 3;
     grid-row: 9 / span 3;
     bottom: 0px;
     height: 146px;
 }
+
 .restroom .toilet {
     left: 40%;
 }
@@ -149,6 +155,7 @@
     left: -34px;
     top: 20px;
 }
+
 .elevators {
     grid-column: 8 / span 3;
     grid-row: 12 / span 6;
@@ -614,8 +621,10 @@
     offset-path: path('M245,400s-21-71,53-70,137,20,137,20l128,23s66,9,101,1,72-22,112-44,88-61,102-75,0-59,0-59');
     offset-distance: 0%;
     offset-rotate: 0deg;
-    animation: walk 12s linear 1 forwards;
-    animation-play-state: paused;
+    -webkit-animation: walk 12s linear 1 forwards;
+            animation: walk 12s linear 1 forwards;
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
     position: absolute;
     left: 0;
     top: 0;
@@ -624,24 +633,78 @@
 
 .fa-shoe-prints.active {
     visibility: visible;
-    animation-play-state: running;
+    -webkit-animation-play-state: running;
+            animation-play-state: running;
 }
 
 .fa-shoe-prints:before {
-    animation: step 1000ms linear 500ms infinite both;
-    animation-direction: alternate;
-    animation-play-state: paused;
+    -webkit-animation: step 1000ms linear 500ms infinite both;
+            animation: step 1000ms linear 500ms infinite both;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
 }
 
 .fa-shoe-prints:after {
-    animation: step 1000ms linear 1000ms infinite both;
-    animation-direction: alternate;
-    animation-play-state: paused;
+    -webkit-animation: step 1000ms linear 1000ms infinite both;
+            animation: step 1000ms linear 1000ms infinite both;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
 }
 
 .fa-shoe-prints.active:before,
 .fa-shoe-prints.active:after {
-    animation-play-state: running;
+    -webkit-animation-play-state: running;
+            animation-play-state: running;
+}
+
+@-webkit-keyframes walk {
+    0% {
+        offset-distance: 0%;
+        transform: rotate(-90deg);
+        opacity: 1;
+    }
+
+    10% {
+        offset-distance: 10%;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        offset-distance: 50%;
+        transform: rotate(15deg);
+    }
+
+    75% {
+        offset-distance: 75%;
+        transform: rotate(-35deg);
+    }
+
+    80% {
+        offset-distance: 80%;
+        transform: rotate(-45deg);
+    }
+
+    97% {
+        offset-distance: 97%;
+        transform: rotate(-75deg);
+        opacity: 1;
+    }
+
+    98% {
+        offset-distance: 98%;
+        transform: rotate(-75deg);
+        opacity: 0;
+    }
+
+    100% {
+        offset-distance: 100%;
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
 }
 
 @keyframes walk {
@@ -687,6 +750,18 @@
         offset-distance: 100%;
         transform: rotate(-90deg);
         opacity: 0;
+    }
+}
+
+@-webkit-keyframes step {
+    0% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: translateX(-12px);
     }
 }
 

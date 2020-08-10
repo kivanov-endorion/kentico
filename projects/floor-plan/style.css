@@ -24,25 +24,30 @@ body {
     text-align: start;
 
 }
+
 #top-menu {
-    top: 0; 
+    top: 0;
     width: 100vw;
-    z-index: 999; 
+    z-index: 999;
     box-shadow: 0px 4px 0.6rem rgba(0 0 0 / .125);
 }
+
 #top-menu .fad {
-    --fa-secondary-color: #fcbf07; 
+    --fa-secondary-color: #fcbf07;
     --fa-secondary-opacity: 1;
 }
 
 .floor {
     overflow-x: auto;
     overflow-y: hidden;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     cursor: pointer;
     margin: 0 5rem 0 0;
     padding-top: 5rem;
-    perspective: 1600px;
+    /* perspective: 1600px; */
     perspective: 3600px;
 
 }
@@ -71,8 +76,17 @@ body {
     background-color: var(--white);
 }
 
-.room:hover {
+.room:hover,
+.office {
     background-color: var(--light);
+}
+
+.office .name {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    text-transform: none;
 }
 
 .room.found .name,
@@ -412,7 +426,8 @@ body {
     overflow: hidden;
     z-index: 10;
     background-color: var(--white);
-    clip-path: circle(123% at 4% -46%); 
+    -webkit-clip-path: circle(123% at 4% -46%);
+            clip-path: circle(123% at 4% -46%);
 }
 
 .door-hor:before {
@@ -443,7 +458,8 @@ body {
     overflow: hidden;
     z-index: 10;
     background-color: var(--white);
-    clip-path: circle(123% at -43% -3%);
+    -webkit-clip-path: circle(123% at -43% -3%);
+            clip-path: circle(123% at -43% -3%);
 }
 
 .door-ver:before {
@@ -468,7 +484,8 @@ body {
 }
 
 .room:hover .door-hor {
-    clip-path: circle(123% at 4% -56%);    
+    -webkit-clip-path: circle(123% at 4% -56%);
+            clip-path: circle(123% at 4% -56%);
     transition: .2s ease-in;
 }
 
@@ -478,7 +495,8 @@ body {
 }
 
 .room:hover .door-ver {
-    clip-path: circle(123% at -56% 4%);
+    -webkit-clip-path: circle(123% at -56% 4%);
+            clip-path: circle(123% at -56% 4%);
     transition: .2s ease-in;
 }
 
@@ -505,10 +523,12 @@ body {
     transform: translate(-50%, -50%);
     transition: .2s color ease-in;
 }
+
 .wall .name {
     outline: 1px solid var(--white);
     background: var(--white);
 }
+
 .room:hover .name {
     color: var(--primary);
     text-shadow: 0 0 3px rgba(0 0 0 / .125);
@@ -637,10 +657,11 @@ body {
     transition: .3s transform ease-in;
 }
 
-.staircase {    
+.staircase {
     position: absolute;
     width: 146px;
 }
+
 .staircase:before {
     content: '';
     bottom: 50px;
@@ -651,6 +672,7 @@ body {
     border: 2px solid var(--primary-light);
     background: repeating-linear-gradient(0deg, transparent, transparent 16px, var(--primary-light) 16px, var(--primary-light) 18px);
 }
+
 .staircase:after {
     content: '';
     bottom: 50px;
@@ -872,14 +894,20 @@ body {
 .office-amenities {
     visibility: none;
     opacity: 0;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     pointer-events: none;
 }
 
 .office-amenities.show {
     visibility: visible;
     opacity: 1;
-    user-select: inherit;
+    -webkit-user-select: inherit;
+       -moz-user-select: inherit;
+        -ms-user-select: inherit;
+            user-select: inherit;
     pointer-events: all;
     transition: .1s all ease-in-out;
 }
@@ -932,13 +960,15 @@ body {
     transform: scale(.55) translateY(-50%) rotateX(30deg) rotateZ(-45deg);
 }
 
-.isometric .desks {
+body:not(.blueprint) .isometric .desks,
+body:not(.blueprint) .isometric .desks .desk:before,
+body:not(.blueprint) .isometric .desks .desk:after {
     box-shadow: -6px 8px 0.6rem rgba(0 0 0 / .5) !important;
 }
-.isometric .staircase:before {
+
+body:not(.blueprint) .isometric .staircase:before {
     box-shadow: inset 3px 4px 0.6rem rgba(0 0 0 / .5) !important;
 }
-
 
 .zoomedin {
     transform: scale(.55);
@@ -1049,7 +1079,10 @@ body.blueprint .popover {
 
 
 @media only print {
-    @page {size: landscape}
+    @page {
+        size: landscape
+    }
+
     body {
         overflow-x: visible;
         overflow-y: visible;
@@ -1058,6 +1091,7 @@ body.blueprint .popover {
         border: 1px solid #fff;
         transform: scale(0.4);
     }
+
     .floor {
         overflow-x: visible;
         overflow-y: visible;
@@ -1066,5 +1100,5 @@ body.blueprint .popover {
         border: 1px solid #fff;
         perspective: 0px;
         transform: translate(-1100px, -1600px);
-    }    
+    }
 }

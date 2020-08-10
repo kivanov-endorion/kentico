@@ -542,6 +542,7 @@
     top: -40px;
     left: 20px;
 }
+
 .foyer .double-door-1 {
     position: absolute;
     top: -4px;
@@ -579,16 +580,19 @@
     bottom: -40px;
     left: 52px;
 }
+
 .foyer .exit3 {
     position: absolute;
     bottom: -40px;
     left: -300px;
 }
+
 .foyer .exit4 {
     position: absolute;
     top: -40px;
     left: 330px;
 }
+
 .foyer .double-door-3 {
     position: absolute;
     bottom: -4px;
@@ -619,21 +623,25 @@
     right: 10px;
     transform: rotate(90deg);
 }
+
 .stairs1 .staircase {
     top: 290px;
     left: -2px;
 }
+
 .stairs1 .door-hor {
     position: absolute;
     bottom: -4px;
     left: 20px;
     transform: rotateX(180deg);
 }
+
 .stairs1 .wall-gap {
     left: 144px;
     bottom: 150px;
     background: repeating-linear-gradient(45deg, white, white 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
+
 .stairs1 .double-door {
     position: absolute;
     bottom: 35%;
@@ -676,20 +684,25 @@
 .stairs2 .elevator2 {
     top: 170px;
 }
+
 .stairs2 .elevator3 {
     top: 310px;
 }
+
 .stairs2 .door-hor {
     position: absolute;
     top: -4px;
     right: 10px;
     transform: rotateY(180deg);
 }
+
 .stairs2 .staircase {
     bottom: 70px;
     right: -2px;
 }
-.stairs1:before, .stairs2:before {
+
+.stairs1:before,
+.stairs2:before {
     content: '';
     width: 4px;
     height: 100%;
@@ -705,31 +718,37 @@
     border: 4px solid var(--primary);
     border-width: 4px 0;
 }
+
 .hallway1 .door1 {
     top: -4px;
     right: 20px;
     transform: rotateY(180deg);
 }
+
 .hallway1 .door2 {
     bottom: -4px;
     right: 20px;
     transform: rotate(180deg);
 }
+
 .hallway2 {
     grid-column: 46 / span 3;
     grid-row: 22 / span 10;
     border: 4px solid var(--primary);
     border-width: 4px 0;
 }
+
 .hallway2 .door1 {
     bottom: -4px;
     left: 20px;
     transform: rotateX(180deg)
 }
+
 .hallway2 .door2 {
     top: -4px;
     left: 20px;
 }
+
 .hallway1 .name,
 .hallway2 .name {
     transform: rotate(-90deg) translate(10px, -30px);
@@ -860,6 +879,7 @@
     border: 4px solid var(--primary);
     border-width: 4px;
 }
+
 .pillar2 {
     grid-column: 43 / span 1;
     grid-row: 12 / span 1;
@@ -867,7 +887,10 @@
     border-width: 4px;
     left: -22px;
     top: -4px;
+    background: repeating-linear-gradient(45deg, var(--white), var(--white) 6px, var(--primary-light) 6px, var(--primary-light) 8px);
+
 }
+
 .pillar3 {
     grid-column: 54 / span 1;
     grid-row: 12 / span 1;
@@ -875,6 +898,7 @@
     border-width: 4px;
     left: -22px;
 }
+
 .pillar4 {
     grid-column: 63 / span 1;
     grid-row: 22 / span 1;
@@ -905,7 +929,7 @@
     border-width: 4px 4px 0 0;
 }
 
-.wall1 {
+.wall2 {
     grid-column: 49 / span 6;
     grid-row: 27 / span 1;
     border: 4px solid var(--primary);
@@ -1012,6 +1036,7 @@
     height: 230px;
     top: -16px;
 }
+
 .desks15 {
     grid-column: 66 / span 2;
     grid-row: 13 / span 3;
@@ -1028,14 +1053,17 @@
     grid-column: 66 / span 2;
     grid-row: 19 / span 6;
 }
+
 .desks18 {
     grid-column: 71 / span 2;
     grid-row: 19 / span 6;
 }
+
 .desks19 {
     grid-column: 66 / span 2;
     grid-row: 27 / span 4;
 }
+
 .desks20 {
     grid-column: 71 / span 2;
     grid-row: 27 / span 4;
@@ -1046,36 +1074,43 @@
     grid-row: 19 / span 4;
     width: 231px;
 }
+
 .desks22 {
     grid-column: 58 / span 4;
     grid-row: 20 / span 4;
     width: 231px;
 }
+
 .desks23 {
     grid-column: 58 / span 4;
     grid-row: 23 / span 4;
     width: 231px;
 }
+
 .desks24 {
     grid-column: 58 / span 4;
     grid-row: 24 / span 4;
     width: 231px;
 }
+
 .desks25 {
     grid-column: 58 / span 4;
     grid-row: 27 / span 4;
     width: 231px;
 }
+
 .desks26 {
     grid-column: 58 / span 4;
     grid-row: 28 / span 4;
     width: 231px;
 }
+
 .desks27 {
     grid-column: 58 / span 4;
     grid-row: 31 / span 4;
     width: 231px;
 }
+
 .desks28 {
     grid-column: 58 / span 4;
     grid-row: 32 / span 4;
@@ -1102,6 +1137,7 @@
     height: 375px;
     bottom: -10px;
 }
+
 .desks32 {
     grid-column: 30 / span 2;
     grid-row: 34 / span 5;
@@ -1114,6 +1150,7 @@
     grid-row: 34 / span 6;
     bottom: 7px;
 }
+
 .desks34 {
     grid-column: 40 / span 2;
     grid-row: 34 / span 6;
@@ -1140,6 +1177,7 @@
     height: 375px;
     bottom: -10px;
 }
+
 .desks38 {
     grid-column: 61 / span 2;
     grid-row: 34 / span 5;
@@ -1161,19 +1199,21 @@
     grid-row: 19 / span 1;
     transform: translate(-28px, 10px);
 }
+
 .ETCBfloor2 .card-access2 {
     grid-column: 45 / span 1;
     grid-row: 19 / span 1;
     transform: translate(-28px, 10px);
 }
+
 .ETCBfloor2 .card-access3 {
     grid-column: 37 / span 1;
     grid-row: 31 / span 1;
     transform: translate(-35px, 10px);
 }
+
 .ETCBfloor2 .card-access4 {
     grid-column: 32 / span 1;
     grid-row: 31 / span 1;
     transform: translate(-10px, 10px);
 }
-
