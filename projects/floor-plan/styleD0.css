@@ -33,16 +33,6 @@
     grid-column: 6 / span 1;
     grid-row: 9 / span 1;
 }
-.door-hor1 .fa-id-card-alt {
-    top: 4px;
-    left: 4px;
-    color: var(--primary-75);
-    transform: translateY(-50px);
-    transition: .2s transform;
-}
-.door-hor1:hover .fa-id-card-alt {
-    transform: translateY(0px);
-}
 
 .main-content>.door-hor2 {
     bottom: -44px;
@@ -518,6 +508,12 @@
 }
 
 /* Office amenities */
+
+.floor .card-access {
+    grid-column: 5 / span 1;
+    grid-row: 9 / span 1;
+    transform: translate(6px, 10px);
+}
 
 .floor .fire-extinguisher {
     grid-column: 9 / span 1;

@@ -136,8 +136,9 @@
 }
 
 .pleven .door-hor {
-    bottom: -34px;
+    bottom: -4px;
     left: 10%;
+    transform: rotateX(180deg);
 }
 
 .haskovo {
@@ -149,9 +150,9 @@
 }
 
 .haskovo .door-hor {
-    bottom: -34px;
+    bottom: -4px;
     left: 60%;
-    transform: rotateY(180deg);
+    transform: rotate(180deg);
 }
 
 .pamporovo {
@@ -377,7 +378,7 @@
 }
 
 .smolyan .door-ver {
-    bottom: 10%;
+    bottom: 4px;
     right: -34px;
     transform: rotateX(180deg);
 }
@@ -518,8 +519,8 @@
 .pomorie .door-hor,
 .obzor .door-hor {
     top: -34px;
-    left: 10px;
-    transform: rotateX(180deg);
+    right: 10px;
+    transform: rotate(180deg);
 }
 
 .foyer {
@@ -578,6 +579,16 @@
     bottom: -40px;
     left: 52px;
 }
+.foyer .exit3 {
+    position: absolute;
+    bottom: -40px;
+    left: -300px;
+}
+.foyer .exit4 {
+    position: absolute;
+    top: -40px;
+    left: 330px;
+}
 .foyer .double-door-3 {
     position: absolute;
     bottom: -4px;
@@ -604,19 +615,24 @@
     width: 120px;
     height: 100px;
     border: 6px double var(--primary);
-    border-width: 6px 0 6px 6px;
-    top: 30px;
-    right: -1px;
+    top: 40px;
+    right: 10px;
+    transform: rotate(90deg);
 }
 .stairs1 .staircase {
-    top: 30px;
+    top: 290px;
     left: -2px;
 }
 .stairs1 .door-hor {
     position: absolute;
     bottom: -4px;
-    left: 10px;
+    left: 20px;
     transform: rotateX(180deg);
+}
+.stairs1 .wall-gap {
+    left: 144px;
+    bottom: 150px;
+    background: repeating-linear-gradient(45deg, white, white 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
 .stairs1 .double-door {
     position: absolute;
@@ -673,7 +689,15 @@
     bottom: 70px;
     right: -2px;
 }
-
+.stairs1:before, .stairs2:before {
+    content: '';
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 144px;
+    background: var(--primary);
+}
 
 .hallway1 {
     grid-column: 27 / span 3;
@@ -721,7 +745,7 @@
 .server .door-hor {
     top: -34px;
     right: 50px;
-    transform: rotateX(180deg);
+    transform: rotate(180deg);
 }
 
 .mens2 {
@@ -830,28 +854,58 @@
 
 /* Walls */
 
-.wall1 {
+.pillar1 {
     grid-column: 21 / span 1;
     grid-row: 12 / span 1;
     border: 4px solid var(--primary);
     border-width: 4px;
 }
-
-.wall2 {
+.pillar2 {
+    grid-column: 43 / span 1;
+    grid-row: 12 / span 1;
+    border: 4px solid var(--primary);
+    border-width: 4px;
+    left: -22px;
+    top: -4px;
+}
+.pillar3 {
     grid-column: 54 / span 1;
     grid-row: 12 / span 1;
     border: 4px solid var(--primary);
     border-width: 4px;
+    left: -22px;
+}
+.pillar4 {
+    grid-column: 63 / span 1;
+    grid-row: 22 / span 1;
+    border: 4px solid var(--primary);
+    border-width: 4px;
 }
 
-.wall3 {
+.pillar5 {
+    grid-column: 22 / span 1;
+    grid-row: 39 / span 1;
+    border: 4px solid var(--primary);
+    border-width: 4px;
+    left: 20px;
+}
+
+.pillar6 {
+    grid-column: 53 / span 1;
+    grid-row: 39 / span 1;
+    border: 4px solid var(--primary);
+    border-width: 4px;
+    left: 20px;
+}
+
+.wall1 {
     grid-column: 21 / span 6;
     grid-row: 27 / span 1;
     border: 4px solid var(--primary);
     border-width: 4px 4px 0 0;
 }
 
-.wall4 {
+.wall1 {
     grid-column: 49 / span 6;
     grid-row: 27 / span 1;
     border: 4px solid var(--primary);
@@ -1101,3 +1155,25 @@
     grid-row: 22 / span 1;
     left: 6px;
 }
+
+.ETCBfloor2 .card-access1 {
+    grid-column: 39 / span 1;
+    grid-row: 19 / span 1;
+    transform: translate(-28px, 10px);
+}
+.ETCBfloor2 .card-access2 {
+    grid-column: 45 / span 1;
+    grid-row: 19 / span 1;
+    transform: translate(-28px, 10px);
+}
+.ETCBfloor2 .card-access3 {
+    grid-column: 37 / span 1;
+    grid-row: 31 / span 1;
+    transform: translate(-35px, 10px);
+}
+.ETCBfloor2 .card-access4 {
+    grid-column: 32 / span 1;
+    grid-row: 31 / span 1;
+    transform: translate(-10px, 10px);
+}
+

@@ -42,7 +42,8 @@ body {
     cursor: pointer;
     margin: 0 5rem 0 0;
     padding-top: 5rem;
-    perspective: 1300px;
+    perspective: 1600px;
+    perspective: 3600px;
 
 }
 
@@ -638,16 +639,14 @@ body {
 
 .staircase {    
     position: absolute;
-    width: 140px;
-    height: 248px;
-    border: 2px solid var(--primary);
+    width: 146px;
 }
 .staircase:before {
     content: '';
     bottom: 50px;
     right: -2px;
     position: absolute;
-    width: 140px;
+    width: 146px;
     height: 140px;
     border: 2px solid var(--primary-light);
     background: repeating-linear-gradient(0deg, transparent, transparent 16px, var(--primary-light) 16px, var(--primary-light) 18px);
@@ -891,6 +890,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--white);
     outline: 2px dashed var(--primary-light);
     width: 30px;
     height: 30px;
@@ -919,15 +919,26 @@ body {
 }
 
 .shadow {
-    box-shadow: -2px 2px 0.6rem rgba(0 0 0 / .25);
+    box-shadow: -2px 2px 0.6rem rgba(0 0 0 / .25) !important;
 }
 
 
 /* Isometric and zoomed-in mode */
 
 .isometric {
-    transform: scale(.55) translate(280px, 0px) rotate(-45deg) skew(15deg, 15deg);
+    /* transform: scale(.55) translate(280px, 0px) rotate(-45deg) skew(15deg, 15deg); */
+    /* transform-style: preserve-3d; */
+    transform-origin: 50% 50%;
+    transform: scale(.55) translateY(-50%) rotateX(30deg) rotateZ(-45deg);
 }
+
+.isometric .desks {
+    box-shadow: -6px 8px 0.6rem rgba(0 0 0 / .5) !important;
+}
+.isometric .staircase:before {
+    box-shadow: inset 3px 4px 0.6rem rgba(0 0 0 / .5) !important;
+}
+
 
 .zoomedin {
     transform: scale(.55);
