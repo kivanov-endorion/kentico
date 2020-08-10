@@ -1,0 +1,184 @@
+﻿<div id="editRoomsFields" class="modal fade hide" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="editRoomsTitle"></span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div id="editBody" class="modal-body">
+        <div class="container-fluid bd-example-row">
+          <div class="row">
+            <div class="col-md-8">
+              <button id="findCurrentSelectedRoom" class="btn btn-primary ladda-button mb-2">
+                <span class="ladda-label"></span>
+                Find Room
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-4 bg-secondary text-white col-form-label">Building Location: </label>
+                <div class="col-sm-8">
+                  <input id="DTE_Field_BuildingLocationField" type="text" readonly="readonly" class="form-control-plaintext text-primary">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 bg-secondary text-white col-form-label">Equipment: </label>
+                <div class="col-sm-8">
+                  <label class="checkbox">
+                    <% if (isAdmin) { %>
+                    <input type="checkbox" id="hasTv" name="checkbox" /> TV
+                    <% } else { %>
+                    <input type="checkbox" id="hasTv" name="checkbox" disabled="true" /> TV
+                    <% } %>
+                  </label><br />
+                  <label class="checkbox">
+                    <% if (isAdmin) { %>
+                    <input type="checkbox" id="hasVideoConn" name="checkbox" /> Video connection
+                    <% } else { %>
+                    <input type="checkbox" id="hasVideoConn" name="checkbox" disabled="true" /> Video connection
+                    <% } %>
+                  </label><br />
+                  <label class="checkbox">
+                    <% if (isAdmin) { %>
+                    <input type="checkbox" id="hasPhone" name="checkbox" /> Phone
+                    <% } else { %>
+                    <input type="checkbox" id="hasPhone" name="checkbox" disabled="true" /> Phone
+                    <% } %>
+                  </label><br />
+                  <label class="checkbox">
+                    <% if (isAdmin) { %>
+                    <input type="checkbox" id="hasWBO" name="checkbox" /> White Board
+                    <% } else { %>
+                    <input type="checkbox" id="hasWBO" name="checkbox" disabled="true" /> White Board
+                    <% } %>
+                  </label><br />
+                  <label class="checkbox">
+                    <% if (isAdmin) { %>
+                    <input type="checkbox" id="hasProjector" name="checkbox" /> Projector
+                    <% } else { %>
+                    <input type="checkbox" id="hasProjector" name="checkbox" disabled="true" /> Projector
+                    <% } %>
+                  </label><br />
+                  <label class="checkbox">
+                    <% if (isAdmin) { %>
+                    <input type="checkbox" id="hasSpeaker" name="checkbox" /> Speaker
+                    <% } else { %>
+                    <input type="checkbox" id="hasSpeaker" name="checkbox" disabled="true" /> Speaker
+                    <% } %>
+                  </label><br />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-4 bg-secondary text-white col-form-label">Room Name: </label>
+                <div class="col-sm-8">
+                  <% if (isAdmin) { %>
+                  <input id="DTE_Field_RoomNameField" type="text" class="form-control" />
+                  <% } else { %>
+                  <input id="DTE_Field_RoomNameField" type="text" class="form-control" readonly="true" />
+                  <% } %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 bg-secondary text-white col-form-label">Seats: </label>
+                <div class="col-sm-8">
+                  <% if (isAdmin) { %>
+                  <input id="DTE_Field_RoomSeatsField" type="text" class="form-control" />
+                  <% } else { %>
+                  <input id="DTE_Field_RoomSeatsField" type="text" class="form-control" readonly="true" />
+                  <% } %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 bg-secondary text-white col-form-label">Room Ports: </label>
+                <div class="col-sm-8">
+                  <% if (isAdmin) { %>
+                  <input id="DTE_Field_RoomPortsField" type="text" class="form-control" />
+                  <% } else { %>
+                  <input id="DTE_Field_RoomPortsField" type="text" class="form-control" readonly="true" />
+                  <% } %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 bg-secondary text-white col-form-label">Room Description: </label>
+                <div class="col-sm-8">
+                  <% if (isAdmin) { %>
+                  <textarea id="DTE_Field_RoomDescriptionField" class="form-control"></textarea>
+                  <% } else { %>
+                  <textarea id="DTE_Field_RoomDescriptionField" class="form-control" readonly="true"></textarea>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="control-group DTE_Field_Type_hidden DTE_RoomFieldIdParam" style="display: none;">
+                <label data-dte-e="label" class="control-label" for="DTE_RoomFieldIdParam">
+                  Building Field Id Param:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+                </label>
+                <div data-dte-e="input" class="controls">
+                  <input id="DTE_RoomFieldIdParam" type="text" class="form-control" />
+                  <input id="DTE_Field_RoomTitleField" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 bg-secondary text-white col-form-label">ID: </label>
+                <div class="col-sm-8">
+                  <input id="DTE_Field_RoomID" type="text" readonly="readonly" class="form-control">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 bg-secondary text-white col-form-label">Room URL: </label>
+                <div class="col-sm-8">
+                  <% if (isAdmin) { %>
+                  <input id="DTE_RoomUrl" type="text" class="form-control" />
+                  <% } else { %>
+                  <input id="DTE_RoomUrl" type="text" class="form-control" readonly="true" />
+                  <% } %>
+                  <img id="imageUrl" alt="image not found" src="" style="padding: 20px;" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <table id="RoomChangeLog" class="table table-bordered table-hover table-sm"></table>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="row col-md-12">
+
+          <div class="col-md-3">
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <button id="cancelRoomsEdit" class="btn btn-light btn-block" tabindex="0">Cancel</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <% if (isAdmin) { %>
+                <button id="submitRoomsEdit" class="btn btn-primary btn-block" data-style="expand-left" tabindex="0">
+                  <span class="ladda-label"></span>
+                </button>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

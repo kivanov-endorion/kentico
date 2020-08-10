@@ -1,0 +1,114 @@
+﻿<div id="editPlaceFields">
+
+    <div class="DTE_PlaceEdit">
+        <div data-dte-e="head" class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <div class="modal-title">
+                <span class="editPlaceTitle"></span>
+            </div>
+        </div>
+        <div data-dte-e="processing" class="DTE_Processing_Indicator"></div>
+        <div id="editPlaceBody" data-dte-e="body" class="modal-body">
+            <div data-dte-e="body_content" class="DTE_Body_Content">
+                <div data-dte-e="form_info" class="DTE_Form_Info"></div>
+                <form data-dte-e="form" class="form-horizontal form-bordered form-striped" style="display: block;">
+                    <div data-dte-e="form_content" class="DTE_Form_Content">
+                        <div class="control-group DTE_Field_Type_readonly DTE_Field_Name_ID">
+                            <label data-dte-e="label" class="control-label" for="DTE_Field_ID">ID:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+                            </label>
+                            <div data-dte-e="input" class="controls">
+                                <input id="DTE_Field_ID" type="text" readonly="readonly" class="form-control"><div data-dte-e="msg-error" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-message" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-info" class="help-block"></div>
+                            </div>
+                        </div>
+                        <div class="control-group DTE_Field_Type_text DTE_Field_Name_Building" style="display: none;">
+                            <label data-dte-e="label" class="control-label" for="DTE_Field_Building">Building:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+                            </label>
+                            <div data-dte-e="input" class="controls">
+                                <input id="DTE_Field_Building" type="text" class="form-control" readonly="readonly"></input><div data-dte-e="msg-error" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-message" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-info" class="help-block"></div>
+                            </div>
+                        </div>
+                      <div class="control-group DTE_Field_Type_text DTE_Field_Name_Building" style="display: none;">
+                        <label data-dte-e="label" class="control-label" for="DTE_Field_Building">
+                          Building:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+                        </label>
+                        <div data-dte-e="input" class="controls">
+                          <input id="DTE_Field_Building_Name" type="text" class="form-control" readonly="readonly"></input>
+                          <div data-dte-e="msg-error" class="help-block" style="display: none;"></div>
+                          <div data-dte-e="msg-message" class="help-block" style="display: none;"></div>
+                          <div data-dte-e="msg-info" class="help-block"></div>
+                        </div>
+                      </div>
+                        <div class="control-group DTE_Field_Type_text DTE_Field_Name_Floor">
+                            <label data-dte-e="label" class="control-label" for="DTE_Field_Floor">Floor:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+                            </label>
+                            <div data-dte-e="input" class="controls">
+                                <input id="DTE_Field_Floor" type="text" class="form-control" readonly="readonly"><div data-dte-e="msg-error" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-message" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-info" class="help-block"></div>
+                            </div>
+                        </div>
+                        <div class="control-group DTE_Field_Type_text DTE_Field_Name_RoomName">
+                            <label data-dte-e="label" class="control-label" for="DTE_Field_RoomName">Room name:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+                            </label>
+                            <div data-dte-e="input" class="controls">
+                                <input id="DTE_Field_RoomName" type="text" class="form-control" readonly="readonly"><div data-dte-e="msg-error" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-message" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-info" class="help-block"></div>
+                            </div>
+                        </div>
+                        <div class="control-group DTE_Field_Type_text DTE_Field_Name_RoomPosition">
+                            <label data-dte-e="label" class="control-label" for="DTE_Field_RoomPosition">Room position:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+                            </label>
+                            <div data-dte-e="input" class="controls">
+                                <input id="DTE_Field_RoomPosition" type="text" class="form-control" readonly="readonly"><div data-dte-e="msg-error" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-message" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-info" class="help-block"></div>
+                            </div>
+                        </div>
+                        <div class="control-group DTE_Field_Type_text DTE_Field_Name_Name">
+                            <label data-dte-e="label" class="control-label" for="DTE_Field_Name">Name:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+                            </label>
+                            <div data-dte-e="input" class="controls">
+                                <input id="DTE_Field_Name" type="text" class="form-control"><div data-dte-e="msg-error" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-message" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-info" class="help-block"></div>
+                            </div>
+                        </div>
+                        <div class="control-group DTE_Field_Type_text DTE_Field_Name_Tower">
+                            <label data-dte-e="label" class="control-label" for="DTE_Field_Tower">Tower:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+                            </label>
+                            <div data-dte-e="input" class="controls">
+                                <input id="DTE_Field_Tower" type="text" class="form-control"><div data-dte-e="msg-error" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-message" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-info" class="help-block"></div>
+                            </div>
+                        </div>
+                        <div class="control-group DTE_Field_Type_text DTE_Field_Name_Team">
+                            <label data-dte-e="label" class="control-label" for="DTE_Field_Team">Team:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+                            </label>
+                            <div data-dte-e="input" class="controls">
+                                <input id="DTE_Field_Team" type="text" class="form-control"><div data-dte-e="msg-error" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-message" class="help-block" style="display: none;"></div>
+                                <div data-dte-e="msg-info" class="help-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div data-dte-e="foot" class="modal-footer">
+            <div class="DTE_Footer_Content"></div>
+            <div data-dte-e="form_error" class="DTE_Form_Error"></div>
+            <div data-dte-e="form_buttons" class="">
+                <button class="btn btn-primary" id="cancelPlaceEdit" tabindex="0">Cancel</button>
+                <button class="btn btn-primary" id="submitPlaceEdit" tabindex="0"></button>
+            </div>
+        </div>
+    </div>
+
+</div>

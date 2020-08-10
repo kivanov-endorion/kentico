@@ -1,0 +1,182 @@
+﻿<style type="text/css">
+  .card-header {
+    color: #fff;
+    background-color: #2f75bb;
+  }
+
+  .btn {
+    max-height: 100%!important;
+  }
+
+  .btn:hover {
+    background-color: #fafafa;
+  }
+  .card .btn img {
+    transform: scale(1.0);
+    transition: transform 2s;
+  }
+</style>
+
+<% if (username) { %>
+  <style>
+    .card .btn img {
+      max-height: 30vh;
+    }
+    .card .btn:hover img {
+      transform: scale(1.25);
+    }
+  </style>
+<% } else { %>
+  <style>
+    .card .btn img {
+      max-height: 70vh;
+    }
+    .card .btn:hover img {
+      transform: scale(1.10);
+    }
+  </style>
+<% } %>
+
+<div class="container">
+  <div class="row">
+    <% if (username) { %>
+    <div class="col-md-3">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h3>
+            <i class="icon-tasks"></i> Location
+          </h3>
+        </div>
+        <a href="/location" class="btn">
+          <div class="card-body">
+            <div class="statistic-big">
+              <div class="top">
+                <p style="text-align: center; margin-bottom: 20px;">
+                  <img class="img-fluid" src="stylesheets/img/home/Location_Tracker_v2_white_back-01.png" />
+                </p>
+                <!-- <p>Over here you can take a look over the different buildings. You can find the people located in them.</p>
+              <a href="/location" class="btn-block btn btn-large">Goto</a> -->
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h3>
+            <i class="icon-download-alt"></i> Parking Ticket
+          </h3>
+        </div>
+        <a id="createParkingTicket" href="#popupModal" role="button" class="btn" data-toggle="modal">
+          <div class="card-body">
+            <div class="statistic-big">
+              <div class="top">
+                <p style="text-align: center; margin-bottom: 20px;">
+                  <img class="img-fluid" src="stylesheets/img/home/Parking_Ticket_v2_white_back-01.png" />
+                </p>
+                <!-- <p>Here you can request a parking ticket.</p> -->
+                <!-- <a href="#" class="btn-block btn btn-large">Goto</a> -->
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h3>
+            <i class="icon-download-alt"></i> Facility Ticket
+          </h3>
+        </div>
+        <a id="createFloorTicket" href="#popupModal" role="button" class="btn" data-toggle="modal">
+          <div class="card-body">
+            <div class="statistic-big">
+              <div class="top">
+                <p style="text-align: center; margin-bottom: 20px;">
+                  <img class="img-fluid" src="stylesheets/img/home/Facility_Management_v2_white_back-01.png" />
+                </p>
+                <!-- <p>Here you can request a facility ticket.</p> -->
+                <!-- <a href="#" class="btn-block btn btn-large">Goto</a> -->
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h3>
+            <i class="icon-download-alt"></i> Reports
+          </h3>
+        </div>
+        <a href="/reports" class="btn">
+          <div class="card-body">
+            <div class="statistic-big">
+              <div class="top">
+                <p style="text-align: center; margin-bottom: 20px;">
+                  <img class="img-fluid" src="stylesheets/img/home/Reports_v2_white_back-01.png" />
+                </p>
+                <!-- <p>Here you can take a look over the statistics over the different buildings. You can download an excel document.</p>
+              <a href="/reports" class="btn-block btn btn-large">Goto</a> -->
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <% } else { %>
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h3>
+            <i class="icon-tasks"></i> Location
+          </h3>
+        </div>
+        <a href="/location" class="btn">
+          <div class="card-body">
+            <div class="statistic-big">
+              <div class="top">
+                <p style="text-align: center; margin-bottom: 20px;">
+                  <img class="img-fluid" src="stylesheets/img/home/Location_Tracker_v2_white_back-01.png" />
+                </p>
+                <!-- <p>Over here you can take a look over the different buildings. You can find the people located in them.</p>
+              <a href="/location" class="btn-block btn btn-large">Goto</a> -->
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h3>
+            <i class="icon-download-alt"></i> Reports
+          </h3>
+        </div>
+        <a href="/reports" class="btn" >
+          <div class="card-body">
+            <div class="statistic-big">
+              <div class="top">
+                <p style="text-align: center; margin-bottom: 20px;">
+                  <img class="img-fluid" src="stylesheets/img/home/Reports_v2_white_back-01.png" />
+                </p>
+                <!-- <p>Here you can take a look over the statistics over the different buildings. You can download an excel document.</p>
+              <a href="/reports" class="btn-block btn btn-large">Goto</a> -->
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
+
+<% if (username) { %>
+<%- include ../shared/ticket.ejs %>
+<% } %>

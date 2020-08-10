@@ -1,0 +1,180 @@
+﻿<style>
+  .modal-lg {
+      max-width: 82% !important;
+  }
+</style>
+
+<div id="editLocationsFields" class="modal fade hide" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><span class="editLocationTitle"></span></h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid bd-example-row">
+          <div class="row">
+            <div class="col-md-8">
+              <button id="openPersonLocation" class="btn btn-primary ladda-button" data-style="expand-left" style="display: none;"
+                tabindex="0">
+                <span class="ladda-label"></span>
+                Find Person
+              </button>
+            </div>
+            <div class="col-md-2 ml-auto">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Supervisor:</label>
+                <input id="DTE_Field_Supervisor_Name" type="text" readonly="readonly" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-2 ml-auto">
+              <div class="form-group">
+                <label for="exampleInputEmail1">ID:</label>
+                <input id="DTE_Field_ID_Location" type="text" readonly="readonly" class="form-control">
+              </div>
+            </div>
+            <div class="control-group DTE_Field_Type_text DTE_Field_Id_Parameter" style="display: none;">
+              <label data-dte-e="label" class="control-label" for="DTE_Field_Id_Parameter">
+                Fild Id Parameter:<div data-dte-e="msg-label" class="DTE_Label_Info"></div>
+              </label>
+              <div data-dte-e="input" class="controls">
+                <input id="DTE_Field_Id_Parameter" type="text" readonly="readonly" class="form-control">
+                <input id="DTE_Field_Building_Location" type="text" readonly="readonly" class="form-control">
+              </div>
+            </div>
+          </div>
+
+
+          <div id="editBody">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group row">
+                  <label class="col-sm-4 bg-secondary text-white col-form-label">Building: </label>
+                  <div class="col-sm-8">
+                    <!-- id="DTE_Field_Building_Location" -->
+                    <input id="DTE_Field_Building_Location_Name" type="text" readonly="readonly" class="form-control-plaintext text-primary">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-4 bg-secondary text-white col-form-label">Name: </label>
+                  <div class="col-sm-8">
+                    <% if (userType == "superadmin" || userType == "admin") { %>
+                    <select id="DTE_Field_Name_Location" class="selectpicker" data-live-search="true" data-size="9">
+                    </select>
+                    <% } else { %>
+                      <select id="DTE_Field_Name_Location" disabled="disabled" class="selectpicker" data-live-search="true" data-size="9">
+                        </select>
+                    <% } %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-4 bg-secondary text-white col-form-label">Job Title: </label>
+                  <div class="col-sm-8">
+                    <input id="DTE_JobTitleField" type="text" readonly="readonly" class="form-control-plaintext text-primary">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group row">
+                  <label class="col-sm-4 bg-secondary text-white col-form-label">Room: </label>
+                  <div class="col-sm-8">
+                    <input id="DTE_Field_RoomNumber_Location" type="text" readonly="readonly" class="form-control-plaintext text-primary">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-4 bg-secondary text-white col-form-label">Tower: </label>
+                  <div class="col-sm-8">
+                    <% if (userType == "superadmin" || userType == "admin") { %>
+                    <select id="DTE_Field_Tower_Location" class="selectpicker" data-live-search="true" data-size="9">
+                    </select>
+                    <% } else { %>
+                      <select id="DTE_Field_Tower_Location" class="selectpicker" disabled="disabled" data-live-search="true" data-size="9">
+                        </select>
+                    <% } %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-4 bg-secondary text-white col-form-label">Shift: </label>
+                  <div class="col-sm-8">
+                    <% if (userType == "superadmin") { %>
+                    <select id="DTE_Field_Shift_Color_Location" class="selectpicker" data-live-search="true" data-size="9">
+                      <option value="yellow" class="btn btn-warning rounded-0 w-100">Yellow</option>
+                      <option value="red" class="btn btn-danger rounded-0 w-100">Red</option>
+                      <option value="green" class="btn btn-success rounded-0 w-100">Green</option>
+                    </select>
+                    <% } else { %>
+                      <div id="DTE_Field_Shift_Color_Location">
+                      </div>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group row">
+                  <label class="col-sm-4 bg-secondary text-white col-form-label">Seat: </label>
+                  <div class="col-sm-8">
+                    <input id="DTE_Field_RoomPosition_Location" type="text" readonly="readonly" class="form-control-plaintext text-primary">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-4 bg-secondary text-white col-form-label">Team: </label>
+                  <div class="col-sm-8">
+                    <% if (userType == "superadmin" || userType == "admin") { %>
+                    <select id="DTE_Field_Team_LocationSelect" class="selectpicker" data-live-search="true" data-size="9">
+                    </select>
+                    <% } else { %>
+                      <select id="DTE_Field_Team_LocationSelect" disabled="disabled" class="selectpicker" data-live-search="true" data-size="9">
+                      </select>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <table id="LocationChangeLog" class="table table-bordered table-hover table-sm"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row col-md-12">
+
+          <div class="col-md-3">
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <% if (isAdmin) { %>
+                <a id="removeLocation" class="btn btn-danger btn-block" data-style="expand-right" tabindex="0" style="display: none;">
+                  <span class="ladda-label">Remove Person</span>
+                </a>
+                <% } %>
+              </div>
+              <div class="col-sm-12">
+                <a id="cancelLocationEdit" class="btn btn-light btn-block" data-style="expand-left" tabindex="0">Cancel</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+
+          </div>
+          <div class="col-md-3">
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <% if (isAdmin) { %>
+                <a href="#" id="submitLocationEdit" class="btn btn-primary btn-block" tabindex="0">
+                  <span class="ladda-label"></span>
+                </a>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

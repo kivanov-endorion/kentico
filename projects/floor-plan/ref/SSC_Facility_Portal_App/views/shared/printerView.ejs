@@ -1,0 +1,101 @@
+<div id="editPrinterFields" class="modal fade hide" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="editPrinterTitle"></span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div id="editBody" class="modal-body">
+                <div class="container-fluid bd-example-row">
+                    <input id="DTE_Field_PrinterPlaceId" type="hidden" readonly="readonly" class="form-control-plaintext text-primary">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-sm-4 bg-secondary text-white col-form-label">Printer Id: </label>
+                                <div class="col-sm-8">
+                                    <input id="DTE_Field_PrinterId" type="text" readonly="readonly" class="form-control-plaintext text-primary">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 bg-secondary text-white col-form-label">Printer Name: </label>
+                                <div class="col-sm-8">
+                                    <% if (isAdmin) { %>
+                                        <input id="DTE_Field_PrinterName" type="text" class="form-control" />
+                                        <% } else { %>
+                                            <input id="DTE_Field_PrinterName" type="text" class="form-control" readonly="true" />
+                                            <% } %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <% if (isAdmin) { %>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 bg-secondary text-white col-form-label">Printer URL: </label>
+                                    <div class="col-sm-8">
+                                        <input id="DTE_Field_PrinterLinkUrl" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 bg-secondary text-white col-form-label">Printer Link: </label>
+                                        <div class="col-sm-8">
+                                            <div >
+                                                <a target="_blank" id="DTE_Field_PrinterLink" href="#"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-sm-4 bg-secondary text-white col-form-label">Printer Image URL: </label>
+                                <div class="col-sm-8">
+                                    <% if (isAdmin) { %>
+                                        <input id="DTE_Field_PrinterImageUrl" type="text" class="form-control" />
+                                    <% } %>
+                                        <img class="p-3 w-100" id="DTE_Field_PrinterImage" alt="" src="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <table id="PrinterChangeLog" class="table table-bordered table-hover table-sm"></table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="row col-md-12">
+
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <button class="btn btn-light btn-block"  data-dismiss="modal" aria-label="Close" tabindex="0">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <% if (isAdmin) { %>
+                                    <button id="submitPrintersEdit" class="btn btn-primary btn-block" data-dismiss="modal" data-style="expand-left" tabindex="0">
+                                        <span class="ladda-label"></span>
+                                        Save
+                                    </button>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

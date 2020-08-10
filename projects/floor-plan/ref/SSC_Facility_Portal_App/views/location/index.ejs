@@ -1,0 +1,29 @@
+﻿<div class="pageLoading" style="display: none; opacity: 0;">
+    <div class="row-fluid">
+        <div class="span12 border rounded mb-3">
+            <%- include locationHeader.ejs %>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12 border rounded mb-3">
+            <%- include locationDetail.ejs %>
+        </div>
+    </div>
+</div>
+
+<%- include ../shared/roomView.ejs %>
+<%- include ../shared/printerView.ejs %>
+<%- include ../shared/locationView.ejs %>
+<%- include ../shared/errorMessage.ejs %>
+
+
+<!-- modal-backdrop -->
+<div class="windowHide"></div> 
+<div class="windowLoadingHide">
+    <span>Loading...</span>
+</div>
+
+<script type="text/javascript">
+    var isAdmin = '<%= isAdmin %>';
+</script>

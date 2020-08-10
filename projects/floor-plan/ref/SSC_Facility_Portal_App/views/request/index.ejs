@@ -1,0 +1,80 @@
+﻿<!-- <div class="row"> -->
+<!-- <div class="span12"> -->
+<div class="my-3 p-3 bg-white rounded box-shadow">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h3>Reports Information</h3>
+        <!-- <div class="box-title" style="margin-top: 0!important;"> -->
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <a href="#" id="requestButton" class="btn btn-primary"><i class="fa fa-share-square" aria-hidden="true"></i> Request</a>
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Actions
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                    <a class="dropdown-item" href="#" id="selectAll"><i class="icon-ok"></i> Select All</a>
+                    <a class="dropdown-item" href="#" id="deselectAll"><i class="icon-remove"></i> Deselect All</a>
+                </div>
+            </div>
+
+            <a href="#" class="btn btn-outline-primary" id="refresh"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+        </div>
+        <!-- </div> -->
+    </div>
+
+    <div class="my-4 chartjs-render-monitor">
+
+        <form action="#" method="POST" class="form-horizontal form-column form-bordered form-condensed">
+            <div class="row">
+                <div class="span12">
+                    <div class="custom-control custom-checkbox">
+                        <input id="request-ETCGF" type="checkbox" class="custom-control-input">
+                        <label class="custom-control-label" for="request-ETCGF">ETC Ground Floor</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input id="request-ETCC" type="checkbox" class="custom-control-input">
+                        <label class="custom-control-label" for="request-ETCC">ETC Building C</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input id="request-ETCD" type="checkbox" class="custom-control-input">
+                        <label class="custom-control-label" for="request-ETCD">ETC Building D</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input id="request-MHQ1" type="checkbox" class="custom-control-input">
+                        <label class="custom-control-label" for="request-MHQ1">MHQ Floor 1</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input id="request-MHQ2" type="checkbox" class="custom-control-input">
+                        <label class="custom-control-label" for="request-MHQ2">MHQ Floor 2</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input id="request-MHQ6" type="checkbox" class="custom-control-input">
+                        <label class="custom-control-label" for="request-MHQ6">MHQ Floor 6</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<!-- </div> -->
+<!-- </div> -->
+<br />
+
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box box-bordered box-condensed hidden-information">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom" style="margin-top: 0!important;">
+                <h3>Requested Information</h3>
+
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <a href="#" id="excelDownload" class="btn btn-outline-primary"><i class="icon-share"></i>Download as Excel</a>
+                </div>
+            </div>
+
+            <div class="box-content">
+                <%- include requestedInformation.ejs %>
+            </div>
+        </div>
+    </div>
+</div>
