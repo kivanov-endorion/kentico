@@ -22,7 +22,10 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: start;
-
+}
+main, header, footer, section, aside, figure, figcaption, nav {
+    margin: 0;
+    padding: 0;
 }
 
 #top-menu {
@@ -63,7 +66,7 @@ body {
     cursor: -webkit-grabbing;
 }
 
-.main-content>div {
+.main-content>* {
     position: relative;
 }
 
@@ -935,7 +938,7 @@ body {
 }
 
 .title {
-    top: -83px;
+    top: -66px;
     left: -880px;
     width: 100vw;
     font-size: 4.7em;
@@ -1036,6 +1039,13 @@ body.blueprint .name i {
 
 body.blueprint .popover {
     color: #212529 !important;
+}
+
+
+@media (min-width: 1200px) AND (max-width: 1448px) {
+    .btn-potter, .btn-isometric, .btn-blueprint {
+        display: none !important;
+    }
 }
 
 

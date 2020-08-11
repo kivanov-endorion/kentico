@@ -22,7 +22,7 @@
 .title {
     grid-column: 30 / span 11;
     grid-row: 1 / span 1;
-    top: -80px;
+    top: -66px;
 }
 
 /* Sections */
@@ -626,12 +626,6 @@
     bottom: -4px;
     left: 20px;
     transform: rotateX(180deg);
-}
-
-.stairs1 .wall-gap {
-    left: 144px;
-    bottom: 150px;
-    background: repeating-linear-gradient(45deg, white, white 6px, var(--primary-light) 6px, var(--primary-light) 8px);
 }
 
 .stairs1 .double-door {

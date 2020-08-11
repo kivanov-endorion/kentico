@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <aside style="top: 70px" id="capacity" class="collapse w-100 position-relative d-print-none">
+    <aside style="top: 70px; z-index: 1;" id="capacity" class="bg-light collapse d-print-none position-fixed py-4 shadow-lg show w-100">
         <div class="row">
             <div class="col-lg-6">
                 <h6 class="mx-4 mt-4 mb-1 small initialism">Total places:</h6>
@@ -56,9 +56,9 @@
     </aside>
 
 
-    <div class="floor ETCGfloor">
-        <div class="main-content">
-            <div class="title">GROUND FLOOR &ndash; Building D</div>
+    <section class="floor ETCGfloor">
+        <main class="main-content">
+            <h1 class="title">GROUND FLOOR &ndash; Building D</h1>
             <i class="fad fa-shoe-prints"></i>
             <div class="main-floor"></div>
             <div class="door-hor door-hor1"></div>
@@ -346,24 +346,24 @@
                 <div class="desk"><span>8</span></div>
                 <div class="desk"><span>9</span></div>
             </div>
-        </div>
-    </div>
+        </main>
+    </section>
 
-    <section role="navigation" id="top-menu" class="row p-3 affix position-fixed bg-light d-print-none">
-        <div class="col-3">
-            <a href="D0.html" class="btn btn-info mr-2 font-weight-bold">D0</a>
+    <nav id="top-menu" class="row p-3 affix position-fixed bg-light d-print-none">
+        <div class="col-lg-5 col-xl-3 order-0 my-2 text-center text-lg-left">
+            <a href="D0.html" class="btn btn-info mr-2 font-weight-bold active">D0</a>
             <a href="B2.html" class="btn btn-info mr-2 font-weight-bold">B2</a>
             <a href="#" class="btn btn-info mr-2 font-weight-bold">C2</a>
             <a href="#" class="btn btn-info mr-2 font-weight-bold">D2</a>
             <a href="#" class="btn btn-info mr-2 font-weight-bold">D3</a>
         </div>
-        <div class="col-4 d-inline-flex align-items-center text-center">
+        <div class="col-12 col-xl-4 d-inline-flex align-items-center text-center order-3 order-xl-2 my-2">
             <input class="form-control mr-2" id="findFulltextInput" list="fulltextSearch" type="text"
                 name="fulltextSearch" placeholder="Search for a person, place or room&hellip;">
             <button class="btn btn-info mr-2">Open</button>
             <button class="btn btn-outline-info mr-2">Find</button>
         </div>
-        <div class="col-5 text-right">
+        <div class="col col-xl-5 text-right order-2 order-xl-3 my-2 text-center text-lg-right">
             <button class="btn-potter btn btn-info btn-lg mr-2" title="Harry Potter mode">
                 <i class="fad fa-magic fa-fw"></i>
             </button>
@@ -432,7 +432,7 @@
                 </ul>
             </aside>
         </div>
-    </section>
+    </nav>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -509,6 +509,7 @@
                 main.addClass('isometric');
                 zoomed.find('.fad').toggleClass('fa-search-minus, fa-search-plus');
                 info.addClass('disabled');
+                $('#capacity').removeClass('show');
                 window.scrollTo(main.width() / 4, main.height() / 4);
             }
         })

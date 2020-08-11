@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <aside style="top: 70px" id="capacity" class="collapse w-100 position-relative d-print-none">
+    <aside style="top: 70px; z-index: 1;" id="capacity" class="bg-light collapse d-print-none position-fixed py-4 shadow-lg show w-100">
         <div class="row">
             <div class="col-lg-6">
                 <h6 class="mx-4 mt-4 mb-1 small initialism">Total places:</h6>
@@ -56,9 +56,9 @@
     </aside>
 
 
-    <div class="floor ETCBfloor2">
-        <div class="main-content">
-            <div class="title">SECOND FLOOR &ndash; Building B</div>
+    <section class="floor ETCBfloor2">
+        <main class="main-content">
+            <h1 class="title">SECOND FLOOR &ndash; Building B</h1>
             <div class="top-left-out"></div>
             <div class="top-left"></div>
             <div class="top-center"></div>
@@ -327,7 +327,6 @@
             <div class="stairs stairs1 wall shadow">
                 <div class="elevator">
                     <p class="name">Elevator</p>
-                    <div class="wall-gap"></div>
                 </div>
                 <div class="staircase"></div>
                 <div class="door-hor"></div>
@@ -362,15 +361,12 @@
                 <div class="door-hor"></div>
                 <div class="elevator elevator1">
                     <p class="name">Elevator</p>
-                    <div class="wall-gap"></div>
                 </div>
                 <div class="elevator elevator2">
                     <p class="name">Elevator</p>
-                    <div class="wall-gap"></div>
                 </div>
                 <div class="elevator elevator3">
                     <p class="name">Elevator</p>
-                    <div class="wall-gap"></div>
                 </div>
                 <div class="staircase"></div>
             </div>
@@ -800,25 +796,25 @@
             <i class="fad office-amenities card-access2 fa-id-badge fa-lg fa-fw" title="Card access"></i>
             <i class="fad office-amenities card-access3 fa-id-badge fa-lg fa-fw" title="Card access"></i>
             <i class="fad office-amenities card-access4 fa-id-badge fa-lg fa-fw" title="Card access"></i>
-        </div>
-    </div>
+        </main>
+    </section>
 
-    <section role="navigation" id="top-menu" class="row p-3 affix position-fixed bg-light d-print-none">
-        <div class="col-3">
+    <nav id="top-menu" class="row p-3 affix position-fixed bg-light d-print-none">
+        <div class="col-lg-6 col-xl-3 order-0 my-2 text-center text-lg-left">
 
             <a href="D0.html" class="btn btn-info mr-2 font-weight-bold">D0</a>
-            <a href="B2.html" class="btn btn-info mr-2 font-weight-bold">B2</a>
+            <a href="B2.html" class="btn btn-info mr-2 font-weight-bold active">B2</a>
             <a href="#" class="btn btn-info mr-2 font-weight-bold">C2</a>
             <a href="#" class="btn btn-info mr-2 font-weight-bold">D2</a>
             <a href="#" class="btn btn-info mr-2 font-weight-bold">D3</a>
         </div>
-        <div class="col-4 d-inline-flex align-items-center text-center">
+        <div class="col-12 col-xl-4 d-inline-flex align-items-center text-center order-3 order-xl-2 my-2">
             <input class="form-control mr-2" id="findFulltextInput" list="fulltextSearch" type="text"
                 name="fulltextSearch" placeholder="Search for a person, place or room&hellip;">
             <button class="btn btn-info mr-2">Open</button>
             <button class="btn btn-outline-info mr-2">Find</button>
         </div>
-        <div class="col-5 text-right">
+        <div class="col col-lg-6 col-xl-5 text-right order-2 order-xl-3 my-2 text-center text-lg-right">
             <button class="btn-isometric btn btn-info btn-lg mr-2" title="Isometric view">
                 <i class="fad fa-layer-group fa-fw"></i>
             </button>
@@ -881,7 +877,7 @@
                 </ul>
             </aside>
         </div>
-    </section>
+    </nav>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -960,6 +956,7 @@
                 main.addClass('isometric');
                 zoomed.find('.fad').toggleClass('fa-search-minus, fa-search-plus');
                 info.addClass('disabled');
+                $('#capacity').removeClass('show');
                 window.scrollTo(main.width() / 4, main.height() / 4);
             }
         })
