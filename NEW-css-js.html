@@ -14,6 +14,22 @@
         /* Variable font */
     </style>
     <style>
+        /* Container query */
+        .columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .columns > * {
+            flex-grow: 1;
+            flex-basis: calc(calc(600px - 100%) * 999); /*if container is <500px they go on top of each other */
+        }
+
+        .columns > .sidebar {
+            flex-grow: 0.4;
+        }
+
+
         details {
             font-size: 80%;
         }
@@ -503,14 +519,14 @@
             </details>
             <div class="col-lg-6 d-flex">
                 <picture class="d-block w-100 ml-2">
-                    <source srcset="https://picsum.photos/200/300.webp">
-                    <img src="https://picsum.photos/200/300.jpg" alt="A huge party with cakes.">
+                    <source loading="lazy" srcset="https://picsum.photos/200/300.webp">
+                    <img loading="lazy" src="https://picsum.photos/200/300.jpg" alt="A huge party with cakes.">
                 </picture>
 
                 <picture class="d-block w-100 ml-2">
-                    <source srcset="https://picsum.photos/200/300.webp" type="image/webp" alt="Modern" />
-                    <source srcset="https://picsum.photos/200/300.jp2" type="image/jp2" alt="Safari" />
-                    <img src="https://picsum.photos/200/300.jxr" type="image/vnd.ms-photo" alt="IE11" />
+                    <source loading="lazy" srcset="https://picsum.photos/200/300.webp" type="image/webp" alt="Modern" />
+                    <source loading="lazy" srcset="https://picsum.photos/200/300.jp2" type="image/jp2" alt="Safari" />
+                    <img loading="lazy" src="https://picsum.photos/200/300.jxr" type="image/vnd.ms-photo" alt="IE11" />
                 </picture>
             </div>
         </div>
@@ -523,7 +539,7 @@
 
                 <a href="/products/vendors/ads-tec">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=ADS-TEC&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=ADS-TEC&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=ADS-TEC&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=ADS-TEC&amp;size=300 2x"
                         alt="ADS-TEC">
 
@@ -535,7 +551,7 @@
 
                 <a href="/products/vendors/advantech">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Advantech&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Advantech&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Advantech&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Advantech&amp;size=300 2x"
                         alt="Advantech">
 
@@ -547,7 +563,7 @@
 
                 <a href="/products/vendors/apgcashdrawer">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=APG-Cash-Drawer&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=APG-Cash-Drawer&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=APG-Cash-Drawer&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=APG-Cash-Drawer&amp;size=300 2x"
                         alt="APG Cash Drawer">
 
@@ -559,7 +575,7 @@
 
                 <a href="/products/vendors/badgy-evolis">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Badgy-Evolis&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Badgy-Evolis&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Badgy-Evolis&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Badgy-Evolis&amp;size=300 2x"
                         alt="Badgy Evolis">
 
@@ -571,7 +587,7 @@
 
                 <a href="/products/vendors/bartender">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=BarTender&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=BarTender&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=BarTender&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=BarTender&amp;size=300 2x"
                         alt="BarTender">
 
@@ -583,7 +599,7 @@
 
                 <a href="/products/vendors/bixolon">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bixolon&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bixolon&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bixolon&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bixolon&amp;size=300 2x"
                         alt="Bixolon">
 
@@ -595,7 +611,7 @@
 
                 <a href="/products/vendors/blue-parrott">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Blue-Parrott&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Blue-Parrott&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Blue-Parrott&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Blue-Parrott&amp;size=300 2x"
                         alt="Blue Parrott">
 
@@ -607,7 +623,7 @@
 
                 <a href="/products/vendors/bluebird">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bluebird&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bluebird&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bluebird&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Bluebird&amp;size=300 2x"
                         alt="Bluebird">
 
@@ -619,7 +635,7 @@
 
                 <a href="/products/vendors/brother">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Brother&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Brother&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Brother&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Brother&amp;size=300 2x"
                         alt="Brother">
 
@@ -631,7 +647,7 @@
 
                 <a href="/products/vendors/cipi-europe">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=CIPI-Europe&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=CIPI-Europe&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=CIPI-Europe&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=CIPI-Europe&amp;size=300 2x"
                         alt="CIPI Europe">
 
@@ -643,7 +659,7 @@
 
                 <a href="/products/vendors/citizen-systems">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Citizen&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Citizen&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Citizen&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Citizen&amp;size=300 2x"
                         alt="Citizen">
 
@@ -655,7 +671,7 @@
 
                 <a href="/products/vendors/cognitive">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cognitive&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cognitive&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cognitive&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cognitive&amp;size=300 2x"
                         alt="Cognitive">
 
@@ -667,7 +683,7 @@
 
                 <a href="/products/vendors/compulocks">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Compulocks&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Compulocks&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Compulocks&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Compulocks&amp;size=300 2x"
                         alt="Compulocks">
 
@@ -679,7 +695,7 @@
 
                 <a href="/products/vendors/cradlepoint">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cradlepoint&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cradlepoint&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cradlepoint&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Cradlepoint&amp;size=300 2x"
                         alt="Cradlepoint">
 
@@ -691,7 +707,7 @@
 
                 <a href="/products/vendors/custom/home">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Custom&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Custom&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Custom&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Custom&amp;size=300 2x"
                         alt="Custom">
 
@@ -703,7 +719,7 @@
 
                 <a href="/products/vendors/datacard">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datacard&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datacard&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datacard&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datacard&amp;size=300 2x"
                         alt="Datacard">
 
@@ -715,7 +731,7 @@
 
                 <a href="/products/vendors/datalogic">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datalogic&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datalogic&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datalogic&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Datalogic&amp;size=300 2x"
                         alt="Datalogic">
 
@@ -727,7 +743,7 @@
 
                 <a href="/products/vendors/dymo">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Dymo&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Dymo&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Dymo&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Dymo&amp;size=300 2x"
                         alt="Dymo">
 
@@ -739,7 +755,7 @@
 
                 <a href="/products/vendors/ecd">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=ECD&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=ECD&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=ECD&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=ECD&amp;size=300 2x"
                         alt="ECD">
 
@@ -751,7 +767,7 @@
 
                 <a href="/products/vendors/elo-touch-solutions">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Elo&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Elo&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Elo&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Elo&amp;size=300 2x"
                         alt="Elo">
 
@@ -763,7 +779,7 @@
 
                 <a href="/products/vendors/epson">
 
-                    <img src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Epson&amp;size=150"
+                    <img width="150" height="150" loading="lazy" src="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Epson&amp;size=150"
                         srcset="//starter.ingrammicro.eu/logos/GetLogo.ashx?name=Epson&amp;size=150 1x, //starter.ingrammicro.eu/logos/GetLogo.ashx?name=Epson&amp;size=300 2x"
                         alt="Epson">
 
