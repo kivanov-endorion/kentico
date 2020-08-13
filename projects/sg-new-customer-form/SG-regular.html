@@ -445,25 +445,16 @@
     </style>
     </script>
     <script>
-        $(document).ready(function(){
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_endRequest(function (s, e) {
             var dropdown = $('#p_lt_ctl08_pageplaceholder_p_lt_ctl05_BizForm_plus_plcUp_viewBiz_CreditTerm_dropDownList');
             var credit = $('#p_lt_ctl08_pageplaceholder_p_lt_ctl05_BizForm_plus_plcUp_viewBiz_CreditLineRequested_txtText');
-                $(document).on('keydown', credit, function() {
-                    if(dropdown.find('option').eq(2).is(':selected') || dropdown.find('option').eq(3).is(':selected') || dropdown.find('option').eq(4).is(':selected') ) {
-                        $('.doc').removeClass('d-none');
-                        $('.balance-sheet').removeClass('d-none');
-                        $('.profit-loss').removeClass('d-none');
-                    }
-                })
-        })
-            
-        var dropdown = document.getElementById('p_lt_ctl08_pageplaceholder_p_lt_ctl05_BizForm_plus_plcUp_viewBiz_CreditTerm_dropDownList');
-        
-            dropdown.addEventListener('change', function() {
-                if(dropdown.querySelector('option:nth-child(2)').selected || dropdown.querySelector('option:nth-child(3)').selected || dropdown.querySelector('option:nth-child(4)').selected ) {
-                    document.querySelector('.doc').classList.remove('d-none');
-                    document.querySelector('.balance-sheet').classList.remove('d-none');
-                    document.querySelector('.profit-loss').classList.remove('d-none');
+            $(document).on('keydown', credit, function() {
+                if(dropdown.find('option').eq(2).is(':selected') || dropdown.find('option').eq(3).is(':selected') || dropdown.find('option').eq(4).is(':selected') ) {
+                    $('.doc').removeClass('d-none');
+                    $('.balance-sheet').removeClass('d-none');
+                    $('.profit-loss').removeClass('d-none');
                 }
             })
+        })
     </script>
