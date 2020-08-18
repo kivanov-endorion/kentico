@@ -227,48 +227,48 @@ if () {
 {% SiteContext.CurrentSite.DataContext.Settings.CMSPageTitlePrefix %}
 
 /* CurrentSite.SiteID:
-SiteID  SiteName                    SK_Valid    B4
-	    all	                        0
-2	    nl.endorion.eu	        15
-4	    de.endorion.eu	        5           *
-8	    be.endorion.eu	        2
-13	    de-inside	                5   
-18	    ch.endorion.eu	        4
-19	    oneIM (starter)             5           *
-20	    uk.endorion.eu	        10
-23	    fr.endorion.eu	        9           *
-24	    at.endorion.eu	        1
-25	    dcpos.endorion.eu	    5
-26	    ba.endorion.eu	        4           *
-27	    it.endorion.eu	        12          *
-28	    cz.endorion.eu	        50
-29	    pl.endorion.eu	        49
-32	    es.endorion.eu	        6           *
-33	    hr.endorion.eu	        44
-34	    mk.endorion.eu	        45
-35	    rs.endorion.eu	        47
-36	    si.endorion.eu	        48
-37	    bg.endorion.eu	        32          *
-38	    hu.endorion.eu	        22          *
-40	    fi.endorion.eu	        8
-41	    no.endorion.eu	        19
-42	    one.endorion.eu	        5
-43	    se.endorion.eu	        17
-47	    th.endorion-asia.com	    65
-50	    nz.endorion-asia.com	    62
-51	    my.endorion-asia.com	    61
-52	    in.endorion-asia.com	    60
-53	    id.endorion-asia.com	    59
-54	    hk.endorion-asia.com	    58
-55	    cn.endorion-asia.com	    57
-56	    au.endorion-asia.com	    56
-57	    ph.endorion-asia.com	    63
-58	    sg.endorion-asia.com	    64          *
-63	    sk.endorion.eu	        27          *
-68      ro.endorion.eu           46
-70      dk.endorion.eu           7
-71      al.endorion.eu (NEW)     5           *
-72      il-corp.endorion.com     29          *
+SiteID  SiteName            SK_Valid    B4
+	    all	                0
+2	    nl	                15
+4	    de	                5           *
+8	    be	                2
+13	    de-inside	        5   
+18	    ch	                4
+19	    oneIM (starter)     5           *
+20	    uk	                10
+23	    fr	                9           *
+24	    at	                1
+25	    al	            5
+26	    ba	                4           *
+27	    it	                12          *
+28	    cz	                50
+29	    pl	                49
+32	    es	                6           *
+33	    hr	                44
+34	    mk	                45
+35	    rs	                47
+36	    si	                48
+37	    bg	                32          *
+38	    hu	                22          *
+40	    fi	                8
+41	    no	                19
+42	    one	                5
+43	    se	                17
+47	    th	                65
+50	    nz	                62
+51	    my	                61
+52	    in	                60
+53	    id	                59
+54	    hk	                58
+55	    cn	                57
+56	    au	                56
+57	    ph	                63
+58	    sg	                64          *
+63	    sk	                27          *
+68      ro                  46
+70      dk                  7
+71      dcpos               5           *
+72      il                  29          *
 */
 
 /* Testing Macros: Go to: System > Macros > Console */
