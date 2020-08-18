@@ -1,5 +1,5 @@
 {
-	"Ingram Micro Template": {
+	"Endorion Template": {
 		"scope": "html",
 		"prefix": "imdoc",
 		"body": [
@@ -22,7 +22,7 @@
 			"</body>",
 			"</html>"
 		],
-		"description": "Basic template for Ingram Micro"
+		"description": "Basic template for Endorion"
 	},
 	"rel noopener": {
 		"scope": "html",
@@ -34,7 +34,7 @@
 		"prefix": "fcenter",
 		"body": "d-flex justify-content-center align-items-center"
 	},
-	"Ingram Micro brand blue": {
+	"Endorion brand blue": {
 		"scope": "",
 		"prefix": "imblue",
 		"body": "#2f75bb"

@@ -1,1 +1,0 @@
-{% (GSTRegistered.Value.Contains("No") ? "n/a" : "" %}

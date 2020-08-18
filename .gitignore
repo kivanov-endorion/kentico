@@ -1,7 +1,5 @@
 $ cat .gitignore
-_credentials/
-/kentico/webparts/
-/kentico/QuizDaily/
+
 
 # Windows image file caches
 Thumbs.db

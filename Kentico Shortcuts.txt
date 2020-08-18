@@ -1,5 +1,0 @@
-/1IM/oneingram-1.9.13/aspx/cfs/				/cfs/
-/1IM/oneingram-1.9.13/aspx/webservices/		/api/
-/1IM/oneingram-1.9.13/aspx/pages/			/pages/
-/1IM/oneingram-1.9.13/logos/				/logos/
-/1IM/oneingram-1.9.13/aspx/webparts/		/CMSWebParts/1IM/

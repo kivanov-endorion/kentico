@@ -20,7 +20,7 @@ END Membership
 SELECT Name, 
 IIF(isMember = 0,'NotMember','Member') Membership
 
-SELECT SUBSTRING(name,0,5) AS abbr, CONCAT(LOWER(name),'@ingrammicro.com') AS email
+SELECT SUBSTRING(name,0,5) AS abbr, CONCAT(LOWER(name),'@endorion.com') AS email
 FROM student 
 WHERE UPPER(name) LIKE 'KAL%'
 

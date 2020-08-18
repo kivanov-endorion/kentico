@@ -1,6 +1,0 @@
-$('.row.form-row.pb-3 > .col-12:nth-of-type(1)').prepend('<h6>iPad</h6>')
-$('.row.form-row.pb-3 > .col-12:nth-of-type(4)').prepend('<h6>iPad Pro/iPhone Xs</h6>')
-$('.row.form-row.pb-3 > .col-12:nth-of-type(5)').prepend('<h6>iPad Pro/Macbook Pro/iPhone Xs</h6>')
-$('.row.form-row.pb-3 > .col-12:nth-of-type(6)').prepend('<h6>MacBook Air</h6>')
-$('.row.form-row.pb-3 > .col-12:nth-of-type(7)').prepend('<h6>MacBook Pro</h6>')
-$('.row.form-row.pb-3 > .col-12:nth-of-type(8)').prepend('<h6>MacBook Air/MacBook Pro</h6>')
