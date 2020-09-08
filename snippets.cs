@@ -325,6 +325,8 @@ SiteID  SiteName            SK_Valid    B4
 {% MenuItemSubNavigation %} // options: pathHorizontal, pathHeaderImg, categoriesHeaderImg
 {% MenuItemTransformation %} // visible for News, Events, Products page templates
 
+{% CurrentDocType %}
+
 {% CurrentURL %}
 {% AbsoluteURL %} // Note: gets the dash domain URL
 {% GetAbsoluteUrl(URL) %}
