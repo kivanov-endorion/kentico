@@ -446,3 +446,6 @@ SiteID  SiteName            SK_Valid    B4
 
 // Check if children of type
 {% CurrentDocument.AllChildren.ClassNames("CMS.SimpleArticle;oneIM.EmbedVideo").Count>0 #%}
+
+// Check if document has teaser image
+{% if( Documents[NodeAliasPath].GetValue("MenuItemTeaserImage", false) != false)
