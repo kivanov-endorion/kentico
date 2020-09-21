@@ -43,3 +43,8 @@ else
 {
     cssinline += "background-image:url(" + MobileBackgroundImage + ");";
 }
+
+// Webpart in ASCX Transformation:
+<%@ Register Src="/1IM/oneingram-1.9.13/aspx/webparts/IMOnlineBasket.ascx" TagName="Basket" TagPrefix="uc2"  %>
+<uc2:Basket ID="Basket1" runat="server" SKU='<%# Eval("PromotionproductSKU").ToString() %>' Qty='<%# ValidationHelper.GetInteger(Eval("PromotionproductQuantity"),0) %>' />
+
