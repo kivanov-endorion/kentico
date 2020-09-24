@@ -253,7 +253,7 @@ SiteID  SiteName            SK_Valid    B4
 40	    fi	                8
 41	    no	                19
 42	    one	                5
-43	    se	                17
+43	    se	                17          *
 47	    th	                65
 50	    nz	                62
 51	    my	                61
