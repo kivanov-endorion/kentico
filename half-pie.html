@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        svg#donut-chart {
+            display: block;
+            margin: 0 auto;
+            /* height: 225px;
+            overflow: hidden; */
+            }
+
+            text.inner-circle {
+            font-weight: 400;
+            font-size: 20px;
+            text-transform: uppercase;
+            }
+
+            .arc {
+            cursor: pointer;
+            }
+            .arc:hover {
+            opacity: .85;
+            }
+            .arc text {
+            font-weight: 300;
+            font-size: 18px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <svg id="donut-chart"></svg>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+    <script>
+        // Seed data to populate the donut pie chart
+        var seedData = [{
+        "label": "NEW",
+        "value": 25,
+        "link": "https://facebook.github.io/react/"
+        }, {
+        "label": "OLD ",
+        "value": 25,
+        "link": "https://redux.js.org/"
+        }, {
+        "label": "Redux",
+        "value": 25,
+        "link": "https://redux.js.org/"
+        }, {
+        "label": "Redux",
+        "value": 25,
+        "link": "https://redux.js.org/"
+        }, {
+        "label": "Node.js",
+        "value": 25,
+        "link": "https://nodejs.org/"
+        }];
+
+        // Define size & radius of donut pie chart
+        var width = 450,
+            height = 225,
+            radius = Math.min(width, 2 * height) / 2;
+            var anglesRange = 0.5 * Math.PI
+
+        // Define arc colours
+        var colour = d3.scaleOrdinal(d3.schemeCategory20);
+        // var colour =  d3.scaleOrdinal().range(['#2b5eac', '#0dadd3', '#ffea61', '#ff917e', '#ff3e41']);
+
+        // Define arc ranges
+        var arcText = d3.scaleOrdinal()
+        .range([0, width]);
+
+        // Determine size of arcs
+        var arc = d3.arc()
+        .innerRadius(radius - 130)
+        .outerRadius(radius - 10);
+
+        // Create the donut pie chart layout
+        var pie = d3.pie()
+        .value(function (d) { return d["value"]; })
+        .sort(null)
+        .startAngle( anglesRange * -1)
+    	.endAngle( anglesRange);
+
+        // Append SVG attributes and append g to the SVG
+        var svg = d3.select("#donut-chart")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+            .attr("transform", "translate(" + radius + "," + radius + ")");
+
+        // Define inner circle
+        svg.append("circle")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("r", 100)
+        .attr("fill", "#fff") ;
+
+        // Calculate SVG paths and fill in the colours
+        var g = svg.selectAll(".arc")
+        .data(pie(seedData))
+        .enter().append("g")
+        .attr("class", "arc")
+                
+        // Make each arc clickable 
+        .on("click", function(d, i) {
+            window.location = seedData[i].link;
+        });
+
+            // Append the path to each g
+            g.append("path")
+            .attr("d", arc)
+            .attr("fill", function(d, i) {
+                return colour(i);
+            });
+
+            // Append text labels to each arc
+            g.append("text")
+            .attr("transform", function(d) {
+                return "translate(" + arc.centroid(d) + ")";
+            })
+            .attr("dy", ".35em")
+            .style("text-anchor", "middle")
+            .attr("fill", "#fff")
+                .text(function(d,i) { return seedData[i].label; })
+        
+        g.selectAll(".arc text").call(wrap, arcText.range([0, width]));
+
+        // Wrap function to handle labels with longer text
+        function wrap(text, width) {
+        text.each(function() {
+            var text = d3.select(this),
+                words = text.text().split(/\s+/).reverse(),
+                word,
+                line = [],
+                lineNumber = 0,
+                lineHeight = 1.1, // ems
+                y = text.attr("y"),
+                dy = parseFloat(text.attr("dy")),
+                tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+            console.log("tspan: " + tspan);
+            while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > 90) {
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+            }
+            }
+        });
+        }
+    </script>
+</body>
+</html>
