@@ -238,7 +238,7 @@ SiteID  SiteName            SK_Valid    B4
 20	    uk	                10
 23	    fr	                9           *
 24	    at	                1
-25	    al	            5
+25	    al	                5
 26	    ba	                4           *
 27	    it	                12          *
 28	    cz	                50
@@ -269,6 +269,7 @@ SiteID  SiteName            SK_Valid    B4
 70      dk                  7
 71      dcpos               5           *
 72      il                  29          *
+73      solutions           10          *
 */
 
 /* Testing Macros: Go to: System > Macros > Console */
