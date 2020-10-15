@@ -421,7 +421,7 @@ SiteID  SiteName            SK_Valid    B4
         category.CategoryDisplayName)
     } 
 } %}
-{% CurrentDocument.DocumentName #%}
+{% CurrentDocument.DocumentName %}
 </span>
 
 // Gets the path of the parent master page
@@ -436,17 +436,20 @@ SiteID  SiteName            SK_Valid    B4
 // Contacts with related vendors
 {% foreach ( vendor in Documents[NodeAliasPath].RelatedDocuments["VendorCardContact"] ) { 
     vendor.DocumentName.InList(CurrentDocument.RelatedDocuments.isrelatedto) ? Format("<p class='small mt-n2 text-center'>{0}</p>",vendor.DocumentName) : ""
-} #%}
+} %}
 
 
 // Search index per site
-{% "1IM-" + ToUpper(domain.RegexReplace("(-corp)?(-|.)(endorion)(-asia)?(-|.)?(com|eu)?","")) + "-Search" #%}
+{% "1IM-" + ToUpper(domain.RegexReplace("(-corp)?(-|.)(endorion)(-asia)?(-|.)?(com|eu)?","")) + "-Search" %}
 
 // Cookie visibility
-{% !domain.Matches("[a-z]{2}(-)(endorion)(-asia)?(-)?(eu)?") && CurrentSite.SiteID.ToString().InList("4;19;23;26;27;32;37;38;58;63;71;72".Split(";")) && ViewMode=="LiveSite" #%}
+{% !domain.Matches("[a-z]{2}(-)(endorion)(-asia)?(-)?(eu)?") && CurrentSite.SiteID.ToString().InList("4;19;23;26;27;32;37;38;58;63;71;72".Split(";")) && ViewMode=="LiveSite" %}
 
 // Check if children of type
-{% CurrentDocument.AllChildren.ClassNames("CMS.SimpleArticle;oneIM.EmbedVideo").Count>0 #%}
+{% CurrentDocument.AllChildren.ClassNames("CMS.SimpleArticle;oneIM.EmbedVideo").Count>0 %}
 
 // Check if document has teaser image
 {% if( Documents[NodeAliasPath].GetValue("MenuItemTeaserImage", false) != false)
+
+// Generate random number
+{% String.FormatString("{0:yyyyMMddhhmmssfffff}", CurrentDateTime) + Math.GetRandomInt(10000, 99999) %}
