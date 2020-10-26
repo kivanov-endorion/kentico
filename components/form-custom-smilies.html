@@ -1,0 +1,160 @@
+<div class="row">
+    <div class="col-12">
+        <h6 class="divider horizontal initialism my-4">Persönliche Daten</h6>
+    </div>
+
+    <div class="form-group col-md-6">$$label:CustomerNumber$$ $$input:CustomerNumber$$ $$validation:CustomerNumber$$
+    </div>
+
+    <div class="form-group col-md-6">$$label:LastName$$ $$input:LastName$$ $$validation:LastName$$</div>
+
+    <div class="form-group col-md-6">$$label:FirstName$$ $$input:FirstName$$ $$validation:FirstName$$</div>
+
+    <div class="form-group col-md-6">$$label:Contact$$ $$input:Contact$$ $$validation:Contact$$</div>
+
+    <div class="form-group col-md-6">$$label:Company$$ $$input:Company$$ $$validation:Company$$</div>
+
+    <div class="form-group col-md-6">$$label:Email$$ $$input:Email$$ $$validation:Email$$</div>
+
+    <div class="col-12 my-4">
+        <h5 class="divider horizontal">Bitte sagen Sie uns Ihre Meinung <wbr />zu den folgenden Themen</h5>
+    </div>
+
+    <div class="form-group col-12 custom-smilies">$$label:IMAsSupplier$$ $$input:IMAsSupplier$$
+        $$validation:IMAsSupplier$$</div>
+
+    <div class="form-group col-12 custom">$$label:CriterionForPurchase$$ $$input:CriterionForPurchase$$
+        $$validation:CriterionForPurchase$$</div>
+
+    <div class="form-group col-md-3">$$label:Price$$ $$input:Price$$ $$validation:Price$$</div>
+
+    <div class="form-group col-md-3">$$label:Availability$$ $$input:Availability$$ $$validation:Availability$$</div>
+
+    <div class="form-group col-md-3">$$label:ReturnProcessing$$ $$input:ReturnProcessing$$
+        $$validation:ReturnProcessing$$</div>
+
+    <div class="form-group col-12 custom-smilies">$$label:UsingNeweRMA$$ $$input:UsingNeweRMA$$
+        $$validation:UsingNeweRMA$$</div>
+
+    <div class="form-group col-12 custom-smilies">$$label:TechnicalCompetenceCustomerCare$$
+        $$input:TechnicalCompetenceCustomerCare$$ $$validation:TechnicalCompetenceCustomerCare$$</div>
+
+    <div class="form-group col-12 custom-smilies">$$label:ProcessingTimeeRMA$$ $$input:ProcessingTimeeRMA$$
+        $$validation:ProcessingTimeeRMA$$</div>
+
+    <div class="form-group col-12 custom-smilies">$$label:RMAStatusOverview$$ $$input:RMAStatusOverview$$
+        $$validation:RMAStatusOverview$$</div>
+
+    <div class="form-group col-md-6">$$label:RMAProcessAdvantages$$ $$input:RMAProcessAdvantages$$
+        $$validation:RMAProcessAdvantages$$</div>
+
+    <div class="form-group col-md-6">$$label:SuggestionsForImprovements$$ $$input:SuggestionsForImprovements$$
+        $$validation:SuggestionsForImprovements$$</div>
+
+    <div class="form-group col-12 text-center">$$label:DataPrivacy$$ $$input:DataPrivacy$$ $$validation:DataPrivacy$$
+    </div>
+
+    <div class="form-group col-12 text-center">$$submitbutton$$</div>
+</div>
+<style type="text/css">
+    #bizform_plus>div {
+        padding: 0 3rem;
+    }
+
+    .custom-smilies label {
+        display: inline-block;
+        width: 160px !important;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        font-style: normal;
+        top: 20px;
+        left: -52px !important;
+        margin: 20px 0 50px;
+        color: initial !important;
+        font-size: 90% !important;
+    }
+
+    .custom-smilies label:after {
+        content: '\f118' !important;
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 1.2em;
+        color: #ced4da;
+        position: absolute;
+        left: calc(50% - 10px) !important;
+        top: -30px !important;
+        transform-origin: center;
+        transform: scale(1.4) !important;
+        transition: transform 200ms ease-in-out;
+    }
+
+    .custom-smilies .EditingFormLabel,
+    .custom .EditingFormLabel {
+        display: block;
+        font-weight: 500;
+    }
+
+    .form-group.custom-smilies label {
+        font-style: normal !important;
+    }
+
+    .custom-smilies label:nth-of-type(1):after {
+        content: '\f5b8' !important;
+    }
+
+    .custom-smilies label:nth-of-type(3):after {
+        content: '\f11a' !important;
+    }
+
+    .custom-smilies label:nth-of-type(4):after {
+        content: '\f119' !important;
+    }
+
+    .custom-smilies label:nth-of-type(5):after {
+        content: '\f556' !important;
+    }
+
+    .custom-smilies label:nth-of-type(6):after {
+        content: '\f00d' !important;
+    }
+
+    .custom-smilies input:checked+label:after {
+        color: #fee300 !important;
+    }
+
+    .custom-smilies input:nth-of-type(1):checked+label:after {
+        color: #93d501 !important;
+    }
+
+    .custom-smilies input:nth-of-type(2):checked+label:after {
+        color: #ccd603 !important;
+    }
+
+    .custom-smilies input:nth-of-type(3):checked+label:after {
+        color: #fee300 !important;
+    }
+
+    .custom-smilies input:nth-of-type(4):checked+label:after {
+        color: #ffa400 !important;
+    }
+
+    .custom-smilies input:nth-of-type(5):checked+label:after {
+        color: #fe0000 !important;
+    }
+
+    .custom-smilies input:nth-of-type(6):checked+label:after {
+        color: #333 !important;
+    }
+
+    .custom-smilies input {
+        position: absolute;
+        left: -999vh;
+    }
+
+    .custom-range::-webkit-slider-thumb,
+    .custom-range::-moz-range-thumb,
+    .custom-range::-ms-thumb {
+        background-color: #fb0 !important;
+    }
+</style>
