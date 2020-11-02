@@ -202,7 +202,7 @@ if () {
 /* USEFUL DATA */
 
 // LocalizationContext
-{% LocalizationContext.PreferredCultureCode %}
+{% LocalizationContext.PreferredCultureCode %} // en-US (by default or when set by Language Selector)
 {% LocalizationContext.CurrentCulture.CodeName %} // en-US
 {% LocalizationContext.CurrentCulture.CultureAlias %} // en
 {% LocalizationContext.CurrentCulture.DisplayName %} // English - United States
