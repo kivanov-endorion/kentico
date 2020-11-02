@@ -64,6 +64,7 @@
 {% Format( "{0:n}", 100000 ) %}    // 100,000.00
 {% Format( "{0:n0}", 100000 ) %}   // 100,000 (0 is the number of decimal symbols)
 {% Format( "{0:p0}", 0.56 ) %} // 56 %
+{% FormatNotEmpty( "{0:n0}", 1000, 0 ) %} // 1000 or 0
 
 // GetImage( image, alt, maxsidesize, width, height )
 {% GetImage( MenuItemTeaserImage, DocumentName, 0, 600, 300 ) %}
@@ -200,7 +201,8 @@ if () {
 
 /* USEFUL DATA */
 
-// LocalizationContext.CurrentCulture
+// LocalizationContext
+{% LocalizationContext.PreferredCultureCode %}
 {% LocalizationContext.CurrentCulture.CodeName %} // en-US
 {% LocalizationContext.CurrentCulture.CultureAlias %} // en
 {% LocalizationContext.CurrentCulture.DisplayName %} // English - United States
