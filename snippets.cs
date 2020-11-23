@@ -451,7 +451,7 @@ SiteID  SiteName            SK_Valid    B4
 {% CurrentDocument.AllChildren.ClassNames("CMS.SimpleArticle;oneIM.EmbedVideo").Count>0 %}
 
 // Check if document has teaser image
-{% if( Documents[NodeAliasPath].GetValue("MenuItemTeaserImage", false) != false)
+{% if( Documents[NodeAliasPath].GetValue("MenuItemTeaserImage", false) != false) %}
 
 // Generate random number
 {% String.FormatString("{0:yyyyMMddhhmmssfffff}", CurrentDateTime) + Math.GetRandomInt(10000, 99999) %}
