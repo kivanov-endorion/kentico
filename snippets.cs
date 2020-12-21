@@ -235,13 +235,12 @@ SiteID  SiteName            SK_Valid    B4
 4	    de	                5           *
 8	    be	                2
 13	    de-inside	        5   
-18	    ch	                4
 19	    oneIM (starter)     5           *
 20	    uk	                10
 23	    fr	                9           *
 24	    at	                1
 25	    al	                5
-26	    ba	                4           *
+26	    ch	                4           *
 27	    it	                12          *
 28	    cz	                50
 29	    pl	                49
