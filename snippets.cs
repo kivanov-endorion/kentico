@@ -251,23 +251,25 @@ SiteID  SiteName            SK_Valid    B4
 36	    si	                48
 37	    bg	                32          *
 38	    hu	                22          *
-40	    fi	                8
-41	    no	                19
+40	    fi	                8           *
+41	    no	                19          *
 42	    one	                5
 43	    se	                17          *
 47	    th	                65
 50	    nz	                62
-51	    my	                61
+51	    my	                61          *
 52	    in	                60
 53	    id	                59
-54	    hk	                58
-55	    cn	                57
+54	    hk	                58          *
+55	    cn	                57          *
 56	    au	                56
 57	    ph	                63
 58	    sg	                64          *
+59      financing (emea)                *
+62      financing (apac)                *
 63	    sk	                27          *
-68      ro                  46
-70      dk                  7
+68      ro                  46          *
+70      dk                  7           *
 71      dcpos               5           *
 72      il                  29          *
 73      solutions           10          *
