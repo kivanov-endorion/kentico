@@ -13,8 +13,8 @@
 {% ToInt32() %}
 {% ToBool() %}
 {% Split("/")[5] %}
-{% LimitLength("string", 10 , "…", true) %} // true if whole words
-{% StripTags("string<br>") %}
+{% LimitLength(110, "…", true) %} // true if whole words
+{% StripTags() %}
 {% Contains("") %} // or Contains(Field,"")
 {% NotContains("") %} 
 {% StartsWith("") %}
