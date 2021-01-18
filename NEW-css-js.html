@@ -211,6 +211,32 @@
 
         /* NEW DEV (not yet implemented) */
 
+        .overlay-child,
+        .overlay-before,
+        .overlay-after {
+            position: relative;
+        }
+
+        .overlay-child > *,
+        .overlay-before::before,
+        .overlay-after::after {
+            position: absolute;
+            content: '';
+            inset: 0;
+        }
+
+        .overlay-child,
+        .overlay-before,
+        .overlay-after {
+            display: grid;
+        }
+
+        .overlay-child > *,
+        .overlay-before::before,
+        .overlay-after::after {
+            grid-area: 1 / 1 / -1 / -1;
+        }
+
         /* all except IE */
         [aria-label=menu]:focus-within,
         [aria-label=submenu]:focus-within {
