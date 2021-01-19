@@ -1,0 +1,1 @@
+href={% "'/pages/GetAttachment.aspx?guid=" + attachment.AttachmentGUID + "/" + attachment.AttachmentName + "'" %}
