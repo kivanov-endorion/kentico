@@ -388,6 +388,69 @@
                 margin: 0
             }
         }
+
+
+        
+@-webkit-keyframes circle_animation {
+
+    0%,
+    100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+
+    34% {
+        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
+    }
+
+    50% {
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+    }
+}
+
+@keyframes circle_animation {
+
+    0%,
+    100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+
+    34% {
+        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
+    }
+
+    50% {
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
+    }
+
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
+    }
+}
+
+
+
+.circle_shape {
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    opacity: 0.102;
+    position: absolute;
+    width: 510px;
+    height: 510px;
+    -webkit-animation: circle_animation 7s linear infinite;
+    animation: circle_animation 7s linear infinite;
+    z-index: 0;
+}
+
     </style>
 </head>
 
@@ -397,7 +460,7 @@
         <h1>Masthead H1</h1>
     </section>
 
-
+<div class="circle_shape"></div>
     <section class="my-5 container">
         <div class="row">
             <details class="col-lg-6 info" open>
