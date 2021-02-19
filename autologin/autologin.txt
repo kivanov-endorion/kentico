@@ -1,24 +1,40 @@
 https://one-ingrammicro-eu/pages/AutoLogin.ashx?id=7
 
-
 https://one-ingrammicro-eu/imonline/ajax/1im/autologin
 
+showRegion("apac");
+$("#au,#id,#in,#cn,#sg,#my,#nz,#hk").removeClass("disabled");
 
-at
-be
-ch
-de
-dk
-es
-fi
-fr
-hu
-it
-nl
-no
-pt
-se
-uk
+Country	Region
 
+Austria	EMEA
+France	EMEA
+Germany	EMEA
+United Kingdom	EMEA
+Italy	EMEA
+Spain	EMEA
+Portugal	EMEA
+Hungary	EMEA
+Sweden	EMEA
+Belgium	EMEA
+Netherlands	EMEA
+Switzerland	EMEA
 
-showRegion("apac")
+USA	    North America
+Canada	North America
+Miami (US export division to Latin America)	North America
+
+Mexico  	Latin America 
+Brazil  	Latin America 
+Chile	    Latin America 
+Colombia    Latin America
+Peru    	Latin America
+
+Australia   APAC 
+New-Zealand	APAC 
+India	    APAC 
+Indonesia	APAC 
+Hong Kong	APAC 
+Malaysia	APAC 
+Singapore	APAC 
+China (Q2 2021)	APAC 

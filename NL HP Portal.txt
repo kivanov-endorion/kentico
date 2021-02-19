@@ -1,1 +1,1 @@
-<p class="m-4 mr-5">Thank you for submitting your quote request. Our team will contact you in the next few days.</p>
+<p class="m-4 mr-5">Thank you for submitting your quote request. Our team will contact you in the next few days.</p><p><a href="javascript:location.reload();return false;" class="btn btn-primary w-100">Go back and submit another request</a></p>
