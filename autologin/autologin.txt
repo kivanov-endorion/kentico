@@ -19,3 +19,6 @@ no
 pt
 se
 uk
+
+
+showRegion("apac")
