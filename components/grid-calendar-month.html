@@ -153,7 +153,7 @@
 
 </div>
 <style>
-    header {
+    .calendar header {
         display: flex;
         align-items: center;
         font-size: calc(16px + (26 - 16) * ((100vw - 300px) / (1600 - 300)));
@@ -165,8 +165,8 @@
         text-align: center;
     }
 
-    ul,
-    ol {
+    ul.weekdays,
+    ol.day-grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         grid-gap: 1em;
@@ -175,7 +175,8 @@
         padding: 0;
     }
 
-    li {
+    ul.weekdays li,
+    ol.day-grid li {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -215,8 +216,8 @@
 
     @media all and (max-width: 800px) {
 
-        ul,
-        ol {
+        ul.weekdays,
+    ol.day-grid {
             grid-gap: .25em;
         }
 
