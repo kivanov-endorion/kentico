@@ -456,6 +456,49 @@ section {
   contain-intrinsic-size: 0 500px;
 }
 
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  grid-template-rows: masonry;
+  grid-gap: 1rem;
+}
+
+article :is(h1, h2) {
+  text-decoration: underline;
+  text-decoration-color: #cf6a87;
+  text-decoration-thickness: 0.5rem;
+}
+
+a:not([class]) {
+  text-decoration-thickness: 2.5ex;
+  text-underline-offset: -3.2ex;
+  text-decoration-skip-ink: none;
+  text-decoration-color: #63cdda;
+  color: currentColor;
+}
+
+a:not([class]):hover {
+  text-decoration-color: #303952;
+  color: #ffffff;
+}
+
+img, input[type="image"], video, embed, iframe, marquee, object, table {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+:target {
+  scroll-margin-top: 5rem;
+}
+
+/* NEW! */
+/* select all <p>s that are not descendants of <article> */
+    p:not(article *) {
+}
+
+.heart-shaped-mask {
+    clip-path: path('M213.1,6.7c-32.4-14.4-73.7,0-88.1,30.6C110.6,4.9,67.5-9.5,36.9,6.7C2.8,22.9-13.4,62.4,13.5,110.9 C33.3,145.1,67.5,170.3,125,217c59.3-46.7,93.5-71.9,111.5-106.1C263.4,64.2,247.2,22.9,213.1,6.7z'); 
+}
+
 
     </style>
 </head>
