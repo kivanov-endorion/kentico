@@ -1,0 +1,4 @@
+kentico-administrator
+
+
+{% CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Editor) #%}
