@@ -32,3 +32,19 @@ FROM View_CMS_Tree_Joined INNER JOIN EU_Starter_Event ON View_CMS_Tree_Joined.Do
 WHERE (ClassName = 'OneIM.Event')
 )
 
+
+
+-- Downloads from FR Apple DPP
+SELECT TimeStamp, AttachmentName, FullName, Email
+  FROM [KENTICO].[dbo].[Analytics_FileDownloads] D
+
+  INNER JOIN [KENTICO].[dbo].[CMS_Attachment] A ON A.AttachmentGUID = D.FileGUID
+
+  INNER JOIN [KENTICO].[dbo].[CMS_User] U ON  U.UserID = D.UserID
+  
+  WHERE Referrer LIKE '%Apple-DPP%'
+  --AND MONTH(TimeStamp) = 02 
+  AND YEAR(TimeStamp) = 2021
+  AND SiteID = 23
+
+  
