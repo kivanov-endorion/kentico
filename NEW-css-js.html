@@ -5,8 +5,8 @@
     <title>Title</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="//starter.ingrammicro.ccom/1imv2/CORE/css/0-css-bundle-feb-2020.css">
-    <link rel="stylesheet" href="//starter.ingrammicro.ccom/1imv2/CORE/css/2-1im-master-bootstrap4.css">
+    <link rel="stylesheet" href="//starter.ingrammicro.eu/1imv2/CORE/css/0-css-bundle-feb-2020.css">
+    <link rel="stylesheet" href="//starter.ingrammicro.eu/1imv2/CORE/css/2-1im-master-bootstrap4.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <style>
@@ -20,168 +20,16 @@
             flex-wrap: wrap;
             gap: 1rem;
         }
-        .columns > * {
+
+        .columns>* {
             flex-grow: 1;
-            flex-basis: calc(calc(600px - 100%) * 999); /*if container is <500px they go on top of each other */
+            flex-basis: calc(calc(600px - 100%) * 999);
+            /*if container is <500px they go on top of each other */
         }
 
-        .columns > .sidebar {
+        .columns>.sidebar {
             flex-grow: 0.4;
         }
-
-
-        details {
-            font-size: 80%;
-        }
-
-        summary:focus {
-            outline: none;
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary:before {
-            padding-right: .5em;
-            content: '\f105';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            color: #2f75bb;
-            transition: .3s all ease-in-out;
-        }
-
-        details[open] summary:before {
-            content: '\f107';
-        }
-
-        details.info summary:before,
-        details.info[open] summary:before {
-            content: '\f05a';
-        }
-
-        details.cookie summary:before,
-        details.cookie[open] summary:before {
-            content: '\f563';
-        }
-
-        details.agenda summary:before,
-        details.agenda[open] summary:before {
-            content: '\f017';
-        }
-
-        details:not(.timeline)[open] summary {
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        dl,
-        details > p {
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            position: relative;
-            padding: .75rem 1.25rem 0 1rem;
-            margin-bottom: .75rem;
-        }
-
-        details > p + p {
-            padding-top: 0;
-        }
-
-        dt,
-        dd {
-            flex: 0 0 50%;
-        }
-
-        dd+dd {
-            margin-left: 50%;
-        }
-
-        summary,
-        dt {
-            font-weight: 600;
-            letter-spacing: .4px;
-            font-size: 90%;
-            text-transform: uppercase;
-            margin-right: 1rem;
-            flex-basis: calc(50% - 1rem);
-            position: relative;
-        }
-
-        dt > p {
-            font-weight: 400;
-            font-size: .9rem;
-            letter-spacing: 0px;
-            text-transform: none;
-        }
-
-        details.timeline {
-            overflow: hidden;
-            font-size: 1rem;
-        }
-        details.timeline:not(.info) summary:before {
-            padding-left: 2px;
-        }
-
-        details.timeline dt {
-            flex: 0 0 25%;
-        }
-
-        details.timeline dd {
-            flex: 0 0 75%;
-        }
-
-        details.timeline dd+dd {
-            margin-left: 25%;
-        }
-
-        details.timeline dl {
-
-            margin-left: -1rem;
-        }
-
-        details.timeline p {
-            padding-left: 2.2rem;
-        }
-
-        details.timeline dt {
-            padding-left: 2rem;
-            flex-basis: calc(25% - 3rem);
-        }
-
-        details.timeline dt:before {
-            content: '';
-            position: absolute;
-            width: 1px;
-            height: 10rem;
-            background: #dee2e6;
-            left: 0.4rem;
-            top: 8px;
-        }
-
-        details.timeline dt:first-of-type:before {
-            top: -.9rem;
-        }
-
-        details.timeline dt:after {
-            content: '';
-            position: absolute;
-            width: 1rem;
-            height: 1px;
-            background: #dee2e6;
-            left: 0.4rem;
-            top: 11px;
-        }
-
-
-        @media screen and (prefers-reduced-motion: no-preference) {
-
-            html,
-            body {
-                scroll-behavior: smooth;
-            }
-        }
-
 
         .masthead {
             display: flex;
@@ -205,46 +53,67 @@
             line-height: 1;
             /* text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8); */
             margin-bottom: 40px;
-            -webkit-text-fill-color:transparent;
-            -webkit-text-stroke: 2px #fff;
         }
-        .stroke-text{
+        h2 {
+           
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 2px #000;
+        }
+
+        .stroke-text {
             color: #000;
-            text-shadow:1px 0 0 #fff,0 1px 0 #fff,-1px 0 0 #fff,0 -1px 0 #fff;
+            text-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
         }
 
-        /* NEW DEV (not yet implemented) */
 
-        .overlay-child,
-        .overlay-before,
-        .overlay-after {
-            position: relative;
+
+        .inline-icon {
+            display: inline-block;
+            width: 1lh;
+            /* line-height; rlh = root line-height*/
+            height: 1lh;
         }
 
-        .overlay-child > *,
-        .overlay-before::before,
-        .overlay-after::after {
-            position: absolute;
-            content: '';
-            inset: 0;
+        @supports (-webkit-background-clip: text) {
+            .grad-text {
+                background: linear-gradient(rgba(25 53 95 / 1), steelblue);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
         }
 
-        .overlay-child,
-        .overlay-before,
-        .overlay-after {
-            display: grid;
+        small {
+            font-size: max(min(0.5vw, 0.5em), 1rem);
         }
 
-        .overlay-child > *,
-        .overlay-before::before,
-        .overlay-after::after {
-            grid-area: 1 / 1 / -1 / -1;
+        /* Grid Vendor Tiles */
+
+        @media (min-width: 518px) {
+            .b4 {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, 150px);
+                gap: .6rem;
+            }
+
+            .b4 .tile-single {
+                margin: 0
+            }
         }
+
 
         /* all except IE */
         [aria-label=menu]:focus-within,
         [aria-label=submenu]:focus-within {
             opacity: 1;
+        }
+
+        @media screen and (prefers-reduced-motion: no-preference) {
+
+            html,
+            body {
+                scroll-behavior: smooth;
+            }
         }
 
         @media (prefers-color-scheme: dark) {}
@@ -282,7 +151,6 @@
             display: -webkit-box;
         }
 
-        /* Firefox */
         ul li::marker {
             color: red;
         }
@@ -305,16 +173,12 @@
             /* width: 50vw; height: 50vw; */
         }
 
-        .aspect-ratio {
-            aspect-ratio: 16 / 9;
-        }
-
         h1 {
             font-size: clamp(1.5rem, 5vw, 5rem);
         }
 
         .card {
-            /* width: 10%;
+            /* width: 100%;
             max-width: 500px; */
             width: min(500px, 100%);
         }
@@ -330,669 +194,122 @@
             translate: 10px 10px;
         }
 
-        .inline-icon {
-            display: inline-block;
-            width: 1lh;
-            /* line-height; rlh = root line-height*/
-            height: 1lh;
+
+
+        section {
+            content-visibility: auto;
+            contain-intrinsic-size: 0 500px;
         }
 
-        @supports (-webkit-background-clip: text) {
-            .grad-text {
-                background: linear-gradient(rgba(25 53 95 / 1), steelblue);
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
+        .masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+            grid-template-rows: masonry;
+            grid-gap: 1rem;
         }
 
-        small {
-            font-size: max(min(0.5vw, 0.5em), 1rem);
+        article :is(h1, h2) {
+            text-decoration: underline;
+            text-decoration-color: #cf6a87;
+            text-decoration-thickness: 0.5rem;
         }
 
-        .b4 {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        a:not([class]) {
+            text-decoration-thickness: 2.5ex;
+            text-underline-offset: -3.2ex;
+            text-decoration-skip-ink: none;
+            text-decoration-color: #63cdda;
+            color: currentColor;
         }
 
-        .b4 .tile-single {
-            float: left;
-            flex: 0 0 150px;
-            margin: 0.3rem;
-            text-align: center;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            width: 150px;
-            height: 150px;
-            background-color: #f8f9fa;
-            position: relative;
-            padding: .25rem;
-            border: 1px solid #dee2e6;
-            border-radius: .25rem;
-        }
-
-        .b4 .tile-single:hover {
-            background-image: linear-gradient(60deg, #f8f9fa, #efefef);
-        }
-
-        @media (min-width: 518px) {
-            .b4 {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, 150px);
-                gap: .6rem;
-            }
-
-            .b4 .tile-single {
-                margin: 0
-            }
+        a:not([class]):hover {
+            text-decoration-color: #303952;
+            color: #ffffff;
         }
 
 
-        
-@-webkit-keyframes circle_animation {
+        div:has(p) {
+            background: red;
+        }
 
-    0%,
-    100% {
-        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-    }
+        div:has(+ div) {
+            color: blue;
+        }
 
-    34% {
-        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
-    }
-
-    50% {
-        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-    }
-
-    67% {
-        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
-    }
-}
-
-@keyframes circle_animation {
-
-    0%,
-    100% {
-        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-    }
-
-    34% {
-        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
-    }
-
-    50% {
-        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
-    }
-
-    67% {
-        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
-    }
-}
+        a:has(> img) {
+            border: 20px solid white;
+        }
 
 
 
-.circle_shape {
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.9);
-    opacity: 0.102;
-    position: absolute;
-    width: 510px;
-    height: 510px;
-    -webkit-animation: circle_animation 7s linear infinite;
-    animation: circle_animation 7s linear infinite;
-    z-index: 0;
-}
+        img,
+        input[type="image"],
+        video,
+        embed,
+        iframe,
+        object,
+        table {
+            aspect-ratio: attr(width) / attr(height);
+        }
 
-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 500px;
-}
+        :target {
+            scroll-margin-top: 5rem;
+        }
 
-.masonry {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  grid-template-rows: masonry;
-  grid-gap: 1rem;
-}
+        /* NEW! */
+        /* select all <p>s that are not descendants of <article> */
+        p:not(article *) {}
 
-article :is(h1, h2) {
-  text-decoration: underline;
-  text-decoration-color: #cf6a87;
-  text-decoration-thickness: 0.5rem;
-}
+        .heart-shaped-mask {
+            clip-path: path('M213.1,6.7c-32.4-14.4-73.7,0-88.1,30.6C110.6,4.9,67.5-9.5,36.9,6.7C2.8,22.9-13.4,62.4,13.5,110.9 C33.3,145.1,67.5,170.3,125,217c59.3-46.7,93.5-71.9,111.5-106.1C263.4,64.2,247.2,22.9,213.1,6.7z');
+        }
 
-div:has(p) {
-  background: red;
-}
-div:has(+ div) { 
-  color: blue; 
-}
-a:has(> img) {
-  border: 20px solid white;
-}
+        img.img-top {
+            border-radius: 0.5rem 0.5rem 0 0;
+            width: 100%;
+            object-fit: cover;
+            aspect-ratio: 4 / 3;
+        }
 
-a:not([class]) {
-  text-decoration-thickness: 2.5ex;
-  text-underline-offset: -3.2ex;
-  text-decoration-skip-ink: none;
-  text-decoration-color: #63cdda;
-  color: currentColor;
-}
+        picture figcaption {
+            opacity: 0;
+            transition: .5s opacity;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #000;
+            color: #fff;
+            padding: 1rem 2rem;
+        }
 
-a:not([class]):hover {
-  text-decoration-color: #303952;
-  color: #ffffff;
-}
-
-img, input[type="image"], video, embed, iframe, marquee, object, table {
-  aspect-ratio: attr(width) / attr(height);
-}
-
-:target {
-  scroll-margin-top: 5rem;
-}
-
-/* NEW! */
-/* select all <p>s that are not descendants of <article> */
-    p:not(article *) {
-}
-
-.heart-shaped-mask {
-    clip-path: path('M213.1,6.7c-32.4-14.4-73.7,0-88.1,30.6C110.6,4.9,67.5-9.5,36.9,6.7C2.8,22.9-13.4,62.4,13.5,110.9 C33.3,145.1,67.5,170.3,125,217c59.3-46.7,93.5-71.9,111.5-106.1C263.4,64.2,247.2,22.9,213.1,6.7z'); 
-}
-
-img {
-  border-radius: 0.5rem 0.5rem 0 0;
-  width: 100%;
-  object-fit: cover;
-  aspect-ratio: 4/3;
-}
-
-.thing:hover {
-  transition-delay: 3s;
-}
-
+        picture:hover figcaption {
+            opacity: 1;
+            transition-delay: 3s;
+        }
     </style>
 </head>
 
 <body>
 
     <section class="masthead" role="img" aria-label="Image Description">
-        <h1>Masthead H1</h1>
+        <h1 class="grad-text">Masthead H1</h1>
     </section>
 
-<div class="circle_shape"></div>
     <section class="my-5 container">
+        <h2 class="font-weight-bold display-3 text-center py-4">Heading H2</h2>
         <div class="row">
-            <details class="col-lg-6 info" open>
-                <summary>Specification Metadata</summary>
-
-                <dl>
-                    <dt>This version:</dt>
-                    <dd><a class="u-url"
-                            href="https://drafts.csswg.org/css-sizing-4/">https://drafts.csswg.org/css-sizing-4/</a>
-                    </dd>
-                    <dt>Latest published version:</dt>
-                    <dd><a href="https://www.w3.org/TR/css-sizing-4/">https://www.w3.org/TR/css-sizing-4/</a>
-                    </dd>
-                    <dt>Issue Tracking:</dt>
-                    <dd><a href="#issues-index">Inline In Spec</a>
-                    </dd>
-                    <dd><a href="https://github.com/w3c/csswg-drafts/labels/css-sizing-4">GitHub Issues</a>
-                    </dd>
-                    <dt class="editor">Editors:</dt>
-                    <dd class="editor p-author h-card vcard" data-editor-id="42199"><a class="p-name fn u-url url"
-                            href="http://xanthir.com/contact/">Tab Atkins</a> (<span class="p-org org">Google</span>)
-                    </dd>
-                    <dd class="editor p-author h-card vcard" data-editor-id="35400"><a class="p-name fn u-url url"
-                            href="http://fantasai.inkedblade.net/contact">Elika J. Etemad / fantasai</a> (<span
-                            class="p-org org">Invited Expert</span>)
-                    </dd>
-                    <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url"
-                            href="http://jensimmons.com/">Jen
-                            Simmons</a> (<span class="p-org org">Mozilla</span>)
-                    </dd>
-                    <dt>Suggest an Edit for this Spec:</dt>
-                    <dd><a href="https://github.com/w3c/csswg-drafts/blob/master/css-sizing-4/Overview.bs">GitHub
-                            Editor</a>
-                    </dd>
-                </dl>
-                <p>Requires a computer running an operating system. The computer
-                    must have some memory and ideally some kind of long-term storage.
-                    An input device as well as some form of output device is
-                    recommended.</p>
-            </details>
-            <details class="col-lg-6 timeline" open>
-                <summary>TIMELINE</summary>
-
-                <dl>
-                    <dt>1999</dt>
-                    <dd>Requires a computer running an operating system.
-                    </dd>
-                    <dt>2001</dt>
-                    <dd>The computer
-                        must have some memory and ideally some kind of long-term storage.
-                        An input device as well as some form of output device is
-                        recommended
-                    </dd>
-                    <dt>2002</dt>
-                    <dd>The computer
-                        must have some memory and ideally some kind of long-term storage.
-                    </dd>
-                    <dd>An input device as well as some form of output device is
-                        recommended.
-                    </dd>
-                </dl>
-            </details>
-            <details class="col-lg-6 agenda timeline" open>
-                <summary>PROGRAMME</summary>
-
-                <dl>
-                    <dt>9.00 </dt>
-                    <dd>Breakfast and welcome to the showroom</dd>
-                    <dt>10.30 </dt>
-                    <dd>Vendor introduction</dd>
-                    <dt>11.30 </dt>
-                    <dd>Return to the showroom</dd>
-                    <dt>12.00 </dt>
-                    <dd>Gourmet lunch and cocktail </dd>
-                </dl>
-            </details>
-            <details class="col-lg-6 cookie my-4" open>
-                <summary>Privacy Preference Center</summary>
-                <p>We process user's data to deliver content or advertisements and measure the delivery of such content
-                    or advertisements, extract insights and generate reports to understand service usage; and/or
-                    accessing or storing information on devices for that purpose. Below you may read further about the
-                    purposes for which we process data, exercise your preferences for processing, and/or see our
-                    partners. Cookie Policy</p>
-                <dt>Manage Consent Preferences</dt>
-                <dl>
-                    <dt>Functional Cookies</dt>
-                    <dd class="text-right">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" id="functional" name="functional" class="custom-control-input" >
-                            <label for="functional"  class="custom-control-label" ></label>
-                        </div>
-                    </dd>
-                    <p>These cookies enable the website to provide enhanced functionality and personalisation.
-                        They may be set by us or by third party providers whose services we have added to our
-                        pages. If you do not allow these cookies then some or all of these services may not
-                            function properly.</p>
-                    <dt>Performance Cookies</dt>
-                    <dd class="text-right">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" id="performance" name="performance" class="custom-control-input" >
-                            <label for="performance"  class="custom-control-label" ></label>
-                        </div>
-                    </dd>
-                    <p>These cookies allow us to count visits and traffic sources so we can measure and improve the
-                        performance of our site. They help us to know which pages are the most and least popular and
-                        see how visitors move around the site. All information these cookies collect is aggregated
-                        and therefore anonymous. If you do not allow these cookies we will not know when you have
-                        visited our site, and will not be able to monitor its performance.
-                    </p>
-                    <dt>Targeting Cookies</dt>
-                    <dd class="text-right">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" id="targeting" name="targeting" class="custom-control-input" >
-                            <label for="targeting"  class="custom-control-label" ></label>
-                        </div>
-                    </dd>
-                    <p>These cookies may be set through our site by our advertising partners. They may be used by
-                        those companies to build a profile of your interests and show you relevant adverts on other
-                        sites. They do not store directly personal information, but are based on uniquely
-                        identifying your browser and internet device. If you do not allow these cookies, you will
-                        experience less targeted advertising.
-                    </p>
-                    <dt>Social Media Cookies</dt>
-                    <dd class="text-right">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" id="social" name="social" class="custom-control-input" >
-                            <label for="social"  class="custom-control-label" ></label>
-                        </div>
-                    </dd>
-                    <p>These cookies are set by a range of social media services that we have added to the site to
-                        enable you to share our content with your friends and networks. They are capable of tracking
-                        your browser across other sites and building up a profile of your interests. This may impact
-                        the content and messages you see on other websites you visit. If you do not allow these
-                        cookies you may not be able to use or see these sharing tools.</p>
-                    <dt>Strictly Necessary Cookies</dt>
-                    <dd class="text-right">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" id="necessary" name="necessary" class="custom-control-input" checked readonly>
-                            <label for="necessary"  class="custom-control-label" ></label>
-                        </div>                 
-                    </dd>
-                    <p>These cookies are necessary for the website to function and cannot be switched off in our
-                        systems. They are usually only set in response to actions made by you which amount to a
-                        request for services, such as setting your privacy preferences, logging in or filling in
-                        forms. You can set your browser to block or alert you about these cookies, but some parts of
-                        the site will not then work. These cookies do not store any personally identifiable
-                        information.
-                    </p>
-                </dl>
-                <p><a href="#" class="btn btn-sm btn-primary">Confirm my choices</a></p>
-            </details>
-            <div class="col-lg-6 d-flex">
-                <picture class="d-block w-100 ml-2">
-                    <source loading="lazy" srcset="https://picsum.photos/200/300.webp">
-                    <img loading="lazy" src="https://picsum.photos/200/300.jpg" alt="A huge party with cakes.">
-                </picture>
-
-                <picture class="d-block w-100 ml-2">
-                    <source loading="lazy" srcset="https://picsum.photos/200/300.webp" type="image/webp" alt="Modern" />
-                    <source loading="lazy" srcset="https://picsum.photos/200/300.jp2" type="image/jp2" alt="Safari" />
-                    <img loading="lazy" src="https://picsum.photos/200/300.jxr" type="image/vnd.ms-photo" alt="IE11" />
-                </picture>
-            </div>
+            <picture class="d-block mx-auto position-relative">
+                <source loading="lazy" srcset="https://picsum.photos/800/450.webp" type="image/webp" alt="Modern" />
+                <source loading="lazy" srcset="https://picsum.photos/800/450.jp2" type="image/jp2" alt="Safari" />
+                <img loading="lazy" src="https://picsum.photos/800/450.jxr" type="image/vnd.ms-photo" alt="IE11"
+                    width="800" height="450" />
+                <figcaption>Example image</figcaption>
+            </picture>
         </div>
     </section>
 
 
-    <section class="container my-5">
-        <div class="b4">
-            <div id="ADS-TEC" class="animated flipInX lift menu-item tile-single">
-
-                <a href="/products/vendors/ads-tec">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=ADS-TEC&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=ADS-TEC&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=ADS-TEC&amp;size=300 2x"
-                        alt="ADS-TEC">
-
-                </a>
-
-            </div>
-
-            <div id="Advantech" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/advantech">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Advantech&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Advantech&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Advantech&amp;size=300 2x"
-                        alt="Advantech">
-
-                </a>
-
-            </div>
-
-            <div id="APG Cash Drawer" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/apgcashdrawer">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=APG-Cash-Drawer&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=APG-Cash-Drawer&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=APG-Cash-Drawer&amp;size=300 2x"
-                        alt="APG Cash Drawer">
-
-                </a>
-
-            </div>
-
-            <div id="Badgy Evolis" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/badgy-evolis">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Badgy-Evolis&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Badgy-Evolis&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Badgy-Evolis&amp;size=300 2x"
-                        alt="Badgy Evolis">
-
-                </a>
-
-            </div>
-
-            <div id="BarTender" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/bartender">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=BarTender&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=BarTender&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=BarTender&amp;size=300 2x"
-                        alt="BarTender">
-
-                </a>
-
-            </div>
-
-            <div id="Bixolon" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/bixolon">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Bixolon&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Bixolon&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Bixolon&amp;size=300 2x"
-                        alt="Bixolon">
-
-                </a>
-
-            </div>
-
-            <div id="Blue Parrott" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/blue-parrott">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Blue-Parrott&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Blue-Parrott&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Blue-Parrott&amp;size=300 2x"
-                        alt="Blue Parrott">
-
-                </a>
-
-            </div>
-
-            <div id="Bluebird" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/bluebird">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Bluebird&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Bluebird&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Bluebird&amp;size=300 2x"
-                        alt="Bluebird">
-
-                </a>
-
-            </div>
-
-            <div id="Brother" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/brother">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Brother&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Brother&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Brother&amp;size=300 2x"
-                        alt="Brother">
-
-                </a>
-
-            </div>
-
-            <div id="CIPI Europe" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/cipi-europe">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=CIPI-Europe&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=CIPI-Europe&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=CIPI-Europe&amp;size=300 2x"
-                        alt="CIPI Europe">
-
-                </a>
-
-            </div>
-
-            <div id="Citizen" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/citizen-systems">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Citizen&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Citizen&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Citizen&amp;size=300 2x"
-                        alt="Citizen">
-
-                </a>
-
-            </div>
-
-            <div id="Cognitive" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/cognitive">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Cognitive&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Cognitive&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Cognitive&amp;size=300 2x"
-                        alt="Cognitive">
-
-                </a>
-
-            </div>
-
-            <div id="Compulocks" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/compulocks">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Compulocks&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Compulocks&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Compulocks&amp;size=300 2x"
-                        alt="Compulocks">
-
-                </a>
-
-            </div>
-
-            <div id="Cradlepoint" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/cradlepoint">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Cradlepoint&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Cradlepoint&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Cradlepoint&amp;size=300 2x"
-                        alt="Cradlepoint">
-
-                </a>
-
-            </div>
-
-            <div id="Custom" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/custom/home">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Custom&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Custom&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Custom&amp;size=300 2x"
-                        alt="Custom">
-
-                </a>
-
-            </div>
-
-            <div id="Datacard" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/datacard">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Datacard&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Datacard&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Datacard&amp;size=300 2x"
-                        alt="Datacard">
-
-                </a>
-
-            </div>
-
-            <div id="Datalogic" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/datalogic">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Datalogic&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Datalogic&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Datalogic&amp;size=300 2x"
-                        alt="Datalogic">
-
-                </a>
-
-            </div>
-
-            <div id="Dymo" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/dymo">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Dymo&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Dymo&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Dymo&amp;size=300 2x"
-                        alt="Dymo">
-
-                </a>
-
-            </div>
-
-            <div id="ECD" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/ecd">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=ECD&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=ECD&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=ECD&amp;size=300 2x"
-                        alt="ECD">
-
-                </a>
-
-            </div>
-
-            <div id="Elo" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/elo-touch-solutions">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Elo&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Elo&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Elo&amp;size=300 2x"
-                        alt="Elo">
-
-                </a>
-
-            </div>
-
-            <div id="Epson" class="tile-single menu-item animated lift flipInX">
-
-                <a href="/products/vendors/epson">
-
-                    <img width="150" height="150" loading="lazy" src="//starter.endorion.eu/logos/GetLogo.ashx?name=Epson&amp;size=150"
-                        srcset="//starter.endorion.eu/logos/GetLogo.ashx?name=Epson&amp;size=150 1x, //starter.endorion.eu/logos/GetLogo.ashx?name=Epson&amp;size=300 2x"
-                        alt="Epson">
-
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <video autoplay="" muted="" playsinline="" loop="" class="tcrBifLG--hero-bg--video" poster="https://dist.contentdriver.com.au/pages/logitech/LOGI-INGRAMNZ-LP/images/video/rally-video-poster.jpg">
-            <source src="https://dist.contentdriver.com.au/pages/logitech/LOGI-INGRAMNZ-LP/images/video/rally-bar-video.mp4" type="video/mp4">
-          </video>
-    </section>
-
-    <section style="display: grid; place-items: center; background: #444;">
-        <div class="black-box">
-            <h6>Web Design</h6>
-        </div>
-    </section>
-<style>
-     .black-box {
-        width: 600px; 
-        height: 300px;
-        background: #000;
-        color: #fff;
-        margin: 200px 400px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        box-shadow: 4px 4px 6px #000;
-    }
-     .black-box:after {
-         content: '';
-         top: 0;
-         left: 0;
-         bottom: 0;
-         right: 0;
-         position: absolute;
-         background: radial-gradient(farthest-corner at 25% 25%,#444, #111);
-     }
-     .black-box * {
-         font: 2rem 'Segoe UI'; 
-         font-weight: 600;
-         z-index: 1;
-     }
-</style>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="//starter.ingrammicro.ccom/1imv2/CORE/js/js-bundle-feb-2020.js"></script>

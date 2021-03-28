@@ -1,152 +1,178 @@
-<details class="agenda timeline mb-3" open>
-    <summary class="disabled">PROGRAMME</summary>
+<div class="row">
+    <details class="col-lg-6 timeline" open>
+        <summary>TIMELINE</summary>
 
-    <dl>
-        <dt>9.00 </dt>
-        <dd>Breakfast and welcome to the showroom</dd>
-        <dt>10.30 </dt>
-        <dd>Vendor introduction</dd>
-        <dt>11.30 </dt>
-        <dd>Return to the showroom</dd>
-        <dt>12.00 </dt>
-        <dd>Gourmet lunch and cocktail </dd>
-    </dl>
-</details>
+        <dl>
+            <dt>1999</dt>
+            <dd>Requires a computer running an operating system.
+            </dd>
+            <dt>2001</dt>
+            <dd>The computer
+                must have some memory and ideally some kind of long-term storage.
+                An input device as well as some form of output device is
+                recommended
+            </dd>
+            <dt>2002</dt>
+            <dd>The computer
+                must have some memory and ideally some kind of long-term storage.
+            </dd>
+            <dd>An input device as well as some form of output device is
+                recommended.
+            </dd>
+        </dl>
+    </details>
+    <details class="col-lg-6 agenda timeline" open>
+        <summary>PROGRAMME</summary>
 
-<details class="info" open>
-    <summary>Specification Metadata</summary>
+        <dl>
+            <dt>9.00 </dt>
+            <dd>Breakfast and welcome to the showroom</dd>
+            <dt>10.30 </dt>
+            <dd>Vendor introduction</dd>
+            <dt>11.30 </dt>
+            <dd>Return to the showroom</dd>
+            <dt>12.00 </dt>
+            <dd>Gourmet lunch and cocktail </dd>
+        </dl>
+    </details>
+</div>
+<style>
+    /* Timeline details */
+    details {
+        font-size: 80%;
+    }
 
-    <dl>
-        <dt>This version:</dt>
-        <dd><a class="u-url"
-                href="https://drafts.csswg.org/css-sizing-4/">https://drafts.csswg.org/css-sizing-4/</a>
-        </dd>
-        <dt>Latest published version:</dt>
-        <dd><a href="https://www.w3.org/TR/css-sizing-4/">https://www.w3.org/TR/css-sizing-4/</a>
-        </dd>
-        <dt>Issue Tracking:</dt>
-        <dd><a href="#issues-index">Inline In Spec</a>
-        </dd>
-        <dd><a href="https://github.com/w3c/csswg-drafts/labels/css-sizing-4">GitHub Issues</a>
-        </dd>
-        <dt class="editor">Editors:</dt>
-        <dd class="editor p-author h-card vcard" data-editor-id="42199"><a class="p-name fn u-url url"
-                href="http://xanthir.com/contact/">Tab Atkins</a> (<span class="p-org org">Google</span>)
-        </dd>
-        <dd class="editor p-author h-card vcard" data-editor-id="35400"><a class="p-name fn u-url url"
-                href="http://fantasai.inkedblade.net/contact">Elika J. Etemad / fantasai</a> (<span
-                class="p-org org">Invited Expert</span>)
-        </dd>
-        <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url"
-                href="http://jensimmons.com/">Jen
-                Simmons</a> (<span class="p-org org">Mozilla</span>)
-        </dd>
-        <dt>Suggest an Edit for this Spec:</dt>
-        <dd><a href="https://github.com/w3c/csswg-drafts/blob/master/css-sizing-4/Overview.bs">GitHub
-                Editor</a>
-        </dd>
-    </dl>
-    <p>Requires a computer running an operating system. The computer
-        must have some memory and ideally some kind of long-term storage.
-        An input device as well as some form of output device is
-        recommended.</p>
-</details>
-<details class="timeline" open>
-    <summary>TIMELINE</summary>
+    summary:focus {
+        outline: none;
+    }
 
-    <dl>
-        <dt>1999</dt>
-        <dd>Requires a computer running an operating system.
-        </dd>
-        <dt>2001</dt>
-        <dd>The computer
-            must have some memory and ideally some kind of long-term storage.
-            An input device as well as some form of output device is
-            recommended
-        </dd>
-        <dt>2002</dt>
-        <dd>The computer
-            must have some memory and ideally some kind of long-term storage.
-        </dd>
-        <dd>An input device as well as some form of output device is
-            recommended.
-        </dd>
-    </dl>
-</details>
+    summary::-webkit-details-marker {
+        display: none;
+    }
 
+    summary:before {
+        padding-right: .5em;
+        content: '\f105';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        color: #2f75bb;
+        transition: .3s all ease-in-out;
+    }
 
-<details class="cookie" open>
-    <summary>Privacy Preference Center</summary>
-    <p>We process user's data to deliver content or advertisements and measure the delivery of such content
-        or advertisements, extract insights and generate reports to understand service usage; and/or
-        accessing or storing information on devices for that purpose. Below you may read further about the
-        purposes for which we process data, exercise your preferences for processing, and/or see our
-        partners. Cookie Policy</p>
-    <dt>Manage Consent Preferences</dt>
-    <dl>
-        <dt>Functional Cookies</dt>
-        <dd class="text-right">
-            <div class="custom-control custom-switch">
-                <input type="checkbox" id="functional" name="functional" class="custom-control-input" >
-                <label for="functional"  class="custom-control-label" ></label>
-            </div>
-        </dd>
-        <p>These cookies enable the website to provide enhanced functionality and personalisation.
-            They may be set by us or by third party providers whose services we have added to our
-            pages. If you do not allow these cookies then some or all of these services may not
-                function properly.</p>
-        <dt>Performance Cookies</dt>
-        <dd class="text-right">
-            <div class="custom-control custom-switch">
-                <input type="checkbox" id="performance" name="performance" class="custom-control-input" >
-                <label for="performance"  class="custom-control-label" ></label>
-            </div>
-        </dd>
-        <p>These cookies allow us to count visits and traffic sources so we can measure and improve the
-            performance of our site. They help us to know which pages are the most and least popular and
-            see how visitors move around the site. All information these cookies collect is aggregated
-            and therefore anonymous. If you do not allow these cookies we will not know when you have
-            visited our site, and will not be able to monitor its performance.
-        </p>
-        <dt>Targeting Cookies</dt>
-        <dd class="text-right">
-            <div class="custom-control custom-switch">
-                <input type="checkbox" id="targeting" name="targeting" class="custom-control-input" >
-                <label for="targeting"  class="custom-control-label" ></label>
-            </div>
-        </dd>
-        <p>These cookies may be set through our site by our advertising partners. They may be used by
-            those companies to build a profile of your interests and show you relevant adverts on other
-            sites. They do not store directly personal information, but are based on uniquely
-            identifying your browser and internet device. If you do not allow these cookies, you will
-            experience less targeted advertising.
-        </p>
-        <dt>Social Media Cookies</dt>
-        <dd class="text-right">
-            <div class="custom-control custom-switch">
-                <input type="checkbox" id="social" name="social" class="custom-control-input" >
-                <label for="social"  class="custom-control-label" ></label>
-            </div>
-        </dd>
-        <p>These cookies are set by a range of social media services that we have added to the site to
-            enable you to share our content with your friends and networks. They are capable of tracking
-            your browser across other sites and building up a profile of your interests. This may impact
-            the content and messages you see on other websites you visit. If you do not allow these
-            cookies you may not be able to use or see these sharing tools.</p>
-        <dt>Strictly Necessary Cookies</dt>
-        <dd class="text-right">
-            <div class="custom-control custom-switch">
-                <input type="checkbox" id="necessary" name="necessary" class="custom-control-input" checked readonly>
-                <label for="necessary"  class="custom-control-label" ></label>
-            </div>                 
-        </dd>
-        <p>These cookies are necessary for the website to function and cannot be switched off in our
-            systems. They are usually only set in response to actions made by you which amount to a
-            request for services, such as setting your privacy preferences, logging in or filling in
-            forms. You can set your browser to block or alert you about these cookies, but some parts of
-            the site will not then work. These cookies do not store any personally identifiable
-            information.
-        </p>
-    </dl>
-    <p><a href="#" class="btn btn-sm btn-primary">Confirm my choices</a></p>
-</details>
+    details[open] summary:before {
+        content: '\f107';
+    }
+
+    details.agenda summary:before,
+    details.agenda[open] summary:before {
+        content: '\f017';
+    }
+
+    details:not(.timeline)[open] summary {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    dl,
+    details>p {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        position: relative;
+        padding: .75rem 1.25rem 0 1rem;
+        margin-bottom: .75rem;
+    }
+
+    details>p+p {
+        padding-top: 0;
+    }
+
+    dt,
+    dd {
+        flex: 0 0 50%;
+    }
+
+    dd+dd {
+        margin-left: 50%;
+    }
+
+    summary,
+    dt {
+        font-weight: 600;
+        letter-spacing: .4px;
+        font-size: 90%;
+        text-transform: uppercase;
+        margin-right: 1rem;
+        flex-basis: calc(50% - 1rem);
+        position: relative;
+    }
+
+    dt>p {
+        font-weight: 400;
+        font-size: .9rem;
+        letter-spacing: 0px;
+        text-transform: none;
+    }
+
+    details.timeline {
+        overflow: hidden;
+        font-size: 1rem;
+    }
+
+    details.timeline:not(.info) summary:before {
+        padding-left: 2px;
+    }
+
+    details.timeline dt {
+        flex: 0 0 25%;
+    }
+
+    details.timeline dd {
+        flex: 0 0 75%;
+    }
+
+    details.timeline dd+dd {
+        margin-left: 25%;
+    }
+
+    details.timeline dl {
+
+        margin-left: -1rem;
+    }
+
+    details.timeline p {
+        padding-left: 2.2rem;
+    }
+
+    details.timeline dt {
+        padding-left: 2rem;
+        flex-basis: calc(25% - 3rem);
+    }
+
+    details.timeline dt:before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 10rem;
+        background: #dee2e6;
+        left: 0.4rem;
+        top: 8px;
+    }
+
+    details.timeline dt:first-of-type:before {
+        top: -.9rem;
+    }
+
+    details.timeline dt:after {
+        content: '';
+        position: absolute;
+        width: 1rem;
+        height: 1px;
+        background: #dee2e6;
+        left: 0.4rem;
+        top: 11px;
+    }
+
+    summary::marker {
+        font-size: 0;
+    }
+</style>
