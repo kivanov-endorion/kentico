@@ -469,6 +469,16 @@ article :is(h1, h2) {
   text-decoration-thickness: 0.5rem;
 }
 
+div:has(p) {
+  background: red;
+}
+div:has(+ div) { 
+  color: blue; 
+}
+a:has(> img) {
+  border: 20px solid white;
+}
+
 a:not([class]) {
   text-decoration-thickness: 2.5ex;
   text-underline-offset: -3.2ex;
@@ -504,6 +514,10 @@ img {
   width: 100%;
   object-fit: cover;
   aspect-ratio: 4/3;
+}
+
+.thing:hover {
+  transition-delay: 3s;
 }
 
     </style>
