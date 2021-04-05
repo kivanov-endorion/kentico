@@ -211,6 +211,7 @@ if () {
 {% LocalizationContext.CurrentCulture.CultureAlias ?? "en" %}
 // Language flag
 {% Format("<img src='/CMSPages/GetResource.ashx?image={0}{1}.png' alt='{1}'>", URLEncode("[Images.zip]/Flags/16x16/"), LocalizationContext.CurrentCulture.CultureCode) %}
+{% Format("<img src='/CMSPages/GetResource.ashx?image={0}{1}.png' alt='{1}'>", /CMSPages/GetResource.ashx?image=%5bImages.zip%5d%2fFlags%2f16x16%2f, LocalizationContext.CurrentCulture.CultureCode) %}
 
 // Meta data:
 {% DocumentPageTitle ?? DocumentName %} // title
