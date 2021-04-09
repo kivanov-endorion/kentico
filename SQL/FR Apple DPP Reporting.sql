@@ -35,11 +35,11 @@ WHERE FormInserted <= DATEFROMPARTS(@CurrentYear,@CurrentMonth,'01')
 
 UNION SELECT Count(AppleDppID) Total, DATENAME(MONTH, DATEFROMPARTS(@CurrentYear,(@CurrentMonth - 1),'01')) AS Months, 2 Ordered
 FROM [KENTICO].[dbo].[Form_fr_ingrammicro_eu_Apple_DPP] F
-WHERE FormInserted <= CONVERT(DATE, CAST(@CurrentYear*10000 + (@CurrentMonth-1)*100 + 1 AS VARCHAR(8)), 112)
+WHERE FormInserted <= DATEFROMPARTS(@CurrentYear,(@CurrentMonth - 1),'01')
 
 UNION SELECT Count(AppleDppID) Total, DATENAME(MONTH, DATEFROMPARTS(@CurrentYear,(@CurrentMonth - 2),'01')) AS Months, 3 Ordered
 FROM [KENTICO].[dbo].[Form_fr_ingrammicro_eu_Apple_DPP] F
-WHERE FormInserted <= CONVERT(DATE, CAST(@CurrentYear*10000 + (@CurrentMonth-2)*100 + 1 AS VARCHAR(8)), 112)
+WHERE FormInserted <= DATEFROMPARTS(@CurrentYear,(@CurrentMonth - 2),'01')
 
 ) Fir2
 ON Fir.Months = Fir2.Months
@@ -92,7 +92,7 @@ AND SiteID = @SiteID
 ON Fir.Months = Thi.Months
 
 INNER JOIN (
-SELECT ISNULL(CONVERT(varchar, DATEADD(s, 
+SELECT ISNULL(CONVERT(VARCHAR, DATEADD(s, 
 (SELECT SUM(HitsValue)/SUM(HitsCount)
 FROM Analytics_HourHits JOIN
       Analytics_Statistics ON HitsStatisticsID = StatisticsID
@@ -103,7 +103,7 @@ FROM Analytics_HourHits JOIN
 	  StatisticsSiteID = 23)
 , 0), 108),'00:00:00') AvgTime, DATENAME(MONTH, DATEFROMPARTS(@CurrentYear,@CurrentMonth,'01')) AS Months, 1 Ordered
 
-UNION SELECT ISNULL(CONVERT(varchar, DATEADD(s, 
+UNION SELECT ISNULL(CONVERT(VARCHAR, DATEADD(s, 
 (SELECT SUM(HitsValue)/SUM(HitsCount)
 FROM Analytics_HourHits JOIN
       Analytics_Statistics ON HitsStatisticsID = StatisticsID
@@ -114,7 +114,7 @@ FROM Analytics_HourHits JOIN
 	  StatisticsSiteID = 23)
 , 0), 108),'00:00:00') AvgTime, DATENAME(MONTH, DATEFROMPARTS(@CurrentYear,(@CurrentMonth - 1),'01')) AS Months, 22 Ordered
 
-UNION SELECT ISNULL(CONVERT(varchar, DATEADD(s, 
+UNION SELECT ISNULL(CONVERT(VARCHAR, DATEADD(s, 
 (SELECT SUM(HitsValue)/SUM(HitsCount)
 FROM Analytics_HourHits JOIN
       Analytics_Statistics ON HitsStatisticsID = StatisticsID
