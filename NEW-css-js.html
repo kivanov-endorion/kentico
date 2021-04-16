@@ -315,6 +315,40 @@
     <script src="//starter.ingrammicro.ccom/1imv2/CORE/js/js-bundle-feb-2020.js"></script>
 
     
+
+    <?php
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $from = 'Website Enquiry'; 
+    $to = 'grahche@gmail.com'; 
+    $subject = 'Website Enquiry';
+    $human = $_POST['human'];
+			
+    $body = "From: $name\n E-Mail: $email\n Message:\n $message";
+				
+    if ($_POST['submit'] && $human == '4') {				 
+        if (mail ($to, $subject, $body, $from)) { 
+	    echo '<p>Съобщението Ви беше изпратено!</p>';
+	} else { 
+	    echo '<p>Грешка - моля опитайте отново!</p>'; 
+	} 
+    } else if ($_POST['submit'] && $human != '4') {
+	echo '<p>Отговорихте неправилно!</p>';
+    }
+?>
+          <form method="post" action="contact.php">
+            <label>Име</label>
+            <input name="name" placeholder="Пишете тук">
+            <label>Имейл</label>
+            <input name="email" type="email" placeholder="Пишете тук">
+            <label>Съобщение</label>
+            <textarea name="message" placeholder="Пишете тук"></textarea>
+            <label>*Колко е 2+2? (анти-спам)</label>
+            <input name="human" placeholder="Пишете тук">
+            <br>
+            <input id="submit" name="submit" type="submit" value="Submit">
+          </form>
 </body>
 
 </html>
