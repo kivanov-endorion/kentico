@@ -1,6 +1,7 @@
 // TO USE IN PAGE TEMPLATES
 <%=CMS.Helpers.ResHelper.GetString( "MyKey.SubKey.value" ) %>
 <%=CMS.MacroEngine.MacroResolver.Resolve( "The current user is: {% CurrentUser.UserName %}" ) %>
+<%= (CurrentDocument.ClassName.ToLower()=="oneim.event") ? "itemscope itemtype=\"http://schema.org/Event\"" : ""  %>
 
 // TO USE IN WEB PARTS
 
