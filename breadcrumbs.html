@@ -1,0 +1,39 @@
+<ol itemscope itemtype="https://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <a itemprop="item" href="https://example.com/books">
+      <span itemprop="name">Books</span></a>
+    <meta itemprop="position" content="1" />
+  </li>
+
+
+  <nav aria-label="You are here:" role="navigation" class="align-items-center d-flex">
+    <ul class="d-md-inline-flex d-none f-breadcrumbs list-inline" itemscope
+      itemtype="https://schema.org/BreadcrumbList">
+      {% for (i = 0; i < CurrentDocument.DocumentsOnPath.Count; i++) { %}
+      {% if (i == 0) { %}
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="~/" title="Home" itemprop="item">
+          <i class="fas fa-home"></i><span class="text-hide" itemprop="name">Home</span>
+          <meta itemprop="position" content="{% i + 1 %}" />
+        </a>
+      </li>
+      {% } else { %}
+      {% if (i < CurrentDocument.DocumentsOnPath.Count - 1 ) {  %}
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="{% CurrentDocument.DocumentsOnPath[i].NodeAliasPath %}" itemprop="item">
+          {% } %}
+          <span
+            itemprop="name">{% (CurrentDocument.DocumentsOnPath[i].DocumentMenuCaption) ? CurrentDocument.DocumentsOnPath[i].DocumentMenuCaption : CurrentDocument.DocumentsOnPath[i].DocumentName %}</span>
+          <meta itemprop="position" content="{% i + 1 %}" />
+        </a>
+      </li>
+      {% if (i = CurrentDocument.DocumentsOnPath.Count - 1 ) { "" } %}
+      {% } %}
+
+      {% }  #%}
+    </ul>
+  </nav>
+
+
+  Error: Bad request. Hostname in the Host header is not same as servername requested by the SSL Client in Client-Hello.
+  
