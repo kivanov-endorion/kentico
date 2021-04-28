@@ -1,0 +1,24 @@
+SELECT CASE WHEN EXISTS (SELECT 1
+                         FROM kentico.dbo.Form_de_ingrammicro_eu_AWSIlluminate 
+						 WHERE ##WHERE##) 
+            THEN CAST (1 AS BIT) 
+            ELSE CAST (0 AS BIT) END AS Registered
+            
+
+##WHERE## Email = '{% CurrentUser.Email #%}') 
+
+<script>
+$(document).ready(function(){
+  {% if(Registered==False) { %}
+  // not registered
+  // accordion, news, events, webinars modal buttons, custom contacts
+  $("#cmsuniview, #cmsuniview2, #cmsuniview3, #cmsuniview4, #btn-coaching, #btn-marketing, #btn-sales, #btn-technical, #bootstrapcolumnlayout5").addClass("d-none");
+  {% } #%}
+  
+  {% if(Registered==True) { %}
+  // registered
+  // form, contacts, banner
+  $("#bizform_plus, #contacts, section+.bg-light").addClass("d-none");
+  {% } #%}
+});
+</script>
