@@ -460,3 +460,7 @@ SiteID  SiteName            SK_Valid    B4
 
 // OneTrust Cookies: Performance, Targeting, Social
 {% if(IMMacros.OneTrustGetGroup("Performance")){} %}
+
+// Only Prefix on Home page
+{% if(pagetitle_orelse_name != "Home"){ pagetitle_orelse_name + " · "} %}{% prefix %}
+{% if(DocumentContext.CurrentDocument.NodeAliasPath != "/Home"){ pagetitle_orelse_name + " · "} %}{% prefix %}
