@@ -300,6 +300,23 @@
                 flex-wrap: wrap;
             }
         }
+
+        /* ::marker */
+        .directions li::marker {
+        font-size: 90%;
+        font-weight: bold;
+        color: red;
+        }
+        ol.directions li::marker {
+        content:"[" counter(list-item)"] ";
+        color: rgba(0,0,0,0.5);
+        }
+        li.warning {
+        list-style-type:"⚠";
+        }
+        li.thumbsup {
+        list-style-type: "\1F44D"; 
+        }
     </style>
 </head>
 
