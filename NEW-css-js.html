@@ -317,6 +317,30 @@
         li.thumbsup {
         list-style-type: "\1F44D"; 
         }
+
+
+
+        .colorfulShadow {
+        position: relative;
+        width:100px;
+        height:100px;
+        z-index:0;
+        background:url(https://www.kirupa.com/icon/1f363.svg);
+        background-size: 0 0;
+        }
+
+        .colorfulShadow::before,
+        .colorfulShadow::after {
+        content: "";
+        inset:0;
+        position: absolute;
+        background-image: inherit;
+        background-size:contain; 
+        background-position: center center;
+        }
+        .colorfulShadow::before {
+        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.50)) blur(20px);
+        }
     </style>
 </head>
 
