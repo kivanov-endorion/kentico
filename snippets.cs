@@ -93,6 +93,9 @@
 // Navigation URL (URL or redirect URL)
 {% GetNavigationUrl() %}
 
+// Get simple link to document
+{% GetDocumentLink() %}
+
 // If null and compare
 {% if ( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } %}
 {% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
@@ -337,6 +340,12 @@ SiteID  SiteName            SK_Valid    B4
 {% AbsoluteURL %} // Note: gets the dash domain URL
 {% GetAbsoluteUrl(URL) %}
 
+{% GetAbsoluteUrl(CurrentDocument.Aliases.FirstItem.DisplayName) #%} // page alias
+{% GetAbsoluteUrl(GetDocumentUrl()) %} // page url
+{% GetAbsoluteUrl(CurrentUrl) %} // curren url (incl. w/ parameters)
+{% ( CurrentUrl == GetDocumentUrl()) ? %} // check if default url = current url
+{% URLEncode(GetAbsoluteUrl(CurrentUrl)) %} // encoded
+
 // Related documents
 {% Documents[NodeAliasPath].RelatedDocuments["isrelatedto"] %}
 
@@ -353,6 +362,17 @@ SiteID  SiteName            SK_Valid    B4
 {% CategoryParentID %}
 {% CurrentDocument.IsInCategories("ABC;ABCD") %}
 
+// User avatars
+{% GetUserAvatarImage: {% GetUserAvatarImage(CurrentUser.UserAvatarID, CurrentUser.UserID, CurrentUser.FullName, 150 ) %}
+<img src="{% GetUserAvatarImageUrl(CurrentUser.UserAvatarID, CurrentUser.UserID, 150) %}" alt="{% HTMLEncode(GetUserFullName(CurrentUser.UserID)) %}">
+
+// User details
+{% GetAge(CurrentUser.UserDateOfBirth,"Unknown") %} // GetAge
+{% GetGender(CurrentUser.UserGender) %} // GetGender
+{% GetUserFullName(CurrentUser.UserID) %} // GetUserFullName
+
+// Dear Mr/Mrs LastName
+{% ((CurrentUser.UserGender) ? ((CurrentUser.UserGender==1) ? GetResourceString("1IM.Salutation.1") + " " : GetResourceString("1IM.Salutation.0") + " ") + ((CurrentUser.UserGender==1) ? GetResourceString("1IM.Salutation.Title.1") + " " : GetResourceString("1IM.Salutation.Title.0") + " ") : GetResourceString("1IM.Salutation.none") + " " + GetResourceString("1IM.Salutation.Title.none")) + CurrentUser.LastName + ", "#%}
 
 /* WEBPARTS / WIDGETS */
 

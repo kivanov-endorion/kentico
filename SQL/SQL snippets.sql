@@ -48,3 +48,7 @@ SELECT TimeStamp, AttachmentName, FullName, Email
   AND SiteID = 23
 
   
+
+SELECT TOP 1 AvatarURL
+FROM [KENTICO].[dbo].[View_DE_Inside_Avatars]
+WHERE UserName = 'bgivak08'
