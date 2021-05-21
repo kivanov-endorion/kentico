@@ -4,6 +4,7 @@
 {$ MyKey.SubKey.value $} // localization
 {% GetResourceString("MyKey.SubKey.value") %}
 {$=Read more|es-ES=Leer más|zh-CN=阅读更多$} // temp localization
+<%= ResHelper.GetString("MyKey.SubKey.value") %> // In Webparts
 
 
 // Methods
@@ -469,6 +470,10 @@ SiteID  SiteName            SK_Valid    B4
 
 // Cookie visibility
 {% !domain.Matches("[a-z]{2}(-)(endorion)(-asia)?(-)?(eu)?") && CurrentSite.SiteID.ToString().InList("4;19;23;26;27;32;37;38;58;63;71;72".Split(";")) && ViewMode=="LiveSite" %}
+
+//OneTrust Cookie blocking
+{% if (!Settings.UseOneTrustCookieConsent || Cookies["CMSCookieLevel"]>="1000" ) { %}
+{% if (Settings.UseOneTrustCookieConsent && Cookies["CMSCookieLevel"]<"1000") { %}
 
 // Check if children of type
 {% CurrentDocument.AllChildren.ClassNames("CMS.SimpleArticle;oneIM.EmbedVideo").Count>0 %}
