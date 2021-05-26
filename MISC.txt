@@ -16,3 +16,9 @@ sci-hub.tw
 libgen.is
 sanet.st
 github.com/nextgens/anti-paywall
+
+
+[12:34] Shalvarkov, Milen
+ако user e na bpww.org domain (примерно) и иска да се конектне в Jabber (където акаунта му е corporate), трябва в логването в Jabber да сложи този домейн
+
+@eutp.ingrammicro.com
