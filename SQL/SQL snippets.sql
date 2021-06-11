@@ -32,6 +32,21 @@ FROM View_CMS_Tree_Joined INNER JOIN EU_Starter_Event ON View_CMS_Tree_Joined.Do
 WHERE (ClassName = 'OneIM.Event')
 )
 
+-- Documents in categories Digitalpatk and Cisco
+SELECT TOP 100 *
+FROM View_CMS_Tree_Joined INNER JOIN oneIM_News ON View_CMS_Tree_Joined.DocumentForeignKeyValue = oneIM_News.NewsID
+JOIN CMS_DocumentCategory ON View_CMS_Tree_Joined.DocumentID = CMS_DocumentCategory.DocumentID 
+WHERE (ClassName = 'OneIM.News')
+AND CategoryID  in (652, 841)
+
+-- Documents in just 2 categories:
+SELECT D.DocumentID, D.DocumentName, NodeAlias, NodeAliasPath, NewsReleaseDate, NewsTarget, NewsTeaser, NewsTitle, NewsSummary, COUNT(CategoryID)
+FROM View_CMS_Tree_Joined AS D INNER JOIN oneIM_News ON D.DocumentForeignKeyValue = oneIM_News.NewsID
+JOIN CMS_DocumentCategory AS C ON D.DocumentID = C.DocumentID 
+WHERE (ClassName = 'OneIM.News')
+AND CategoryID  in (652, 841)
+GROUP BY  D.DocumentID, D.DocumentName, NodeAlias, NodeAliasPath, NewsReleaseDate, NewsTarget, NewsTeaser, NewsTitle, NewsSummary
+HAVING COUNT(CategoryID) = 2
 
 
 -- Downloads from FR Apple DPP
