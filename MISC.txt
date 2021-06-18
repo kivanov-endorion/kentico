@@ -26,3 +26,5 @@ github.com/nextgens/anti-paywall
 Svartelist:
 
 Linda Lerner
+LIse Norholm
+Tarik
