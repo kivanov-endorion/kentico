@@ -1,0 +1,55 @@
+<!-- 1 -->
+<div id=chart>
+  <div id=chart-shape>⬠</div>
+  <div id=chart-value></div> 
+</div>
+
+<style>
+    #chart-shape {
+	font: 300px/300px serif;
+	text-align: center; 
+	color: limegreen;
+    }
+    #chart-value {
+    background: conic-gradient(transparent 50%, darkseagreen 50%);
+    mix-blend-mode: screen;
+    }
+    #chart {
+        width: 300px;
+        height: 300px;
+        display: grid;
+        margin: auto;
+        margin-top: calc(50vh - 150px);
+        background: white;
+    }
+    #chart * {
+        height: inherit;
+        grid-area: 1 / 1;
+    }
+</style>
+
+<!-- 2 -->
+
+<div id="chart"></div>
+<style>
+@property --n {
+	syntax: '<percentage>';
+	inherits: true;
+	initial-value: 30%;
+}
+
+#chart{
+	width: 300px; 
+	height: 300px;
+	margin: calc(50vh - 150px) auto auto auto;
+	--n: 30%;  /*declaration for browsers with no @property support */
+	background: 
+	url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><foreignObject width='300px' height='300px'><body style='margin:0;text-align:center;color:transparent;' xmlns='http://www.w3.org/1999/xhtml'><div style='text-shadow: 0 0 limegreen;font:200px/300px serif;background:white;'>🍏</div><div style='text-shadow:0 0 white;font:170px/300px serif;position:relative;top:-300px;'>🍏</div></body></foreignObject></svg>"),
+	conic-gradient(transparent var(--n), darkseagreen var(--n));
+	background-blend-mode: screen;
+	transition: --n 2s ease-in-out
+	
+}
+
+#chart:hover{ --n: 70%; }
+</style>
