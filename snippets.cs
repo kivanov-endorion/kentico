@@ -100,6 +100,7 @@
 // If null and compare
 {% if ( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } %}
 {% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
+{% if(String.IsNullOrEmpty(DocumentMenuCaption)) {}  %}
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
 {% if ( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
 {% ( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
