@@ -11,6 +11,7 @@
 {% ToString() %}
 {% ToLower() %}
 {% ToUpper() %}
+{% DocumentName[0].ToUpper() + DocumentName.Substring(1) %} // to title case
 {% ToInt32() %}
 {% ToBool() %}
 {% Split("/")[5] %}
