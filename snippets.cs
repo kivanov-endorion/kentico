@@ -11,6 +11,7 @@
 {% ToString() %}
 {% ToLower() %}
 {% ToUpper() %}
+{% DocumentName[0].ToUpper() + DocumentName.Substring(1) %} // to title case
 {% ToInt32() %}
 {% ToBool() %}
 {% Split("/")[5] %}
@@ -100,6 +101,7 @@
 // If null and compare
 {% if ( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } %}
 {% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
+{% if(String.IsNullOrEmpty(DocumentMenuCaption)) {}  %}
 {% IfEmpty( DocumentMenuCaption, DocumentName, DocumentMenuCaption ) %}
 {% if ( DocumentMenuCaption, DocumentMenuCaption, DocumentName ) %} 
 {% ( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
