@@ -1,0 +1,61 @@
+== B5 ==
+
+CHANGES:
+
+Renamed .no-gutters to .g-0 to match new gutter utilities.
+Columns no longer have position: relative applied
+Dropped several .order-* classes that often went unused. We now only provide .order-1 to .order-5 out of the box.
+Dropped the .media component as it can be easily replicated with utilities - https://getbootstrap.com/docs/5.1/utilities/flex/#media-object
+Links are underlined by default
+Dropped .text-justify class
+.custom-check is now .form-check.
+.custom-check.custom-switch is now .form-check.form-switch.
+.custom-select is now .form-select.
+.custom-file and .form-file have been replaced by custom styles on top of .form-control.
+.custom-range is now .form-range.
+Dropped native .form-control-file and .form-control-range.
+Dropped .input-group-append and .input-group-prepend. You can now just add buttons and .input-group-text as direct children of the input groups.
+Dropped form-specific layout classes for our grid system. Use our grid and utilities instead of .form-group, .form-row, or .form-inline.
+Form labels now require .form-label.
+Dropped all .badge-* color classes for background utilities (e.g., use .bg-primary instead of .badge-primary).
+Dropped .badge-pill—use the .rounded-pill utility instead.
+Dropped .btn-block for utilities. 
+Replaced chevron icons for carousel controls with new SVGs from Bootstrap Icons.
+Renamed .close to .btn-close for a less generic name.
+Close buttons now use a background-image (embedded SVG) instead of a &times; in the HTML, allowing for easier customization without the need to touch your markup.
+Renamed .left-* and .right-* to .start-* and .end-*.
+Renamed .float-left and .float-right to .float-start and .float-end.
+Renamed .border-left and .border-right to .border-start and .border-end.
+Renamed .rounded-left and .rounded-right to .rounded-start and .rounded-end.
+Renamed .ml-* and .mr-* to .ms-* and .me-*.
+Renamed .pl-* and .pr-* to .ps-* and .pe-*.
+Renamed .text-left and .text-right to .text-start and .text-end.
+Disabled negative margins by default.
+Renamed .text-monospace to .font-monospace.
+Removed .text-hide
+Renamed .font-weight-* utilities as .fw-* for brevity and consistency.
+Renamed .font-style-* utilities as .fst-* for brevity and consistency.
+Classes have been renamed to change by to x in the aspect ratio. For example, .ratio-16by9 is now .ratio-16x9.
+We’ve dropped the .embed-responsive-item and element group selector in favor of a simpler .ratio > * selector. No more class is needed, and the ratio helper now works with any HTML element.
+Renamed .sr-only and .sr-only-focusable to .visually-hidden and .visually-hidden-focusable
+
+Dropped jQuery dependency and rewrote plugins to be in regular JavaScript.
+
+NEW:
+
+New breakpoint! Added new xxl breakpoint for 1400px and up
+Added new gutter class (.g-*, .gx-*, and .gy-*) to control horizontal/vertical gutters, horizontal gutters, and vertical gutters.
+Added new gutter class (.g-*, .gx-*, and .gy-*) to control horizontal/vertical gutters, horizontal gutters, and vertical gutters.
+Added new floating forms! - https://getbootstrap.com/docs/5.1/forms/floating-labels/
+Added new accordion component. - https://getbootstrap.com/docs/5.1/components/accordion/
+Added new .dropdown-menu-dark variant and associated variables for on-demand dark dropdowns.
+Added the new offcanvas component. - https://getbootstrap.com/docs/5.1/components/offcanvas/
+Added new .bg-body class for quickly setting the <body>’s background to additional elements.
+Added new position utilities for top, right, bottom, and left. Values include 0, 50%, and 100% for each property. - https://getbootstrap.com/docs/5.1/utilities/position/#arrange-elements
+Added new .translate-middle-x & .translate-middle-y utilities to horizontally or vertically center absolute/fixed positioned elements.
+Added new border-width utilities. - https://getbootstrap.com/docs/5.1/utilities/borders/#border-width
+Added .fs-* utilities for font-size utilities (with RFS enabled). These use the same scale as HTML’s default headings (1-6, large to small), and can be modified via Sass map.
+Added .d-grid to display utilities and new gap utilities (.gap) for CSS Grid and flexbox layouts.
+Added new line-height utilities: .lh-1, .lh-sm, .lh-base and .lh-lg.
+Added new .link-* classes.
+Added new flex stack classes. .vstack, .hstack
