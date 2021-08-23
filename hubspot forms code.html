@@ -1,0 +1,19 @@
+<!--[if lte IE 8]>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+<![endif]-->
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+<script>
+    hbspt.forms.create({
+        region: "na1",
+        locale: "{% LocalizationContext.CurrentCulture.CultureAlias %}",
+        portalId: "{% portalId %}", // 8709641
+        formId: "{% formId %}", // 23db4bae-8a1d-451b-b8ac-4a3068b22b06
+        onFormReady: function ($form) {
+            $form.find('input[name="kunden_nr_"]').val('{% CurrentUser.imBranchNbr + CurrentUser.imCustomerNbr %}').change();
+            $form.find('input[name="firstname"]').val('{% CurrentUser.FirstName %}').change();
+            $form.find('input[name="lastname"]').val('{% CurrentUser.LastName %}').change();
+            $form.find('input[name="email"]').val('{% CurrentUser.Email %}').change();
+            $form.find('input[name="company"]').val('{% CurrentUser.UserCompany %}').change();
+        }
+    });
+</script>
