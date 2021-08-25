@@ -100,12 +100,6 @@
     margin-left: -3rem!important
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
-    background-color: transparent;
-}
-
 .form-group {
     margin-bottom: 1rem;
 }
@@ -121,7 +115,7 @@ a {
     position: relative;
 } */
 
-.sr-only, .text-white {
+.sr-only, .text-hide {
     border: 0;
     clip: rect(0,0,0,0);
     height: 1px;
