@@ -1,0 +1,191 @@
+<style>
+    /* Zoom effect */
+    .card.scale {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        box-shadow: 0 1px 1px 0 rgb(10 16 34 / 20%);
+        -webkit-transition: all 200ms ease;
+        -o-transition: all 200ms ease;
+        transition: all 200ms ease;
+        border-radius: 5px;
+    }
+
+    .card.scale:hover {
+        box-shadow: 0 10px 30px -5px rgb(10 16 34 / 20%);
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+
+    /* Unskew on hover */
+    .slide-imgs .iphone-img {
+        position: relative;
+        z-index: 1;
+        width: 330px;
+        -webkit-transform: perspective(1400px) rotateY(-20deg) rotateX(10deg) rotateZ(6deg) scale(0.8) translateX(50%) translateY(6%);
+        transform: perspective(1400px) rotateY(-20deg) rotateX(10deg) rotateZ(6deg) scale(0.8) translateX(50%) translateY(6%);
+        transition: transform 0.45s cubic-bezier(0.2, 0.7, .3, 1);
+    }
+
+    .slide-imgs:hover .iphone-img {
+        -webkit-transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(0.95) translateX(40%) translateY(8%);
+        transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(0.95) translateX(40%) translateY(8%);
+    }
+
+    /* Rotate on hover */
+    .recipe-items .card img,
+    .rotating {
+        transform: rotate(0deg);
+        transition: transform 1.5s linear;
+    }
+
+    .recipe-items .card:hover img,
+    .rotating:hover {
+        transform: rotate(360deg);
+        transition: transform 20s linear;
+    }
+
+    .btn-brush {
+        background: url(img/brush.png)no-repeat center center / cover;
+        width: 180px;
+        height: 50px;
+    }
+
+    /* Scroll Down */
+    .scroll-down {
+        position: absolute;
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        display: inline-block;
+        width: auto;
+        margin: 0 auto;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        z-index: 9;
+        opacity: .8;
+    }
+
+    .scroll-mouse {
+        position: relative;
+        display: inline-block;
+        width: 28px;
+        height: 46px;
+        margin: 0 auto;
+        border: 2px solid #fff;
+        border-radius: 20px;
+    }
+
+    .scroll-wheel {
+        position: absolute;
+        top: 14px;
+        left: 10px;
+        width: 4px;
+        height: 4px;
+        background-color: #fff;
+        border-radius: 50%;
+        -webkit-animation: scrollDown 2.5s infinite;
+        animation: scrollDown 2.5s infinite;
+    }
+
+    @keyframes scrollDown {
+        0% {
+            top: 10px;
+            opacity: 0;
+        }
+
+        15% {
+            top: 10px;
+            opacity: 1;
+        }
+
+        30% {
+            top: 10px;
+            opacity: 1;
+        }
+
+        45% {
+            top: 28px;
+            opacity: 1;
+        }
+
+        100% {
+            top: 28px;
+            opacity: 0;
+        }
+    }
+
+    .text-shadow-light {
+        color: #FFF;
+        font-size: 76px;
+        font-weight: 900;
+        text-shadow: 0 7px 10px rgb(0 0 0 / 7%), 0 4px 4px rgb(0 0 0 / 20%);
+    }
+
+    /* Hover 3D */
+    .book-wrap {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+    }
+
+    .book-detail {
+        position: absolute;
+        inset: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        pointer-events: none;
+        transform: translateZ(40px);
+    }
+</style>
+
+<!-- News / Event Article -->
+
+<div class="row">
+    <div class="col-lg-2 position-sticky">
+        <div class="d-none d-lg-block">
+            <h4>All online Conferences to save your box, get Inspired and Stay Connected</h4>
+        </div>
+    </div>
+    <div class="col-lg-1">&#8203;</div>
+    <div class="col-lg-6">
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis
+            consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent
+            commodo cursus magna, vel scelerisque nisl consectetur et.</p><br>
+    </div>
+</div>
+
+<!-- Rotating news etc -->
+<div class="row flex-nowrap slick-slider">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4"></div>
+</div>
+
+<!-- Scroll Down -->
+
+<a href="#" class="scroll-down d-none d-lg-block" data-scrollto="#content" data-offset="80">
+    <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+</a>
+
+<!-- Hover 3D -->
+
+<script src="js/hover3d.js"></script>
+
+<script>
+    jQuery(document).ready(function () {
+        jQuery(".book-wrap").hover3d({
+            selector: ".book-card",
+            shine: false,
+        });
+    });
+</script>
