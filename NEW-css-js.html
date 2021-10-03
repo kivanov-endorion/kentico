@@ -15,9 +15,98 @@
     </style>
     <style>
 
-        input {
-            accent-color: orange;
+        /* accesnt color */
+
+        :root {
+        accent-color: rgba(250, 15, 117);
         }
+
+        .form__group {
+            --hue: calc(var(--i) * 30deg + 150deg);
+            
+            display: flex;
+            align-items: center;
+            accent-color: hsl(var(--hue, 0), 80%, 50%);
+            /* 	color: hsl(var(--hue, 0), 70%, 50%); */
+        }
+        html { 
+            --brand: hotpink;
+            scrollbar-color: hotpink Canvas;
+        }
+
+        :root { accent-color: var(--brand); }
+        :focus-visible { outline-color: var(--brand); }
+        ::selection { background-color: var(--brand); }
+        ::marker { color: var(--brand); }
+
+        :is(
+            ::-webkit-calendar-picker-indicator,
+            ::-webkit-clear-button,
+            ::-webkit-inner-spin-button, 
+            ::-webkit-outer-spin-button
+        ) {
+            color: var(--brand);
+        }
+
+        .dark-form {
+            color-scheme: dark;
+        }
+
+        /**
+        * Button angle with NO pseudo-element
+        */
+
+
+        .button--angle {
+            --bg-color: lightseagreen;
+            --bg-color-hover: steelblue;
+            --angle-width: 2rem;
+            --duration: 300ms;
+            --easing: cubic-bezier(0.165, 0.840, 0.440, 1);
+            --padding-x: 1rem;
+            --padding-y: 1rem;
+            
+            background-color: var(--bg-color);
+            clip-path: polygon(0% 0%, calc(100% - var(--angle-width)) 0%, 100% 50%, calc(100% - var(--angle-width)) 100%, 0% 100%);
+            color: black;
+            display: inline-block;
+            padding: var(--padding-y) var(--padding-x);
+            padding-right: calc(var(--angle-width) + var(--padding-x));
+            transition: background-color var(--duration) var(--easing);
+        }
+
+        .button--angle:hover {
+            background-color: var(--bg-color-hover);
+            transition: background-color var(--duration) var(--easing);
+        }
+
+        /* button--wipe */
+
+        .button--wipe {
+            --bg-color: thistle;
+            --bg-color-hover: darkorange;
+            --bg-size: 0% 100%;
+            --wipe-dir: 90deg;
+                
+            background-color: var(--bg-color);
+            background-image: linear-gradient(var(--wipe-dir), var(--bg-color-hover), var(--bg-color-hover));
+            background-repeat: no-repeat;
+            background-size: var(--bg-size);
+            transition: background-size var(--duration) var(--easing);
+        }
+
+        .button--wipe:hover {
+            --bg-size: 100% 100%;
+            
+            background-color: var(--bg-color);
+            background-image: linear-gradient(var(--wipe-dir), var(--bg-color-hover), var(--bg-color-hover));
+            background-size: var(--bg-size);
+            transition: background-size var(--duration) var(--easing);
+        }
+
+
+
+
         /* Container query */
         .columns {
             display: flex;
