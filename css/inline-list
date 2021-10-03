@@ -1,0 +1,28 @@
+ul{
+	--separator: ",";
+	--connector: "and";
+
+	padding: 0;
+	margin: 0;
+	display: inline;
+	list-style-type: none;
+}
+/* "Add a comma after each list item." */
+li::after{
+	content: var(--separator);
+}
+
+/* "Hold on, add a comma along with an 'and' after the second last list item." */
+li:nth-last-of-type(2)::after{
+	content: var(--separator) " " var(--connector) " ";
+}
+
+/* "Hang on, only add an 'and' after the second last list item if it's the first list item as well." */
+li:first-of-type:nth-last-of-type(2)::after{
+	content: " " var(--connector);
+}
+
+/* "Finally, add a fullstop after the last list item." */
+li:last-of-type::after{
+	content: ".";
+}
