@@ -228,6 +228,17 @@ if () {
 // Aspect ratio for MenuItemTeaserImage
 {% Format("padding-top: {0:p};",((CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageHeight) / (CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.MenuItemTeaserImage).FirstItem.AttachmentImageWidth))).RegexReplace("\s+","") %}
 
+// Check for attachment title - News / Events
+{% 
+aTitle = CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.NewsTeaser).FirstItem.AttachmentTitle;
+IsNullOrEmpty ( NewsTeaser ) ? "<img src='~/1IM/oneingram-1.9.13/global/default_975.jpg' alt='"+ StripTags(NewsTitle) +"' class='img-fluid' loading='lazy' itemprop='url'/>" : Format("<img alt='{0}' class='img-contain' loading='lazy' src='{1}?width=975' itemprop='url'>", IsNullOrEmpty(aTitle) ? DocumentName : aTitle, GetAttachmentUrlByGUID( NewsTeaser, NodeAlias )) 
+%}
+{% 
+aTitle = CurrentDocument.AllAttachments.Filter(AttachmentGUID == CurrentDocument.EventTeaserImage).FirstItem.AttachmentTitle;
+IsNullOrEmpty(EventTeaserImage) ? "<img src='/1IM/oneingram-1.9.13/global/default_975.jpg' alt='"+ StripTags(EventTitle) + "' class='img-contain'/>" : 
+Format("<img src='{0}?width=975&height=438' alt='{1}' class='img-contain' itemprop='url' />", GetAttachmentUrlByGUID( EventTeaserImage, NodeAlias ), IsNullOrEmpty(aTitle) ? DocumentName : aTitle) 
+%}
+
 // Check if published
 {% Documents[NodeAliasPath].Children.Where("DocumentCanBePublished = 1 AND GETDATE() BETWEEN ISNULL(DocumentPublishFrom, GETDATE()) AND ISNULL(DocumentPublishTo, GETDATE())") %}
 
