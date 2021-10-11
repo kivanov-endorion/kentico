@@ -1,5 +1,5 @@
 SELECT DISTINCT TOP 999 
-CONCAT(RIGHT(YEAR(B.DateFrom), 2), 'CW', DATEPART(WW, B.DateFrom), '-', REPLACE(B.SK_Booking,' ','-'), '-', REPLACE(V.Name,' ','-'), '-', REPLACE(S.SlotName,' ','-'), '-', P.PlacementCode) ScreenshotName,
+CONCAT(RIGHT(YEAR(B.DateFrom), 2), 'CW', DATEPART(ISO_WEEK, B.DateFrom), '-', REPLACE(B.SK_Booking,' ','-'), '-', REPLACE(V.Name,' ','-'), '-', REPLACE(S.SlotName,' ','-'), '-', P.PlacementCode) ScreenshotName,
 ScreenshotURL = 
     CASE
         WHEN PG.SK_BannerGroup IN (35, 36, 37, 38, 51, 49) AND (P.PlacementCode LIKE '%H' OR P.PlacementCode LIKE 'IMO') THEN 'https://de.ingrammicro.com/Site/Home'
