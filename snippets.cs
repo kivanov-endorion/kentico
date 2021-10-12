@@ -74,7 +74,7 @@
 // Get attachment (image) URL
 {% GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ) %}
 {% if ( MenuItemTeaserImage ) { 
-    Format("<img alt='{0}' class='img-fluid lazyload' data-src='{1}?width=600'>", DocumentName, GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ))
+    Format("<img alt='{0}' class='img-fluid' loading='lazy' src='{1}?width=600'>", DocumentName, GetAttachmentUrlByGUID( MenuItemTeaserImage, NodeAlias ))
 } %}
 
 // GetEditableImage ( image, alt, size, width, height )
@@ -83,7 +83,7 @@
 // GetEditableImage URL
 {% GetEditableImageUrl(EditableImage) %}
 {% if ( EditableImage ) {
-    Format("<img alt='{1}' class='img-fluid lazyload' data-src='{0}?width=600'>", GetEditableImageUrl(EditableImage).Split("?")[0], WebPart.GetValue("EditableImage", "WebpartControlID"))
+    Format("<img alt='{1}' class='img-fluid' loading='lazy' src='{0}?width=600'>", GetEditableImageUrl(EditableImage).Split("?")[0], WebPart.GetValue("EditableImage", "WebpartControlID"))
 } %}
 
 // GetLogo (Vendors)
