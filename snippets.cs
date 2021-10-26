@@ -68,6 +68,17 @@
 {% Format( "{0:p0}", 0.56 ) %} // 56 %
 {% FormatNotEmpty( "{0:n0}", 1000, 0 ) %} // 1000 or 0
 
+// Format attachment size
+{% 
+    FieldAttachments = IMMacros.GetFieldGUID("oneIM.Campaign","CampaignAttachments");
+    foreach (attachment in Documents[NodeALiasPath].AllAttachments.Where("AttachmentGroupGUID='" + FieldAttachments + "'") ) {
+        aSize = (attachment.AttachmentSize>100000) ? Format(attachment.AttachmentSize/1024/2014, "{0:n1} MB") : Format(attachment.AttachmentSize/1024, "{0:n1} KB") ;
+        "<div class='col-12'><div class='card mb-3 p-3 lift'><a id='" + attachment.AttachmentID + "' class='card-link stretched-link pb-0 download small "+
+        attachment.AttachmentExtension.Replace(".","") + " mr-4' download href='/pages/GetAttachment.aspx?guid=" + attachment.AttachmentGUID + "/" + 
+        attachment.AttachmentName + "'>" + attachment.AttachmentName + " (" + aSize + ")</a></div></div>";
+    } 
+%}
+
 // GetImage( image, alt, maxsidesize, width, height )
 {% GetImage( MenuItemTeaserImage, DocumentName, 0, 600, 300 ) %}
 
