@@ -68,6 +68,17 @@
 {% Format( "{0:p0}", 0.56 ) %} // 56 %
 {% FormatNotEmpty( "{0:n0}", 1000, 0 ) %} // 1000 or 0
 
+// Format attachment size
+{% 
+    FieldAttachments = IMMacros.GetFieldGUID("oneIM.Campaign","CampaignAttachments");
+    foreach (attachment in Documents[NodeALiasPath].AllAttachments.Where("AttachmentGroupGUID='" + FieldAttachments + "'") ) {
+        aSize = (attachment.AttachmentSize>100000) ? Format(attachment.AttachmentSize/1024/2014, "{0:n1} MB") : Format(attachment.AttachmentSize/1024, "{0:n1} KB") ;
+        "<div class='col-12'><div class='card mb-3 p-3 lift'><a id='" + attachment.AttachmentID + "' class='card-link stretched-link pb-0 download small "+
+        attachment.AttachmentExtension.Replace(".","") + " mr-4' download href='/pages/GetAttachment.aspx?guid=" + attachment.AttachmentGUID + "/" + 
+        attachment.AttachmentName + "'>" + attachment.AttachmentName + " (" + aSize + ")</a></div></div>";
+    } 
+%}
+
 // GetImage( image, alt, maxsidesize, width, height )
 {% GetImage( MenuItemTeaserImage, DocumentName, 0, 600, 300 ) %}
 
@@ -485,12 +496,15 @@ SiteID  SiteName            SK_Valid    B4
 {% !domain.Matches("[a-z]{2}(-)(endorion)(-asia)?(-)?(eu)?") && CurrentSite.SiteID.ToString().InList("4;19;23;26;27;32;37;38;58;63;71;72".Split(";")) && ViewMode=="LiveSite" %}
 
 //OneTrust Cookie blocking
-{% (Settings.UseOneTrustCookieConsent && !domain.Matches("(-ingrammicro)(-asia)?(-)(eu)?"))
+{% (Settings.UseOneTrustCookieConsent && !domain.Matches("(-ingrammicro)(-asia)?(-)(eu)?")) %}
 {% if (!Settings.UseOneTrustCookieConsent || Cookies["CMSCookieLevel"]>="1000" ) { %}
 {% if (Settings.UseOneTrustCookieConsent && Cookies["CMSCookieLevel"]<"1000") { %}
 
 // Check if children of type
 {% CurrentDocument.AllChildren.ClassNames("CMS.SimpleArticle;oneIM.EmbedVideo").Count>0 %}
+
+// Check if children names
+{% if(CurrentDocument.Children.Filter(DocumentName == "NAME").Count>0) { %}
 
 // Check if document has teaser image
 {% if( Documents[NodeAliasPath].GetValue("MenuItemTeaserImage", false) != false) %}
