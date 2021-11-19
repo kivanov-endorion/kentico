@@ -518,3 +518,6 @@ SiteID  SiteName            SK_Valid    B4
 // Only Prefix on Home page
 {% if(pagetitle_orelse_name != "Home"){ pagetitle_orelse_name + " · "} %}{% prefix %}
 {% if(DocumentContext.CurrentDocument.NodeAliasPath != "/Home"){ pagetitle_orelse_name + " · "} %}{% prefix %}
+
+// Check if internal users in DE:
+{% if((CurrentUser.imBranchNbr == "44" && CurrentUser.imCustomerNbr.StartsWith("40")) || CurrentUser.imCustomerNbr == "459998" || CurrentUser.Email.EndsWith("@ingrammicro.")) ) %}
