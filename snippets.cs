@@ -493,7 +493,7 @@ SiteID  SiteName            SK_Valid    B4
 {% "1IM-" + ToUpper(domain.RegexReplace("(-corp)?(-|.)(endorion)(-asia)?(-|.)?(com|eu)?","")) + "-Search" %}
 
 // Cookie visibility
-{% !domain.Matches("[a-z]{2}(-)(endorion)(-asia)?(-)?(eu)?") && CurrentSite.SiteID.ToString().InList("4;19;23;26;27;32;37;38;58;63;71;72".Split(";")) && ViewMode=="LiveSite" %}
+{% !domain.Matches("[a-z]{2}(-)(endorion)(-asia)?(-)?(eu)?") && CurrentSite.SiteID.ToString().InList("47;50;51;52;53;54;55;56;57;58;72".Split(";")) && ViewMode=="LiveSite" %}
 
 //OneTrust Cookie blocking
 {% (Settings.UseOneTrustCookieConsent && !domain.Matches("(-ingrammicro)(-asia)?(-)(eu)?")) %}

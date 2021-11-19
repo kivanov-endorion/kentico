@@ -1,0 +1,49 @@
+// CookieLawAndTrackingConsent
+
+{% !domain.Matches("([a-z]){2,9}(-)(ingrammicro)(-asia)?(-)?(eu)?") && ViewMode=="LiveSite" #%}
+
+// CookieLawAndTrackingConsent
+{% 
+  if(ViewMode=="LiveSite"){
+    
+    if(SiteContext.CurrentSite.DataContext.Settings.CustomSettings["UseCookieConsent"]=="True")
+    {
+    
+       if(Cookies["CMSCookieLevel"]=="1000"){
+         return false;
+       }else{ // if CMSCookieLevel is different from 1000 or not set show bannder
+        // return true;
+        return false;
+       }
+    
+    }else{
+       return false; 
+     }
+    
+  }else{ // hiden on all other ViewModes
+     return false;
+  }
+
+#%}
+
+// CookieLawAndTrackingConsentLegacy
+
+{%if ((CurrentSite.SiteID==23) ||(CurrentSite.SiteID==4)) { return false; } else {return false;}#%}
+
+{% 
+  if(ViewMode=="LiveSite"){
+    if(SiteContext.CurrentSite.DataContext.Settings.CustomSettings["UseCookieConsent"]=="True")
+    {
+       if(Cookies["CMSCookieLevel"]=="1000"){
+         return false; 
+       }else{ // if CMSCookieLevel is different from 1000 or not set show bannder
+         return false;//false
+       }
+     }else{
+       return false; 
+     }
+  }else{ // hiden on all other ViewModes
+     return false;
+  }
+
+#%}

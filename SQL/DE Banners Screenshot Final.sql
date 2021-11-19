@@ -14,6 +14,7 @@ ScreenshotURL =
         WHEN PG.SK_BannerGroup IN (45, 46, 47) AND (P.PlacementCode LIKE '%S' OR P.PlacementCode LIKE 'SKY') THEN CONCAT('https://de.ingrammicro.com/Site/search#vendorname:',S.Url)
         WHEN PG.SK_BannerGroup IN (38, 39, 41, 42, 43, 44) AND (P.PlacementCode LIKE '%D' OR P.PlacementCode LIKE 'CB') THEN CONCAT('https://de.ingrammicro.com/Site/search#category:',S.Url)
     END
+,S.SK_BannerSlot
 FROM WEBMANAGER.dbo.Tbl_Booking B WITH (NOLOCK)
 INNER JOIN WEBMANAGER.dbo.Tbl_BannerSlot S WITH (NOLOCK)
 ON B.SK_BannerSlot = S.SK_BannerSlot

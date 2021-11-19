@@ -5,7 +5,6 @@ ScreenshotURL =
 		WHEN PG.SK_BannerGroup IN (35, 36, 37, 38, 51, 49) AND (P.PlacementCode LIKE '%H' OR P.PlacementCode LIKE 'IMO' OR P.PlacementCode LIKE 'HM%') THEN 'https://de.ingrammicro.com/Site/Home'
 		WHEN PG.SK_BannerGroup IN (59) AND P.PlacementCode LIKE 'TGF%' THEN CONCAT('https://de.ingrammicro.com/Site/search#keywords:',S.Url)
 
-
         WHEN PG.SK_BannerGroup IN (50, 52) THEN CONCAT('https://de.ingrammicro.eu/?scrn=', I.SK_Banner)
         WHEN PG.SK_BannerGroup IN (38, 39, 40, 43, 44) AND (P.PlacementCode LIKE '%S' OR P.PlacementCode LIKE 'CB') THEN CONCAT('https://de.ingrammicro.com/Site/search#category:',S.Url)
         WHEN PG.SK_BannerGroup IN (48, 41, 42) AND (P.PlacementCode LIKE '%S' OR P.PlacementCode LIKE 'CB') THEN
@@ -17,6 +16,7 @@ ScreenshotURL =
         WHEN PG.SK_BannerGroup IN (45, 46, 47) AND (P.PlacementCode LIKE '%S' OR P.PlacementCode LIKE 'SKY') THEN CONCAT('https://de.ingrammicro.com/Site/search#vendorname:',S.Url)
         WHEN PG.SK_BannerGroup IN (38, 39, 41, 42, 43, 44) AND (P.PlacementCode LIKE '%D' OR P.PlacementCode LIKE 'CB') THEN CONCAT('https://de.ingrammicro.com/Site/search#category:',S.Url)
     END
+	,S.SK_BannerSlot
 FROM WEBMANAGER.dbo.Tbl_Booking B WITH (NOLOCK)
 INNER JOIN WEBMANAGER.dbo.Tbl_BannerSlot S WITH (NOLOCK)
 ON B.SK_BannerSlot = S.SK_BannerSlot
@@ -35,6 +35,6 @@ ON D.SK_Banner = B.SK_Banner
 
 WHERE B.SK_Status IN (5, 6)
 AND G.SK_BannerGroup NOT IN (8, 17, 55, 57)
-AND P.PlacementCode NOT LIKE '1D%'
+AND BannerName NOT LIKE '%Intern%'
 AND D.Value IS NOT NULL
 AND CAST(GETDATE() AS DATE) BETWEEN B.DateFrom AND B.DateTo
