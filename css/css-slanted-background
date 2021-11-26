@@ -1,0 +1,7 @@
+<div style="width: 125%;
+    top: -60px;
+    left: -5px;
+    transform: rotate(-2deg) translate(-5px, -60px);
+    background-color: #e6e7e8;
+    height: 100px;
+    z-index: -1;">.</div>
