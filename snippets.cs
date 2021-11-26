@@ -511,6 +511,7 @@ SiteID  SiteName            SK_Valid    B4
 
 // Generate random number
 {% String.FormatString("{0:yyyyMMddhhmmssfffff}", CurrentDateTime) + Math.GetRandomInt(10000, 99999) %}
+{% GetRandomInt() %}
 
 // OneTrust Cookies: Performance, Targeting, Social
 {% if(IMMacros.OneTrustGetGroup("Performance")){} %}
