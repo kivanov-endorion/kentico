@@ -1,0 +1,43 @@
+<section id="{% if(ID){ID}else{WebpartControlID}#%}" class="{%DocumentContext.CurrentTemplate.CodeName.ToLower()#%} p-2 m-0 bg-light border-top border-bottom animated fadeInDown {%ContainerCSSClass%}">
+<div class="container d-flex justify-content-between align-content-center">
+<nav aria-label="Sie sind hier::" role="navigation" class="align-items-center d-flex">
+<ul class="d-md-inline-flex d-none f-breadcrumbs list-inline" itemprop="breadcrumb">
+  <a class="CMSBreadCrumbsLink" href="/" title="{$1IM.Home$}"><i class="fas fa-home"></i><span class="text-hide">{$1IM.Home$}</span></a>
+  □
+</ul>
+{% if(CurrentDocument.ClassName.ToString()!="oneIM.News" && MenuItemSidebar!="none") {"<a class=\"CMSBreadCrumbsLink card-link d-inline d-md-none small\" href=\"#menuElem\" data-scroll-ignore data-toggle=\"collapse\" data-target=\"#menuElem\" aria-expanded=\"true\"><i class=\"fas fa-bars mr-2\"></i> MENU</a>" } else {""} #%}
+</nav>
+ <div class="d-inline-flex align-items-center">
+                <a href="#contacts" id="contact-button" class="btn btn-form btn-sm bg-white mr-3">Ansprechpartner</a>
+                <div id="share" class="btn btn-link" title="Teilen"><i class="svg-icon fas fa-share-alt">&nbsp;</i></div>
+                <div id="share-buttons" class="d-none btn-group btn-group-sm animated fadeIn">
+                  <a class="btn btn-link"
+                        href="javascript:print()"
+                        title="Print"><i class="svg-icon fas fa-print">&nbsp;</i> </a>
+                    <a class="btn btn-link"
+                        href="mailto:?subject={%DocumentName%}&amp;body=https%3A//{%domain + CurrentDocument.NodeAliasPath#%}"
+                        title="Email"><i class="svg-icon fas fa-envelope">&nbsp;</i> </a> <a class="btn btn-link"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A//{%domain + CurrentDocument.NodeAliasPath#%}"
+                        rel="noopener" target="_blank" title="Facebook"> <i class="svg-icon fab fa-facebook-f">&nbsp;</i> </a>
+                    <a class="btn btn-link"
+                        href="https://twitter.com/home?status=https%3A//{%domain + CurrentDocument.NodeAliasPath#%}"
+                        rel="noopener" target="_blank" title="Twitter"> <i class="svg-icon fab fa-twitter">&nbsp;</i> </a> <a
+                        class="btn btn-link"
+                        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//{%domain + CurrentDocument.NodeAliasPath#%}&amp;title={%DocumentName%}&amp;summary=&amp;source="
+                        rel="noopener" target="_blank" title="LinkedIn"> <i class="svg-icon fab fa-linkedin-in">&nbsp;</i> </a><a
+                        class="btn btn-link"
+                        href="https://www.xing-share.com/app/user?op=share;sc_p=xing-share;url=https%3A//{% domain + CurrentDocument.NodeAliasPath #%}"
+                        rel="noopener" target="_blank" title="Xing"> <i class="svg-icon fab fa-xing">&nbsp;</i> </a><a
+                        class="btn btn-link"
+                        href="https://plus.google.com/share?url=https%3A//{% domain + CurrentDocument.NodeAliasPath #%}"
+                        rel="noopener" target="_blank" title="Google+"> <i class="svg-icon fab fa-google-plus-g">&nbsp;</i> </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<script type="text/javascript">
+    $("#share").on("click", function() {
+        $(this).addClass("d-none");
+        $("#share-buttons").removeClass("d-none");
+    });
+</script>
