@@ -15,7 +15,7 @@ ScreenshotURL =
         WHEN PG.SK_BannerGroup IN (38, 39, 41, 42, 43, 44) AND (P.PlacementCode LIKE '%D' OR P.PlacementCode LIKE 'CB') THEN CONCAT('https://de.ingrammicro.com/Site/search#category:',S.Url)
     END
 ,S.SK_BannerSlot
-,CONCAT('//dedonetapp/IMToolsStorage/WebManager/PoE/',YEAR(B.DateFrom),'/', MONTH(B.DateFrom), '/', RIGHT(YEAR(B.DateFrom), 2), 'CW', DATEPART(ISO_WEEK, B.DateFrom), ' - ', REPLACE(B.SK_Booking,' ',' - '), ' - ', REPLACE(V.Name,' ','-'), ' - ', S.SlotName, '.zip') ZipDir
+,CONCAT('//dedonetapp/IMToolsStorage/WebManager/PoE/',YEAR(B.DateFrom),'/', MONTH(B.DateFrom), '/', RIGHT(YEAR(B.DateFrom), 2), 'CW', DATEPART(ISO_WEEK, B.DateFrom), ' - ', REPLACE(B.SK_Booking,' ',' - '), ' - ', V.Name, ' - ', S.SlotName, '.zip') ZipDir
 FROM WEBMANAGER.dbo.Tbl_Booking B WITH (NOLOCK)
 INNER JOIN WEBMANAGER.dbo.Tbl_BannerSlot S WITH (NOLOCK)
 ON B.SK_BannerSlot = S.SK_BannerSlot
