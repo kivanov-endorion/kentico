@@ -1,5 +1,5 @@
 SELECT DISTINCT TOP 999 
-CONCAT(RIGHT(YEAR(B.DateFrom), 2), 'CW', DATEPART(ISO_WEEK, B.DateFrom), '-', REPLACE(B.SK_Booking,' ','-'), '-', REPLACE(V.Name,' ','-'), '-', REPLACE(S.SlotName,' ','-'), '-', P.PlacementCode) Name
+CONCAT(RIGHT(YEAR(B.DateFrom), 2), 'CW', FORMAT(DATEPART(ISO_WEEK, B.DateFrom), '0#'), '-', REPLACE(B.SK_Booking,' ','-'), '-', REPLACE(V.Name,' ','-'), '-', REPLACE(S.SlotName,' ','-'), '-', P.PlacementCode) Name
 ,S.SK_BannerSlot
 ,DATEPART(ISO_WEEK, B.DateFrom) Week
 ,DATEADD(hour, -14, B.DateFrom) DateStart
