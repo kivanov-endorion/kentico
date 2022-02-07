@@ -32,13 +32,23 @@ Emre
 
 
 
-Duration: 20th of Dec 2021 until 31st of Jan 2022
-Official public holidays during period:
+CZ
+Ahoj, jak se máš - Hi, how are you
+Sbohem - Bye
+Dík - Thanks
+Děkuju [yekuyu] - Thank  you
 
-24th, 25th and 26th of Dec, 1st of Jan
-27th and 28th of Dec and 3rd of Jan are official non-working days
+Ahoj Bobe, nazdar Tome
 
-Compensatory days off
 
-Make sure to provide days off against the official holidays/non-working days worked.
- 
+Cледващ период за сумирано работно време:
+
+1-ви март – 30-ти април 2022
+Официални празници:
+
+3-ти март (официален празник) – попълва се извънреден труд в WorkDay, за този ден се полага двойно заплащане и ден компенсация.
+22-ри и 25-ти април (официални неработни дни) – в WorkDay се попълва извънреден труд; за всеки от тези дни се полага ден компенсация за положения извънреден труд.
+Aко се налага да работите в един от посочените дни, трябва да въведете часовете си в системата (например: ако работите на пълен работен ден, въведете 8 часа).
+Почивни дни за компенсация
+
+Уверете се, че сте се възползвали от ден почивка за всеки от изработените официални почивни дни за периода.
