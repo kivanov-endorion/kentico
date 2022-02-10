@@ -41,3 +41,23 @@ if (customTable != null)
 
 // Add parameter to url
 URLHelper.Redirect(URLHelper.AddParameterToUrl(RequestContext.CurrentURL, ItemKeyName, form.ItemID.ToString()));
+
+
+
+// Add body class and body parameters
+protected void Page_Load(object sender, EventArgs e)
+{
+    if (CurrentDocument != null)
+    {          
+        CMS.UIControls.ContentPage page= this.Page as CMS.UIControls.ContentPage;
+        if (page != null)
+        {
+            string customClass = " something";
+            string value = "something";
+            page.BodyClass += customClass;
+            page.BodyParameters += " data-key=\"" + value + "\"";
+        }
+    }
+}
+
+        
