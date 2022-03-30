@@ -1,0 +1,12 @@
+<a class="" href="/pages/GetAttachment.ashx?guid={% FileAttachment %}">{% StripTags(LimitLength(FileName, 60, "&hellip;", true)) %}</a>
+
+SELECT TOP 1000 [ItemID]
+      ,[TimeStamp]
+      ,[UserID]
+      ,[FileGUID]
+      ,[Referrer]
+      ,[SiteID]
+      ,[Source]
+      ,[ClientIP]
+      ,[SessionId]
+  FROM [KENTICO].[dbo].[Analytics_FileDownloads]
