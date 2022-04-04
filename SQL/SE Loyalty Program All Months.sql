@@ -19,31 +19,28 @@ SELECT      DISTINCT A.id_aktionen,
             T.Vertrag_von,
             T.Vertrag_bis,
             T.vendor,
-            FORMAT(T.Zielwert, 'C0', 'de-DE') Zielwert,
-            FORMAT(SUM(ISNULL(U.GesamtUmsatz, 0)) OVER(
-                PARTITION BY T.id_teilnehmer
-            ), 'C0', 'sv-SE') GesUm,
-
-			FORMAT(SUM(ISNULL((U.GesamtUmsatz * @CurrencyIndex), 0)) OVER(
-                PARTITION BY T.id_teilnehmer
-            ) , 'C0', 'sv-SE') GesUmSEK,
-
+            FORMAT(T.Zielwert, '0', 'de') Zielwert,
+			FORMAT(SUM(ISNULL(U.GesamtUmsatz, 0)) OVER(
+                PARTITION BY T.id_teilnehmer, U.datum
+            ), '0', 'de') GesUm,
             FORMAT(T.Zielwert - SUM(ISNULL(U.GesamtUmsatz, 0)) OVER(
-                PARTITION BY T.id_teilnehmer
-            ), 'C0', 'sv-SE') Rueckstand,
+                PARTITION BY T.id_teilnehmer, U.datum
+            ), '0', 'de') Rueckstand,
             FORMAT(SUM(ISNULL(U.GesamtUmsatz, 0)) OVER(
                 PARTITION BY T.id_teilnehmer
-            ) / T.Zielwert * 100, 'C0', 'sv-SE') Zielerfuellung,
+            ) / T.Zielwert * 100, '0', 'de') Zielerfuellung,
             DATEDIFF(DAY, GETDATE(), T.vertrag_bis) DaysLeft,
 			FORMAT(COUNT(T.Anmeldedat) OVER(
                 PARTITION BY T.id_teilnehmer
-            ), '0', 'se') Invoices,
+            ), '0', 'de') Invoices,
 			U.datum,
+
+			MONTH(U.datum) 'Month',
 
 			(SELECT buchungstext
 				FROM MARCOM.dbo.tbl_arc_konto
 				WHERE fgn_aktion = @ProgramID
-				AND MONTH(datum) = MONTH(U.datum)
+				AND MONTH(DATEADD(MONTH, 1, datum)) = MONTH(U.datum) /* TODO: CHANGE 1 to -1 */
 			) Voucher
 
 FROM        MARCOM.dbo.tbl_arc_teilnehmer T 
@@ -59,9 +56,10 @@ LEFT JOIN	MARCOM.dbo.tbl_arc_konto K
     --ON    K.fgn_teilnehmer = T.id_teilnehmer
 	ON      K.kdnr = T.KDNr
 
-WHERE       MONTH(U.datum) = MONTH(GETDATE())
-AND			(T.KDNr = @CustomerNbr) AND (A.id_aktionen= @ProgramID)
-GROUP BY    DATEADD(MONTH, DATEDIFF(MONTH, 0, K.datum), 0),
+WHERE       (T.KDNr = @CustomerNbr) AND (A.id_aktionen= @ProgramID)
+			
+
+GROUP BY    U.datum,
 			A.id_aktionen,
             A.aktions_name,
             A.aktion_von,
@@ -76,6 +74,7 @@ GROUP BY    DATEADD(MONTH, DATEDIFF(MONTH, 0, K.datum), 0),
             T.vendor,
             zielwert,
 			gesamtumsatz,
-			U.datum,
 
 			K.buchungstext
+
+ORDER BY U.datum DESC
