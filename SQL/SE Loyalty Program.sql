@@ -19,25 +19,21 @@ SELECT      DISTINCT A.id_aktionen,
             T.Vertrag_von,
             T.Vertrag_bis,
             T.vendor,
-            FORMAT(T.Zielwert, 'C0', 'de-DE') Zielwert,
+            FORMAT(T.Zielwert, 'C0', 'sv-SE') Zielwert,
             FORMAT(SUM(ISNULL(U.GesamtUmsatz, 0)) OVER(
                 PARTITION BY T.id_teilnehmer
             ), 'C0', 'sv-SE') GesUm,
-
-			FORMAT(SUM(ISNULL((U.GesamtUmsatz * @CurrencyIndex), 0)) OVER(
-                PARTITION BY T.id_teilnehmer
-            ) , 'C0', 'sv-SE') GesUmSEK,
 
             FORMAT(T.Zielwert - SUM(ISNULL(U.GesamtUmsatz, 0)) OVER(
                 PARTITION BY T.id_teilnehmer
             ), 'C0', 'sv-SE') Rueckstand,
             FORMAT(SUM(ISNULL(U.GesamtUmsatz, 0)) OVER(
                 PARTITION BY T.id_teilnehmer
-            ) / T.Zielwert * 100, 'C0', 'sv-SE') Zielerfuellung,
+            ) / T.Zielwert, 'P', 'sv-SE') Zielerfuellung,
             DATEDIFF(DAY, GETDATE(), T.vertrag_bis) DaysLeft,
-			FORMAT(COUNT(T.Anmeldedat) OVER(
+			COUNT(T.Anmeldedat) OVER(
                 PARTITION BY T.id_teilnehmer
-            ), '0', 'se') Invoices,
+            ) Invoices,
 			U.datum,
 
 			(SELECT buchungstext
