@@ -6,28 +6,14 @@ DECLARE @CurrencyRate DECIMAL(4,2),
 		@Culture NVARCHAR(5),
 		
 		@ProgramID INT,
-		@CustomerNbr NVARCHAR(6),
-		@SK_Cust NVARCHAR(10),
 		@SK_Valid INT
 
 /* SET VALUES IN KENTICO WITH ##WHERE## */
-SET @ProgramID = 1524  --{% CurrentDocument.ProgramID #%}
-SET @CustomerNbr = '000099'  --{% CurrentUser.imCustomerNbr #%}
-SET @SK_Cust = '407259'  --{% CurrentUser.imSK_Cust %}
-SET @SK_Valid = 17  --{% Settings.SK_VALID %}
-
---SET @ProgramID = 1527
-/* Default DE values:*/
---SET @CustomerNbr = '459998'
---SET @SK_Cust = '75089'
---SET @SK_Valid = 5
-
+SET @ProgramID = 1524
+SET @SK_Valid = 17
 
 /* PREPARE CURRENCY CONVERSION */
-SET @UserCurrency = (
-	SELECT CurrencyCd FROM [OIS_CUSTOMER].[dbo].[Tbl_Customer]
-	WHERE SK_Cust = @SK_Cust
-	)
+SET @UserCurrency = 'SEK'
 (SELECT @ProgramCurrency = CurrencyCd, @Culture = DefaultCulture FROM [OIS_ADMINISTRATION].[dbo].[Tbl_Company]
 WHERE SK_Valid = @SK_Valid)
 
@@ -37,13 +23,17 @@ SET @CurrencyRate = (
 	WHERE Source = @UserCurrency AND Destination = @ProgramCurrency
 	)
 
-SELECT DISTINCT --##TOPN##
+SELECT DISTINCT
 			A.id_aktionen,
             A.aktions_name,
             A.aktion_von,
             A.aktion_bis,
             V.vendor_name,
             T.id_teilnehmer,
+            T.branche,
+			T.KDNr,
+			T.firma, 
+			T.email,
             T.NName, 
             T.VName,
             T.Anmeldedat,
@@ -77,7 +67,6 @@ SELECT DISTINCT --##TOPN##
 			(SELECT buchungstext
 				FROM MARCOM.dbo.tbl_arc_konto
 				WHERE fgn_aktion = @ProgramID
-				AND kdnr = @CustomerNbr
 				AND MONTH(DATEADD(MONTH, 1, datum)) = MONTH(U.datum) /* TODO: CHANGE 1 to -1 */
 			) Voucher,
 
@@ -95,12 +84,9 @@ LEFT JOIN   MARCOM.dbo.tbl_arc_tln_umsatz U
 
 LEFT JOIN	MARCOM.dbo.tbl_arc_konto K
     ON    K.fgn_teilnehmer = T.id_teilnehmer
-	--ON      K.kdnr = T.KDNr
-
 
 WHERE        A.id_aktionen = @ProgramID
-AND			T.KDNr = @CustomerNbr /* Comment out for the report */
---AND			U.datum IS NOT NULL /* For the report */
+AND			U.datum IS NOT NULL /* For the report */
 			
 
 GROUP BY    U.datum,
@@ -110,6 +96,10 @@ GROUP BY    U.datum,
             A.aktion_bis,
             V.vendor_name,
             T.id_teilnehmer,
+            T.branche,
+			T.KDNr,
+			T.firma, 
+			T.email,
             T.NName, 
             T.VName,
             T.Anmeldedat,
