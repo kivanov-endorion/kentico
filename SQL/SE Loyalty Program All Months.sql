@@ -74,6 +74,10 @@ SELECT DISTINCT --##TOPN##
 
 			MONTH(U.datum) 'Month',
 
+            COUNT(U.datum) OVER(
+                PARTITION BY T.id_teilnehmer, DATEPART(QUARTER, U.datum)
+            ) InvoicesPerQuarter,
+
 			(SELECT buchungstext
 				FROM MARCOM.dbo.tbl_arc_konto
 				WHERE fgn_aktion = @ProgramID
