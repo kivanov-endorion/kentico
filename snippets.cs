@@ -109,6 +109,9 @@
 // Get simple link to document
 {% GetDocumentLink() %}
 
+// Get info on page behind login
+{% Documents[SQLEscape(QueryString.returnurl)].DocumentName %}
+
 // If null and compare
 {% if ( DocumentMenuCaption == null || DocumentMenuCaption == "" ) { DocumentName } else { DocumentMenuCaption } %}
 {% IsNullOrEmpty( DocumentMenuCaption ) ? DocumentName : DocumentMenuCaption %}
