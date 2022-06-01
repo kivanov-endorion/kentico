@@ -444,6 +444,29 @@
             font-size: clamp(1rem,.625rem + 1.6667vw,1.5rem);
             font-weight: 400;
         }
+
+
+        /* Text hover effect */
+        .hover-1 {
+        --h: 1.2em;   
+        
+        line-height: var(--h);
+        color: #0000;
+        text-shadow: 
+            0 calc(-1*var(--_t,0em)) #000, 
+            0 calc(var(--h) - var(--_t,0em)) #1095c1;
+        overflow: hidden;
+        transition: .3s;
+        }
+        .alt {
+        text-shadow: 
+            0 var(--_t,0em) #000, 
+            0 calc(var(--_t,0em) - var(--h)) #1095c1;
+        }
+        .hover-1:hover {
+        --_t: var(--h);
+        }
+
     </style>
 </head>
 

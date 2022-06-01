@@ -1,0 +1,144 @@
+    <a class="custommenulink side btn btn-light d-flex h-100 rounded-0" role="button" href="#" data-scroll-ignore>
+        <i class="fas fa-bars"></i>
+    </a>
+
+<div id="custom-slide-menu" class="custom-slide-menu">
+  <button type="button" class="custommenulink close-slide" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  CONTENT
+
+</div>
+
+<style>
+.custommenulink.side {
+  position: fixed;
+  width: 50px;
+  height: calc(100vh - 4.6rem);
+  left: 0px;
+  top: 4.6rem;
+  z-index: 1000;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.custommenulink.side.is-open {
+  left: 30rem;
+  -webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, .14), 0 46px 46px 8px rgba(0, 0, 0, .12), 0 11px 15px -7px rgba(0, 0, 0, .2);
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, .14), 0 46px 46px 8px rgba(0, 0, 0, .12), 0 11px 15px -7px rgba(0, 0, 0, .2);
+}
+.custommenulink.side i {
+  margin-top: 1.3rem;
+  color: rgba(0,0,0,0.5);
+}
+.custommenulink.side.is-open i {
+  color: #2f75bb;
+}
+.custom-slide-menu {
+    position: fixed;
+    height: calc(100vh - 4.6rem);
+    top: 4.6rem;
+    z-index: 1000;
+    overflow-y: auto;
+    left: calc(-30rem - 50px);
+    width:  30rem;
+    background-color: #fff;
+    -webkit-transition: all 0.3s ease;
+     transition: all 0.3s ease;
+}
+
+.custom-slide-menu.slide-menu-open {
+    left: 0px;
+    
+}
+
+@media screen and (max-width: 700px) {
+    .custom-slide-menu,
+    :not(aside) .custommenulink.side {
+        height: calc(100vh - 3.2rem);
+        top: 3.2rem;
+    }
+    :not(aside) .custommenulink.side {
+        height: 80px !important;
+    }
+    .custom-slide-menu.slide-menu-open {
+        width: 100%;
+    }
+ }
+/* Scrollbar #*/
+.custom-slide-menu {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -ms-scrollbar-track-color: rgb(226, 230, 234);
+    -ms-scrollbar-base-color: rgb(226, 230, 234);
+    -ms-scrollbar-highlight-color: rgb(206, 226, 241);
+    -ms-scrollbar-face-color: rgb(226, 230, 234);
+    -ms-scrollbar-arrow-color: rgb(226, 230, 234);
+    scrollbar-gutter: always;
+}
+
+.custom-slide-menu::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    background: rgb(226, 230, 234) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(218, 224, 229) !important;
+    border-image: initial !important;
+}
+
+.custom-slide-menu::-webkit-scrollbar-button {
+    display: none !important;
+}
+
+.custom-slide-menu::-webkit-scrollbar-track {
+    background: rgb(248, 249, 250) !important;
+}
+
+.custom-slide-menu::-webkit-scrollbar-thumb {
+    min-height: 28px !important;
+    background: rgb(218, 224, 229) !important;
+}
+.close-slide {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5
+}
+
+.close-slide:hover {
+    color: #000;
+    text-decoration: none
+}
+
+.close-slide:not(:disabled):not(.disabled):focus,.close-slide:not(:disabled):not(.disabled):hover {
+    opacity: .75
+}
+
+.close-slide {
+    padding: 0;
+    background-color: transparent;
+    border: 0
+}
+.custommenulink.grad.side {
+    background: linear-gradient(180deg, transparent, #f8f9fa 500px, #f8f9fa);
+}
+.custommenulink.grad.side:hover {
+    color: #212529;
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+}
+.custommenulink.grad.side i {
+    color: #f8f9fa!important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+}
+</style>
+<script>
+$("body").on("click", ".custommenulink", function(e){
+  e.preventDefault();
+  $('.custommenulink').toggleClass('is-open');   
+  $(".custom-slide-menu").toggleClass('slide-menu-open');
+});
+</script>
