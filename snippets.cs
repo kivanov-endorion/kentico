@@ -6,6 +6,8 @@
 {$=Read more|es-ES=Leer más|zh-CN=阅读更多$} // temp localization
 <%= ResHelper.GetString("MyKey.SubKey.value") %> // In Webparts
 
+// QR Code
+<img height="125" src="{% IMMacros.Base64QRCode(UniqueID) #%}" width="125" />
 
 // Methods
 {% ToString() %}
