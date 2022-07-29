@@ -49,3 +49,12 @@ SELECT		SKU, Description1, Description2, ContentPicture, LOWER(ContentManufactur
 FROM		CTE
 WHERE		RowNumber <= 2
 ORDER BY	CatalogId, ContentManufacturer
+
+
+SELECT      *
+FROM        dbo.Vw_ProductsOnline
+WHERE       SK_Valid = 5
+    AND     FlagClass = 'A'
+    AND     AvailQty != 0
+    AND     FlagRestricted IN ('', ' ', 'N')
+ORDER BY    CatalogId
