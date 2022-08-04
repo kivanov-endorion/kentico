@@ -2,8 +2,7 @@
 SELECT *
 FROM View_CMS_Tree_Joined
 WHERE DocumentCanBePublished = 1
-    AND GETDATE() BETWEEN ISNULL(DocumentPublishFrom, GETDATE()) 
-    AND ISNULL(DocumentPublishTo, GETDATE())
+    AND GETDATE() BETWEEN ISNULL(DocumentPublishFrom, GETDATE() - 1) AND ISNULL(DocumentPublishTo, GETDATE() + 1)
     /* EVENTS */
     OR DATEFROMPARTS(YEAR(EventDateStart),MONTH(EventDateStart),1) > DATEFROMPARTS(YEAR(GETDATE()),MONTH(GETDATE()),1)
 
