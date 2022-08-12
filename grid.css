@@ -1,0 +1,33 @@
+[class*=grid-] {
+    display: grid;
+    gap: 1rem;
+}
+
+.grid-even-columns {
+    grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
+}
+
+/* Flexbox or Horizontal scrolling */
+@media (min-width: 50em) {
+    .grid-auto-flow {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+    }
+}
+
+/* Header image w content */
+.grid-stack {
+    place-items: center;
+    text-align: center;
+    padding: 3rem;
+    background: white;
+}
+.grid-stack > * {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2
+}
+.grid-stack > img {
+    z-index: -1;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
