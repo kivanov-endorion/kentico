@@ -23,32 +23,6 @@ github.com/nextgens/anti-paywall
 @eutp.ingrammicro.com
 
 
-Svartelist:
+https://www.milanlund.com/blog/create-json-api-endpoints-kentico-portal-engine
 
-Linda Lerner
-Lise Norholm
-Tarik
-Emre
-
-
-
-CZ
-Ahoj, jak se máš - Hi, how are you
-Sbohem - Bye
-Dík - Thanks
-Děkuju [yekuyu] - Thank  you
-
-Ahoj Bobe, nazdar Tome
-
-
-Cледващ период за сумирано работно време:
-
-1-ви март – 30-ти април 2022
-Официални празници:
-
-3-ти март (официален празник) – попълва се извънреден труд в WorkDay, за този ден се полага двойно заплащане и ден компенсация.
-22-ри и 25-ти април (официални неработни дни) – в WorkDay се попълва извънреден труд; за всеки от тези дни се полага ден компенсация за положения извънреден труд.
-Aко се налага да работите в един от посочените дни, трябва да въведете часовете си в системата (например: ако работите на пълен работен ден, въведете 8 часа).
-Почивни дни за компенсация
-
-Уверете се, че сте се възползвали от ден почивка за всеки от изработените официални почивни дни за периода.
+https://www.milanlund.com/blog/kentico-macro-repeater
