@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 1400px;
+            display: grid;
+            place-items: center;
+            font-family: 'Segue UI', 'Roboto', sans-serif;
+        }
+        .container {
+            padding: 100px 60px 60px;
+            transform-style: preserve-3d;
+        }
+        .card {
+            transform-style: preserve-3d;
+            will-change: transform;
+            width: 300px;
+            height: 500px;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            border-radius: 30px;
+            box-shadow: 0px 10px 13px -7px rgba(0 0 0 / .4), 5px 5px 15px 5px rgba(0 0 0 / .15);
+            background: linear-gradient(180deg, #D60270 33%, #9B4F96 33%, 66%, #0038A8 66%);
+            color: #fff;
+        }
+        img {
+            box-shadow:  0px 10px 13px -7px rgba(0 0 0 / .4), 5px 5px 15px 5px rgba(0 0 0 / .15);
+            position: absolute;
+            top: -70px;
+            transition: all 0.2s ease-out;
+            display: block;
+            width: 200px;
+            border-radius: 50%;
+        }
+        .title {
+            transition: all 0.2s ease-out;
+            font-size: 44px;
+            text-shadow: 12px 12px 22px rgba(0 0 0 / .4);
+            margin-top: 120px;
+            text-align: center;
+        }
+        .desc {
+            text-align: center;
+            transition: all 0.2s ease-out;
+            font-size: 22px;
+            text-shadow: 6px 6px 12px rgba(0 0 0 / .4);
+        }
+        .btn {
+            background: #f1f1f1;
+            font-weight: bolder;
+            color: #333;
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 15px;
+            width: 90%;
+            display: block;
+            text-align: center;
+            transition: all 0.2s ease-out;
+            margin-top: auto;
+            box-shadow:  0px 10px 13px -7px rgba(0 0 0 / .4), 5px 5px 15px 5px rgba(0 0 0 / .15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="img/2022.jpg" alt="">
+            <h1 class="title">Kaloyan Ivanov</h1>
+            <p class="desc">Web Designer</p>
+            <a href="#" class="btn btn-dark">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        const card = document.querySelector('.card');
+        const container = document.querySelector('.container');
+        const title = document.querySelector('.title');
+        const desc = document.querySelector('.desc');
+        const btn = document.querySelector('.btn');
+        const img = document.querySelector('img');
+
+        container.addEventListener('mousemove', e => {
+            let xAxis = (window.innerWidth / 2 - e.pageX) / 35;
+            let yAxis = (window.innerHeight / 2 - e.pageY) / 35;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        container.addEventListener('mouseleave', e => {
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            card.style.transition = 'all 0.5s ease';
+            title.style.transform = 'translateZ(0px)';
+            desc.style.transform = 'translateZ(0px)';
+            img.style.transform = 'translateZ(0px)';
+            btn.style.transform = 'translateZ(0px)';
+        });
+
+        container.addEventListener('mouseenter', e => {
+            card.style.transition = 'none';
+            title.style.transform = 'translateZ(150px)';
+            desc.style.transform = 'translateZ(50px)';
+            img.style.transform = 'translateZ(100px)';
+            btn.style.transform = 'translateZ(50px)';
+        });
+    </script>
+</body>
+</html>
+
