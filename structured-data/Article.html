@@ -1,7 +1,4 @@
-<html amp>
-  <head>
-    <title>Article headline</title>
-    <script type="application/ld+json">
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
@@ -30,8 +27,31 @@
         }
       }
     }
-    </script>
-  </head>
-  <body>
-  </body>
-</html>
+</script>
+
+<script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{% GetAbsoluteUrl(GetDocumentUrl()) %}"
+  },
+  "headline": "{% NewsTitle %}",
+  "image": [
+    "{% GetAbsoluteUrl(GetAttachmentUrlByGUID( NewsTeaser, NodeAlias )) %}"
+   ],
+  "abstract": "{%StripTags(NewsSummary)%}",
+  "inLanguage": "{% LocalizationContext.CurrentCulture.CultureAlias #%}",
+  "datePublished": "{% DocumentCreatedWhen %}",
+  "dateModified": "{% DocumentModifiedWhen %}",
+   "publisher": {
+    "@type": "Organization",
+    "name": "Ingram Micro",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{% GetAbsoluteUrl("/logos/IngramBlue300x175.png") #%}"
+    }
+  }
+}
+</script>
