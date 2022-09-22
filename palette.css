@@ -1,0 +1,177 @@
+.palette1 {
+    --black: rgb(27, 38, 44);
+
+    --dark: rgb(6, 40, 61);
+    --dark: rgb(15, 76, 117);
+    
+
+    --normal: rgb(19, 99, 223);
+    --normal: rgb(63, 114, 175);
+    --normal: rgb(50, 130, 184);
+
+    --light: rgb(71, 181, 255);
+    --light: rgb(187, 225, 250);
+    --light: rgb(223, 246, 255);
+
+    
+    --white: rgb(249, 247, 247);
+}
+:root {
+--flickr-pink: hsla(333, 93%, 56%, 1);
+--byzantine: hsla(309, 77%, 40%, 1);
+--purple: hsla(276, 91%, 38%, 1);
+--trypan-blue: hsla(258, 86%, 34%, 1);
+--persian-blue: hsla(243, 57%, 50%, 1);
+--ultramarine-blue: hsla(229, 83%, 60%, 1);
+--dodger-blue: hsla(212, 84%, 61%, 1);
+--vivid-sky-blue: hsla(194, 85%, 62%, 1);
+
+--gradient-right: linear-gradient(90deg, #f72585ff, #b5179eff, #7209b7ff, #560badff, #480ca8ff, #3a0ca3ff, #3f37c9ff, #4361eeff, #4895efff, #4cc9f0ff);
+--gradient-radial: radial-gradient(#f72585ff, #b5179eff, #7209b7ff, #560badff, #480ca8ff, #3a0ca3ff, #3f37c9ff, #4361eeff, #4895efff, #4cc9f0ff);
+}
+
+<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" id="svg-intro" class="svg position-absolute d-none d-lg-block mt-5 overflow-hidden w-100">
+
+    <defs>
+      <linearGradient id="gradient-svg-intro" x1="0" x2="0" y1="1" y2="0">
+        <stop stop-color="hsl(209, 92.2%, 92.1%)" offset="0%"></stop>
+        <stop stop-color="hsl(209, 92.2%, 99.1%)" offset="100%"></stop>
+      </linearGradient>
+    </defs>
+    <path fill="url(#gradient-svg-intro)" d="M -0.664 3.46 C -0.664 3.46 405.288 15.475 461.728 21.285 C 601.037 35.625 672.268 76.086 701.056 97.646 C 756.056 138.838 797.267 216.257 857.745 245.156 C 885.704 258.516 980.334 280.547 1048.511 268.826 C 1121.622 256.256 1199.864 226.267 1214.176 220.176 C 1241.273 208.643 1280.201 191.509 1343.494 179.436 C 1434.325 162.111 1439.504 196.099 1439.503 183.204 C 1439.502 161.288 1440 0 1440 0 L 1360 0 C 1280 0 1120 0 960 0 C 800 0 640 0 480 0 C 320 0 160 0 80 0 L 0 0 L -0.664 3.46 Z">
+    </path>
+  </svg>
+
+
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" id="svg-versions" class="svg position-absolute d-none d-lg-block overflow-hidden w-100">
+
+        <defs>
+          <linearGradient id="gradient-svg-versions" x1="0" x2="0" y1="1" y2="0">
+            <stop stop-color="hsl(209, 92.2%, 100%)" offset="0%"></stop>
+            <stop stop-color="hsl(209, 92.2%, 92.1%)" offset="50%"></stop>
+            <stop stop-color="hsl(209, 92.2%, 100%)" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+        <path fill="url(#gradient-svg-versions)" d="M 0.351 306.998 C 0.351 306.998 106.387 303.855 120.22 303.067 C 376.703 288.465 528.904 269.371 666.244 180.887 C 764.992 117.267 847.667 181.072 960.83 124.832 C 1097.703 56.809 1440.135 142.927 1440.135 142.927 L 1440 0 L 1360 0 C 1280 0 1120 0 960 0 C 800 0 640 0 480 0 C 320 0 160 0 80 0 L 0 0 L 0.351 306.998 Z">
+        </path>
+      </svg>
+
+      
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" id="svg-advanced" class="svg position-absolute d-none d-lg-block overflow-hidden w-100">
+
+      <defs>
+        <linearGradient id="gradient-svg-advanced" x1="0" x2="0" y1="1" y2="0">
+          <stop stop-color="hsl(209, 92.2%, 100%)" offset="0%"></stop>
+          <stop stop-color="hsl(209, 92.2%, 92.1%)" offset="50%"></stop>
+          <stop stop-color="hsl(209, 92.2%, 98%)" offset="80%"></stop>
+          <stop stop-color="hsl(209, 92.2%, 100%)" offset="100%"></stop>
+        </linearGradient>
+      </defs>
+      <path fill="url(#gradient-svg-advanced)" d="M 0.351 306.998 C 0.351 306.998 106.387 303.855 120.22 303.067 C 376.703 288.465 418.036 245.269 555.376 156.785 C 654.124 93.165 748.046 49.314 901.379 38.868 C 1053.87 28.479 1440.135 82.672 1440.135 82.672 L 1440 0 L 1360 0 C 1280 0 1120 0 960 0 C 800 0 640 0 480 0 C 320 0 160 0 80 0 L 0 0 L 0.351 306.998 Z">
+      </path>
+    </svg>
+
+
+
+    <a id="play-video" class="video-play-button" href="https://www.youtube.com/watch?v=mwtbEGNABWU" data-fancybox="">
+							<span></span>
+						</a>
+
+
+.video-play-button {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    display: block;
+    width: 32px;
+    height: 44px;
+    /* background: $primary; */
+    border-radius: 50%;
+    padding: 18px 20px 18px 28px; }
+  
+  .video-play-button:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #204560;
+    border-radius: 50%;
+    -webkit-animation: pulse-border 1500ms ease-out infinite;
+    animation: pulse-border 1500ms ease-out infinite; }
+  
+  .video-play-button:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #1A374D;
+    border-radius: 50%;
+    -webkit-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms; }
+  
+  .video-play-button:hover:after {
+    background-color: #204560; }
+  
+  .video-play-button img {
+    position: relative;
+    z-index: 3;
+    max-width: 100%;
+    width: auto;
+    height: auto; }
+  
+  .video-play-button span {
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-left: 22px solid #fff;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent; }
+  
+  @-webkit-keyframes pulse-border {
+    0% {
+      -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+      opacity: 1; }
+    100% {
+      -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+      opacity: 0; } }
+  
+  @keyframes pulse-border {
+    0% {
+      -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+      opacity: 1; }
+    100% {
+      -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+      opacity: 0; } }
+  
