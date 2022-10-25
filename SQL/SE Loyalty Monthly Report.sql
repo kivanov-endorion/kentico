@@ -6,14 +6,31 @@ DECLARE @CurrencyRate DECIMAL(4,2),
 		@Culture NVARCHAR(5),
 		
 		@ProgramID INT,
+		@CustomerNbr NVARCHAR(6),
+		@SK_Cust NVARCHAR(10),
 		@SK_Valid INT
 
 /* SET VALUES IN KENTICO WITH ##WHERE## */
+--SET @ProgramID = {% CurrentDocument.ProgramID #%}
+--SET @CustomerNbr = '{% CurrentUser.imCustomerNbr #%}'
+--SET @SK_Cust = '{% CurrentUser.imSK_Cust #%}'
+--SET @SK_Valid = '{% Settings.SK_VALID #%}'
+--SET @ProgramID = {% CurrentDocument.ProgramID #%}
+--SET @CustomerNbr = {% CurrentUser.imCustomerNbr #%}
+--SET @SK_Cust = {% CurrentUser.imSK_Cust #%}
+--SET @SK_Valid = {% Settings.SK_VALID #%}
+
 SET @ProgramID = 1524
+SET @CustomerNbr = '000099'
+SET @SK_Cust = '407259'
 SET @SK_Valid = 17
 
+
 /* PREPARE CURRENCY CONVERSION */
-SET @UserCurrency = 'SEK'
+SET @UserCurrency = (
+	SELECT CurrencyCd FROM [OIS_CUSTOMER].[dbo].[Tbl_Customer]
+	WHERE SK_Cust = @SK_Cust
+	)
 (SELECT @ProgramCurrency = CurrencyCd, @Culture = DefaultCulture FROM [OIS_ADMINISTRATION].[dbo].[Tbl_Company]
 WHERE SK_Valid = @SK_Valid)
 
@@ -23,19 +40,19 @@ SET @CurrencyRate = (
 	WHERE Source = @UserCurrency AND Destination = @ProgramCurrency
 	)
 
-SELECT DISTINCT
+SELECT DISTINCT --##TOPN##
 			A.id_aktionen,
             A.aktions_name,
             A.aktion_von,
             A.aktion_bis,
             V.vendor_name,
             T.id_teilnehmer,
-            T.branche,
-			T.KDNr,
-			T.firma, 
 			T.email,
+			T.firma,
             T.NName, 
             T.VName,
+			T.branche,
+			T.KDNr,
             T.Anmeldedat,
             T.Vertrag_von,
             T.Vertrag_bis,
@@ -64,16 +81,15 @@ SELECT DISTINCT
 
 			MONTH(U.datum) 'Month',
 
-            DATEPART(quarter, U.datum) 'Quarter', 
-			COUNT(U.datum) OVER(
-
-                PARTITION BY T.id_teilnehmer, DATEPART(quarter, U.datum)
-            ) InvoicesQuarter,
+            COUNT(U.datum) OVER(
+                PARTITION BY T.id_teilnehmer, DATEPART(QUARTER, U.datum)
+            ) InvoicesPerQuarter,
 
 			(SELECT buchungstext
 				FROM MARCOM.dbo.tbl_arc_konto
 				WHERE fgn_aktion = @ProgramID
-				AND MONTH(DATEADD(MONTH, 1, datum)) = MONTH(U.datum) /* TODO: CHANGE 1 to -1 */
+				AND kdnr = @CustomerNbr
+				AND MONTH(DATEADD(MONTH, -1, datum)) = MONTH(U.datum) /* TODO: CHANGE 1 to -1 */
 			) Voucher,
 
 			@Culture Culture,
@@ -90,9 +106,12 @@ LEFT JOIN   MARCOM.dbo.tbl_arc_tln_umsatz U
 
 LEFT JOIN	MARCOM.dbo.tbl_arc_konto K
     ON    K.fgn_teilnehmer = T.id_teilnehmer
+	--ON      K.kdnr = T.KDNr
+
 
 WHERE        A.id_aktionen = @ProgramID
-AND			U.datum IS NOT NULL /* For the report */
+--AND			T.KDNr = @CustomerNbr /* Comment out for the report */
+--AND			U.datum IS NOT NULL /* For the report */
 			
 
 GROUP BY    U.datum,
@@ -102,12 +121,12 @@ GROUP BY    U.datum,
             A.aktion_bis,
             V.vendor_name,
             T.id_teilnehmer,
-            T.branche,
-			T.KDNr,
-			T.firma, 
-			T.email,
             T.NName, 
             T.VName,
+			T.email,
+			T.firma,
+			T.branche,
+			T.KDNr,
             T.Anmeldedat,
             T.Vertrag_von,
             T.Vertrag_bis,
