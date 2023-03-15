@@ -539,3 +539,7 @@ SiteID  SiteName            SK_Valid    B4
 {% Cache("string".ToUpper()) %}
 
 {^SubLevelPlaceHolder^} // For use in hierarchical transformations
+
+
+
+https://de-beta.ingrammicro.com/cep/app/my/productconfigurator/cms?page=/CEP/Site-Globals/External-Hosts/iframepages/vendors/v7/v7-services
