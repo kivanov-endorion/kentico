@@ -13,6 +13,11 @@ WHERE id_teilnehmer = 472530
 INSERT INTO [MARCOM].[dbo].[tbl_arc_teilnehmer] (CCd, branche, KDNr, firma, anmeldedat, fgn_aktion, vendor, vertrag_von, vertrag_bis, zielwert)
 VALUES ('DE', 44, '869821', 'BITS', GETDATE(), 1568, 2036, DATEFROMPARTS(2023, 5, 1), DATEFROMPARTS(2023, 7, 31), 250)
 
+INSERT INTO [MARCOM].[dbo].[tbl_arc_vendor_nbr] (fgn_vendor, strVendorNbr, BoostFactor, SK_Vend)
+SELECT 2057, strVendorNbr, BoostFactor, SK_Vend
+FROM [MARCOM].[dbo].[tbl_arc_vendor_nbr]
+WHERE fgn_vendor = 2052
+
 UPDATE [MARCOM].[dbo].[tbl_arc_teilnehmer]
 SET zielwert = 250, verguetung = 1
 WHERE fgn_aktion = 1568
