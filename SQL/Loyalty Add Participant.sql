@@ -21,3 +21,10 @@ WHERE fgn_vendor = 2052
 UPDATE [MARCOM].[dbo].[tbl_arc_teilnehmer]
 SET zielwert = 250, verguetung = 1
 WHERE fgn_aktion = 1568
+
+--ADD SKUs TO PROGRAM:
+INSERT INTO [MARCOM].[dbo].[tbl_arc_aktionsartikel] 
+(fgn_aktionen, fgn_hersteller, gueltig_von, gueltig_bis, sku, createdate)
+VALUES 
+(1567, 2035, DATEFROMPARTS(2023, 5, 1), DATEFROMPARTS(2023, 7, 31), 'XXXXXX', GETDATE()),
+(1567, 2035, DATEFROMPARTS(2023, 5, 1), DATEFROMPARTS(2023, 7, 31), 'XXXXXX', GETDATE())
