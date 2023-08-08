@@ -28,3 +28,16 @@ INSERT INTO [MARCOM].[dbo].[tbl_arc_aktionsartikel]
 VALUES 
 (1567, 2035, DATEFROMPARTS(2023, 5, 1), DATEFROMPARTS(2023, 7, 31), 'XXXXXX', GETDATE()),
 (1567, 2035, DATEFROMPARTS(2023, 5, 1), DATEFROMPARTS(2023, 7, 31), 'XXXXXX', GETDATE())
+
+
+  INSERT INTO [MARCOM].[dbo].[tbl_arc_konto]  (
+	   [ccd]
+      ,[branch]
+      ,[kdnr]
+      ,[fgn_teilnehmer]
+      ,[buchungstyp]
+      ,[buchungstext]
+      ,[betrag]
+      ,[fgn_aktion]
+      ,[datum])
+VALUES ('DE', '44', '459998', 475121, 'Gutschrift', 'Quiz Daily', 2, 1585, GETDATE() )
