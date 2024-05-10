@@ -123,3 +123,25 @@ WHERE  T.fgn_aktion = @ProgramId
 
 
 ORDER BY  T.id_teilnehmer
+
+
+-- LOYALTY + QUIZ
+
+
+use MARCOM
+DECLARE @UserID Int,
+    @Campaign Int
+--SET @UserID=265 -- Alex T
+SET @UserID=219 -- me dash
+--SET @UserID=207 -- me dot
+SET @Campaign=1585
+--##WHERE##
+SELECT *  FROM tbl_arc_tagesfrage_antwort where id in(
+--DELETE FROM tbl_arc_tagesfrage_antwort where id in(
+SELECT TA.ID from tbl_arc_tagesfrage_antwort TA
+INNER JOIN tbl_arc_tagesfrage TF on TA.fgn_frage=TF.id
+WHERE TF.fgn_aktion=@Campaign
+--AND TA.UserID=@UserID 
+)
+
+SELECT @@ROWCOUNT as result

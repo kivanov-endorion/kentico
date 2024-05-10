@@ -1,0 +1,20 @@
+Reseller opportunity (NetNew)
+ - logged out page
+ - opportunity page
+ /opportunity?c_id=
+
+Growth incentive
+ - no SKU list
+ /incentive?c_id=
+
+Dormant campaign
+ /landing?c_id=
+
+ Cross-sell
+
+ /crosssell?c_id=
+
+
+Dormant
+https://uk.ingrammicro.com/cep/app/campaign/login?c_id=6668
+https://uk.ingrammicro.com/cep/app/campaign/landing?c_id=6668
