@@ -1,0 +1,360 @@
+<script type="text/javascript">
+    var WpExpDays = 365;
+
+    var WpCampaign = "DellSpotlightOct";
+    var WpImgURL = "/media/ExternalMediaLibrary/Images/Pop-up-Dell-W47.png";
+    var WpTargetURL = "https://bit.ly/40W9Clr";
+    var WpTargetURL2 = "";
+    var WpTargetURL3 = "";
+    var ResellerStr = '';
+
+    function createCookie() {
+        $.cookie('Wpopup', WpCampaign.toString(), {
+            expires: WpExpDays,
+            path: '/'
+        });
+    }
+    
+    function Toogle_WCinput() { 
+        if ($('#wcpopupmode').is(":checked") == true) {
+        $(".wcpopupclose").attr("id","wcpopupclose-OFF");
+        }
+        else{
+            $(".wcpopupclose").attr("id","wcpopupclose");
+        }
+    
+    };
+
+    function closeModal() {
+        if ($('#wcpopupmode').is(":checked") == true) {
+            createCookie();
+        }
+        if (!$('#myModal').hasClass('hide')) {
+            $('#myModal').addClass('hide');
+        }
+
+        if ($('#myModal').hasClass('show')) {
+            $('#myModal').removeClass('show');
+        }
+
+        $('body').removeClass('modal-open');
+
+        $('.modal-backdrop').remove();
+        $("[id='myModal']").remove();
+        $("#p_lt_ctl00_pageplaceholder_p_lt_ctl06_WelcomePopup_lnkBanner").attr("style", "display:none");
+
+    }
+
+    function redirect() {
+        window.open(
+            WpTargetURL,
+            '_blank'
+        );
+    }
+
+    function redirect2() {
+        window.open(
+            WpTargetURL2,
+            '_blank'
+        );
+    }
+
+    function redirect3() {
+        window.open(
+            WpTargetURL3,
+            '_blank'
+        );
+    }
+    $(window).on("resize", function() {
+
+        if ($('#myModal').hasClass('show')) {
+            alignModal();
+        }
+
+    });
+
+    function alignModal() {
+
+        let modalDialog = $("#myModal").find(".modal-dialog");
+        if ($(window).width() >= 768)
+            modalDialog.css("margin-top", 100);
+        else
+            modalDialog.css("margin-top", Math.max(0, ($(window).height() - modalDialog.height()) / 2));
+
+    }
+
+    function display_camp() {
+        if ($.cookie('Wpopup') != WpCampaign.toString()) {
+            
+            
+                        var htmlContent = '';
+htmlContent+='<div class="modal hide" id="myModal" role="dialog" style="display:none">';
+htmlContent+='<div class="modal-dialog "><!-- Modal content-->';
+htmlContent+='<div class="modal-content">';
+htmlContent+='<div class="modal-header"><span class="wcpopupclose" id="wcpopupclose" onclick="closeModal();">&times;</span></div>';
+
+htmlContent+='<div class="modal-body ">';
+htmlContent+='<div id="RedesignWelcomePopup">';
+htmlContent+='<div class="row">';
+htmlContent+='<h1 align="center" style="padding-top:2%;display:none;"><b>&nbsp;</b> &nbsp;</h1>';
+htmlContent+='</div>';
+
+htmlContent+='<div class="row"><img broder="0" class="img-responsive" id="wp_image" onclick="redirect();" src="https://se-new.ingrammicro.com/media/ExternalMediaLibrary/Images/Pop-up-Dell-W47.png" style="cursor:pointer;" /></div>';
+
+htmlContent+='<div class="row" style="display:none;">';
+htmlContent+='<table align="center" cellpadding="5" cellspacing="5">';
+	htmlContent+='<tbody>';
+		htmlContent+='<tr>';
+			htmlContent+='<td style="padding:10px"><button class="btn btn-primary" id="WpBtn1" onclick="redirect2();" style="font-size:18px;" type="button">FAQ</button></td>';
+			htmlContent+='<td style="padding:10px"><button class="btn btn-primary" id="WpBtn2" onclick="redirect3();" style="font-size:18px;" type="button">How to Guide</button></td>';
+		htmlContent+='</tr>';
+	htmlContent+='</tbody>';
+htmlContent+='</table>';
+htmlContent+='</div>';
+
+htmlContent+='<div align="center" class="row padding-top-lg font-16" style="padding-bottom:2%">&nbsp; <label class="wcpopupswitch vertical-center margin-right-lg"><input id="wcpopupmode" onchange="Toogle_WCinput()" type="checkbox" /><span class="wcpopupslider wcpopupround">&nbsp;</span></label>Do not show this message again</div>';
+htmlContent+='</div>';
+htmlContent+='</div>';
+htmlContent+='</div>';
+htmlContent+='</div>';
+htmlContent+='</div>';
+$( "body" ).append(htmlContent);
+            
+            
+            if ($('#myModal').attr("style") !== typeof undefined && $('#myModal').attr("style") !== false) {
+                $('#myModal').removeAttr("style")
+            }
+
+            if ($('#myModal').hasClass('hide')) {
+                $('#myModal').removeClass('hide');
+            }
+
+            if (!$('#myModal').hasClass('show')) {
+                $('#myModal').addClass('show');
+            }
+
+            $("#myModal").modal({
+
+                backdrop: 'static',
+                keyboard: false
+            });
+            $('#myModal').appendTo("body").modal('show');
+            $('body').removeAttr('style');
+
+            $("#p_lt_ctl00_pageplaceholder_p_lt_ctl06_WelcomePopup_lnkBanner").attr("style", "display:block");
+            $("#p_lt_ctl00_pageplaceholder_p_lt_ctl06_WelcomePopup_lnkBanner").removeAttr("href");
+            $("#p_lt_ctl00_pageplaceholder_p_lt_ctl06_WelcomePopup_lnkBanner").removeAttr("onclick");
+            $("#p_lt_ctl00_pageplaceholder_p_lt_ctl06_WelcomePopup_lnkBanner").removeAttr("onmouseup");
+            
+            
+            dataLayer.push({
+                'event': 'WelcomePopup_Displayed',
+                'value': WpCampaign.toString()
+            });
+
+        } else {
+
+            if (!$('#myModal').hasClass('hide')) {
+                $('#myModal').addClass('hide');
+            }
+
+            if ($('#myModal').hasClass('show')) {
+                $('#myModal').removeClass('show');
+            }
+
+        }
+    }
+    $(document).ready(function() {
+        $("#p_lt_ctl00_pageplaceholder_p_lt_ctl06_WelcomePopup_lnkBanner").attr("style", "display:none");
+
+        display_camp();
+        let popupwidth = $(window).width();
+        let popupheight = $(window).height();
+
+        let iconwidth = (popupwidth / 100) * 3;
+        let iconheight = (popupwidth / 100) * 3;
+        $('.wcpopup-icon-image').width(iconwidth).height(iconheight);
+
+    });
+
+</script>
+<style type="text/css">@media (min-width: 800px) and (device-height: 1280px) and (orientation: portrait) {
+
+        #myModal>.modal-dialog {
+            height: auto !important;
+            width: auto;
+            max-width: 95vw !important;
+            display: inline-block !important;
+        }
+    }
+
+    @media (min-width: 1024px) and (device-height: 1366px) and (orientation: portrait) {
+
+        #myModal>.modal-dialog {
+            height: auto !important;
+            max-width: 95vw !important;
+            display: inline-block !important;
+        }
+    }
+
+    @media (min-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+
+        #myModal>.modal-dialog {
+            height: auto !important;
+            width: auto;
+            max-width: 95vw !important;
+            display: inline-block !important;
+        }
+    }
+
+
+    @media (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
+        #myModal.modal {
+            display: flex !important;
+        }
+
+        #myModal>.modal-dialog>.modal-content {
+            max-width: 95vw !important;
+        }
+
+        #RedesignWelcomePopup h1 {
+            font-size: 5vmin !important
+        }
+
+        #myModal.modal {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+
+    #myModal.modal {
+        z-index: 2147483646 !important;
+        overflow: auto;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: wrap;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+
+    #myModal>.modal-dialog {
+        width: auto !important;
+        text-align: center !important;
+        margin: 0px !important;
+    }
+
+    #myModal>.modal-dialog>.modal-content {
+        /* 15% from the top and centered */
+        border: 0px solid #353535cc;
+        width: auto;
+        max-width: 60vw;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    #myModal>.modal-dialog>.modal-content .modal-header {
+        padding-top: 0px !important;
+        border-top-left-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+        border-bottom: 0px !important;
+        min-height: 0px !important;
+    }
+
+
+
+    .js-wp-image {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .rightborder {
+        border-right: 1px solid #ccc !important
+    }
+
+    .leftborder {
+        border-left: 1px solid #ccc !important
+    }
+
+    .wcpopupswitch {
+        position: relative;
+        display: inline-block;
+        width: 54px;
+        height: 28px;
+    }
+
+    .wcpopupswitch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .wcpopupslider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: gray;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .wcpopupslider:before {
+        position: absolute;
+        content: "";
+        height: 24px;
+        width: 24px;
+        left: 3px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.wcpopupslider {
+        background-color: orangered;
+    }
+
+    input:focus+.wcpopupslider {
+        box-shadow: 0 0 1px orangered;
+    }
+
+    input:checked+.wcpopupslider:before {
+        -webkit-transform: translateX(24px);
+        -ms-transform: translateX(24px);
+        transform: translateX(24px);
+    }
+
+    .wcpopupslider.wcpopupround {
+        border-radius: 30px;
+    }
+
+    .wcpopupslider.wcpopupround:before {
+        border-radius: 50%;
+    }
+
+    .vertical-center {
+        transform: translateY(-15%);
+    }
+
+
+    /* The Close Button */
+
+    .wcpopupclose {
+        color: black;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        position: relative;
+        z-index: 2147483647;
+    }
+
+    .wcpopupclose:hover,
+    .wcpopupclose:focus {
+        cursor: pointer;
+    }
+</style>
