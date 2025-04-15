@@ -1,0 +1,103 @@
+<div class="row">
+
+<div class="col-xs-12 col-sm-12 col-md-6 kentico-redesign-col">
+
+<div class="Kentico-redesign-title-h1">
+
+¿Necesita ayuda para cruzar la línea de meta?
+
+</div>
+
+<div class="Kentico-redesign-description">
+
+<div style="margin-bottom: 1.5rem;">Contamos con un gran equipo dedicado y amplia cobertura, que proporciona asistencia y recursos inigualables: sea cual sea tu objetivo empresarial, nos aseguraremos de que llegues a la meta.
+
+
+</div>
+
+<div><img class="img-fluid" src="https://emea-beta.ingrammicro.com/Ingram/media/Global-Content/EN-GLOBAL/H/hp/images/GLMS4254-Form-image.jpg"></div>
+
+</div>
+
+
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-6 kentico-redesign-col ">
+
+<!-- Form script starts here -->
+
+<link rel="stylesheet" href="https://now.ingrammicro.com/rs/340-MXL-245/images/Custom_Form_Styles.css"/>
+
+<script src="https://now.ingrammicro.com/rs/340-MXL-245/images/Custom_Form_Scripts.js"></script>
+
+<script src="//now.ingrammicro.com/js/forms2/js/forms2.min.js"></script>
+
+<form id="mktoForm_2644"></form>
+
+<script>
+
+
+MktoForms2.loadForm("//now.ingrammicro.com", "340-MXL-245", 2644, function(form){
+
+
+// Function to capture hidden fields
+
+HiddenfieldsCapture("mktoForm_2644");
+
+
+// Concatinate fields in program fields on submit
+
+form.onSubmit(function(){
+
+var values = form.vals();
+
+concatenateFields(values, "mktoForm_2644");
+
+
+});
+
+});
+
+
+// Function to display thank you message
+
+MktoForms2.whenReady(function (form){
+
+form.onSuccess(function(vals, page){
+
+if(vals.formid == "2644"){
+
+form.getFormElem().hide();
+
+let confirmationDiv = document.createElement("div");
+
+confirmationDiv.innerHTML = `<div id="confirmation" aria-hidden="false" style="display: inline-block; font-family: arial; font-size: 24px; padding-top: 50px; text-align: center;">
+
+<h1 style="font-size: 38px; line-height: 42px; font-weight: bold; color: #333; text-align: left; padding-bottom: 20px; margin: 0;">Gracias por ponerte en contacto con nosotros.</h1>
+
+<p style="font-size: 22px; line-height: 28px; font-weight: normal; color: #333; text-align: left; padding-bottom: 20px; margin: 0;">En breve nos pondremos en contacto contigo.</p>
+
+<p style="font-size: 22px; line-height: 28px; font-weight: normal; color: #333; text-align: left; padding-bottom: 15px; margin: 0;">Mientras tanto, explora la plataforma Xvantage para descubrir qué más puede hacer Ingram Micro por usted.</p>
+
+</div>`
+
+// document.getElementById("FormContainer").append(confirmationDiv);
+
+document.getElementById("mktoForm_2644").insertAdjacentElement("afterend", confirmationDiv );
+
+return false;
+
+}
+
+});
+
+});
+
+</script>
+
+
+<!-- Form script ends here -->
+
+</div>
+
+</div>
