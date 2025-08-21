@@ -32,8 +32,12 @@ main {
 /* HERO */
 
 #hero {
-    border-collapse: separate;
-    border-radius: 6px;
+    max-height: 400px;
+    overflow: hidden;   
+    
+    .carousel-inner  {
+        border-radius: 6px;
+    }
 
 
     .carousel-item {
@@ -43,34 +47,56 @@ main {
         background-size: cover;
         height: auto;
         min-height: 400px !important;
+        padding: 35px;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+            height: 100%;
+            object-position: center;
+        }
     }
 
     .hero-content {
         position: relative;
-        margin-top: 85px;
-        margin-left: 35px;
-        margin-right: 35px;
+        margin: 85px 35px 35px;
 
-        h1 {
+        h1, h2 {
             font-family: "Roboto";
             font-style: normal;
-            font-weight: 300;
-            font-size: 64px;
-            line-height: 75px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 60%);
+            width: fit-content;
             color: #333;
-            padding: 10px 0;
             margin-bottom: 32px;
         }
 
+        h1 {
+            font-weight: 300;
+            font-size: 64px;
+            line-height: 75px;
+        }
+
         h2 {
-            font-family: "Roboto";
-            font-style: normal;
             font-weight: 400;
             font-size: 18px;
-            line-height: 22px;
-            color: #333;
-            padding: 10px 0;
-            margin-bottom: 32px;
+            line-height: 22px;            
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 60%) !important;
+            color: #333 !important;
+
+            &:hover {
+                background: #efefef !important;
+            }
         }
     }
 
@@ -94,7 +120,13 @@ main {
         order: 0;
         flex-grow: 0;
         height: 15%;
-        margin-top: 10em
+        margin-top: 10em;
+        opacity: .5;
+        box-shadow: 4px 4px 20px 1px #00000033, -4px -4px 20px 1px #00000033;
+
+        .fa {
+            color: #000 !important;
+        }
     }
 
     .hero-carousel-control {
@@ -102,10 +134,6 @@ main {
         position: absolute !important;
         top: 45% !important;
         left: auto
-    }
-
-    .carousel-control-prev-icon {
-        color: #000
     }
 
     .carousel-control:hover {
@@ -123,6 +151,13 @@ main {
         opacity: .5
     }
 }
+
+/* Hide controls if there is NOT more than 1 carousel-item */
+.carousel:not(:has(.carousel-item:nth-child(2))) .carousel-control,
+.carousel:not(:has(.carousel-item:nth-child(2))) .carousel-indicators {
+  display: none !important;
+}
+
 
 /* BUTTONS */
 
@@ -179,13 +214,22 @@ main {
 section {
 
     h2,
-    p {
+    h3,
+    h4,
+    h5,
+    p,
+    .Kentico-redesign-title-h1,
+    .Kentico-redesign-description {
         font-family: "Roboto";
         line-height: 24px;
         color: #333;
     }
 
-    h2 {
+    h2,
+    h3,
+    h4,
+    h5,
+    .Kentico-redesign-title-h1 {
         font-weight: 600;
         font-size: 24px;
         margin-bottom: .5rem;
@@ -193,7 +237,8 @@ section {
         ;
     }
 
-    p {
+    p,
+    .Kentico-redesign-description {
         font-weight: 400;
         font-size: 16px;
 
@@ -309,6 +354,10 @@ section .container-fluid {
     }
 }
 
+.Kentico-redesign-description img {
+    border-radius: 6px;
+}
+
 
 /* TABS */
 
@@ -392,6 +441,7 @@ section .container-fluid {
             filter: invert(32%) sepia(95%) saturate(7494%) hue-rotate(211deg) brightness(97%) contrast(107%);
         }
     }
+
     .accordion-body {
         padding: 32px;
     }
