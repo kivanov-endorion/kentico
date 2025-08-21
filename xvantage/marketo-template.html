@@ -13,42 +13,87 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--Roboto Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
         rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 
     <link rel="stylesheet" href="marketo-template.css">
 </head>
 
 <body>
     <main>
+        <header>
+            <div class="d-flex justify-content-between p-0 container">
+                <img alt="IngramMicro"
+                    src="https://now.ingrammicro.com/rs/340-MXL-245/images/Ingram-Micro-2024-Logo-White-1.png"
+                    class="img-fluid">
+                <img alt="HPE" src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/hpe_logo.png"
+                    class="img-fluid">
+            </div>
+        </header>
         <!--Carousel-->
         <div id="hero" class="carousel slide" data-bs-ride="carousel">
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-1.jpg?" class="d-block w-100" alt="Why HPE">
-                    <div class="hero-content">
+                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-1.jpg?"
+                        class="d-block w-100" alt="Why HPE">
+                    <div class="carousel-content">
                         <h1>Why HPE?</h1>
                         <h2>Because IT migration shouldn’t give you a headache</h2>
-                        <p><a href="#" class="btn btn-secondary">CTA Button</a></p>
+                        <p><a href="#" class="btn btn-secondary" data-name="" data-campaign="">CTA Button</a></p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-2.jpg?" class="d-block w-100" alt="...">
+                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-2.jpg?"
+                        class="d-block w-100" alt="HPE Aruba Networking">
+                    <div class="carousel-content d-flex flex-column justify-content-center h-100">
+                        <h1>HPE Aruba Networking</h1>
+                        <h2>Because we all need help to bridge the gap</h2>
+                        <p><a class="btn btn-primary btn-hpe" href="#" data-name="" data-campaign="">Learn more</a></p>
+
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-3.jpg?" class="d-block w-100" alt="...">
+                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-3.jpg?"
+                        class="d-block w-100" alt="HPE Flex Offers">
+                    <div class="carousel-content d-flex flex-column justify-content-center h-100">
+                        <h1>HPE Flex Offers</h1>
+                        <h2>Because these discounts don’t just talk the talk</h2>
+                        <p><a class="btn btn-primary btn-hpe" href="#" data-name="" data-campaign="">Discover more</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+
+                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-4.jpg"
+                        class="d-block w-100" alt="HPE GreenLake">
+
+
+                    <div class="carousel-content d-flex flex-column justify-content-center h-100">
+                        <h1>HPE GreenLake</h1>
+                        <h2>Because we could all use a helping hand</h2>
+                        <p><a class="btn btn-primary btn-hpe" href="#" data-name="" data-campaign="">Get started</a></p>
+                    </div>
                 </div>
             </div>
-            <button class="hero-carousel-control carousel-control carousel-control-prev" type="button" data-bs-target="#hero" data-bs-slide="prev">
+            <button class="hero-carousel-control carousel-control carousel-control-prev" type="button"
+                data-bs-target="#hero" data-bs-slide="prev">
                 <span class="fa fa-angle-left" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="hero-carousel-control carousel-control carousel-control-next" type="button" data-bs-target="#hero" data-bs-slide="next">
+            <button class="hero-carousel-control carousel-control carousel-control-next" type="button"
+                data-bs-target="#hero" data-bs-slide="next">
                 <span class="fa fa-angle-right" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -82,7 +127,8 @@
                                     forefront of innovation, moving beyond conventional network management.</p>
                                 <div>
                                     <a href="https://na-beta.ingrammicro.com/en/global/vendors/hpe/aruba"
-                                        target="_blank" class="btn btn-primary text-uppercase">Start today</a>
+                                        target="_blank" class="btn btn-primary text-uppercase" data-name=""
+                                        data-campaign="">Start today</a>
                                 </div>
 
                             </div>
@@ -117,7 +163,8 @@
                                     centers. Ready to free up capital and boost your operational flexibility?</p>
                                 <div>
                                     <a href="https://na-beta.ingrammicro.com/en/global/vendors/hpe/greenlake"
-                                        target="_blank" class="btn btn-primary text-uppercase">Start today</a>
+                                        target="_blank" class="btn btn-primary text-uppercase" data-name=""
+                                        data-campaign="">Start today</a>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-4 mb-md-0">
@@ -144,7 +191,8 @@
                                     user experience and IT operations?</p>
                                 <div>
                                     <a href="https://na-beta.ingrammicro.com/en/global/vendors/hpe/hybrid-cloud"
-                                        target="_blank" class="btn btn-primary text-uppercase">Start today</a>
+                                        target="_blank" class="btn btn-primary text-uppercase" data-name=""
+                                        data-campaign="">Start today</a>
                                 </div>
 
                             </div>
@@ -182,7 +230,7 @@
                                         talk—unlock the value of every sale with HPE Flex Offers.</p>
                                     <div class="text-center ">
                                         <a href="https://www.ingramhorizon.com/uk/landing-pages/hpe-flexoffers"
-                                            class="btn btn-secondary text-uppercase" target="_blank" data-cmsid="26937"
+                                            class="btn btn-secondary text-uppercase" target="_blank"
                                             data-name="HPE_Horizon_rich_text_Learn_More" data-campaign="">Learn More</a>
                                     </div>
                                 </div>
@@ -192,10 +240,98 @@
                 </div>
             </div>
         </section>
-        <!--Carousel card-->
 
-        <div>Carousel goes here</div>
+        <!-- Card Carousel -->
+        <section>
+            <div class="text-center py-5">
+                <h2>Because we’re here to help you grow</h2>
+                <p>Stay updated on the latest news regarding HPE solutions and learn how Ingram Micro and HPE are
+                    working together to help you turn insights into outcomes.</p>
 
+                <div class="owl-carousel owl-theme pt-4">
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-1.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">HPE Aruba Instant On</h5>
+                                <p class="card-text">Aruba Instant On is one of the simplest out-of-the-box Wi-Fi
+                                    solutions currently on the market, perfectly suited for SMBs.</p>
+                                <a href="#" class="btn btn-primary mt-auto align-self-start" data-name=""
+                                    data-campaign="">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-2.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">HPE Flex Offers</h5>
+                                <p class="card-text">Save time, save money and gain access to the best HPE Flex Offers
+                                    discounts, exclusively with Ingram Micro.</p>
+                                <a href="#" class="btn btn-primary mt-auto align-self-start" data-name=""
+                                    data-campaign="">Discover Offers</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-3.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">HPE hybrid cloud</h5>
+                                <p class="card-text">Kick off your hybrid infrastructure strategy with an environment
+                                    that is
+                                    secure, efficient and built to give you a competitive edge.</p>
+                                <a href="#" class="btn btn-primary mt-auto align-self-start" data-name=""
+                                    data-campaign="">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-1.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">HPE Aruba Instant On</h5>
+                                <p class="card-text">Aruba Instant On is one of the simplest out-of-the-box Wi-Fi
+                                    solutions currently on the market, perfectly suited for SMBs.</p>
+                                <a href="#" class="btn btn-primary mt-auto align-self-start" data-name=""
+                                    data-campaign="">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-2.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">HPE Flex Offers</h5>
+                                <p class="card-text">Save time, save money and gain access to the best HPE Flex Offers
+                                    discounts, exclusively with Ingram Micro.</p>
+                                <a href="#" class="btn btn-primary mt-auto align-self-start" data-name=""
+                                    data-campaign="">Discover Offers</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-3.jpg"
+                                class="card-img-top" alt="...">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">HPE hybrid cloud</h5>
+                                <p class="card-text">Kick off your hybrid infrastructure strategy with an environment
+                                    that is
+                                    secure, efficient and built to give you a competitive edge.</p>
+                                <a href="#" class="btn btn-primary mt-auto align-self-start" data-name=""
+                                    data-campaign="">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!--Rich text banner-->
         <section>
             <div class="row">
@@ -217,7 +353,7 @@
                                         straight away.</p>
                                     <div class="text-center ">
                                         <a href="https://www.ingramhorizon.com/uk/landing-pages/managed-services-for-networking"
-                                            class="btn btn-secondary text-uppercase" target="_blank" data-cmsid="26937"
+                                            class="btn btn-secondary text-uppercase" target="_blank"
                                             data-name="HPE_Horizon_rich_text_Learn_More" data-campaign="">Learn More</a>
                                     </div>
                                 </div>
@@ -317,7 +453,8 @@
                                             money are imperative
                                             for their business network.
                                         </p>
-                                        <a href="#" class="btn btn-primary" target="_blank">Learn More</a>
+                                        <a href="#" class="btn btn-primary" target="_blank" data-name=""
+                                            data-campaign="">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -350,7 +487,8 @@
                                     dignissim risus auctor sed. Aliquam congue tortor nibh, id placerat arcu elementum
                                     non.
                                     Fusce placerat ut mauris eget dignissim.</p>
-                                <a href="#" class="btn btn-primary" target="_blank">Learn More</a>
+                                <a href="#" class="btn btn-primary" target="_blank" data-name="" data-campaign="">Learn
+                                    More</a>
                             </div>
                         </div>
                     </div>
@@ -429,7 +567,8 @@
                 </p>
 
                 <!-- Tabs Titles -->
-                <ul class="nav nav-tabs justify-content-evenly align-items-end mb-4 custom-tabs" id="Tabs" role="tablist">
+                <ul class="nav nav-tabs justify-content-evenly align-items-end mb-4 custom-tabs" id="Tabs"
+                    role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="tabPane1" data-bs-toggle="tab" data-bs-target="#tabContent1"
                             type="button" role="tab">Welcome to GreenLake</button>
@@ -462,7 +601,7 @@
                                     the right mix of technology to meet customer business demands, allowing them to
                                     consume everything as a service (XaaS) with HPE GreenLake.
                                 </p>
-                                <a href="#" class="btn btn-primary">Learn More</a>
+                                <a href="#" class="btn btn-primary" data-name="" data-campaign="">Learn More</a>
                             </div>
                             <div class="col-lg-6 mb-4">
                                 <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Contact-form.jpg"
@@ -519,7 +658,42 @@
                 </div>
             </div>
         </section>
+        <footer class="pt-5">
+            <img src="https://now.ingrammicro.com/rs/340-MXL-245/images/IM-Crop-Blue-Bottom-Landing-xl.png"
+                class="img-fluid" alt="Ingram Micro Logo" width="100%" loading="lazy">
+            <div class="container text-center p-4">
+                <p>Copyright © <span id="__copyright_year__">2025</span> Ingram Micro. All rights reserved.</p>
+            </div>
+        </footer>
     </main>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                loop: false,
+                stagePadding: 32,
+                margin: 32,
+                nav: true,
+                dots: true,
+                slideBy: 1,
+                autoplayHoverPause: true,
+                navText: [
+                    '<i class="fa fa-angle-left fa-2xs"></i>',
+                    '<i class="fa fa-angle-right fa-2xs"></i>'
+                ],
+                responsive: {
+                    0: { items: 1 },
+                    768: { items: 2 },
+                    992: { items: 3 },
+                    1920: { items: 4 }
+                }
+            });
+            document.getElementById("__copyright_year__").textContent = new Date().getFullYear();
+        });
+    </script>
 </body>
 
 </html>
