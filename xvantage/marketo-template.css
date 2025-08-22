@@ -1,6 +1,7 @@
 :root {
     --bs-primary: #0077d4 !important;
     --bs-secondary: #fff !important;
+    --bs-border-radius: 6px !important;
 }
 
 html {
@@ -28,21 +29,28 @@ main {
     width: 100%;
     overflow-x: hidden;
 }
+
 main:has(header) {
     padding-top: 0 !important;
 }
+
 main:has(footer) {
     padding-bottom: 0 !important;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px #00000099;
 }
 
 /* HERO */
 
 #hero {
     max-height: 400px;
-    overflow: hidden;   
+    overflow: hidden;
+    border-radius: var(--bs-border-radius);
 
-    .carousel-inner  {
-        border-radius: 6px;
+    .carousel-inner {
+        border-radius: var(--bs-border-radius);
     }
 
 
@@ -73,9 +81,10 @@ main:has(footer) {
 
     .carousel-content {
         position: relative;
-        margin: 85px 35px 35px;
+        margin: 0px 35px 35px;
 
-        h1, h2 {
+        h1,
+        h2 {
             font-family: "Roboto";
             font-style: normal;
             padding: 10px;
@@ -83,6 +92,19 @@ main:has(footer) {
             width: fit-content;
             color: #333;
             margin-bottom: 32px;
+        }
+
+        &.no-background h1,
+        &.no-background h2 {
+            background-color: transparent;
+            padding: 0;
+            color: #fff;
+            text-shadow: 2px 2px 4px #00000099;
+        }
+
+        &.no-background .btn-secondary {
+            background: rgba(255, 255, 255, 90%) !important;
+            color: #333 !important;
         }
 
         h1 {
@@ -94,8 +116,9 @@ main:has(footer) {
         h2 {
             font-weight: 400;
             font-size: 18px;
-            line-height: 22px;            
+            line-height: 22px;
         }
+
         .btn-secondary {
             background: rgba(255, 255, 255, 60%) !important;
             color: #333 !important;
@@ -161,7 +184,7 @@ main:has(footer) {
 /* Hide controls if there is NOT more than 1 carousel-item */
 .carousel:not(:has(.carousel-item:nth-child(2))) .carousel-control,
 .carousel:not(:has(.carousel-item:nth-child(2))) .carousel-indicators {
-  display: none !important;
+    display: none !important;
 }
 
 
@@ -170,7 +193,7 @@ main:has(footer) {
 .btn {
     transition: all .2s ease-in-out;
     align-items: center;
-    border-radius: 6px;
+    border-radius: var(--bs-border-radius);
     display: inline-block;
     font-family: "Roboto";
     font-size: 18px;
@@ -261,7 +284,7 @@ section {
         }
 
         img {
-            border-radius: 6px;
+            border-radius: var(--bs-border-radius);
         }
 
         h2+p:first-of-type {
@@ -279,13 +302,14 @@ section {
     }
 
     .video-container {
-        border-radius: 6px;
+        border-radius: var(--bs-border-radius);
     }
 
     .video-container iframe {
         width: 100%;
+        height: auto;
         aspect-ratio: 1.7;
-        border-radius: 6px;
+        border-radius: var(--bs-border-radius);
     }
 }
 
@@ -294,6 +318,9 @@ section {
 @media(min-width: 992px) {
     .video-container iframe {
         width: 464px
+    }
+    .carousel-content {
+        margin-top: 85px;
     }
 }
 
@@ -391,7 +418,6 @@ section .container-fluid {
 
     .nav-link.active {
         color: #0a58ca !important;
-        border-bottom: 1px solid var(--bs-primary) !important;
     }
 
     .nav-link:focus,
@@ -427,7 +453,7 @@ section .container-fluid {
         order: 0;
         flex-grow: 0;
         border: 0;
-        border-radius: 6px;
+        border-radius: var(--bs-border-radius);
         background-color: inherit !important;
         color: inherit !important;
         box-shadow: none !important;
@@ -466,89 +492,98 @@ section .container-fluid {
 
 /* Cards + Owl-carousel */
 
-        .card {
-            height: 100%;
-            margin: 15px;
-            border-radius: 6px;
-            overflow: hidden;
-        
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-        .card-body {
-            padding: 32px;
-            text-align: start;
+.card {
+    height: 100%;
+    margin: 15px;
+    border-radius: var(--bs-border-radius);
+    overflow: hidden;
 
-            h2, h3, h4, h5 {
-                line-height: 28px !important;
-            }
-            h2+p, h3+p, h4+p, h5+p {
-                padding-top: 24px;
-            }
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 32px;
+        text-align: start;
+
+        h2,
+        h3,
+        h4,
+        h5 {
+            line-height: 28px !important;
         }
+
+        h2+p,
+        h3+p,
+        h4+p,
+        h5+p {
+            padding-top: 24px;
+        }
+    }
 }
 
 
-        .owl-carousel .owl-stage {
-            display: flex;
-        }
+.owl-carousel .owl-stage {
+    display: flex;
+}
 
-        .owl-carousel .owl-item {
-            display: flex;
-        }
+.owl-carousel .owl-item {
+    display: flex;
+}
 
-        .owl-carousel .item {
-            display: flex;
-            height: 100%;
-        }
+.owl-carousel .item {
+    display: flex;
+    height: 100%;
+}
 
-        .owl-carousel .item {
-            display: flex;
-            justify-content: center;
-        }
+.owl-carousel .item {
+    display: flex;
+    justify-content: center;
+}
 
-        .owl-carousel .owl-stage-outer {
-            padding-bottom: 32px;
-        }
+.owl-carousel .owl-stage-outer {
+    padding-bottom: 32px;
+}
 
-        .owl-prev,
-        .owl-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 44px;
-            height: 44px;
-            border-radius: 50% !important;
-            background: #fff !important;
-            color: #c4c4c4 !important;
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px !important;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            margin: 0;
-        }
+.owl-prev,
+.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50% !important;
+    background: #fff !important;
+    color: #c4c4c4 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin: 0;
+}
 
-        .owl-prev:hover,
-        .owl-next:hover {
-            background: #c4c4c4 !important;
-            color: #fff !important;
-        }
+.owl-prev:hover,
+.owl-next:hover {
+    background: #c4c4c4 !important;
+    color: #fff !important;
+}
 
-        .owl-prev {
-            left: -14px;
-        }
+.owl-prev {
+    left: -14px;
+}
 
-        .owl-next {
-            right: -14px;
-        }
+.owl-next {
+    right: -14px;
+}
 
 
 .carousel-wrap .owl-theme .owl-dots .owl-dot span {
     background-color: #333;
 }
+
 .owl-theme .owl-dots .owl-dot span {
     width: 10px;
     height: 10px;
@@ -571,19 +606,30 @@ section .container-fluid {
 
 
 
-        footer {
-            color: #6b6b6b;
-            text-align: center;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
+footer {
+    color: #333;
+    text-align: center;
+    font-size: min(0.75rem, 14px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
-            p {
-                margin: 0;
-            }
-        }
-        header img {
-            max-width: 150px;
-            max-height: 80px;
-        }
+    p {
+        margin: 0;
+    }
+}
+
+header img {
+    max-width: 150px;
+    max-height: 80px;
+}
+
+
+.lift {
+    transition: box-shadow .25s ease,transform .25s ease;
+}
+
+.lift:focus,.lift:hover {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);
+    transform: translate3d(0,-3px,0)
+}
