@@ -24,7 +24,7 @@ body {
 main {
     margin: auto;
     max-width: 1920px;
-    min-height: calc(-52px + 100vh);
+    min-height: calc(100vh - 52px);
     padding: 1.5rem;
     width: 100%;
     overflow-x: hidden;
@@ -88,7 +88,7 @@ main:has(footer) {
             font-family: "Roboto";
             font-style: normal;
             padding: 10px;
-            background-color: rgba(255, 255, 255, 60%);
+            background-color: rgba(255, 255, 255, 0.6);
             width: fit-content;
             color: #333;
             margin-bottom: 32px;
@@ -103,7 +103,7 @@ main:has(footer) {
         }
 
         &.no-background .btn-secondary {
-            background: rgba(255, 255, 255, 90%) !important;
+            background: rgba(255, 255, 255, 0.9) !important;
             color: #333 !important;
         }
 
@@ -120,7 +120,7 @@ main:has(footer) {
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 60%) !important;
+            background: rgba(255, 255, 255, 0.6) !important;
             color: #333 !important;
 
             &:hover {
@@ -263,7 +263,6 @@ section {
         font-size: 24px;
         margin-bottom: .5rem;
         line-height: 32px;
-        ;
     }
 
     p,
@@ -610,7 +609,7 @@ footer {
     color: #333;
     text-align: center;
     font-size: min(0.75rem, 14px);
-    display: flex;
+    font-size: clamp(0.75rem, 1vw, 14px);
     align-items: center;
     flex-direction: column;
 
