@@ -32,11 +32,11 @@ main {
     overflow-x: hidden;
 }
 
-main:has(header) {
+main:has(header.d-flex) {
     padding-top: 0 !important;
 }
 
-main:has(footer) {
+main:has(footer.d-block) {
     padding-bottom: 0 !important;
 }
 
