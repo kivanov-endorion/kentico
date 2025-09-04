@@ -521,24 +521,29 @@
         </section>
 
         <!--Form-->
-        <section>
-            <div class="row my-5">
-                <div class="col-12 col-md-6">
-                    <h2 class="mktoText" id="formTitle" mktoName="Form Title">Get in touch</h2>
-                    <p class="mktoText" id="formText" mktoName="Form Text">Connect with our APC solutions specialist to
-                        learn more. </p>
-                    <p class="mt-5"><img class="img-fluid rounded mktoImg" id="formImage" mktoName="formImage"
-                            src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Contact-form.jpg"
-                            loading="lazy">
-                    </p>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div id="FormContainer">
-                        <figure class="mktoForm" id="primaryForm" mktoName="Primary Form">
-                            <img id="frm_img"
-                                src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/500x266_white.jpg"
-                                class="img-fluid" loading="lazy" />
-                            </fig>
+        <section class="">
+            <div class="${container}">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row ${LRsectionReverse3}">
+                            <div class="col-md-6 mb-4 mb-md-0 pe-4" style="padding-right: 40px !important;">
+                                <h2 class="mktoText" id="formTitle" mktoName="Form Title">Get in touch</h2>
+                                <p class="pt-1 mktoText" id="formText" mktoName="Form Text">Because in this partnership, you are never in it alone. Schedule time to talk to our team of experts and discover how we can help you unlock your full business potential with HPE solutions.
+</p>
+                                <p class="mt-5"><img class="img-fluid rounded mktoImg" id="formImage" mktoName="formImage"
+                                        src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Contact-form.jpg"
+                                        loading="lazy">
+                                </p>
+
+                            </div>
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <form class="mktoForm" id="primaryForm" mktoName="Primary Form">
+                                    <h2>Choose your Marketo form</h2>
+                                    <figure><img src="form-placeholder.png" alt="Form placeholder" class="img-fluid" loading="lazy" style="opacity: .75; filter:blur(2px);"></figure>
+                                </form>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -855,7 +860,8 @@
                 responsive: {
                     0: { items: 1 }
                     , 768: { items: 2 }
-                    , 992: { items: ${ numberCards } }
+                    , 992: { items: 3 }
+                    // , 992: { items: ${ numberCards } }
                     // ,1920: { items: 4 }
                 }
             });
