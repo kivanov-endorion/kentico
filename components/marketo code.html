@@ -4,13 +4,23 @@
     <link rel="stylesheet" href="https://now.ingrammicro.com/rs/340-MXL-245/images/Custom_Form_Styles.css"/>
     <script src="https://now.ingrammicro.com/rs/340-MXL-245/images/Custom_Form_Scripts.js"></script>
 
-    <script src="//now.ingrammicro.com/js/forms2/js/forms2.min.js"></script>
+    <script src="https://now.ingrammicro.com/js/forms2/js/forms2.min.js"></script>
+
+    <!-- JS to translate form -->
+    <script src="https://now.ingrammicro.com/rs/340-MXL-245/images/ORS575853_Translation_Obj.js"></script>
+    <script src="https://now.ingrammicro.com/rs/340-MXL-245/images/ORS575853_FormTranlationScript.js"></script>
+
+
     <div id="mktoForm_4612"></div>
     <script>
 
-    MktoForms2.loadForm("//now.ingrammicro.com", "340-MXL-245", 4612, function(form){
+    MktoForms2.loadForm("https://now.ingrammicro.com", "340-MXL-245", 4612, function(form){
         // function to add to Kentico
         MktoForms2.$("#mktoForm_4612").append(form.getFormElem());
+
+        // Function to translate form
+        translateFields(translationsObj, "tw");
+
         // Function to capture hidden fields
         HiddenfieldsCapture("mktoForm_4612");
        
