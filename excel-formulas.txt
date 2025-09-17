@@ -1,0 +1,55 @@
+=IF(OR(Data[Type]="Page", Data[Type]="Resource", Data[Type]="Growth track", Data[Type]="Update"), 1, 0)
+
+Avg Turnaround Time	
+=AVERAGEIFS(Data[ActualDuration], Data[Type], "Page")
+(adjust as needed per type)
+
+Completion Rate	
+=COUNTIFS(Data[Status], "Closed", Data[Type], "Page") / COUNTIFS(Data[Type], "Page")
+
+
+Avg Time to Close	
+=AVERAGEIFS(Data[ActualDuration], Data[Status], "Closed", Data[Type], "User access")
+
+SLA Compliance Rate	Create column: 
+=IF(Data[ActualDuration]<=Data[SLA],"Met","Missed")
+, then pivot with Rows = AssignedTo, Values = Count of "Met" / Total
+
+Efficiency Ratio
+=IF(Data[ActualDuration]>0, Data[LOE]/Data[ActualDuration], "")
+ then pivot by AssignedTo
+
+Adjust Due Date
+=IF(Data[Due] < Data[Created], Data[Created] + Data[SLA], Data[Due])
+
+Ticket resolution rate: 
+=COUNTIFS(Data[Status],"Closed")/COUNTA(Data[Status])
+
+Avg. resolution time: 
+=AVERAGEIFS(Data[ActualDuration],Data[Status],"Closed")
+
+SLA Compliance Tracker
+=IF(Data[ActualDuration]<=Data[SLA],"✔","⏱")
++Conditional formatting for overdue items
++Trendline of SLA compliance %
+
+1. Dynamic LOE Efficiency:
+=IF(Data[ActualDuration]>0, Data[LOE]/Data[ActualDuration], "Pending")
+
+2. Workload Alert
+=AND(Data[Status]="In progress", Data[Due]<TODAY()+7)
+
+3. Content Velocity:
+=COUNTIFS(Data[Type],"Page",Data[Created (Month)],Data[Month])/COUNTIFS(Data[Type],"Resource",Data[Created (Month)],Data[Month])
+
+Efficiency Ratio
+=IF(Data[ActualDuration]>0, Data[LOE]/Data[ActualDuration], 0)
+
+
+
+' VBA Module: Dashboard_Interactions
+' Purpose: Enable dynamic slicer updates and refresh pivot tables
+Sub RefreshDashboard()
+    ThisWorkbook.RefreshAll
+    MsgBox "Dashboard refreshed with latest data!", vbInformation
+End Sub
