@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Xvantage Tag Generator</title>
+
+    <!--Bootstrap 5 CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        select,
+        input {
+            width: 300px;
+            padding: 5px;
+        }
+
+        .output {
+            margin-top: 20px;
+            background: #f4f4f4;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h2>Xvantage Content Tag Generator</h2>
+
+        <form id="tagForm">
+
+            <div class="row g-3">
+
+                <div class="col-md-4">
+
+                    <label>Geo Location:
+                        <select id="geoLocation">
+                            <option value="MD">United States</option>
+                            <option value="EMEA">Europe, Middle East, Africa</option>
+                            <option value="APAC">Asia Pacific Region</option>
+                            <option value="LATAM">Latin America</option>
+                            <option value="NIT">NIT</option>
+                            <option value="EG">Aptec Egypt</option>
+                            <option value="AE">Aptec Gulf</option>
+                            <option value="AR">Argentina</option>
+                            <option value="AU">Australia</option>
+                            <option value="AT">Austria</option>
+                            <option value="BE">Belgium</option>
+                            <option value="BR">Brazil</option>
+                            <option value="FT">Canada</option>
+                            <option value="CL">Chile</option>
+                            <option value="EH">China</option>
+                            <option value="Cloud">Cloud</option>
+                            <option value="CloudMETA">Cloud META</option>
+                            <option value="CO">Colombia</option>
+                            <option value="CLS">Commerce & Lifecycle Services</option>
+                            <option value="CS">Cyber Security META</option>
+                            <option value="DK">Denmark</option>
+                            <option value="FL">Finland</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                            <option value="HU">Hungary</option>
+                            <option value="IA">India</option>
+                            <option value="IT">Italy</option>
+                            <option value="KSA">KSA</option>
+                            <option value="Levant">Levant</option>
+                            <option value="MY">Malaysia</option>
+                            <option value="MX">Mexico</option>
+                            <option value="MI">Miami Export</option>
+                            <option value="NL">Netherlands</option>
+                            <option value="NZ">New Zealand</option>
+                            <option value="NO">Norway</option>
+                            <option value="PK">Pakistan</option>
+                            <option value="PE">Peru</option>
+                            <option value="Promark">Promark</option>
+                            <option value="SG">Singapore</option>
+                            <option value="SA">South Africa</option>
+                            <option value="ES">Spain</option>
+                            <option value="CH">Switzerland</option>
+                            <option value="TH">Thailand</option>
+                            <option value="TR">Turkey</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="Global">Global</option>
+                        </select>
+                    </label>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label>Language:
+                        <select id="language">
+                            <option value="EN">English</option>
+                            <option value="AB">Abkhazian</option>
+                            <option value="AA">Afar</option>
+                            <option value="AF">Afrikaans</option>
+                            <option value="AK">Akan</option>
+                            <option value="SQ">Albanian</option>
+                            <option value="AM">Amharic</option>
+                            <option value="AR">Arabic</option>
+                            <option value="AN">Aragonese</option>
+                            <option value="HY">Armenian</option>
+                            <option value="AS">Assamese</option>
+                            <option value="AV">Avaric</option>
+                            <option value="AE">Avestan</option>
+                            <option value="AY">Aymara</option>
+                            <option value="AZ">Azerbaijani</option>
+                            <option value="BM">Bambara</option>
+                            <option value="BA">option>
+                            <option value="EU">Basque</option>
+                            <option value="BE">Belarusian</option>
+                            <option value="BN">Bengali (Bangla)</option>
+                            <option value="BH">Bihari</option>
+                            <option value="BI">Bislama</option>
+                            <option value="BS">Bosnian</option>
+                            <option value="BR">Breton</option>
+                            <option value="BG">Bulgarian</option>
+                            <option value="MY">Burmese</option>
+                            <option value="CA">Catalan</option>
+                            <option value="CH">Chamorro</option>
+                            <option value="CE">Chechen</option>
+                            <option value="NY">Chichewa, Chewa, Nyanja</option>
+                            <option value="ZH">Chinese</option>
+                            <option value="ZH-HANS">Chinese (Simplified)</option>
+                            <option value="ZH-HANT">Chinese (Traditional)</option>
+                            <option value="CV">Chuvash</option>
+                            <option value="KW">Cornish</option>
+                            <option value="CO">Corsican</option>
+                            <option value="CR">Cree</option>
+                            <option value="HR">Croatian</option>
+                            <option value="CS">Czech</option>
+                            <option value="DA">Danish</option>
+                            <option value="DV">Divehi, Dhivehi, Maldivian</option>
+                            <option value="NL">Dutch</option>
+                            <option value="DZ">Dzongkha</option>
+                            <option value="EO">Esperanto</option>
+                            <option value="ET">Estonian</option>
+                            <option value="EE">Ewe</option>
+                            <option value="FO">Faroese</option>
+                            <option value="FJ">Fijian</option>
+                            <option value="FI">Finnish</option>
+                            <option value="FR">French</option>
+                            <option value="FF">Fula, Fulah, Pulaar, Pular</option>
+                            <option value="GL">Galician</option>
+                            <option value="GD">Gaelic (Scottish)</option>
+                            <option value="GV">Gaelic (Manx)</option>
+                            <option value="KA">Georgian</option>
+                            <option value="DE">German</option>
+                            <option value="EL">Greek</option>
+                            <option value="KL">Greenlandic</option>
+                            <option value="GN">Guarani</option>
+                            <option value="GU">Gujarati</option>
+                            <!-- Add more as needed -->
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-4">
+
+                    <label>Platform:
+                        <select id="platform">
+                            <option value="X4C">X4C</option>
+                            <option value="X4V">X4V</option>
+                            <option value="X4A">X4A</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Page Name: <input type="text" id="pageName" /></label>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Content Section:
+                        <select id="contentSection">
+                            <option value="hero">hero</option>
+                            <option value="card_carousel">card_carousel</option>
+                            <option value="contact_card">contact_card</option>
+                            <option value="resources">resources</option>
+                            <option value="link_bar">link_bar</option>
+                            <option value="rich_text">rich_text</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Content Type:
+                        <select id="contentType">
+                            <option value="Blog">Blog</option>
+                            <option value="Asset">Asset</option>
+                            <option value="Video">Video</option>
+                            <option value="SKU">SKU</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Media Type:
+                        <select id="mediaType">
+                            <option value="Banner">Banner</option>
+                            <option value="Video">Video</option>
+                            <option value="Button">Button</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-4">
+                    <label>CTA: <input type="text" id="cta" /></label>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Description / Widget Section: <input type="text" id="description" /></label>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Job Number: <input type="text" id="jobNumber" /></label>
+                </div>
+
+                <div class="col-12">
+                    <button type="button" onclick="generateTags()">Generate Tags</button>
+        </form>
+    </div>
+
+    <div class="col-12">
+        <div class="output" id="output"></div>
+    </div>
+    </div>
+    <script>
+        function generateTags() {
+  const fields = [
+    'geoLocation', 'language', 'platform', 'pageName', 'contentSection',
+    'contentType', 'mediaType', 'cta', 'description', 'jobNumber'
+  ];
+
+  const values = fields.map(id => {
+    const val = document.getElementById(id).value.trim();
+    return val ? val.replace(/\s+/g, '_') : null;
+  }).filter(Boolean); // Remove nulls (empty fields)
+
+  const campaignTag = values.join('_');
+
+  // For data-name, use only pageName, jobNumber, contentSection, and cta if they exist
+  const nameParts = ['pageName', 'jobNumber', 'contentSection', 'cta']
+    .map(id => {
+      const val = document.getElementById(id).value.trim();
+      return val ? val.replace(/\s+/g, '_') : null;
+    }).filter(Boolean);
+
+  const nameTag = nameParts.join('_');
+
+  document.getElementById('output').innerHTML = `
+    <h5>Generated Tags</h5>
+    <p><strong>data-campaign:</strong><br><code>data-campaign="${campaignTag}"</code></p>
+    <p><strong>data-name:</strong><br><code>data-name="${nameTag}"</code></p>
+  `;
+}
+
+    </script>
+
+</body>
+
+</html>

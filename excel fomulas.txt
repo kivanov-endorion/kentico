@@ -1,0 +1,121 @@
+= Table.ReplaceValue(
+    #"Changed Type",
+    each [Priority],
+    each if [Priority] = "4 - Low" then "Low"
+        else if [Priority] = "3 - Medium" then "Normal"
+        else if [Priority] = "2 - High" then "High"
+        else if [Priority] = "1 - Very High" then "Critical" 
+    else [Priority],
+    Replacer.ReplaceValue,
+    {"Priority"}
+)
+
+= Table.ReplaceValue(#"Replaced Value Priority","Self Service","IMServe",Replacer.ReplaceText,{"Source"})
+
+= Table.ReplaceValue(
+   #"Replaced Value Source",
+    each [Platform],
+    each if [Platform] = "XVantage4Customers" then "Local"
+    else "Legacy",
+    Replacer.ReplaceValue,
+    {"Platform"}
+)
+
+= Table.ReplaceValue(
+    #"Renamed Columns1",
+    each [Type],
+    each if [Type] = null then [Description]
+         else [Type],
+    Replacer.ReplaceValue,
+    {"Type"}
+)
+
+= Table.ReplaceValue(
+   #"Replaced Type2",
+    each [Platform],
+     each if Text.Contains([Description], "Corporate") then "Corporate"
+         else if Text.Contains([Description], "Global") then "Global"
+         else [Platform],
+    Replacer.ReplaceValue,
+    {"Platform"}
+)
+
+= Table.ReplaceValue(
+    #"Reordered Columns",
+    each [Status],
+    each if Text.Contains([Status], "Fulfilled") then "Closed"
+         else if Text.Contains([Status], "Closed") then "Closed"
+         else if Text.Contains([Status], "Waiting") then "On hold"
+         else if Text.Contains([Status], "Cancelled") then "Cancelled"
+         else [Status],
+    Replacer.ReplaceValue,
+    {"Status"}
+)
+
+= Table.ReplaceValue(
+    #"Reordered Columns1",
+    each [Status],
+    each if Text.Contains([Status], "Deployed") then "Closed"
+         else if Text.Contains([Status], "Work Ready") then "Not started"
+         else if Text.Contains([Status], "Assigned") then "Not started"
+         else if Text.Contains([Status], "In Progress") then "In progress"
+         else if Text.Contains([Status], "In Review") then "In review"
+         else if Text.Contains([Status], "Needs More Information") then "On hold"
+         else null,
+    Replacer.ReplaceValue,
+    {"Status"}
+)
+
+= Table.ReplaceValue(
+    #"Replaced Value Status",
+    each [Type],
+    each if Text.Contains([Type], "Modify") then "Update"
+         else if Text.Contains([Type], "Remove") then "Update"
+         else if Text.Contains([Type], "page") then "Page"
+         else if Text.Contains([Type], "New") then "Page"
+         else if Text.Contains([Type], "Loyalty") then "Loyalty"
+         else if Text.Contains([Type], "Other") then "Support"
+         else if Text.Contains([Type], "Support") then "Support"
+         else if Text.Contains([Type], "Site admin") then "Support"
+         else if Text.Contains([Type], "access") then "User access"
+         else if Text.Contains([Type], "user") then "User access"
+         else if Text.Contains([Type], "troubleshooting") then "Troubleshooting"
+         else if Text.Contains([Type], "UAC") then "UAC"
+         else [Type],
+    Replacer.ReplaceValue,
+    {"Type"}
+)
+
+= Table.AddColumn(
+    #"Reordered Columns1", "Type", 
+    each if Text.Contains([Description], "Growth track",Comparer.OrdinalIgnoreCase) then "Growth track" 
+    else if Text.Contains([Description], "Growth track",Comparer.OrdinalIgnoreCase) and Text.Contains([Description], "X4A",Comparer.OrdinalIgnoreCase) then "Growth track" 
+    else if Text.Contains([Description], "Resource",Comparer.OrdinalIgnoreCase) then "Resource" else if Text.Contains([Description], "Use Case",Comparer.OrdinalIgnoreCase) then "Resource" 
+    else if Text.Contains([Description], "Blog",Comparer.OrdinalIgnoreCase) then "Resource" 
+    else "Page"
+    )
+
+    = Table.ReplaceValue(#"Renamed Columns",null,1,Replacer.ReplaceValue,{"Created"})
+
+= Table.ReplaceValue(
+    #"Reordered Columns",
+    each [Start],
+    each if [Start] = null then [Created]
+         else [Start],
+    Replacer.ReplaceValue,
+    {"Start"}
+)
+
+
+= Table.ReplaceValue(#"Reordered Columns",null,[Created",Replacer.ReplaceValue,{"Start"})
+
+= Table.AddColumn(#"Reordered Columns1", "Closed", each if [Status] = "Closed" then [Due] else null)
+
+= Table.AddColumn(#"Reordered Columns1", 
+"Closed", 
+each if [Status] = "Closed" then Date.AddDays([Created], 10)
+else null
+)
+
+
+if [Status] = "Closed" then Date.AddDays([Created], 10) else null

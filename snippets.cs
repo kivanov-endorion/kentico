@@ -307,7 +307,9 @@ SiteID  SiteName            SK_Valid    B4
 71      dcpos               5           *
 72      il                  29          *
 73      solutions           10          *
-74      services            15
+74      services            15          *
+78      tr                              *
+79      tw                              *
 */
 
 /* Testing Macros: Go to: System > Macros > Console */

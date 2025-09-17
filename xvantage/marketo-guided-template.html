@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Xvantage Vendor Page Template</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/x-icon" media="all"
+        href="https://now.ingrammicro.com/rs/ingrammicro/images/Favicon-64.png">
+    <link rel="apple-touch-icon" href="https://now.ingrammicro.com/rs/ingrammicro/images/Favicon-192.png">
+    <link rel="apple-touch-icon-precomposed" href="https://now.ingrammicro.com/rs/ingrammicro/images/Favicon-180.png">
+
+    <!--Bootstrap 5 CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <!-- Marketo Form -->
+    <link href="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/Custom_Form_Styles.css" rel="stylesheet"
+        type="text/css">
+    <script src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/Custom_Form_Script_Sandbox.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://assets.adobedtm.com/a8f91053d00e/7dee3b1c3a2e/launch-ef5fbd3b12de.min.js" async></script>
+    <script>var digitalData = {};</script>
+    <script src="//stg.go.ingrammicro.com/js/forms2/js/forms2.min.js"></script>
+    <!-- Xvantage Styles 2005 -->
+    <link rel="stylesheet" href="marketo-template.css">
+    <!-- <link rel="stylesheet" href="https://one.ingrammicro.eu/1IMv2/ext/css/marketo-template.css"> -->
+
+    <!-- Marketo Variables -->
+    <meta class="mktoString" id="region" mktoName="region" default="MD" />
+    <meta class="mktoString" id="language" mktoName="language" default="EN" />
+    <!-- Tags: data-campaign="${region}_${language}_Marketo_Page_title_Content_section_Content_type_CTA_Widget_section_JobID" -->
+
+    <meta class="mktoString" id="heroCtaLabel2" mktoName="Hero CTA Label 2" default="Learn more" />
+    <meta class="mktoString" id="heroCtaUrl2" mktoName="Hero CTA URL 2" default="#" />
+    <meta class="mktoString" id="heroCtaLabel3" mktoName="Hero CTA Label 3" default="Discover more" />
+    <meta class="mktoString" id="heroCtaUrl3" mktoName="Hero CTA URL 3" default="#" />
+    <meta class="mktoString" id="heroCtaLabel4" mktoName="Hero CTA Label 4" default="Get started" />
+    <meta class="mktoString" id="heroCtaUrl4" mktoName="Hero CTA URL 4" default="#" />
+
+    <meta class="mktoString" id="LRsectionCtaLabel1" mktoName="LR Section CTA Label 1" default="Start today" />
+    <meta class="mktoString" id="LRsectionCtaUrl1" mktoName="LR Section CTA URL 1" default="#" />
+    <meta class="mktoString" id="LRsectionCtaLabel2" mktoName="LR Section CTA Label 2" default="Start today" />
+    <meta class="mktoString" id="LRsectionCtaUrl2" mktoName="LR Section CTA URL 2" default="#" />
+    <meta class="mktoString" id="LRsectionCtaLabel3" mktoName="LR Section CTA Label 3" default="Start today" />
+    <meta class="mktoString" id="LRsectionCtaUrl3" mktoName="LR Section CTA URL 3" default="#" />
+
+    <meta class="mktoBoolean" id="LRsectionReverse1" mktoName="LR Section 1 Reverse" default="false"
+        true_value="flex-md-row-reverse" false_value="" false_value_name="OFF" true_value_name="ON" />
+    <meta class="mktoBoolean" id="LRsectionReverse2" mktoName="LR Section 2 Reverse" default="true"
+        true_value="flex-md-row-reverse" false_value="" false_value_name="OFF" true_value_name="ON" />
+    <meta class="mktoBoolean" id="LRsectionReverse3" mktoName="LR Section 3 Reverse" default="false"
+        true_value="flex-md-row-reverse" false_value="" false_value_name="OFF" true_value_name="ON" />
+
+    <meta class="mktoString" id="RichTextBannerCtaLabel1" mktoName="Rich Text Banner CTA Label 1"
+        default="Learn more" />
+    <meta class="mktoString" id="RichTextBannerCtaUrl1" mktoName="Rich Text Banner CTA URL 1" default="#" />
+
+    <meta class="mktoString" id="cardCtaLabel1" mktoName="Card CTA Label 1" default="Learn more" />
+    <meta class="mktoString" id="cardCtaUrl1" mktoName="Card CTA URL 1" default="#" />
+    <meta class="mktoString" id="cardCtaLabel2" mktoName="Card CTA Label 2" default="Discover offers" />
+    <meta class="mktoString" id="cardCtaUrl2" mktoName="Card CTA URL 2" default="#" />
+    <meta class="mktoString" id="cardCtaLabel3" mktoName="Card CTA Label 3" default="Learn more" />
+    <meta class="mktoString" id="cardCtaUrl3" mktoName="Card CTA URL 3" default="#" />
+
+    <meta class="mktoString" id="RichTextBannerCtaLabel2" mktoName="Rich Text Banner CTA Label 2"
+        default="Learn more" />
+    <meta class="mktoString" id="RichTextBannerCtaUrl2" mktoName="Rich Text Banner CTA URL 2" default="#" />
+
+    <meta class="mktoString" id="resourceTitle1" mktoName="Resource Title 1" default="HPE Aruba Instant On" />
+    <meta class="mktoString" id="resourceCtaUrl1" mktoName="Resource CTA URL 1" default="#" />
+    <meta class="mktoString" id="resourceTitle2" mktoName="Resource Title 2" default="HPE Flex Offers" />
+    <meta class="mktoString" id="resourceCtaUrl2" mktoName="Resource CTA URL 2" default="#" />
+    <meta class="mktoString" id="resourceTitle3" mktoName="Resource Title 3" default="HPE hybrid cloud" />
+    <meta class="mktoString" id="resourceCtaUrl3" mktoName="Resource CTA URL 3" default="#" />
+
+    <meta class="mktoString" id="accordionCtaLabel1" mktoName="Accordion CTA Label 1" default="Learn more" />
+    <meta class="mktoString" id="accordionCtaUrl1" mktoName="Accordion CTA URL 1" default="#" />
+    <meta class="mktoString" id="accordionCtaLabel2" mktoName="Accordion CTA Label 2" default="Learn more" />
+    <meta class="mktoString" id="accordionCtaUrl2" mktoName="Accordion CTA URL 2" default="#" />
+
+    <meta class="mktoString" id="tab1" mktoName="Tab 1" default="Welcome to GreenLake" />
+    <meta class="mktoString" id="tab2" mktoName="Tab 2" default="Test your competency" />
+    <meta class="mktoString" id="tab3" mktoName="Tab 3" default="Effectively market HPE GreenLake" />
+    <meta class="mktoString" id="tab4" mktoName="Tab 4" default="Resources to stay on track" />
+
+    <meta class="mktoString" id="tabCtaLabel1" mktoName="Tab CTA Label 1" default="Learn more" />
+    <meta class="mktoString" id="tabCtaUrl1" mktoName="Tab CTA URL 1" default="#" />
+
+    <meta class="mktoString" id="legal" mktoName="legal" default="All rights reserved." allowHtml="true" />
+    <!-- <meta class="mktoBoolean" id="carouselNav" mktoName="Show Card Carousel Navigation" default="true" true_value="true" false_value="false" false_value_name="Hide" true_value_name="Show" /> -->
+    <meta class="mktoBoolean" id="showHeader" mktoName="Show Header" default="true" true_value="d-flex"
+        false_value="d-none" false_value_name="Hide" true_value_name="Show" />
+    <meta class="mktoBoolean" id="showFooter" mktoName="Show Footer" default="true" true_value="d-block"
+        false_value="d-none" false_value_name="Hide" true_value_name="Show" />
+
+    <meta class="mktoBoolean" id="container" mktoName="Container" default="true" true_value="container" false_value=""
+        false_value_name="NO" true_value_name="YES" />
+    <meta class="mktoBoolean" id="tabsContainer" mktoName="Tabs Container" default="true" true_value="container"
+        false_value="" false_value_name="NO" true_value_name="YES" />
+</head>
+
+<body>
+    <main>
+        <!-- Header -->
+        <header class="justify-content-between p-0 container ${showHeader}" id="header">
+            <img alt="Ingram Micro Logo"
+                src="data:image/png;base64,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"
+                class="img-fluid">
+            <img alt="HPE Logo" src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/hpe_logo.png"
+                class="img-fluid mktoImg" id="vendorLogo" mktoName="Vendor logo">
+        </header>
+
+        <!--Carousel-->
+        <div id="hero" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-1.jpg"
+                        class="d-block w-100 mktoImg" alt="Why HPE" mktoName="Hero Image" id="heroImage1">
+                    <hgroup class="carousel-content no-background">
+                        <h1 class="mktoText" mktoName="Hero Title 1" id="heroTitle1">Why HPE</h1>
+                        <h2 class="mktoText" mktoName="Hero Subtitle 2" id="heroSubtitle1">Because IT migration
+                            shouldn’t give you a headache</h2>
+                    </hgroup>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-2.jpg"
+                        class="d-block w-100 mktoImg" alt="HPE Aruba Networking" mktoName="Hero Image" id="heroImage2">
+                    <hgroup class="carousel-content">
+                        <h1 class="mktoText" mktoName="Hero Title 2" id="heroTitle2">HPE Aruba Networking</h1>
+                        <h2 class="mktoText" mktoName="Hero Subtitle 2" id="heroSubtitle2">Because we all need help to
+                            bridge the gap</h2>
+                        <p><a class="btn btn-secondary" href="${heroCtaUrl2}" target="_blank" data-name=""
+                                data-campaign="">${heroCtaLabel2}</a></p>
+                    </hgroup>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-3.jpg"
+                        class="d-block w-100 mktoImg" alt="HPE Flex Offers" mktoName="Hero Image" id="heroImage3">
+                    <hgroup class="carousel-content">
+                        <h1 class="mktoText" mktoName="Hero Title 3" id="heroTitle3">HPE Flex Offers</h1>
+                        <h2 class="mktoText" mktoName="Hero Subtitle 3" id="heroSubtitle3">Because these discounts don’t
+                            just talk the talk</h2>
+                        <p><a class="btn btn-secondary" href="${heroCtaUrl3}" target="_blank" data-name=""
+                                data-campaign="">${heroCtaLabel3}</a>
+                        </p>
+                    </hgroup>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Hero-banner-4.jpg"
+                        class="d-block w-100 mktoImg" alt="HPE GreenLake" mktoName="Hero Image" id="heroImage4">
+                    <hgroup class="carousel-content">
+                        <h1 class="mktoText" mktoName="Hero Title 4" id="heroTitle4">HPE GreenLake</h1>
+                        <h2 class="mktoText" mktoName="Hero Subtitle 4" id="heroSubtitle4">Because we could all use a
+                            helping hand</h2>
+                        <p><a class="btn btn-secondary" href="${heroCtaUrl4}" target="_blank" data-name=""
+                                data-campaign="">${heroCtaLabel4}</a></p>
+                    </hgroup>
+                </div>
+                <!-- Video header -->
+                <div class="carousel-item">
+                    <video autoplay loop muted playsinline>
+                        <source
+                            src="https://na-beta.ingrammicro.com:443/Ingram/media/North-America-US/EN-US/C/Cisco/videos/Cisco-Main_Hero_R1.mp4?ext=.mp4">
+                    </video>
+                    <hgroup class="carousel-content">
+                        <h1 class="text-white rounded mktoText" id="heroVideoTitle" mktoName="Hero Video Title"
+                            style="background: rgba(0,0,0,.5);">Empower you growth with
+                            Ingram Micro</h1>
+                    </hgroup>
+                </div>
+
+            </div>
+            <button class="hero-carousel-control carousel-control carousel-control-prev" type="button"
+                data-bs-target="#hero" data-bs-slide="prev">
+                <span class="fa fa-angle-left" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="hero-carousel-control carousel-control carousel-control-next" type="button"
+                data-bs-target="#hero" data-bs-slide="next">
+                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!--Rich text-->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="container-fluid text-center">
+                            <h2 class="text-center mktoText" mktoName="Intro Text Title" id="introTextTitle">Because we
+                                turn complicated into easy</h2>
+                            <p class="text-center mktoText" mktoName="Intro Text" id="introTextBody">You don’t have to
+                                navigate IT complexities alone—together, Ingram
+                                Micro and HPE see beyond the confusion more clearly than anyone else, leading you to
+                                greater&nbsp;opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Right Image/Video with Text-->
+        <section class="bg-light">
+            <div class="${container}">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row ${LRsectionReverse1}">
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <h2 class="mktoText" mktoName="LR Section Title 1" id="LRsectionTitle1">HPE Aruba
+                                    Networking</h2>
+                                <p class="mktoText" mktoName="LR Section Text 1" id="LRsectionText1">Aruba has always
+                                    been about connection—as a recognized leader in
+                                    Wi-Fi 6, switching, SD-Branch and data center networking, it continues to stand at
+                                    the forefront of innovation, moving beyond conventional network management.</p>
+                                <div>
+                                    <a href="${LRsectionCtaUrl1}" target="_blank" class="btn btn-primary" data-name=""
+                                        data-campaign="">${LRsectionCtaLabel1}</a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <div class="video-container">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/T2iEpCtUOnM"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Left Image/Video with Text-->
+        <section>
+            <div class="${container}">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row ${LRsectionReverse2}">
+
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <h2 class="mktoText" mktoName="LR Section Title 2" id="LRsectionTitle2">HPE GreenLake
+                                </h2>
+                                <p class="mktoText" mktoName="LR Section Text 2" id="LRsectionText2">HPE GreenLake
+                                    edge-to-cloud platform brings you a unified cloud
+                                    experience—by only paying for what you use, GreenLake gives you the flexibility to
+                                    self-serve and scale your cloud experience across your edges, colocations and data
+                                    centers. Ready to free up capital and boost your operational flexibility?</p>
+                                <div>
+                                    <a href="${LRsectionCtaUrl2}" target="_blank" class="btn btn-primary" data-name=""
+                                        data-campaign="">${LRsectionCtaLabel2}</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Contact-form.jpg?version=0"
+                                    loading="lazy" class="img-fluid mktoImg" id="LRsectionImg2"
+                                    mktoName="LRsectionImg2" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Right Image/Video with Text-->
+        <section class="bg-light">
+            <div class="${container}">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row ${LRsectionReverse3}">
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <h2 class="mktoText" mktoName="LR Section Title 3" id="LRsectionTitle3">HPE Hybrid Cloud
+                                </h2>
+                                <p class="mktoText" mktoName="LR Section Text 3" id="LRsectionText3">Hybrid cloud is a
+                                    cloud-model architecture that connects a
+                                    mixture of different computing environments—this includes public and private clouds,
+                                    consisting of edge locations or on-premises data centers. Ready to simplify your
+                                    user experience and IT operations?</p>
+                                <div>
+                                    <a href="${LRsectionCtaUrl3}" target="_blank" class="btn btn-primary" data-name=""
+                                        data-campaign="">${LRsectionCtaLabel3}</a>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <div class="video-container">
+                                    <iframe width="560" height="315"
+                                        src="https://www.youtube.com/embed/SQ5jkLTVkiw?si=jx-scZqzBskfPa8S"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Rich text banner-->
+        <section>
+            <div class="row">
+                <div class="col-12">
+                    <div
+                        class="container-fluid w-100 d-flex flex-column justify-content-center position-relative h-100 overflow-hidden p-5">
+                        <div class="overlay">&#8288;</div>
+                        <div class="img_container">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Rich-text-deco-banner-1.jpg"
+                                loading="lazy" class="mktoImg" id="richTextBannerImage1"
+                                mktoName="Rich Text Banner Image 1">
+                        </div>
+                        <div class="content container h-100 position-relative">
+                            <div class="d-flex h-100 align-items-center">
+                                <div class="w-100 p-0">
+                                    <h2 class="text-white text-center mktoText" id="richTextBannerTitle1"
+                                        mktoName="Rich Text Banner Title 1">HPE Flex Offers</h2>
+                                    <p class="text-white text-center mktoText" id="richTextBannerText1"
+                                        mktoName="Rich Text Banner Text 1">Because these discounts don’t just talk the
+                                        talk—unlock the value of every sale with HPE Flex Offers.</p>
+                                    <p class="text-center">
+                                        <a href="${RichTextBannerCtaUrl1}" class="btn btn-secondary mt-4"
+                                            target="_blank" data-name="" data-campaign="">${RichTextBannerCtaLabel1}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card Carousel -->
+        <section>
+            <div class="text-center py-5">
+                <h2 class="mktoText" id="cardCarouselTitle" mktoName="Card Carousel Title">Because we’re here to help
+                    you grow</h2>
+                <p class="mktoText" id="cardCarouselText" mktoName="Card Carousel Text">Stay updated on the latest news
+                    regarding HPE solutions and learn how Ingram Micro and HPE are
+                    working together to help you turn insights into outcomes.</p>
+
+                <div class="owl-carousel owl-theme pt-4">
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-1.jpg"
+                                class="card-img-top mktoImg" id="cardImg1" mktoName="Card Image 1"
+                                alt="HPE Aruba Instant On" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title mktoText" id="cardTitle1" mktoName="Card Title 1">HPE Aruba
+                                    Instant On</h3>
+                                <p class="card-text mktoText" id="cardText1" mktoName="Card Text 1">Aruba Instant On is
+                                    one of the simplest out-of-the-box Wi-Fi
+                                    solutions currently on the market, perfectly suited for SMBs.</p>
+                                <p class=" mt-auto align-self-start mb-0"><a href="${cardCtaUrl1}"
+                                        class="btn btn-primary" data-name="" data-campaign="">${cardCtaLabel1}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-2.jpg"
+                                class="card-img-top mktoImg" id="cardImg2" mktoName="Card Image 2" alt="HPE Flex Offers"
+                                loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title mktoText" id="cardTitle2" mktoName="Card Title 2">HPE Flex Offers
+                                </h3>
+                                <p class="card-text mktoText" id="cardText2" mktoName="Card Text 2">Save time, save
+                                    money and gain access to the best HPE Flex Offers
+                                    discounts, exclusively with Ingram Micro.</p>
+                                <p class=" mt-auto align-self-start mb-0"><a href="${cardCtaUrl2}"
+                                        class="btn btn-primary" data-name="" data-campaign="">${cardCtaLabel2}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-3.jpg"
+                                class="card-img-top mktoImg" id="cardImg3" mktoName="Card Image 3"
+                                alt="HPE hybrid cloud" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title mktoText" id="cardTitle3" mktoName="Card Title 3">HPE hybrid cloud
+                                </h3>
+                                <p class="card-text mktoText" id="cardText3" mktoName="Card Text 3">Kick off your hybrid
+                                    infrastructure strategy with an environment
+                                    that is
+                                    secure, efficient and built to give you a competitive edge.</p>
+                                <p class=" mt-auto align-self-start mb-0"><a href="${cardCtaUrl3}"
+                                        class="btn btn-primary" data-name="" data-campaign="">${cardCtaLabel3}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-1.jpg"
+                                class="card-img-top mktoImg" id="cardImg1" mktoName="Card Image 1"
+                                alt="HPE Aruba Instant On" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title mktoText" id="cardTitle1" mktoName="Card Title 1">HPE Aruba
+                                    Instant On</h3>
+                                <p class="card-text mktoText" id="cardText1" mktoName="Card Text 1">Aruba Instant On is
+                                    one of the simplest out-of-the-box Wi-Fi
+                                    solutions currently on the market, perfectly suited for SMBs.</p>
+                                <p class=" mt-auto align-self-start mb-0"><a href="${cardCtaUrl1}"
+                                        class="btn btn-primary" data-name="" data-campaign="">${cardCtaLabel1}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-2.jpg"
+                                class="card-img-top mktoImg" id="cardImg2" mktoName="Card Image 2" alt="HPE Flex Offers"
+                                loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title mktoText" id="cardTitle2" mktoName="Card Title 2">HPE Flex Offers
+                                </h3>
+                                <p class="card-text mktoText" id="cardText2" mktoName="Card Text 2">Save time, save
+                                    money and gain access to the best HPE Flex Offers
+                                    discounts, exclusively with Ingram Micro.</p>
+                                <p class=" mt-auto align-self-start mb-0"><a href="${cardCtaUrl2}"
+                                        class="btn btn-primary" data-name="" data-campaign="">${cardCtaLabel2}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card h-100">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-3.jpg"
+                                class="card-img-top mktoImg" id="cardImg3" mktoName="Card Image 3"
+                                alt="HPE hybrid cloud" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title mktoText" id="cardTitle3" mktoName="Card Title 3">HPE hybrid cloud
+                                </h3>
+                                <p class="card-text mktoText" id="cardText3" mktoName="Card Text 3">Kick off your hybrid
+                                    infrastructure strategy with an environment
+                                    that is
+                                    secure, efficient and built to give you a competitive edge.</p>
+                                <p class=" mt-auto align-self-start mb-0"><a href="${cardCtaUrl3}"
+                                        class="btn btn-primary" data-name="" data-campaign="">${cardCtaLabel3}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Rich text banner 2-->
+        <section>
+            <div class="row">
+                <div class="col-12">
+                    <div
+                        class="container-fluid w-100 d-flex flex-column justify-content-center position-relative h-100 overflow-hidden p-5">
+                        <div class="overlay bg-opacity-100"
+                            style="background: linear-gradient(88.66deg, #1570EF 20.26%, #FF0B97 95.43%);">&#8288;</div>
+                        <div class="content container h-100 position-relative">
+                            <div class="d-flex h-100 align-items-center">
+                                <div class="w-100 p-0">
+                                    <h2 class="text-white text-center text-shadow mktoText" id="richTextBannerTitle2"
+                                        mktoName="Rich Text Banner Title 2">Aruba Professional Services and
+                                        Networking</h2>
+                                    <p class="text-white text-center text-shadow mktoText" id="richTextBannerText2"
+                                        mktoName="Rich Text Banner Text 2">Simplify the task, while also
+                                        increasing the size
+                                        of the deal. Learn how you can start providing services to your customers
+                                        straight away.</p>
+                                    <p class="text-center">
+                                        <a href="${RichTextBannerCtaUrl2}" class="btn btn-light mt-4" target="_blank"
+                                            data-name="" data-campaign="">${RichTextBannerCtaLabel2}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource Carousel (just links) -->
+        <section>
+            <div class="text-center py-5">
+                <h2 class="mktoText" id="resourcesTitle" mktoName="Resources Title">Resource cards</h2>
+                <p class="mktoText" id="resourcesText" mktoName="Resources Text">Stay updated on the latest news
+                    regarding HPE solutions and learn how Ingram Micro and HPE are
+                    working together to help you turn insights into outcomes.</p>
+
+                <div class="owl-carousel owl-theme pt-4">
+                    <div class="item">
+                        <div class="card lift">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-1.jpg"
+                                class="card-img-top mktoImg" id="resourceImg1" mktoName="Resource Image 1"
+                                alt="HPE Aruba Instant On" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <p class="resource-type text-left text-muted mktoText" id="resourceType1"
+                                    mktoName="Resource Type 1">Podcast</p>
+                                <h3 class="card-title"><a href="#" class="stretched-link card-link text-dark" data-name
+                                        data-campaign target="_blank">${resourceTitle1}</a></h3>
+                                <p class="card-text mktoText" id="resourceText1" mktoName="Resource Text 1">Aruba
+                                    Instant On is one of the simplest out-of-the-box Wi-Fi
+                                    solutions currently on the market, perfectly suited for SMBs.</p>
+                                <footer class="text-muted mt-auto align-self-start">
+                                    <time datetime="2025-01-16" class="mktoText" id="resourceDate1"
+                                        mktoName="Resource Date 1"> Jan 16, 2025 </time>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card lift">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-2.jpg"
+                                class="card-img-top mktoImg" id="resourceImg2" mktoName="Resource Image 2"
+                                alt="HPE Flex Offers" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <p class="resource-type text-left text-muted mktoText" id="resourceType2"
+                                    mktoName="Resource Type 2">Podcast</p>
+                                <h3 class="card-title"><a href="#" class="stretched-link card-link text-dark" data-name
+                                        data-campaign target="_blank">${resourceTitle2}</a></h3>
+                                <p class="card-text mktoText" id="resourceText2" mktoName="Resource Text 2">Save time,
+                                    save money and gain access to the best HPE Flex Offers
+                                    discounts, exclusively with Ingram Micro.</p>
+                                <footer class="text-muted mt-auto align-self-start">
+                                    <time datetime="2025-01-16" class="mktoText" id="resourceDate2"
+                                        mktoName="Resource Date 2"> Jan 16, 2025 </time>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card lift">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-3.jpg"
+                                class="card-img-top mktoImg" id="resourceImg3" mktoName="Resource Image 3"
+                                alt="HPE hybrid cloud" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <p class="resource-type text-left text-muted mktoText" id="resourceType3"
+                                    mktoName="Resource Type 3">Podcast</p>
+                                <h3 class="card-title"><a href="#" class="stretched-link card-link text-dark" data-name
+                                        data-campaign target="_blank">${resourceTitle3}</a></h3>
+                                <p class="card-text mktoText" id="resourceText3" mktoName="Resource Text 3">Kick off
+                                    your hybrid infrastructure strategy with an environment
+                                    that is
+                                    secure, efficient and built to give you a competitive edge.</p>
+                                <footer class="text-muted mt-auto align-self-start">
+                                    <time datetime="2025-01-16" class="mktoText" id="resourceDate3"
+                                        mktoName="Resource Date 3"> Jan 16, 2025 </time>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card lift">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-1.jpg"
+                                class="card-img-top mktoImg" id="resourceImg1" mktoName="Resource Image 1"
+                                alt="HPE Aruba Instant On" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <p class="resource-type text-left text-muted mktoText" id="resourceType1"
+                                    mktoName="Resource Type 1">Podcast</p>
+                                <h3 class="card-title"><a href="#" class="stretched-link card-link text-dark" data-name
+                                        data-campaign target="_blank">${resourceTitle1}</a></h3>
+                                <p class="card-text mktoText" id="resourceText1" mktoName="Resource Text 1">Aruba
+                                    Instant On is one of the simplest out-of-the-box Wi-Fi
+                                    solutions currently on the market, perfectly suited for SMBs.</p>
+                                <footer class="text-muted mt-auto align-self-start">
+                                    <time datetime="2025-01-16" class="mktoText" id="resourceDate1"
+                                        mktoName="Resource Date 1"> Jan 16, 2025 </time>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card lift">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-2.jpg"
+                                class="card-img-top mktoImg" id="resourceImg2" mktoName="Resource Image 2"
+                                alt="HPE Flex Offers" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <p class="resource-type text-left text-muted mktoText" id="resourceType2"
+                                    mktoName="Resource Type 2">Podcast</p>
+                                <h3 class="card-title"><a href="#" class="stretched-link card-link text-dark" data-name
+                                        data-campaign target="_blank">${resourceTitle2}</a></h3>
+                                <p class="card-text mktoText" id="resourceText2" mktoName="Resource Text 2">Save time,
+                                    save money and gain access to the best HPE Flex Offers
+                                    discounts, exclusively with Ingram Micro.</p>
+                                <footer class="text-muted mt-auto align-self-start">
+                                    <time datetime="2025-01-16" class="mktoText" id="resourceDate2"
+                                        mktoName="Resource Date 2"> Jan 16, 2025 </time>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card lift">
+                            <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Card-carousel-3.jpg"
+                                class="card-img-top mktoImg" id="resourceImg3" mktoName="Resource Image 3"
+                                alt="HPE hybrid cloud" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <p class="resource-type text-left text-muted mktoText" id="resourceType3"
+                                    mktoName="Resource Type 3">Podcast</p>
+                                <h3 class="card-title"><a href="#" class="stretched-link card-link text-dark" data-name
+                                        data-campaign target="_blank">${resourceTitle3}</a></h3>
+                                <p class="card-text mktoText" id="resourceText3" mktoName="Resource Text 3">Kick off
+                                    your hybrid infrastructure strategy with an environment
+                                    that is
+                                    secure, efficient and built to give you a competitive edge.</p>
+                                <footer class="text-muted mt-auto align-self-start">
+                                    <time datetime="2025-01-16" class="mktoText" id="resourceDate3"
+                                        mktoName="Resource Date 3"> Jan 16, 2025 </time>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Form-->
+        <section>
+            <div class="row my-5">
+                <div class="col-xs-12 col-sm-12 col-md-6 kentico-redesign-col">
+                    <div class="Kentico-redesign-title-h1 mktoText" mktoName="formTitle">Get in touch</div>
+                    <div class="Kentico-redesign-description">
+                        <div style="margin-bottom: 1.5rem;" class="mktoText" mktoName="formText">Connect with our APC
+                            solutions specialist to learn more.
+                        </div>
+                        <div><img class="img-fluid mktoImg" mktoName="formImage"
+                                src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Contact-form.jpg"
+                                loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 kentico-redesign-col ">
+
+                    <form id="mktoForm_2446" class="mktoForm" mktoName="mktoForm_2446"></form>
+                    <script>
+
+                        MktoForms2.loadForm("//now.ingrammicro.com", "934-IPK-117", 2446, function (form) {
+                            // Function to capture hidden fields
+                            HiddenfieldsCapture("mktoForm_2446");
+
+                            // Concatinate fields in program fields on submit
+                            form.onSubmit(function () {
+                                var values = form.vals();
+                                concatenateFields(values, "mktoForm_2446");
+                            });
+                        });
+                        // Function to display thank you message
+                        MktoForms2.whenReady(function (form) {
+                            form.onSuccess(function (vals, page) {
+                                if (vals.formid == "2446") {
+                                    form.getFormElem().hide();
+                                    let confirmationDiv = document.createElement("div");
+                                    confirmationDiv.innerHTML = `<div id="confirmation" aria-hidden="false">
+                                                                                <div class="container">
+                                                                                    <div class="row">
+                                                                                        <div class="col-12">
+                                                                                            <div class="thk-pg-content">
+                                                                                                <h2>Thank you for contacting us.</h2>
+                                                                                                <p>An Ingram Micro representative will reach out to you as soon as possible.</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>`
+
+                                    document.getElementById("mktoForm_2446").insertAdjacentElement("afterend", confirmationDiv);
+                                    return false;
+                                }
+
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accordion Section -->
+        <section id="accordionSection" class="bg-light py-4">
+            <div class="container my-5">
+                <h2 class="text-center mb-5 mktoText" mktoName="accordeonTitle">Explore Aruba networking solutions</h2>
+                <div class="accordion" id="accordion">
+
+                    <!-- Accordion Item 1 -->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed mktoText" id="accordion1" mktoName="Accordion 1"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                aria-expanded="false" aria-controls="collapseOne">
+                                Simple, high-performance Aruba Instant On switches
+                            </button>
+                        </h3>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordion">
+                            <div class="accordion-body mx-4">
+                                <div class="row">
+                                    <div class="col-lg-6 mb-4">
+                                        <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Contact-form.jpg"
+                                            class="img-fluid rounded mktoImg" id="accordionImg1"
+                                            mktoName="Accordion Image 1" alt="Aruba Switches" loading="lazy">
+                                    </div>
+                                    <div class="col-lg-6 mb-4">
+                                        <h4 class="mktoText" id="accordionTitle1" mktoName="Accordion Title 1">Simple,
+                                            high-performance Aruba Instant On switches</h4>
+                                        <p class="mktoText" id="accordionText1" mktoName="Accordion Text 1">
+                                            Customers need a strong network to provide seamless online experiences and
+                                            keep
+                                            systems productive.
+                                            Many small businesses have constrained IT resources, so simplicity and value
+                                            for
+                                            money are imperative
+                                            for their business network.
+                                        </p>
+                                        <p><a href="${accordionCtaUrl1}" class="btn btn-primary" target="_blank"
+                                                data-name="" data-campaign="">${accordionCtaLabel1}</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 2 -->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed mktoText" id="accordion2" mktoName="Accordion 2"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo">
+                                Edge to cloud with SD-WAN
+                            </button>
+                        </h3>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordion">
+                            <div class="accordion-body mx-4">
+                                <p class="mktoText" id="accordionText2" mktoName="Accordion Text 2"> Lorem ipsum dolor
+                                    sit amet, consectetur adipiscing elit. In molestie, lorem quis
+                                    tristique
+                                    congue, diam ante fermentum ante, id consequat leo risus eget arcu. In consectetur
+                                    lacinia
+                                    ante a gravida. Curabitur aliquet sem eu convallis euismod. Aenean sed odio dolor.
+                                    Nunc
+                                    pulvinar lacinia velit, ut volutpat nulla pretium et. Aenean fermentum vehicula dui,
+                                    vel
+                                    suscipit augue pulvinar vitae. Aliquam scelerisque, diam at rutrum ultricies, nulla
+                                    lectus
+                                    hendrerit justo, nec sagittis dui eros faucibus erat. Donec fermentum turpis metus,
+                                    eget
+                                    dignissim risus auctor sed. Aliquam congue tortor nibh, id placerat arcu elementum
+                                    non.
+                                    Fusce placerat ut mauris eget dignissim.</p>
+                                <p><a href="${accordionCtaUrl2}" class="btn btn-primary" target="_blank" data-name=""
+                                        data-campaign="">${accordionCtaLabel1}</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 3 -->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed mktoText" id="accordion3" mktoName="Accordion 3"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">
+                                Smart Book promotions and offerings
+                            </button>
+                        </h3>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordion">
+                            <div class="accordion-body mx-4">
+                                <p class="mktoText" id="accordionText3" mktoName="Accordion Text 3"> Lorem ipsum dolor
+                                    sit amet, consectetur adipiscing elit. In molestie, lorem quis
+                                    tristique
+                                    congue, diam ante fermentum ante, id consequat leo risus eget arcu. In consectetur
+                                    lacinia
+                                    ante a gravida. Curabitur aliquet sem eu convallis euismod. Aenean sed odio dolor.
+                                    Nunc
+                                    pulvinar lacinia velit, ut volutpat nulla pretium et. Aenean fermentum vehicula dui,
+                                    vel
+                                    suscipit augue pulvinar vitae. Aliquam scelerisque, diam at rutrum ultricies, nulla
+                                    lectus
+                                    hendrerit justo, nec sagittis dui eros faucibus erat. Donec fermentum turpis metus,
+                                    eget
+                                    dignissim risus auctor sed. Aliquam congue tortor nibh, id placerat arcu elementum
+                                    non.
+                                    Fusce placerat ut mauris eget dignissim.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 4 -->
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed mktoText" id="accordion4" mktoName="Accordion 4"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                aria-expanded="false" aria-controls="collapseFour">
+                                Explore the latest Aruba solutions
+                            </button>
+                        </h3>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordion">
+                            <div class="accordion-body mx-4">
+                                <p class="mktoText" id="accordionText4" mktoName="Accordion Text 4"> Lorem ipsum dolor
+                                    sit amet, consectetur adipiscing elit. In molestie, lorem quis
+                                    tristique
+                                    congue, diam ante fermentum ante, id consequat leo risus eget arcu. In consectetur
+                                    lacinia
+                                    ante a gravida. Curabitur aliquet sem eu convallis euismod. Aenean sed odio dolor.
+                                    Nunc
+                                    pulvinar lacinia velit, ut volutpat nulla pretium et. Aenean fermentum vehicula dui,
+                                    vel
+                                    suscipit augue pulvinar vitae. Aliquam scelerisque, diam at rutrum ultricies, nulla
+                                    lectus
+                                    hendrerit justo, nec sagittis dui eros faucibus erat. Donec fermentum turpis metus,
+                                    eget
+                                    dignissim risus auctor sed. Aliquam congue tortor nibh, id placerat arcu elementum
+                                    non.
+                                    Fusce placerat ut mauris eget dignissim.</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs Section -->
+        <section id="tabsSection">
+            <div class="${tabsContainer} my-5 pt-5">
+                <h2 class="text-center mktoText" id="tabsTitle" mktoName="Tabs Title">HPE GreenLake Off-Road Adventure
+                    program</h2>
+                <p class="text-center mb-5 mktoText" id="tabsText" mktoName="Tabs Text">Must be a registered Ingram
+                    Micro HPE partner to be eligible to participate.</p>
+
+                <!-- Tabs Titles -->
+                <ul class="nav nav-tabs justify-content-evenly align-items-center align-md-items-end mb-4 custom-tabs flex-column flex-md-row"
+                    id="Tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tabPane1" data-bs-toggle="tab" data-bs-target="#tabContent1"
+                            type="button" role="tab">${tab1}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tabPane2" data-bs-toggle="tab" data-bs-target="#tabContent2"
+                            type="button" role="tab">${tab2}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tabPane3" data-bs-toggle="tab" data-bs-target="#tabContent3"
+                            type="button" role="tab">${tab3}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tabPane4" data-bs-toggle="tab" data-bs-target="#tabContent4"
+                            type="button" role="tab">${tab4}</button>
+                    </li>
+                </ul>
+
+                <!-- Tabs Content -->
+                <div class="tab-content" id="TabsContent">
+
+                    <!-- Tab 1 -->
+                    <div class="tab-pane fade show active" id="tabContent1" role="tabpanel" aria-labelledby="tabPane1">
+                        <div class="row ">
+                            <div class="col-md-6 mb-4">
+                                <h3 class="mktoText" id="tabTitle1" mktoName="Tab Title 1">Welcome to GreenLake</h3>
+                                <p class="mktoText" id="tabText1" mktoName="Tab Text 1">
+                                    Ingram Micro has created a simple four-step roadmap—each step takes you through a
+                                    series of activities to help you navigate HPE GreenLake, understand the benefits
+                                    and ultimately gain an advantage for your business. Discover how you can achieve
+                                    the right mix of technology to meet customer business demands, allowing them to
+                                    consume everything as a service (XaaS) with HPE GreenLake.
+                                </p>
+                                <a href="${tabCtaUrl1}" class="btn btn-primary" data-name=""
+                                    data-campaign="">${tabCtaLabel1}</a>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <img src="https://stg.go.ingrammicro.com/rs/934-IPK-117/images/HPE-Home-Contact-form.jpg"
+                                    class="img-fluid rounded mktoImg" id="tabImg1" mktoName="Tab Image 1" alt=""
+                                    loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2 -->
+                    <div class="tab-pane fade" id="tabContent2" role="tabpanel" aria-labelledby="tabPane2">
+                        <h3 class="mktoText" id="tabTitle2" mktoName="Tab Title 2">Test your competency</h3>
+                        <p class="mktoText" id="tabText2" mktoName="Tab Text 2">Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit. In molestie, lorem quis
+                            tristique
+                            congue, diam ante fermentum ante, id consequat leo risus eget arcu. In consectetur
+                            lacinia
+                            ante a gravida. Curabitur aliquet sem eu convallis euismod. Aenean sed odio dolor. Nunc
+                            pulvinar lacinia velit, ut volutpat nulla pretium et. Aenean fermentum vehicula dui, vel
+                            suscipit augue pulvinar vitae. Aliquam scelerisque, diam at rutrum ultricies, nulla
+                            lectus
+                            hendrerit justo, nec sagittis dui eros faucibus erat. Donec fermentum turpis metus, eget
+                            dignissim risus auctor sed. Aliquam congue tortor nibh, id placerat arcu elementum non.
+                            Fusce placerat ut mauris eget dignissim.</p>
+                    </div>
+
+                    <!-- Tab 3 -->
+                    <div class="tab-pane fade" id="tabContent3" role="tabpanel" aria-labelledby="tabPane3">
+                        <p class="mktoText" id="tabText3" mktoName="Tab Text 3">Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit. In molestie, lorem quis
+                            tristique
+                            congue, diam ante fermentum ante, id consequat leo risus eget arcu. In consectetur
+                            lacinia
+                            ante a gravida. Curabitur aliquet sem eu convallis euismod. Aenean sed odio dolor. Nunc
+                            pulvinar lacinia velit, ut volutpat nulla pretium et. Aenean fermentum vehicula dui, vel
+                            suscipit augue pulvinar vitae. Aliquam scelerisque, diam at rutrum ultricies, nulla
+                            lectus
+                            hendrerit justo, nec sagittis dui eros faucibus erat. Donec fermentum turpis metus, eget
+                            dignissim risus auctor sed. Aliquam congue tortor nibh, id placerat arcu elementum non.
+                            Fusce placerat ut mauris eget dignissim.</p>
+                    </div>
+
+                    <!-- Tab 4 -->
+                    <div class="tab-pane fade" id="tabContent4" role="tabpanel" aria-labelledby="tabPane4">
+                        <p class="mktoText" id="tabText4" mktoName="Tab Text 4">Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit. In molestie, lorem quis
+                            tristique
+                            congue, diam ante fermentum ante, id consequat leo risus eget arcu. In consectetur
+                            lacinia
+                            ante a gravida. Curabitur aliquet sem eu convallis euismod. Aenean sed odio dolor. Nunc
+                            pulvinar lacinia velit, ut volutpat nulla pretium et. Aenean fermentum vehicula dui, vel
+                            suscipit augue pulvinar vitae. Aliquam scelerisque, diam at rutrum ultricies, nulla
+                            lectus
+                            hendrerit justo, nec sagittis dui eros faucibus erat. Donec fermentum turpis metus, eget
+                            dignissim risus auctor sed. Aliquam congue tortor nibh, id placerat arcu elementum non.
+                            Fusce placerat ut mauris eget dignissim.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="pt-5 ${showHeader}">
+            <figure class="m-0 w-100">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9AAAABuCAMAAABIgXjAAAAC91BMVEUAAAAVcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO8VcO91SkFUAAAA/HRSTlMAfZCAJPjl0buolX9rV0QsEVXkAsCM4fPXuZtiRScGr0C8yPoKnvzdtY9pQh0Q+fYE+0db9c+fbz8PZPAHOEGLGN6ufk0ZvlJ2ztSjaC0a/qy0E7hz7gP0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"
+                    class="img-fluid" alt="Ingram Micro Logo" width="100%" loading="lazy">
+                <figcaption class="container text-center p-4">
+                    <p>Copyright © <time id="__copyright_year__">2025</time> Ingram Micro. ${legal}</p>
+                </figcaption>
+            </figure>
+        </footer>
+    </main>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                loop: false,
+                stagePadding: 32,
+                margin: 32,
+                nav: true,
+                dots: true,
+                slideBy: 1,
+                autoplayHoverPause: true,
+                navText: [
+                    '<i class="fa fa-angle-left fa-2xs" aria-hidden="true"></i><span class="visually-hidden">Previous</span>',
+                    '<i class="fa fa-angle-right fa-2xs" aria-hidden="true"></i><span class="visually-hidden">Next</span>'
+                ],
+                // comment out the breakpoints based on number of cards you need
+                responsive: {
+                    0: { items: 1 }
+                    , 768: { items: 2 }
+                    , 992: { items: 3 }
+                    // ,1920: { items: 4 }
+                }
+            });
+            document.getElementById("__copyright_year__").textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+
+</html>

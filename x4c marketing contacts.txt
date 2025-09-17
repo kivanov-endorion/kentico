@@ -1,0 +1,7 @@
+=PROPER(SUBSTITUTE(SUBSTITUTE([@Email],"@ingrammicro.com",""),"."," "))
+
+=XLOOKUP(D3,Imported[Email],Imported[Position],"")
+
+=XLOOKUP(D3,Kentico[Email],Kentico[Privilege level],"")
+
+=XLOOKUP(D3,Imported[Email],Imported[Name],PROPER(SUBSTITUTE(SUBSTITUTE([@Email],"@ingrammicro.com",""),"."," ")))
