@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest CSS Features Demo (2021-2025)</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #000;
+        }
+        section {
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background: #fafafa;
+        }
+        h2 {
+            color: #000;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 5px;
+        }
+        .description {
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .example {
+            background: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+        /* Demo Content Helper */
+        .lorem {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .lorem p {
+            margin: 10px 0;
+        }
+
+        /* 1. Container Queries */
+        .container {
+            container-type: inline-size;
+            width: 300px;
+            border: 2px solid #007acc;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .card {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        @container (min-width: 250px) {
+            .card {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                background: #e0f7fa;
+            }
+        }
+
+        /* 2. :has() Selector */
+        .parent {
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+        }
+        .parent:has(.highlight) {
+            background: #fff3cd;
+            border-color: #ffeaa7;
+        }
+        .highlight {
+            background: #ffeb3b;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        /* 3. CSS Nesting */
+        .nested-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        .nested-card {
+            &:hover {
+                background: #e9ecef;
+                transform: scale(1.02);
+                transition: all 0.3s ease;
+            }
+            .title {
+                font-weight: bold;
+                color: #007acc;
+            }
+        }
+
+        /* 4. light-dark() and Relative Colors */
+        .color-example {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px;
+            display: inline-block;
+        }
+        .color-example {
+            background: light-dark(#007acc, #74c0fc);
+            --base-hue: 210;
+            background: lab(from var(--base-hue) 50% 20% / light-dark(80%, 20%));
+        }
+
+        /* 5. content-visibility: auto */
+        .lazy-section {
+            height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+        }
+        .lazy-item {
+            height: 200px;
+            margin: 20px;
+            background: #f0f0f0;
+            content-visibility: auto;
+            contain-intrinsic-size: 200px;
+        }
+
+        /* 6. Scrollbar-Gutter & Scrollbar-Color */
+        .scroll-demo {
+            height: 200px;
+            overflow-y: scroll;
+            scrollbar-gutter: stable both-edges;
+            scrollbar-color: #6c757d #f8f9fa;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /* 7. ::target-text */
+        .target-demo {
+            padding: 20px;
+            border: 1px solid #ccc;
+            line-height: 1.8;
+        }
+        ::target-text {
+            background: #ffeb3b;
+            color: #000;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        /* 8. Exclusive Accordions (using details with name) */
+        details[name="accordion"] {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 5px 0;
+            overflow: hidden;
+        }
+        details[name="accordion"] summary {
+            padding: 10px;
+            background: #f8f9fa;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        details[name="accordion"][open] summary {
+            border-bottom: 1px solid #ddd;
+        }
+        details[name="accordion"] > div {
+            padding: 10px;
+        }
+
+        /* 9. font-size-adjust */
+        .font-demo {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 24px;
+            font-size-adjust: 0.5; /* Matches x-height of fallback */
+            line-height: 1.4;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        /* 10. transition-behavior: allow-discrete */
+        .discrete-demo {
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition-property: opacity, visibility;
+            transition-duration: 0.5s;
+            transition-behavior: allow-discrete;
+        }
+        .discrete-demo.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* 11. @property */
+        @property --progress {
+            syntax: "<percentage>";
+            inherits: false;
+            initial-value: 0%;
+        }
+        .property-demo {
+            width: 200px;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .property-demo::before {
+            content: "";
+            display: block;
+            width: var(--progress, 50%);
+            height: 100%;
+            background: #007acc;
+            transition: width 0.3s ease;
+            animation: progress 2s infinite alternate;
+        }
+        @keyframes progress {
+            to { --progress: 100%; }
+        }
+
+        /* 12. offset-path (Motion Path) */
+        .motion-demo {
+            width: 100px;
+            height: 100px;
+            background: #dc3545;
+            border-radius: 50%;
+            position: relative;
+            offset-path: path("M 10 80 Q 95 10 180 80 T 350 80");
+            offset-distance: 0%;
+            animation: move 3s linear infinite;
+        }
+        @keyframes move {
+            to { offset-distance: 100%; }
+        }
+        .motion-container {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>Examples of Latest CSS Features Adopted by Major Browsers (2021-2025)</h1>
+    <p>This page demonstrates use cases for recent CSS features with full support in Chrome, Firefox, and Safari as of 2025. Resize the window or interact to see effects.</p>
+
+    <section id="container-queries">
+        <h2>1. Container Queries (@container)</h2>
+        <div class="description">Allows styling components based on their container size, not viewport. Use case: Responsive cards in varying parent widths.</div>
+        <div class="example">
+            <div class="container">
+                <div class="card">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>Item 3</div>
+                </div>
+            </div>
+            <p>Resize the container width above 250px to see grid layout activate.</p>
+        </div>
+    </section>
+
+    <section id="has-selector">
+        <h2>2. :has() Selector</h2>
+        <div class="description">Selects elements that contain a specified descendant. Use case: Style parents based on child content.</div>
+        <div class="example">
+            <div class="parent">
+                <p>Normal parent.</p>
+            </div>
+            <div class="parent">
+                <span class="highlight">Highlighted child</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="nesting">
+        <h2>3. CSS Nesting</h2>
+        <div class="description">Nest selectors for cleaner code. Use case: Scoped hover effects without extra classes.</div>
+        <div class="example">
+            <div class="nested-card">
+                <div class="title">Hover me!</div>
+                <p>Nested content changes on hover.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="light-dark">
+        <h2>4. light-dark() and Relative Colors</h2>
+        <div class="description">Dynamic color switching for themes; relative syntax for variations. Use case: Automatic dark mode support.</div>
+        <div class="example">
+            <div class="color-example"></div>
+            <p>Switch your browser/OS to dark mode to see color change.</p>
+        </div>
+    </section>
+
+    <section id="content-visibility">
+        <h2>5. content-visibility: auto</h2>
+        <div class="description">Defers rendering off-screen content for performance. Use case: Long-scrolling pages.</div>
+        <div class="example">
+            <div class="lazy-section">
+                <div class="lazy-item">Section 1 (visible immediately)</div>
+                <div class="lazy-item">Section 2 (renders on scroll)</div>
+                <div class="lazy-item">Section 3 (renders on scroll)</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="scrollbar">
+        <h2>6. Scrollbar-Gutter & Scrollbar-Color</h2>
+        <div class="description">Stabilizes layout for scrollbars; customizes colors. Use case: Consistent UI in scrollable areas.</div>
+        <div class="example scroll-demo">
+            <div class="lorem">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <!-- Repeat for scroll -->
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="target-text">
+        <h2>7. ::target-text</h2>
+        <div class="description">Highlights targeted text in anchors. Use case: Long documents with internal links.</div>
+        <div class="example">
+            <p><a href="#target-section">Jump to highlighted text</a></p>
+            <div class="target-demo" id="target-section">
+                <p>This is the <span id="target">target text</span> that gets highlighted on link click.</p>
+                <p>More content follows...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="accordions">
+        <h2>8. Exclusive Accordions (details name attribute)</h2>
+        <div class="description">Mutually exclusive details panels without JS. Use case: FAQs where only one expands.</div>
+        <div class="example">
+            <details name="accordion" open>
+                <summary>Question 1</summary>
+                <div>Answer 1: This is the first answer.</div>
+            </details>
+            <details name="accordion">
+                <summary>Question 2</summary>
+                <div>Answer 2: This is the second answer (closes Q1 when opened).</div>
+            </details>
+            <details name="accordion">
+                <summary>Question 3</summary>
+                <div>Answer 3: This is the third answer.</div>
+            </details>
+        </div>
+    </section>
+
+    <section id="font-size-adjust">
+        <h2>9. font-size-adjust</h2>
+        <div class="description">Preserves x-height on font fallback. Use case: Consistent readability with custom fonts.</div>
+        <div class="example">
+            <div class="font-demo">
+                This text uses a fallback font but maintains size consistency.
+            </div>
+        </div>
+    </section>
+
+    <section id="transition-behavior">
+        <h2>10. transition-behavior: allow-discrete</h2>
+        <div class="description">Animates discrete properties like visibility. Use case: Smooth fade-out to hidden.</div>
+        <div class="example">
+            <button onclick="toggleHidden()">Toggle Visibility</button>
+            <div class="discrete-demo" id="discrete">This fades out smoothly, including display change.</div>
+            <script>
+                function toggleHidden() {
+                    const elem = document.getElementById('discrete');
+                    elem.classList.toggle('hidden');
+                }
+            </script>
+        </div>
+    </section>
+
+    <section id="property">
+        <h2>11. @property</h2>
+        <div class="description">Defines custom properties with types for animation. Use case: Smooth custom value transitions.</div>
+        <div class="example">
+            <div class="property-demo"></div>
+            <p>Watch the progress bar animate smoothly.</p>
+        </div>
+    </section>
+
+    <section id="offset-path">
+        <h2>12. offset-path</h2>
+        <div class="description">Animates along paths. Use case: Curved motion paths for icons.</div>
+        <div class="example">
+            <div class="motion-container">
+                <div class="motion-demo"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

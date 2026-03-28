@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Modern CSS Feature Showcase</title>
+
+<style>
+  /* ----------------------
+     Global / Reset
+     ---------------------- */
+  :root{
+    --surface: color-mix(in srgb, #0ea5e9 60%, #111827);
+    --accent: oklch(65% 0.18 260); /* new color spaces */
+    --gap: 1rem;
+  }
+
+  /* Cascade layers help structure large stylesheets */
+  @layer reset, base, components, utilities;
+
+  @layer reset {
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(0deg, #f7f7fb, #ffffff); color: #0f172a; }
+  }
+
+  @layer base {
+    main { max-width: 1100px; margin: 2rem auto; padding: 1rem; display: grid; gap: var(--gap); }
+    h1 { font-size: 1.6rem; letter-spacing: -0.01em; }
+    .grid { display: grid; gap: var(--gap); grid-template-columns: repeat(12, 1fr); }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 6px 18px rgba(10,10,20,0.06);
+      transition: transform 300ms ease, box-shadow 300ms ease;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 14px 32px rgba(10,10,20,0.10); }
+    .row { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+  }
+
+  @layer components {
+    /* ----------------------
+       CSS Nesting (native)
+       Example of nesting using &. Supported in modern browsers.
+       ---------------------- */
+    .feature {
+      padding: .75rem;
+      border-radius: 10px;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 12%, white), white);
+      display: block;
+      & h2 { font-size: 1.05rem; margin-bottom: .45rem; }
+      & p { font-size: .92rem; opacity: .9; margin-bottom: .5rem; }
+      & .code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; background:#0b1220; color: #e6eef8; padding:.5rem; border-radius:6px; font-size:.85rem; overflow:auto; }
+    }
+
+    /* ----------------------
+       Container queries
+       The outer .card becomes a query container; styles adapt to the card's inline-size.
+       ---------------------- */
+    .card {
+      container-type: inline-size; /* enables @container queries */
+      container-name: card;
+    }
+
+    @container card (min-width: 360px) {
+      .card { padding: 1.25rem; }
+      .card .feature { display:flex; gap:1rem; align-items:center; }
+    }
+
+    @container card (min-width: 720px) {
+      .card { grid-column: span 6; }
+    }
+
+    /* ----------------------
+       :has() relational pseudo-class
+       Select a demo form and show a subtle highlight when any input is focused or contains an invalid value.
+       ---------------------- */
+    .demo-form:has(input:focus) { outline: 3px solid color-mix(in srgb, var(--accent) 18%, transparent); }
+    .demo-form:has(input:invalid) { box-shadow: inset 0 0 0 1px rgba(255,70,70,.08); }
+
+    /* ----------------------
+       Subgrid example
+       Parent grid sets columns; child uses subgrid to align inner elements to parent's columns.
+       ---------------------- */
+    .master-grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: .75rem; align-items: start; }
+    .subgrid-card { display: grid; grid-template-columns: subgrid; grid-column: span 2; gap:.5rem; }
+    /* a simple fallback if subgrid not supported: it will just ignore 'subgrid' */
+    .subgrid-card > * { padding: .35rem; background: #fcfcff; border-radius: 6px; }
+
+    /* ----------------------
+       @property to enable smooth transition of a custom numeric property
+       ---------------------- */
+    @property --tilt {
+      syntax: "<number>";
+      inherits: true;
+      initial-value: 0;
+    }
+    .tiltable { transform: rotate(var(--tilt)deg); transition: transform 450ms cubic-bezier(.22,.9,.32,1); }
+    .tiltable:hover { --tilt: 2.7; }
+
+    /* ----------------------
+       View Transitions (CSS part)
+       Transparent style to animate between states handled by the View Transitions API in JS.
+       ---------------------- */
+    .vt-anim {
+      transition: opacity 320ms ease, transform 320ms ease;
+    }
+
+    /* ----------------------
+       small utilities
+       ---------------------- */
+    .muted { color: #6b7280; font-size:.9rem; }
+    pre { font-size:.85rem; padding:.5rem; background:#0b1220; color:#e6eef8; border-radius:8px; }
+  }
+
+  @layer utilities {
+    .chip { background: #eef2ff; padding:.25rem .6rem; border-radius:999px; font-size:.78rem; }
+    .btn {
+      border: 0; padding: .6rem .9rem; border-radius: 10px; cursor: pointer; font-weight:600;
+      background: linear-gradient(180deg, var(--accent), color-mix(in srgb,var(--accent) 65%, black));
+      color: white;
+    }
+  }
+
+  /* ----------------------
+     Small responsive helper for layout columns on the page itself
+     ---------------------- */
+  @media (max-width: 900px){
+    .grid { grid-template-columns: repeat(6, 1fr); }
+    .card { grid-column: span 6; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <h1>Modern CSS feature showcase — examples & use cases</h1>
+
+  <section class="grid" style="grid-template-columns: repeat(12, 1fr);">
+    <!-- Transitions + color-mix + aspect-ratio -->
+    <article class="card" style="grid-column: span 4;">
+      <div class="feature">
+        <h2>Transitions, color-mix(), aspect-ratio</h2>
+        <p class="muted">Smoother UI state changes and modern color blending & color spaces.</p>
+
+        <div style="display:grid; gap:.5rem;">
+          <div style="display:flex; gap:.5rem; align-items:center;">
+            <div style="width:72px; aspect-ratio:1/1; border-radius:8px;
+                        background: linear-gradient(135deg, color-mix(in srgb, #ff6b6b 35%, #ffd166 10%), #4ade80);
+                        box-shadow: 0 6px 14px rgba(10,10,20,.06); transition: transform 300ms ease;"
+                 class="tiltable"></div>
+            <div>
+              <strong>Avatar</strong>
+              <div class="muted">uses aspect-ratio + transitions</div>
+            </div>
+          </div>
+
+          <pre>.avatar { aspect-ratio:1/1; background: color-mix(in srgb, #ff6b6b 35%, #ffd166 10%); }</pre>
+        </div>
+      </div>
+    </article>
+
+    <!-- Container queries -->
+    <article class="card" style="grid-column: span 4;">
+      <div class="feature">
+        <h2>Container Queries</h2>
+        <p class="muted">Adapt styles to the container’s own size (great for component libraries).</p>
+
+        <div class="card" style="width:100%; max-width:520px;">
+          <div class="feature">
+            <h3>Mini product card</h3>
+            <p class="muted">Resizes layout depending on the card's width (container query).</p>
+            <div class="row">
+              <div style="width:64px; height:64px; border-radius:8px; background:linear-gradient(45deg,var(--accent), #7c3aed);"></div>
+              <div>
+                <div style="font-weight:700;">Cool Product</div>
+                <div class="muted">Short description that wraps nicely.</div>
+              </div>
+            </div>
+            <pre class="code">.card { container-type: inline-size; }
+@container card (min-width: 360px) { .card{ padding:1.25rem; } }</pre>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- :has() -->
+    <article class="card" style="grid-column: span 4;">
+      <div class="feature">
+        <h2>:has() — relational selector</h2>
+        <p class="muted">Style an ancestor based on child state (e.g., form highlighting).</p>
+
+        <form class="demo-form" style="display:grid; gap:.5rem; max-width:420px;">
+          <label class="muted">Name <input required placeholder="Type your name" style="padding:.4rem; border-radius:8px; border:1px solid #e6eef8;"></label>
+          <label class="muted">Email <input type="email" placeholder="you@example.com" style="padding:.4rem; border-radius:8px; border:1px solid #e6eef8;"></label>
+          <div style="display:flex; gap:.5rem;">
+            <button class="btn" type="submit">Submit</button>
+            <button class="btn" type="button" onclick="toggleView()">Toggle view (View Trans.)</button>
+          </div>
+          <div class="muted">Try focusing a field — the form highlights via <code>:has()</code>.</div>
+        </form>
+
+        <pre class="code">form:has(input:focus) { outline: 3px solid color-mix(in srgb, var(--accent) 18%, transparent); }</pre>
+      </div>
+    </article>
+
+    <!-- Subgrid demo -->
+    <article class="card" style="grid-column: span 12;">
+      <div class="feature">
+        <h2>Subgrid</h2>
+        <p class="muted">Align a child grid to the parent grid columns.</p>
+
+        <div class="master-grid" style="margin-top:.75rem;">
+          <div class="card" style="grid-column:1/span 1;">
+            <strong>Left</strong>
+            <div class="muted">Sidebar</div>
+          </div>
+
+          <div class="card subgrid-card" style="grid-column:2/span 1;">
+            <div><strong>Article title</strong></div>
+            <div class="muted">Byline and meta</div>
+            <div>Paragraph aligned to the same columns as the master grid above.</div>
+          </div>
+
+          <div class="card" style="grid-column:3/span 1;">
+            <strong>Right</strong>
+            <div class="muted">Ads/Related</div>
+          </div>
+        </div>
+
+        <pre class="code">.parent { display:grid; grid-template-columns: 1fr 2fr 1fr; }
+.child { display:grid; grid-template-columns: subgrid; }</pre>
+        <div class="muted">If the browser doesn't support <code>subgrid</code>, the rule is ignored — the layout still works but alignment won't follow parent's columns exactly.</div>
+      </div>
+    </article>
+
+    <!-- @property + sample -->
+    <article class="card" style="grid-column: span 6;">
+      <div class="feature">
+        <h2>@property & custom property transitions</h2>
+        <p class="muted">Declare a numeric custom property to enable smooth transitions of values used in transforms, filters, etc.</p>
+
+        <div style="display:flex; gap:.5rem; align-items:center;">
+          <div class="tiltable" style="width:84px; height:56px; border-radius:8px; background:linear-gradient(90deg,#60a5fa,#b794f4);"></div>
+          <div>
+            <strong>Hover me</strong>
+            <div class="muted">Transforms interpolate because <code>@property</code> tells the UA the value is numeric.</div>
+          </div>
+        </div>
+
+        <pre class="code">@property --tilt { syntax: "&lt;number&gt;"; inherits: true; initial-value: 0; }</pre>
+      </div>
+    </article>
+
+    <!-- View Transitions API -->
+    <article class="card" style="grid-column: span 6;">
+      <div class="feature">
+        <h2>View Transitions API (demo)</h2>
+        <p class="muted">Programmatic single-document transitions — combined with CSS you can animate between states easily.</p>
+
+        <div id="vt-root" style="padding:.5rem;">
+          <div id="view-a" class="vt-anim">
+            <strong>View A</strong>
+            <p class="muted">Click the toggle button in the form above to try a view transition (if the browser supports it).</p>
+          </div>
+        </div>
+
+        <pre class="code">if (document.startViewTransition) {
+  document.startViewTransition(() => {
+    /* swap content/state here */
+  });
+} else {
+  /* fallback: just change content instantly */
+}</pre>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<script>
+  /* Small script for View Transitions demo and fallback */
+  function toggleView(){
+    const root = document.getElementById('vt-root');
+
+    function swap(){
+      if(root.dataset.state === 'b'){
+        root.innerHTML = '<div id="view-a" class="vt-anim"><strong>View A</strong><p class="muted">Back to A</p></div>';
+        root.dataset.state = 'a';
+      } else {
+        root.innerHTML = '<div id="view-b" class="vt-anim"><strong>View B</strong><p class="muted">You are on B</p></div>';
+        root.dataset.state = 'b';
+      }
+    }
+
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        swap();
+      }).catch(()=>{ swap(); });
+    } else {
+      swap(); // fallback
+    }
+  }
+</script>
+</body>
+</html>

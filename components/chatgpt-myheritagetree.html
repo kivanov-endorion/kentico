@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Family Tree — Grid Layout (Scrollable)</title>
+<style>
+  :root{
+    --bg:#f3f4f6;
+    --card-blue:#dff7fb;
+    --card-pink:#fce9ea;
+    --card-border-blue:#7fd0d9;
+    --card-border-pink:#e8aeb3;
+    --muted:#6b7280;
+    --card-radius:10px;
+    --node-pad:10px 12px;
+    --shadow: 0 6px 12px rgba(16,24,40,0.06);
+    --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --cell-w: 140px; /* grid cell width */
+    --cell-h: 92px;  /* grid cell height */
+    --cols: 20;      /* number of columns in grid */
+    --rows: 10;      /* number of rows in grid */
+  }
+
+  html,body{height:100%;margin:0;background:var(--bg);font-family:var(--font-sans);color:#111827}
+  main.stage{
+    padding:18px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    align-items:center;
+  }
+
+  /* canvas container is scrollable both axes */
+  .canvas-container{
+    width:100%;
+    max-width:1200px; /* viewport area for scrolling */
+    height:720px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 8px 24px rgba(15,23,42,0.08);
+    overflow:auto; /* enables both horizontal and vertical scrolling */
+    position:relative;
+  }
+
+  /* the actual grid that contains the background and overlay nodes */
+  .canvas-grid{
+    position:relative;
+    box-sizing:border-box;
+    /* compute the grid size using --cols and --rows */
+    width: calc(var(--cols) * var(--cell-w));
+    height: calc(var(--rows) * var(--cell-h));
+    min-width: calc(var(--cols) * var(--cell-w));
+    min-height: calc(var(--rows) * var(--cell-h));
+    display:grid;
+    grid-template-columns: repeat(var(--cols), var(--cell-w));
+    grid-template-rows: repeat(var(--rows), var(--cell-h));
+    background-image: url('myheritage-tree.jpg'); /* your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat:no-repeat;
+    transform-origin: 0 0;
+  }
+
+  /* overlay layer uses grid as well for easy placement */
+  .overlay {
+    position:absolute;
+    inset:0;
+    display:grid;
+    grid-template-columns: inherit;
+    grid-template-rows: inherit;
+    pointer-events:none; /* by default, clicks go through */
+  }
+
+  /* Node cards are placed inside specific grid cells */
+  .node{
+    pointer-events:auto; /* enable interactions */
+    align-self:start;
+    justify-self:start;
+    border-radius:var(--card-radius);
+    display:flex;
+    gap:10px;
+    align-items:center;
+    padding:var(--node-pad);
+    box-shadow:var(--shadow);
+    font-size:13px;
+    border:2px solid transparent;
+    width: calc(var(--cell-w) * 1.45); /* nodes can span visually larger than a single cell */
+    box-sizing:border-box;
+    background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,250,0.95));
+  }
+  .node .avatar{ width:40px;height:40px;border-radius:50%;background:#efefef;border:1px solid rgba(0,0,0,0.05);display:flex;align-items:center;justify-content:center;font-weight:600;color:#9ca3af;flex:0 0 40px }
+  .node .meta{ display:flex;flex-direction:column; gap:3px }
+  .node .name{ font-weight:700; color:#0f172a; line-height:1 }
+  .node .desc{ font-size:12px; color:var(--muted); line-height:1.05 }
+
+  /* variants */
+  .node.blue{ border-color:var(--card-border-blue); background:var(--card-blue) }
+  .node.pink{ border-color:var(--card-border-pink); background:var(--card-pink) }
+
+  /* micro-dots on top */
+  .dots{ position:absolute; display:flex; gap:4px; align-items:center; justify-content:center; width:18px; height:8px; border-radius:6px }
+  .dots span{ width:5px; height:5px; border-radius:50%; background:#94a3b8; display:block }
+
+  /* connectors are an absolute SVG that spans the grid */
+  svg.connectors{ position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none; overflow:visible }
+
+  /* transcription panel */
+  .transcript{
+    width:100%;
+    max-width:1200px;
+    padding:16px;
+    background:white;
+    border-radius:10px;
+    box-shadow:var(--shadow);
+  }
+  .transcript h3{ margin:0 0 8px 0 }
+  .transcript pre{ white-space:pre-wrap; background:#fafafa; padding:12px; border-radius:8px; border:1px solid #eee; max-height:180px; overflow:auto }
+  .controls{ display:flex; gap:8px; margin-top:8px }
+  .controls button{ padding:8px 12px; border-radius:8px; border:1px solid #e6e6e6; background:white; cursor:pointer }
+
+  /* helper utility: node spanning multiple columns / rows via data attributes */
+  .node[data-col-span="2"]{ width: calc(var(--cell-w) * 2 - 12px); }
+  .node[data-col-span="3"]{ width: calc(var(--cell-w) * 3 - 16px); }
+
+  /* small screens: scale down grid cell size to avoid huge overflow */
+  @media (max-width:900px){
+    :root{ --cell-w:120px; --cell-h:80px; --cols:20; --rows:12 }
+  }
+</style>
+</head>
+<body>
+<main class="stage">
+  <h2 style="margin:0">Family Tree — Grid layout (scrollable)</h2>
+
+  <div class="canvas-container" aria-label="Scrollable family tree canvas">
+    <!-- canvas-grid holds background image and establishes grid sizing -->
+    <div class="canvas-grid" id="canvasGrid" role="img" aria-label="Visual family tree background">
+      <!-- overlay grid on top of background for placing nodes -->
+      <div class="overlay" id="overlayGrid">
+
+        <!-- Each node below is positioned using inline CSS grid-area placement: grid-column and grid-row.
+             grid-column: start / end  (1-based index). grid-row: start / end.
+             Adjust numbers to fine-tune placement. Use data attributes to adjust span/width.
+        -->
+
+        <!-- Left cluster -->
+        <div id="n1" class="node blue" data-col-span="1"
+             style="grid-column:1 / 3; grid-row:3 / 4;" title="n1">
+          <div class="avatar">S</div>
+          <div class="meta"><div class="name" id="n1-name">Стано</div><div class="desc" id="n1-desc">Полсон</div></div>
+        </div>
+
+        <div id="n2" class="node blue" style="grid-column:3 / 5; grid-row:3 / 4;" title="n2">
+          <div class="avatar">P</div>
+          <div class="meta"><div class="name" id="n2-name">Петър</div><div class="desc" id="n2-desc">Полсон</div></div>
+        </div>
+
+        <div id="n3" class="node blue" style="grid-column:5 / 8; grid-row:3 / 4;" title="n3">
+          <div class="avatar">Д</div>
+          <div class="meta"><div class="name" id="n3-name">Делчо Кр.</div><div class="desc" id="n3-desc">Полсон</div></div>
+        </div>
+
+        <div id="n4" class="node pink" style="grid-column:8 / 10; grid-row:3 / 4;" title="n4">
+          <div class="avatar">B</div>
+          <div class="meta"><div class="name" id="n4-name">Бота</div><div class="desc" id="n4-desc">Кирилова</div></div>
+        </div>
+
+        <div id="n5" class="node blue" style="grid-column:10 / 12; grid-row:3 / 4;" title="n5">
+          <div class="avatar">V</div>
+          <div class="meta"><div class="name" id="n5-name">Величко</div><div class="desc" id="n5-desc">Полсон</div></div>
+        </div>
+
+        <!-- Lower-left -->
+        <div id="n6" class="node blue" style="grid-column:1 / 4; grid-row:5 / 6;" title="n6">
+          <div class="avatar">I</div>
+          <div class="meta"><div class="name" id="n6-name">Иван С.</div><div class="desc" id="n6-desc">20.07.1875 — 3.1916</div></div>
+        </div>
+
+        <div id="n7" class="node pink" style="grid-column:4 / 7; grid-row:5 / 6;" title="n7">
+          <div class="avatar">E</div>
+          <div class="meta"><div class="name" id="n7-name">Елена П.</div><div class="desc" id="n7-desc">1883 — 1950</div></div>
+        </div>
+
+        <div id="n8" class="node blue" style="grid-column:7 / 10; grid-row:5 / 6;" title="n8">
+          <div class="avatar">G</div>
+          <div class="meta"><div class="name" id="n8-name">Гълъб</div><div class="desc" id="n8-desc">К. Калинков</div></div>
+        </div>
+
+        <div id="n9" class="node pink" style="grid-column:10 / 13; grid-row:5 / 6;" title="n9">
+          <div class="avatar">Х</div>
+          <div class="meta"><div class="name" id="n9-name">Христина</div><div class="desc" id="n9-desc">1895 — 1957</div></div>
+        </div>
+
+        <!-- center-top -->
+        <div id="n12" class="node blue" style="grid-column:8 / 10; grid-row:1 / 2;" title="n12">
+          <div class="avatar">T</div>
+          <div class="meta"><div class="name" id="n12-name">Трифон</div><div class="desc" id="n12-desc">1870 — 1930</div></div>
+        </div>
+
+        <div id="n13" class="node pink" style="grid-column:10 / 12; grid-row:1 / 2;" title="n13">
+          <div class="avatar">A</div>
+          <div class="meta"><div class="name" id="n13-name">Анна Н.</div><div class="desc" id="n13-desc">1895 — 1941</div></div>
+        </div>
+
+        <!-- right cluster -->
+        <div id="n10" class="node blue" style="grid-column:14 / 16; grid-row:4 / 5;" title="n10">
+          <div class="avatar">K</div>
+          <div class="meta"><div class="name" id="n10-name">Крум</div><div class="desc" id="n10-desc">1875 — 1959</div></div>
+        </div>
+
+        <div id="n11" class="node pink" style="grid-column:16 / 18; grid-row:4 / 5;" title="n11">
+          <div class="avatar">R</div>
+          <div class="meta"><div class="name" id="n11-name">Рая</div><div class="desc" id="n11-desc">гр. Християна</div></div>
+        </div>
+
+        <!-- lower center / descendants -->
+        <div id="n14" class="node blue" style="grid-column:4 / 6; grid-row:6 / 7;" title="n14">
+          <div class="avatar">A</div>
+          <div class="meta"><div class="name" id="n14-name">Асен Ив.</div><div class="desc" id="n14-desc">31.01.1902</div></div>
+        </div>
+
+        <div id="n15" class="node pink" style="grid-column:6 / 8; grid-row:6 / 7;" title="n15">
+          <div class="avatar">Ц</div>
+          <div class="meta"><div class="name" id="n15-name">Цветана</div><div class="desc" id="n15-desc">1907 — 1984</div></div>
+        </div>
+
+        <div id="n16" class="node blue" style="grid-column:8 / 10; grid-row:8 / 9;" title="n16">
+          <div class="avatar">Т</div>
+          <div class="meta"><div class="name" id="n16-name">Теодор</div><div class="desc" id="n16-desc">Род. 1930</div></div>
+        </div>
+
+        <div id="n17" class="node blue" style="grid-column:10 / 12; grid-row:8 / 9;" title="n17">
+          <div class="avatar">K</div>
+          <div class="meta"><div class="name" id="n17-name">Капков</div><div class="desc" id="n17-desc">Род.1960</div></div>
+        </div>
+
+        <div id="n18" class="node blue" style="grid-column:9 / 11; grid-row:9 / 10;" title="n18">
+          <div class="avatar">T</div>
+          <div class="meta"><div class="name" id="n18-name">Тончо</div><div class="desc" id="n18-desc">2001</div></div>
+        </div>
+
+        <div id="n19" class="node blue" style="grid-column:11 / 13; grid-row:9 / 10;" title="n19">
+          <div class="avatar">D</div>
+          <div class="meta"><div class="name" id="n19-name">Деян</div><div class="desc" id="n19-desc">2005</div></div>
+        </div>
+
+      </div> <!-- overlay -->
+      <!-- SVG connectors overlay -->
+      <svg class="connectors" id="svg" viewBox="0 0 1400 920" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <style> .line{ stroke:#cbd5e1; stroke-width:3; fill:none; stroke-linecap:round; stroke-linejoin:round } </style>
+        </defs>
+
+        <!-- main horizontal -->
+        <path class="line" d="M160 420 C480 420 920 420 1240 420" />
+
+        <!-- sample branches connecting left cluster -->
+        <path class="line" d="M200 240 C260 260 320 280 420 300" />
+        <path class="line" d="M420 300 C520 320 620 320 700 300" />
+
+        <!-- center to right -->
+        <path class="line" d="M900 250 C980 300 1060 320 1160 340" />
+
+        <!-- lower branches -->
+        <path class="line" d="M320 520 C420 540 560 560 720 580" />
+        <path class="line" d="M720 580 C820 600 920 620 1000 620" />
+      </svg>
+
+    </div> <!-- canvas-grid -->
+  </div> <!-- canvas-container -->
+
+  <section class="transcript" aria-label="transcription and controls">
+    <h3>Overlay data — edit & download</h3>
+    <p style="margin-top:6px">Nodes are placed using CSS Grid (change <code>grid-column</code> and <code>grid-row</code> on each node). The canvas is scrollable horizontally and vertically. Edit the JSON below and press <strong>Apply JSON</strong> to update node labels.</p>
+
+    <div class="controls" style="margin-top:8px">
+      <button onclick="downloadHTML()">Download HTML</button>
+      <button onclick="copyOverlayJSON()">Copy overlay JSON</button>
+      <button onclick="applyJSON()">Apply JSON</button>
+      <button onclick="fitCanvas()">Scroll to start</button>
+    </div>
+
+    <h4 style="margin:10px 0 6px 0">Current nodes JSON</h4>
+    <pre id="overlay-data" contenteditable="true" style="outline:none; cursor:text; padding:12px; border-radius:8px;">
+{
+  "n1": {"name":"Стано","desc":"Полсон","grid":"1 / 3 / 3 / 4"},
+  "n2": {"name":"Петър","desc":"Полсон","grid":"3 / 5 / 3 / 4"},
+  "n3": {"name":"Делчо Кр.","desc":"Полсон","grid":"5 / 8 / 3 / 4"},
+  "n4": {"name":"Бота","desc":"Кирилова","grid":"8 / 10 / 3 / 4"},
+  "n5": {"name":"Величко","desc":"Полсон","grid":"10 / 12 / 3 / 4"},
+  "n6": {"name":"Иван С.","desc":"20.07.1875 — 3.1916","grid":"1 / 4 / 5 / 6"},
+  "n7": {"name":"Елена П.","desc":"1883 — 1950","grid":"4 / 7 / 5 / 6"},
+  "n8": {"name":"Гълъб","desc":"К. Калинков","grid":"7 / 10 / 5 / 6"},
+  "n9": {"name":"Христина","desc":"1895 — 1957","grid":"10 / 13 / 5 / 6"},
+  "n10":{"name":"Крум","desc":"1875 — 1959","grid":"14 / 16 / 4 / 5"},
+  "n11":{"name":"Рая","desc":"гр. Християна","grid":"16 / 18 / 4 / 5"},
+  "n12":{"name":"Трифон","desc":"1870 — 1930","grid":"8 / 10 / 1 / 2"},
+  "n13":{"name":"Анна Н.","desc":"1895 — 1941","grid":"10 / 12 / 1 / 2"},
+  "n14":{"name":"Асен Ив.","desc":"31.01.1902","grid":"4 / 6 / 6 / 7"},
+  "n15":{"name":"Цветана","desc":"1907 — 1984","grid":"6 / 8 / 6 / 7"},
+  "n16":{"name":"Теодор","desc":"Род. 1930","grid":"8 / 10 / 8 / 9"},
+  "n17":{"name":"Капков","desc":"Род.1960","grid":"10 / 12 / 8 / 9"},
+  "n18":{"name":"Тончо","desc":"2001","grid":"9 / 11 / 9 / 10"},
+  "n19":{"name":"Деян","desc":"2005","grid":"11 / 13 / 9 / 10"}
+}
+    </pre>
+  </section>
+</main>
+
+<script>
+  // Utility functions to manipulate nodes from JSON in the transcript box
+  function parseOverlayData(){
+    const pre = document.getElementById('overlay-data');
+    try {
+      const json = JSON.parse(pre.textContent);
+      return json;
+    } catch (e){
+      alert('Invalid JSON — fix syntax before applying. ' + e.message);
+      throw e;
+    }
+  }
+
+  // Apply JSON to update node text and (optionally) grid placement
+  function applyJSON(){
+    let data;
+    try { data = parseOverlayData(); } catch (e) { return; }
+    Object.keys(data).forEach(id=>{
+      const node = document.getElementById(id);
+      if(!node) return;
+      const entry = data[id];
+      if(entry.name){
+        const nameEl = document.getElementById(id + '-name');
+        if(nameEl) nameEl.textContent = entry.name;
+      }
+      if(entry.desc){
+        const descEl = document.getElementById(id + '-desc');
+        if(descEl) descEl.textContent = entry.desc;
+      }
+      if(entry.grid){
+        // entry.grid is expected like "colStart / colEnd / rowStart / rowEnd"
+        const parts = entry.grid.split('/').map(s=>s.trim());
+        if(parts.length === 4){
+          const [c1,c2,r1,r2] = parts;
+          node.style.gridColumn = `${c1} / ${c2}`;
+          node.style.gridRow = `${r1} / ${r2}`;
+        }
+      }
+    });
+    alert('Overlay updated from JSON.');
+  }
+
+  // Copy overlay JSON to clipboard
+  function copyOverlayJSON(){
+    const pre = document.getElementById('overlay-data');
+    navigator.clipboard.writeText(pre.textContent).then(()=>alert('Overlay JSON copied.'), ()=>alert('Unable to copy.'));
+  }
+
+  // Download current page HTML snapshot
+  function downloadHTML(){
+    // Build a snapshot that includes current overlay data
+    const doctype = '<!doctype html>\\n';
+    const html = doctype + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type: 'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'family-tree-grid-snapshot.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  // Scroll canvas to top-left
+  function fitCanvas(){
+    const cont = document.querySelector('.canvas-container');
+    if(cont) cont.scrollTo({left:0, top:0, behavior:'smooth'});
+  }
+
+  // On load: ensure overlay SVG scales to grid dimensions
+  function syncSVG(){
+    const grid = document.getElementById('canvasGrid');
+    const svg = document.getElementById('svg');
+    if(!grid || !svg) return;
+    const rect = grid.getBoundingClientRect();
+    // set svg viewBox to grid pixel size for easier drawing
+    svg.setAttribute('viewBox', `0 0 ${Math.round(rect.width)} ${Math.round(rect.height)}`);
+  }
+
+  window.addEventListener('load', ()=>{
+    syncSVG();
+    // small delay for fonts/images
+    setTimeout(syncSVG, 300);
+    window.addEventListener('resize', syncSVG);
+  });
+
+  // Optional: keyboard shortcut Ctrl+Enter to apply JSON
+  window.addEventListener('keydown', (e)=>{
+    if(e.ctrlKey && e.key === 'Enter'){ applyJSON(); }
+  });
+</script>
+</body>
+</html>

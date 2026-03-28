@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern HTML & CSS — features since 2020 (reviewed)</title>
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#6ee7b7;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 12px;
+      --gap: 16px;
+      --content-max: 1100px;
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f6f8fb;
+        --card: #ffffff;
+        --muted: #475569;
+        --glass: rgba(2,6,23,0.03);
+        --glass-2: rgba(2,6,23,0.02);
+      }
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg), #081020 120%);
+      color: #e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:36px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--content-max);
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap: clamp(12px, 3vw, 28px);
+      align-items:start;
+    }
+
+    header{
+      grid-column: 1 / -1;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:8px;
+    }
+    header h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-0.02em;
+    }
+    header p{ margin:0; color:var(--muted); font-size:13px; }
+
+    main{
+      background: linear-gradient(180deg,var(--glass),transparent);
+      border-radius: calc(var(--radius) + 6px);
+      padding:20px;
+      box-shadow: 0 6px 30px rgba(2,8,23,0.55);
+      backdrop-filter: blur(6px) saturate(120%);
+      border: 1px solid rgba(255,255,255,0.03);
+      overflow:visible;
+    }
+
+    .controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-bottom:16px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      padding:8px 12px;
+      border-radius:10px;
+      background:var(--glass-2);
+      border:1px solid rgba(255,255,255,0.03);
+      cursor:pointer;
+      font-size:13px;
+      color: inherit;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+      gap:var(--gap);
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:12px;
+      padding:12px;
+      box-shadow: 0 4px 18px rgba(2,8,23,0.45);
+      border:1px solid rgba(255,255,255,0.03);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      /* container queries */
+      container-type: size;
+      container-name: card;
+    }
+
+    .media{
+      width:100%;
+      aspect-ratio: 16/9;
+      overflow:hidden;
+      border-radius:10px;
+      background: linear-gradient(90deg,#0b1220,#0c2430);
+      display:block;
+      position:relative;
+    }
+    .media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+    }
+    .title{ font-weight:600; font-size:14px; margin:0; }
+    .desc{ color:var(--muted); font-size:13px; margin:0; }
+
+    /* container query examples */
+    @container card (max-width:240px){
+      .meta{ flex-direction:column; align-items:flex-start; gap:6px; }
+      .title{ font-size:13px; }
+    }
+    @container card (min-width:420px){
+      .card{ flex-direction:row; align-items:center; }
+      .media{ width:40%; aspect-ratio: 1/1; }
+      .info{ width:60%; padding-left:12px; }
+    }
+
+    /* Fallback when container queries are not supported:
+       basic responsive behavior via media queries to keep layout usable. */
+    @supports not (container-type: size) {
+      /* when viewport is wide, simulate wider card layout for larger cards */
+      @media (min-width: 900px) {
+        .card{ flex-direction:row; align-items:center; }
+        .media{ width:40%; aspect-ratio:1/1; }
+        .info{ width:60%; padding-left:12px; }
+      }
+    }
+
+    .controls :is(button[aria-pressed="true"], .btn.primary){
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+      transform: translateY(-2px);
+    }
+
+    .filter:has(input[type="checkbox"]:checked){
+      border-left: 3px solid var(--accent);
+      padding-left:10px;
+    }
+
+    aside{
+      position:relative;
+      height:fit-content;
+      background: linear-gradient(180deg,var(--glass-2),transparent);
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    aside h3{ margin:0 0 8px 0; font-size:14px; }
+    .kb{ font-size:13px; color:var(--muted); line-height:1.5; }
+
+    footer{
+      grid-column:1 / -1;
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    dialog[open]{
+      border:none;
+      border-radius:12px;
+      padding:0;
+      overflow:hidden;
+      box-shadow: 0 20px 60px rgba(2,8,23,0.6);
+    }
+    .dialog-body{ padding:20px; background:var(--card); color:inherit; }
+    .dialog-header{ padding:14px 20px; border-bottom:1px solid rgba(255,255,255,0.02); }
+    .dialog-actions{ display:flex; justify-content:flex-end; gap:10px; padding:12px 20px; border-top:1px solid rgba(255,255,255,0.02); background:var(--glass); }
+
+    @media (max-width:880px){
+      .wrap{ grid-template-columns: 1fr; padding-bottom:40px; }
+      aside{ order:3; margin-top:10px; }
+    }
+
+    .sr-only{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <div>
+        <h1>Modern HTML & CSS — features since 2020 (reviewed)</h1>
+        <p>Container queries • aspect-ratio • native lazy-loading • :is/:where/:has • &lt;dialog&gt; • logical properties • prefers-color-scheme</p>
+      </div>
+      <div style="margin-left:auto; text-align:right;">
+        <small style="color:var(--muted)">Demo file — open in a modern browser</small>
+      </div>
+    </header>
+
+    <main>
+      <div class="controls" aria-hidden="false">
+        <button class="btn" id="openDialogBtn" type="button">Open native &lt;dialog&gt; (non-modal)</button>
+        <button class="btn" id="openModalBtn" type="button">Open native &lt;dialog&gt; (modal)</button>
+        <button class="btn primary" aria-pressed="true" type="button">Primary</button>
+      </div>
+
+      <section class="cards" aria-label="Feature cards">
+        <article class="card" role="article" aria-label="Lazy image card">
+          <figure class="media">
+            <!-- native lazy-loading + async decoding -->
+            <img
+              src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?q=80&w=1200&auto=format&fit=crop"
+              loading="lazy"
+              decoding="async"
+              alt="Landscape photo (lazy-loaded)" />
+          </figure>
+          <div class="info">
+            <div class="meta">
+              <h3 class="title">Native lazy-loading</h3>
+              <div style="font-size:12px;color:var(--muted)"><code>loading="lazy"</code> on <code>&lt;img&gt;</code> &amp; <code>&lt;iframe&gt;</code></div>
+            </div>
+            <p class="desc">Reduces initial payload and speeds up useful rendering. Works natively on most modern browsers.</p>
+          </div>
+        </article>
+
+        <article class="card" role="article" aria-label="Aspect ratio card">
+          <div class="media" aria-hidden="true" style="background:linear-gradient(90deg,#0f1724,#042b3a);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600;">
+            <span>16:9 (aspect-ratio)</span>
+          </div>
+          <div class="info">
+            <div class="meta">
+              <h3 class="title">CSS <code>aspect-ratio</code></h3>
+              <div style="font-size:12px;color:var(--muted)">Intrinsic sizing to avoid layout shift</div>
+            </div>
+            <p class="desc">Keep predictable media/container dimensions without padding hacks.</p>
+          </div>
+        </article>
+
+        <article class="card" role="article" aria-label="Container query card">
+          <div class="media" style="aspect-ratio:4/3; display:flex;align-items:center;justify-content:center;">
+            <strong>Responsive card</strong>
+          </div>
+          <div class="info">
+            <div class="meta">
+              <h3 class="title">Container queries</h3>
+              <div style="font-size:12px;color:var(--muted)">Style the component based on its own size (not viewport)</div>
+            </div>
+            <p class="desc">Component-level responsiveness is great for design systems and embeddable widgets.</p>
+          </div>
+        </article>
+
+        <article class="card filter" role="article" aria-label="Has selector example">
+          <div class="media" style="aspect-ratio:1/1; display:flex;align-items:center;justify-content:center;">
+            <input id="fav1" type="checkbox" aria-label="toggle favorite" />
+          </div>
+          <div class="info">
+            <div class="meta">
+              <h3 class="title">Parent-aware styles with <code>:has()</code></h3>
+              <div style="font-size:12px;color:var(--muted)">No JS needed to style a parent based on children</div>
+            </div>
+            <p class="desc">When the checkbox inside this card is checked, the card gets a left accent via <code>:has()</code>. Try it!</p>
+            <label style="font-size:13px;color:var(--muted);"><input class="demo-toggle" type="checkbox"> Toggle state</label>
+          </div>
+        </article>
+
+        <article class="card" role="article" aria-label="Logical properties example">
+          <div class="media" style="aspect-ratio:2/1; display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:12px;color:var(--muted)">RTL-friendly</span>
+          </div>
+          <div class="info">
+            <div class="meta">
+              <h3 class="title">Logical properties</h3>
+              <div style="font-size:12px;color:var(--muted)">Use <code>margin-inline-start</code> / <code>block-size</code></div>
+            </div>
+            <p class="desc">Write once for both LTR and RTL layouts. Ideal for localized apps.</p>
+          </div>
+        </article>
+
+        <article class="card" role="article" aria-label="Dialog example">
+          <div class="media" style="aspect-ratio:1.6/1; display:flex;align-items:center;justify-content:center;">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="info">
+            <div class="meta">
+              <h3 class="title">&lt;dialog&gt; (native)</h3>
+              <div style="font-size:12px;color:var(--muted)">Use the element for accessible modal/popup UIs</div>
+            </div>
+            <p class="desc">Dialogs are natively focus-trapped and accessible when used properly. Click the buttons above to open one.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside aria-label="Notes & use cases">
+      <h3>Popular use cases</h3>
+      <div class="kb">
+        <p><strong>Image-heavy sites</strong>: lazy-loading + aspect-ratio + preload for hero images to cut CLS.</p>
+        <p><strong>Design systems / components</strong>: container queries enable components to adapt when embedded in different parent widths.</p>
+        <p><strong>Accessible modals & small UIs</strong>: use native <code>&lt;dialog&gt;</code> + proper keyboard handling for parity.</p>
+        <p><strong>Localization</strong>: logical properties reduce RTL friction.</p>
+        <p style="margin-top:12px;color:var(--muted);font-size:13px">This demo uses modern selectors like <code>:is()</code> and <code>:has()</code> to simplify CSS and reduce utility classes.</p>
+      </div>
+    </aside>
+
+    <dialog id="demoDialog" aria-labelledby="dlgTitle" aria-describedby="dlgDesc" role="dialog">
+      <div class="dialog-header">
+        <h3 id="dlgTitle">Native &lt;dialog&gt; demo</h3>
+      </div>
+      <div class="dialog-body">
+        <p id="dlgDesc" style="color:var(--muted); margin-top:0;">
+          This is a native <code>&lt;dialog&gt;</code> element. It supports <code>show()</code> and <code>showModal()</code> methods.
+        </p>
+      </div>
+      <div class="dialog-actions">
+        <button id="closeDlg" class="btn" type="button">Close</button>
+      </div>
+    </dialog>
+
+    <footer>
+      <div>Notes: this demo highlights modern web platform capabilities used in many current websites & apps (component responsiveness, image loading, accessible UI primitives).</div>
+      <div style="margin-top:8px;color:var(--muted)">Test on target browsers and provide polyfills/fallbacks when supporting older engines.</div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const dialog = document.getElementById('demoDialog');
+      const openBtn = document.getElementById('openDialogBtn');
+      const openModalBtn = document.getElementById('openModalBtn');
+      const closeBtn = document.getElementById('closeDlg');
+
+      // Utility to check if dialog API exists
+      const dialogSupported = typeof dialog.show === 'function' || typeof dialog.showModal === 'function';
+
+      // Safe open (non-modal)
+      openBtn.addEventListener('click', () => {
+        if (typeof dialog.show === 'function') {
+          // show() doesn't make it modal; don't set aria-modal
+          dialog.removeAttribute('aria-modal');
+          dialog.show();
+        } else if (typeof dialog.showModal === 'function') {
+          // fall back to modal if only showModal exists
+          dialog.setAttribute('aria-modal', 'true');
+          dialog.showModal();
+        } else {
+          // fallback UI for old browsers
+          alert('Dialog API not supported in this browser. Please upgrade or use a polyfill.');
+        }
+      });
+
+      // Safe openModal (modal)
+      openModalBtn.addEventListener('click', () => {
+        if (typeof dialog.showModal === 'function') {
+          dialog.setAttribute('aria-modal', 'true');
+          dialog.showModal();
+        } else if (typeof dialog.show === 'function') {
+          // best effort fallback to non-modal show
+          dialog.removeAttribute('aria-modal');
+          dialog.show();
+        } else {
+          alert('Dialog API not supported in this browser. Please upgrade or use a polyfill.');
+        }
+      });
+
+      // Close button
+      closeBtn.addEventListener('click', () => {
+        if (typeof dialog.close === 'function') dialog.close();
+      });
+
+      // Escape to close — attach at document level for browsers that don't automatically trap Esc for non-modal show()
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          // only close if dialog is open
+          if (dialog.open) {
+            if (typeof dialog.close === 'function') dialog.close();
+          }
+        }
+      });
+
+      // Demo: update aria-pressed toggles for visual state
+      document.querySelectorAll('.btn[aria-pressed]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const current = btn.getAttribute('aria-pressed') === 'true';
+          btn.setAttribute('aria-pressed', String(!current));
+        });
+      });
+
+      // :has() demo fallback — keep a visible fallback for browsers without :has()
+      document.querySelectorAll('.card .demo-toggle').forEach(cb => {
+        cb.addEventListener('change', (e) => {
+          const card = cb.closest('.card');
+          if (!card) return;
+          // visual fallback for older browsers without :has()
+          if (cb.checked) card.style.borderLeft = '3px solid var(--accent)';
+          else card.style.borderLeft = '';
+        });
+      });
+
+      // Ensure focus returns to a sensible element when dialog closes (accessibility)
+      dialog.addEventListener('close', () => {
+        // Prefer returning focus to the modal open button if it exists
+        if (document.activeElement === document.body) {
+          openBtn.focus();
+        }
+        // Remove aria-modal if it was set (defensive)
+        dialog.removeAttribute('aria-modal');
+      });
+
+      // If dialog is not supported at all, disable dialog controls to avoid confusion
+      if (!dialogSupported) {
+        openBtn.disabled = true;
+        openModalBtn.disabled = true;
+        openBtn.title = openModalBtn.title = 'Dialog API not supported in this browser';
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Tree</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /*
+        The CSS is embedded here for a standalone file.
+        In a real project, you would link to a separate file.
+        */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+
+        .tree-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            padding: 20px;
+            overflow-x: auto;
+        }
+
+        .generation {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .individual-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .partners {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .partners::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #aaa;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .person-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 0 5px;
+            position: relative;
+            min-width: 150px;
+        }
+
+        .person-box.male {
+            border: 1px solid #007bff;
+        }
+
+        .person-box.female {
+            border: 1px solid #dc3545;
+        }
+
+        .person-name {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .person-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #ccc;
+            overflow: hidden;
+            border: 2px solid #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .person-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .life-dates {
+            font-size: 0.8em;
+            color: #555;
+        }
+
+        .children-container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .children-container::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 25px;
+            background-color: #aaa;
+            top: -25px;
+        }
+
+        /* Connecting lines for children */
+        .individual-group .partners::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 25px;
+            background-color: #aaa;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .child-link {
+            position: relative;
+        }
+
+        .child-link::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 25px;
+            background-color: #aaa;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .child-link:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 2px;
+            background-color: #aaa;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="tree-container">
+        <div class="generation">
+            <div class="individual-group">
+                <div class="partners">
+                    <div class="person-box male">
+                        <div class="person-photo"></div>
+                        <div class="person-name">Person Name</div>
+                        <div class="life-dates">1890 - 1950</div>
+                    </div>
+                    <div class="person-box female">
+                        <div class="person-photo"></div>
+                        <div class="person-name">Person Name</div>
+                        <div class="life-dates">1895 - 1960</div>
+                    </div>
+                </div>
+                <div class="children-container">
+                    <div class="child-link">
+                        <div class="person-box male">
+                            <div class="person-photo"></div>
+                            <div class="person-name">Child 1</div>
+                            <div class="life-dates">1920 - 1980</div>
+                        </div>
+                    </div>
+                    <div class="child-link">
+                        <div class="person-box female">
+                            <div class="person-photo"></div>
+                            <div class="person-name">Child 2</div>
+                            <div class="life-dates">1922 - 1990</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="individual-group">
+                <div class="partners">
+                    <div class="person-box male">
+                        <div class="person-photo"></div>
+                        <div class="person-name">Person Name</div>
+                        <div class="life-dates">1890 - 1950</div>
+                    </div>
+                    <div class="person-box female">
+                        <div class="person-photo"></div>
+                        <div class="person-name">Person Name</div>
+                        <div class="life-dates">1895 - 1960</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="generation">
+            <div class="individual-group">
+                <div class="partners">
+                    <div class="person-box male">
+                        <div class="person-photo"></div>
+                        <div class="person-name">Child 1 (from above)</div>
+                        <div class="life-dates">1920 - 1980</div>
+                    </div>
+                    <div class="person-box female">
+                        <div class="person-photo"></div>
+                        <div class="person-name">Spouse</div>
+                        <div class="life-dates">1925 - 1995</div>
+                    </div>
+                </div>
+                <div class="children-container">
+                    <div class="child-link">
+                        <div class="person-box female">
+                            <div class="person-photo"></div>
+                            <div class="person-name">Grandchild</div>
+                            <div class="life-dates">1950 - present</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</body>
+</html>
